@@ -1,0 +1,260 @@
+{
+  "url": "https://www.amazon.de/s/ref=nb_sb_noss_2?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&url=search-alias%3Daps&field-keywords=fussballschuh&rh=i%3Aaps%2Ck%3Afussballschuh",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "query-am",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "Fussballschuhe Kinder FG/AG Fußballschuhe Jungen Low Top TF Trainingsschuhe Für Unisex-Kinder",
+            "u": "/Fussballschuhe-Kinder-Fußballschuhe-Trainingsschuhe-Unisex-Kinder/dp/B07FH7WJXQ"
+          },
+          "1": {
+            "t": "X-Type SG Ersatz Fußball Schuh Stollen Studs Kompatibal mit Adidas Fußballschuhe (S: 8x8 mm + 4x11 mm)",
+            "u": "/55-Sport-X-Type-Fußball-Stollen/dp/B076ZJYK41"
+          },
+          "2": {
+            "t": "Herren Copa Gloro 19.2 Sg Fußballschuhe, Noir/Noir/Jaune Fluo",
+            "u": "/adidas-Herren-Fussballschuhe-SYELLO-CBLACK/dp/B07VVGQ5M5"
+          },
+          "3": {
+            "t": "Herren Fußballschuhe Visaro 1.1 Mid Level FG",
+            "u": "/New-Balance-Männlich-Visaro-Fußballschuhe/dp/B0195F0G86"
+          },
+          "4": {
+            "t": "Kaiser 5, Herren Fußballschuhe",
+            "u": "https://www.amazon.de/adidas-Kaiser-Fußballschuhe-Schwarz-Running/dp/B000G515I0"
+          },
+          "5": {
+            "t": "Herren X 19.3 Fg Fußballschuhe, Schwarz",
+            "u": "https://www.amazon.de/adidas-Herren-Fußballschuhe-Schwarz-Utility/dp/B07SRJWDDN"
+          },
+          "6": {
+            "t": "Fußballschuhe Multinocken Kaiser 5 Team",
+            "u": "https://www.amazon.de/adidas-Herren-Fußballschuhe-Schwarz-Running/dp/B000G4O6FK"
+          },
+          "7": {
+            "t": "Unisex-Erwachsene Copa Mundial Fußballschuhe",
+            "u": "https://www.amazon.de/adidas-Kaiser-Fußballschuhe-Schwarz-Running/dp/B000G515IA"
+          },
+          "8": {
+            "t": "Unisex-Erwachsene Superfly 7 Academy Fg/Mg Fußballschuhe",
+            "u": "https://www.amazon.de/Nike-Unisex-Erwachsene-Fußballschuhe-Mehrfarbig-Grey-Cool/dp/B07MKVQKF4"
+          },
+          "9": {
+            "t": "Herren Copa 20.3 Fg Soccer Shoe",
+            "u": "https://www.amazon.de/adidas-Herren-Fußballschuhe-Gridos-Plamet/dp/B07ZVNTQ1M"
+          },
+          "10": {
+            "t": "Herren X 19.2 Fg Fußballschuhe, Vert Orange Fluo Blanc Craie",
+            "u": "https://www.amazon.de/adidas-Herren-Fußballschuhe-Schwarz-Utility/dp/B07SVCZ5ZG"
+          },
+          "11": {
+            "t": "Unisex-Erwachsene Copa Mundial Fußballschuhe",
+            "u": "https://www.amazon.de/adidas-Unisex-Erwachsene-Mundial-Fußballschuhe-Schwarz/dp/B000LKR7XM"
+          },
+          "12": {
+            "t": "Herren One 3 LTH Fg Fußballschuhe",
+            "u": "https://www.amazon.de/Puma-Herren-Fußballschuhe-Schwarz-Black/dp/B07D9TXS7S"
+          },
+          "13": {
+            "t": "Herren X 19.1 Fg Fußballschuhe, blau",
+            "u": "https://www.amazon.de/adidas-Herren-Fußballschuhe-Verleg-Narsol/dp/B07ZRWTGZK"
+          },
+          "14": {
+            "t": "Herren Predator 18.2 Fg Fußballschuhe",
+            "u": "https://www.amazon.de/adidas-Herren-Predator-Fußballschuhe-Schwarz/dp/B07DM1WKKF"
+          },
+          "15": {
+            "t": "Babyschuhe Fußballschuhe gestrickt gehäkelt",
+            "u": "https://www.amazon.de/strickliene-Babyschuhe-Fußballschuhe-gestrickt-gehäkelt/dp/B06WRWYK88"
+          },
+          "16": {
+            "t": "Herren X 18.3 Tf Fußballschuhe, rot",
+            "u": "/adidas-Herren-Fußballschuhe-Mehrfarbig-Rojact/dp/B07H7DLDCH"
+          },
+          "17": {
+            "t": "Fußballschuhe Kinder Microfaser Cleats Beruf Fußballschuhe Für Herren",
+            "u": "/DoGeek-Fußballschuhe-Kinder-Microfaser-Cleats/dp/B07C8GYHYL"
+          },
+          "18": {
+            "t": "Herren X 19.3 in Fußballschuhe",
+            "u": "/adidas-Performance-Herren-Fußballschuhe-Halle/dp/B07VSP8B3W"
+          },
+          "19": {
+            "t": "Herren Predator 19.1 Fg Fußballschuhe, Farbe Rot",
+            "u": "https://www.amazon.de/adidas-Herren-Predator-Fußballschuhe-Legacy/dp/B07RHQ2X4D"
+          },
+          "20": {
+            "t": "RBV Birkmann, 212220, Motivbackform Fußball, Ø 22,5 cm, mit Antihaftbeschichtung, Stahl, grau, 4 x 4 x 5 cm",
+            "u": "https://www.amazon.de/Birkmann-212220-Motivbackform-Fußball-antihaft/dp/B0016KTK4K"
+          },
+          "21": {
+            "t": "Unisex 015110 Copa Mundial | Black Fußballschuhe",
+            "u": "https://www.amazon.de/adidas-Mundial-Fußballschuhe-Schwarz-Running/dp/B000OWGBIO"
+          },
+          "22": {
+            "t": "Unisex-Erwachsene Phantom Vsn Academy Df Fg/Mg Fußballschuhe, Gelb",
+            "u": "https://www.amazon.de/Nike-Unisex-Erwachsene-Phantom-Academy-Fußballschuhe/dp/B07MR9S83X"
+          },
+          "23": {
+            "t": "Herren One 5.4 Fg/Ag Fußballschuhe",
+            "u": "https://www.amazon.de/Puma-Herren-Fußballschuhe-White-Black-Yellow/dp/B07KG22YM5"
+          },
+          "24": {
+            "t": "Baby Jungen X 19.3 Fg J Fußballschuhe, Vert Orange Fluo Blanc Craie",
+            "u": "https://www.amazon.de/adidas-Jungen-Fußballschuhe-Bright-Black/dp/B07SRJW1NV"
+          },
+          "25": {
+            "t": "Herren Predator Mutator 20.1 Firm Ground Fußballschuh",
+            "u": "https://www.amazon.de/adidas-Herren-Predator-Mutator-Fußballschuh/dp/B082XM2P6Z"
+          },
+          "26": {
+            "t": "Herren Future 5.2 Netfit Fg/Ag Fußballschuhe",
+            "u": "https://www.amazon.de/Herren-Future-Fußballschuhe-Luminous-Black-Pink/dp/B07SBWB7KX"
+          },
+          "27": {
+            "t": "Herren X 19.3 Mg Fußballschuhe, Bleu Cyan Noir Rose Blitz",
+            "u": "https://www.amazon.de/adidas-Performance-Fußballschuh-hellblau-schwarz/dp/B07QGK3LFW"
+          },
+          "28": {
+            "t": "Performance Kaiser 5 Liga Herren Fußballschuhe",
+            "u": "https://www.amazon.de/adidas-Kaiser-Liga-Fußballschuh-Herren/dp/B000YDF9ZO"
+          },
+          "29": {
+            "t": "Jungen Predator 19.3 Fg Fußballschuhe, Colore Rosso",
+            "u": "https://www.amazon.de/adidas-Jungen-Predator-Fußballschuhe-Footwear/dp/B07Q2YGRG2"
+          },
+          "30": {
+            "t": "Baby Jungen Copa 19.4 Fg Fußballschuhe, Bianco",
+            "u": "https://www.amazon.de/adidas-Jungen-Fußballschuhe-Schwarz-Yellow/dp/B07FZJ6SDM"
+          },
+          "31": {
+            "t": "Happy2Feet - SPORT - Einlegesohlen ideal für Sport und Alltag - Optimale Dämpfung - Maximaler Halt - Für Damen & Herren",
+            "u": "/COLOMAX-Einlegesohlen-Optimale-Dämpfung-Maximaler/dp/B019IP798S"
+          },
+          "32": {
+            "t": "Herren Nemeziz 18.2 Fg Fußballschuhe, Schwarz",
+            "u": "/adidas-Herren-Nemeziz-Fußballschuhe-Schwarz/dp/B07D9DBNZN"
+          },
+          "33": {
+            "t": "Herren Nemeziz 19.3 Tf Sportschuhe",
+            "u": "/adidas-Herren-Fussballschuhe-Nemeziz-SHOPNK/dp/B07SCDKG6K"
+          },
+          "34": {
+            "t": "Herren X 19.1 Fg Fußballschuhe",
+            "u": "https://www.amazon.de/adidas-Herren-Fußballschuhe-Schwarz-Utility/dp/B07SQ7LTNN"
+          },
+          "35": {
+            "t": "Fußball Spardose Fußballschuh Sparschwein für Jungen Sportverein Fußballspieler Einschulung",
+            "u": "https://www.amazon.de/Fußballschuh-Sparschwein-Sportverein-Fußballspieler-Einschulung/dp/B007CKIXA0"
+          },
+          "36": {
+            "t": "Unisex-Kinder Legend 8 Club Fg/Mg Fußballschuhe",
+            "u": "https://www.amazon.de/Nike-Unisex-Kinder-Legend-Fußballschuhe-Schwarz/dp/B07MR6TMZT"
+          },
+          "37": {
+            "t": "Fußballschuhe,Flying Gewebte Socken Mantel Hoch, Um Erwachsenen Fußballschuhe Wettbewerb Ag Langen Nagel Fußballtraining Sportschuhe Größe Zu Helfen",
+            "u": "https://www.amazon.de/YQQLM-Fußballschuhe-Erwachsenen-Fußballtraining-Sportschuhe/dp/B07W6QK8K2"
+          },
+          "38": {
+            "t": "Herren X 18.2 Fg Fußballschuhe",
+            "u": "https://www.amazon.de/adidas-Herren-Fußballschuhe-Schwarz-Black/dp/B07D98TRDM"
+          },
+          "39": {
+            "t": "Babyschuhe Fußballschuhe gestrickt gehäkelt",
+            "u": "https://www.amazon.de/strickliene-Babyschuhe-Fußballschuhe-gestrickt-gehäkelt/dp/B01N5VQMZB"
+          },
+          "40": {
+            "t": "Herren Predator 19.3 Fg Fußballschuhe",
+            "u": "https://www.amazon.de/adidas-Herren-Predator-Fußballschuhe-Legacy/dp/B07RJTCG1S"
+          },
+          "41": {
+            "t": "Unisex-Erwachsene Vapor 13 Academy Fm/Gm Fußballschuhe",
+            "u": "https://www.amazon.de/Nike-Unisex-Erwachsene-Academy-Fußballschuhe-Mehrfarbig/dp/B07MP3ZQW6"
+          },
+          "42": {
+            "t": "Herren X 17.1 Sg Fußballschuhe",
+            "u": "https://www.amazon.de/adidas-Herren-Fußballschuhe-Aergrn-Uniink/dp/B07C9X35HN"
+          },
+          "43": {
+            "t": "Herren Copa 19.3 Fg Fußballschuhe, Noir Rouge Argent",
+            "u": "https://www.amazon.de/adidas-Herren-Fußballschuhe-Mehrfarbig-F35495/dp/B07RDQC6C8"
+          },
+          "44": {
+            "t": "Herren Copa Gloro 19.2 Fg Fußballschuhe, Schwarz",
+            "u": "https://www.amazon.de/Adidas-Herren-Fußballschuhe-Mehrfarbig-Negbás/dp/B07L5GD42D"
+          },
+          "45": {
+            "t": "Herren Future 2.3 Netfit Fg/Ag Fußballschuhe",
+            "u": "https://www.amazon.de/Puma-Herren-Fußballschuhe-Schwarz-Black-Shocking/dp/B07D9VWS41"
+          },
+          "46": {
+            "t": "Kuchendekoration, Design: Fußball und Schuh, essbar, für Cupcakes und kleine Kuchen geeignet, 12 Stück",
+            "u": "https://www.amazon.de/Kuchendekoration-Design-Cupcakes-geeignet-12-Stück/dp/B01JD1UL00"
+          },
+          "47": {
+            "t": "Unisex-Erwachsene Caracal Sd Fußballschuhe",
+            "u": "https://www.amazon.de/Unisex-Erwachsene-Caracal-Sneaker-Schwarz-Black/dp/B07SBWLRTH"
+          },
+          "48": {
+            "t": "Herren Future 4.3 Netfit Fg/Ag Fußballschuhe",
+            "u": "https://www.amazon.de/PUMJV-Puma-Fußballschuhe-Glacial-Blue-NRGY/dp/B07KFY5F1M"
+          },
+          "49": {
+            "t": "Herren Nemeziz 17.2 Fg Fußballschuhe",
+            "u": "https://www.amazon.de/adidas-Herren-Nemeziz-Fußballschuhe-Reacor/dp/B078Y5RRRL"
+          },
+          "50": {
+            "t": "Herren Predator 19.3 Fg Fußballschuhe",
+            "u": "https://www.amazon.de/adidas-Herren-Predator-Fußballschuhe-Schwarz/dp/B07RGLWBZN"
+          },
+          "51": {
+            "t": "Herren X 19.1 Firm Ground Fußballschuh",
+            "u": "https://www.amazon.de/adidas-Herren-Fußballschuhe-Verleg-Narsol/dp/B07ZRXFR8B"
+          },
+          "52": {
+            "t": "Herren Future 5.4 Fg/ag Fußballschuhe",
+            "u": "https://www.amazon.de/Herren-Fußballschuhe-Luminous-Blue-NRGY-Black-Pink/dp/B07SBW86LF"
+          },
+          "53": {
+            "t": "Herren One 5.3 Fg/Ag Fußballschuhe",
+            "u": "https://www.amazon.de/Puma-Herren-Fußballschuhe-Black-NRGY-Silver/dp/B07KG25PYJ"
+          },
+          "54": {
+            "t": "Handmade Kinder, Jungen Echt Leder Armband Fußball mit Fußballschuh Anhänger- Farbe und Größe frei wählbar",
+            "u": "https://www.amazon.de/Handmade-geflochten-Fußballschuh-Anhänger-Anhänger/dp/B07NQGVVD2"
+          },
+          "55": {
+            "t": "Herren Predator 18.3 Fg Fußballschuhe",
+            "u": "https://www.amazon.de/adidas-Herren-Predator-Fußballschuhe-Schwarz/dp/B07F57Z7XD"
+          },
+          "56": {
+            "t": "KICK! - KYC50/MA - Schlüsselanhänger mit Fußball und Schuh - Farbdekor: schwarz / weiß - das Original von TROIKA",
+            "u": "https://www.amazon.de/Troika-KYC50-Schlüsselanhänger-Fußballschuh-schwarz/dp/B001EJ88UU"
+          },
+          "57": {
+            "t": "Herren Vapor 12 Academy Mg Fußballschuhe",
+            "u": "https://www.amazon.de/Nike-Herren-Academy-Fußballschuhe-Black-Dark/dp/B07FKJGLW3"
+          },
+          "58": {
+            "t": "Herren MercurialX Victory Vi Tf Fußballschuhe",
+            "u": "/Nike-MercurialX-Victory-rot-universityredblackbrigh/dp/B075M4T14C"
+          },
+          "59": {
+            "t": "Jungen X 19.3 Ll Fg J Fußballschuhe, 33 EU",
+            "u": "/Adidas-boys-19-3-FG-football-boots/dp/B07VQQQPPS"
+          }
+        },
+        "q": "fussballschuh",
+
+        // this is a limitation of the current test setup:
+        // in production, it should be the doublefetch URL, which would be: "https://www.amazon.de/s/?field-keywords=fussballschuh"
+        "qurl": "https://www.amazon.de/s/ref=nb_sb_noss_2?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&url=search-alias%3Daps&field-keywords=fussballschuh&rh=i%3Aaps%2Ck%3Afussballschuh",
+        "ctry": "de"
+      }
+    }
+  ]
+}

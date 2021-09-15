@@ -1,0 +1,35 @@
+{
+  "url": "https://www.google.de/search?hl=en&q=g%C3%B6tze+wm+2014+tor",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "videos-p",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "Mario Götze WM 2014 Finale Tor",
+            "u": "https://www.youtube.com/watch?v=TEWcZ-6l10U"
+          },
+          "1": {
+            "t": "WM 2014 Finale Tor Mario Götze",
+            "u": "https://www.youtube.com/watch?v=j_guXT4I-AQ"
+          },
+          "2": {
+            "t": "WM FINALE 2014 - Tor Götze ! ( 5 TV Kommentatoren ...",
+            "u": "https://www.youtube.com/watch?v=t9xm_Ingtuc"
+          },
+          "3": {
+            "t": "WM-Finale 2014 - Tor von Mario Götze",
+            "u": "https://www.youtube.com/watch?v=g67hj4VB8z0"
+          }
+        },
+        "q": "götze wm 2014 tor",
+        "qurl": "https://www.google.de/search?hl=en&q=g%C3%B6tze+wm+2014+tor",
+        "ctry": "de"
+      }
+    }
+  ],
+
+  "mustNotContain": [{ "action": "top-stories" }, { "action": "place*" }]
+}

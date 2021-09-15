@@ -1,0 +1,84 @@
+{
+  "url": "https://www.google.com/search?hl=en&q=angela%20merkel",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "query",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "Angela Merkel – Wikipedia",
+            "u": "https://de.wikipedia.org/wiki/Angela_Merkel",
+            "age": null
+          },
+          "1": {
+            "t": "Angela Merkel",
+            "u": "https://www.angela-merkel.de/",
+            "age": null
+          },
+          "2": {
+            "t": "Bundeskanzlerin |",
+            "u": "https://www.bundeskanzlerin.de/",
+            "age": null
+          },
+          "3": {
+            "t": "Angela Merkel (@bundeskanzlerin) • Instagram photos and ...",
+            "u": "https://www.instagram.com/bundeskanzlerin/?hl=de",
+            "age": null
+          },
+          "4": {
+            "t": "LeMO Biografie Angela Merkel",
+            "u": "https://www.hdg.de/lemo/biografie/angela-merkel.html",
+            "age": null
+          },
+          "5": {
+            "t": "Dr. Angela Merkel | Christlich Demokratische Union ...",
+            "u": "https://www.cdu.de/vorstand/dr-angela-merkel",
+            "age": null
+          },
+          "6": {
+            "t": "Angela Merkel - DER SPIEGEL",
+            "u": "https://www.spiegel.de/thema/angela_merkel/",
+            "age": null
+          },
+          "7": {
+            "t": "Angela Merkel aktuell: News von heute zur Bundeskanzlerin",
+            "u": "https://www.faz.net/aktuell/politik/thema/angela-merkel",
+            "age": null
+          }
+        },
+        "q": "angela merkel",
+        "qurl": "https://www.google.com/search?hl=en&q=angela%20merkel",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "top-stories",
+      "payload": {
+        "r": {
+          "0": {
+            "u": "https://www.welt.de/politik/deutschland/article228291371/Presse-zu-Landtagswahl-2021-BW-und-RLP-Es-wird-einsam-um-Angela-Merkel.html",
+            "lu": "vor 4 Stunden",
+            "h": "Presse zu Landtagswahl 2021 BW und RLP: „Es wird einsam um Angela Merkel“"
+          },
+          "1": {
+            "u": "https://www.welt.de/debatte/kommentare/plus228311747/Landtagswahl-BW-Armin-Laschet-muss-Angela-Merkel-zum-Rueckzug-bewegen.html",
+            "lu": "vor 1 Stunde",
+            "h": "Landtagswahl BW: Armin Laschet muss Angela Merkel zum Rückzug bewegen"
+          },
+          "2": {
+            "u": "https://www.merkur.de/politik/landtagswahlen-cdu-angela-merkel-armin-laschet-bundestagswahlen-markus-soeder-kanzlerkandidat-90242499.html",
+            "lu": "vor 32 Minuten",
+            "h": "CDU: Historiker nimmt Partei auseinander und erklärt: „Die CDU muss sich\njetzt von Merkel lösen“"
+          }
+        },
+        "q": "angela merkel",
+        "qurl": "https://www.google.com/search?hl=en&q=angela%20merkel",
+        "ctry": "de"
+      }
+    }
+  ],
+  "mustNotContain": [{ "action": "ads_*" }]
+}

@@ -1,0 +1,23 @@
+{
+  "url": "https://www.google.com/search?hl=en&q=nirvana%20polly",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "video-p",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "Nirvana - Polly (Live On MTV Unplugged, 1993 / Unedited)",
+            "u": "https://www.youtube.com/watch?v=3H0NHHKBemg"
+          }
+        },
+        "q": "nirvana polly",
+        "qurl": "https://www.google.com/search?hl=en&q=nirvana%20polly",
+        "ctry": "de"
+      }
+    }
+  ],
+
+  "mustNotContain": []
+}

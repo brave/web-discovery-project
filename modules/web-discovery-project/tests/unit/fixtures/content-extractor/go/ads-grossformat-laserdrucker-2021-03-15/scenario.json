@@ -1,0 +1,168 @@
+{
+  "url": "https://www.google.com/search?hl=en&q=großformat%20laserdrucker",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "query",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "Suchergebnis auf Amazon.de für: Großformat-Laserdrucker",
+            "u": "https://www.amazon.de/Gro%C3%9Fformat-Laserdrucker/s?k=Gro%C3%9Fformat-Laserdrucker",
+            "age": null
+          },
+          "1": {
+            "t": "Gibt es Großformat Laserdrucker? | Forum | Druckerchannel",
+            "u": "https://www.druckerchannel.de/forum.php?seite=beitrag&ID=86431&t=gibt_es_grossformat_laserdrucker",
+            "age": null
+          },
+          "2": {
+            "t": "Die Komplettlösung im Großformat von DIN A2 bis DIN A0 - Ihr ...",
+            "u": "https://www.ebt-buerotechnik.de/plotter-scanner-bundle",
+            "age": null
+          },
+          "3": {
+            "t": "HP LaserJet 9040N 40ppm 128MB LAN Großformat ...",
+            "u": "https://www.quantelectronic.de/Drucker-und-Kopierer/Laserdrucker/HP-sonstige/HP-LaserJet-9040N-40ppm-128MB-LAN-Grossformat-Laserdrucker-mit-Finisher-i89_36491.htm",
+            "age": null
+          },
+          "4": {
+            "t": "Großformat Multifunktionsdrucker - Xerox",
+            "u": "https://www.xerox.de/de-de/office-produkte/multifunktionsdrucker/paper-12x18-plus",
+            "age": null
+          },
+          "5": {
+            "t": "Großformatdrucker: Der ideale Partner für den Druck im ...",
+            "u": "https://www.tonerpartner.de/grossformatdrucker/",
+            "age": null
+          },
+          "6": {
+            "t": "Großformat-Drucksysteme - Canon Deutschland",
+            "u": "https://www.canon.de/business-printers-and-faxes/wide-format-printers/",
+            "age": null
+          },
+          "7": {
+            "t": "HP DesignJet Großformatdrucker - HP Store Deutschland",
+            "u": "https://store.hp.com/GermanyStore/Merch/Offer.aspx?p=b-gsb-designjet-grossformat-drucker-plotter-buero",
+            "age": null
+          },
+          "8": {
+            "t": "Finden Sie Hohe Qualität Großformat-laserdrucker Hersteller ...",
+            "u": "https://german.alibaba.com/g/large-format-laser-printer.html",
+            "age": null
+          },
+          "9": {
+            "t": "KIP Großformat-Systeme - Jörg Metzner Kopier- und ...",
+            "u": "https://www.metzner-kopiersysteme.de/produkte/kip-gro%C3%9Fformat-systeme.html",
+            "age": null
+          }
+        },
+        "q": "großformat laserdrucker",
+        "qurl": "https://www.google.com/search?hl=en&q=großformat%20laserdrucker",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "ads_C",
+      "payload": {
+        "r": {
+          "0": {
+            "u": "https://www.schaefer-shop.de/p/multifunktionsgeraet-hp-laserjet-pro-mfp-m428fdw-4-in-1-usb-lan-wi-fi-automat-duplexdruck-bis-a4?selectedItem=175965&b2borb2c=1&gshop=1"
+          },
+          "1": {
+            "u": "https://www.bueromarkt-ag.de/multifunktionsgeraet_brother_mfc-l5700dn,p-mfc-l5700dn,l-google-css,pd-b2c.html"
+          },
+          "2": { "u": "https://www.c-nw.de/hp-color-laserjet-cp5225n.html" },
+          "3": {
+            "u": "https://www.schaefer-shop.de/p/canon-imageprograf-ta-30-5-farb-drucker-2-400-x-1-200-dpi-din-a0-usb-b-ethernet-wlan?selectedItem=177837&b2borb2c=1&gshop=1"
+          },
+          "4": {
+            "u": "https://www.bueromarkt-ag.de/multifunktionsgeraet_brother_mfc_j6930dw,p-mfc-j6930dw,l-google-css,pd-b2c.html"
+          },
+          "5": {
+            "u": "https://www.bueromarkt-ag.de/laserdrucker_brother_hl-l5100dn,p-hl-l5100dn,l-google-prd,pd-b2c.html"
+          },
+          "6": {
+            "u": "https://www.otto-office.com/de/Brother-Multifunktionsdrucker-MFC-L9570CDWT/306501/p?pid=BAG14-001-SUdDmXchAAAA-50-205002-306501&pshoptype=b2c"
+          },
+          "7": {
+            "u": "https://www.bueromarkt-ag.de/laserdrucker_brother_hl-l5100dntt,p-hl-l5100dntt,l-google-prd,pd-b2c.html"
+          },
+          "8": {
+            "u": "https://www.schaefer-shop.de/p/laserdrucker-brother-hl-l5000d-schwarzweiss-drucker-duplex-40-seiten-minute?selectedItem=175015&b2borb2c=1&gshop=1"
+          },
+          "9": {
+            "u": "https://www.bueromarkt-ag.de/laserdrucker_hp_laserjet_enterprise_700_m712dn,p-cf236a,l-google-css,pd-b2c.html"
+          },
+          "10": {
+            "u": "https://www.coolblue.de/produkt/834536/hp-color-laserjet-pro-m454dw.html"
+          },
+          "11": {
+            "u": "https://www.bueromarkt-ag.de/laserdrucker_brother_hl-l5100dnt,p-hl-l5100dnt,l-google-prd,pd-b2c.html"
+          },
+          "12": {
+            "u": "https://bauer-pk.net/Epson-ColorWorks-C3500-Cutter-Disp.-USB-Ethernet-NiceLabel-weiss-C31CD54012CD/C31CD54012CD"
+          },
+          "13": {
+            "u": "https://www.bueromarkt-ag.de/farblaserdrucker_brother_hl_l8260cdw,p-hl-l8260cdw,l-google-css,pd-b2c.html"
+          },
+          "14": {
+            "u": "https://www.bueromarkt-ag.de/laserdrucker_brother_hl-l6400dwtt,p-hl-l6400dwtt,l-google-css,pd-b2c.html"
+          },
+          "15": {
+            "u": "https://www.backmarket.de/samsung-clx-9352na-a3-35-ppm-multifunzione-a-colori-multixpress-gebraucht/431853.html?shopping=gmc"
+          },
+          "16": {
+            "u": "https://www.c-nw.de/canon-imageprograf-tm-200-mit-unterstand-sd-23.html"
+          },
+          "17": {
+            "u": "https://www.bueromarkt-ag.de/multifunktionsgeraet_kyocera_ecosys_m6635cidn,p-m6635cidn,l-google-css,pd-b2c.html"
+          },
+          "18": {
+            "u": "https://www.otto-office.com/de/Brother-Laserdrucker-HL-L5100DNTT/279185/p?pid=BAG14-001-SUdDmVRAAAAA-50-205001-279185&pshoptype=b2c"
+          },
+          "19": {
+            "u": "https://www.bueromarkt-ag.de/laserdrucker_brother_hl-l6300dw,p-hl-l6300dw,l-google-css,pd-b2c.html"
+          },
+          "20": {
+            "u": "https://www.office-partner.de/hp-color-laserjet-pro-m479fnw-11327182?campaign=psm%2Fgoogle%2FDrucker%2FMultifunktionsdrucker%2FMultifunktionsdruckerLaser%2FHP"
+          },
+          "21": {
+            "u": "https://www.bueromarkt-ag.de/laserdrucker_hp_laserjet_pro_m501dn,p-j8h61a,l-google-prd,pd-b2c.html"
+          },
+          "22": {
+            "u": "https://www.schaefer-shop.de/p/laserdrucker-brother-hl-l5100dnt-schwarzweiss-drucker-duplex-40-seiten-minute?selectedItem=175018&b2borb2c=1&gshop=1"
+          },
+          "23": { "u": "https://www.c-nw.de/hp-designjet-t230.html" },
+          "24": {
+            "u": "https://www.bueromarkt-ag.de/farblaserdrucker_xerox_versalink_c400vdn,p-c400dn,l-google-prd,pd-b2c.html"
+          },
+          "25": {
+            "u": "https://www.otto-office.com/de/Epson-Grossformatdrucker-SureColor-SC-T7200/299829/p?pid=BAG14-001-SUdDmRMDAAAA-50-205011-299829&pshoptype=b2c"
+          },
+          "26": {
+            "u": "https://www.schaefer-shop.de/p/farbtintenstrahl-multifunktionsgeraet-hp-officejet-pro-9020-4-in-1-netzwerkfaehig-duplex-bis-a4?selectedItem=177784&b2borb2c=1&gshop=1"
+          },
+          "27": {
+            "u": "https://www.bueromarkt-ag.de/farblaserdrucker_hp_color_laserjet_enter_m553x,p-b5l26a,l-google-prd,pd-b2c.html"
+          },
+          "28": {
+            "u": "https://www.bueromarkt-ag.de/laserdrucker_brother_hl-l5000d,p-hl-l5000d,l-google-css,pd-b2c.html"
+          }
+        },
+        "q": "großformat laserdrucker",
+        "qurl": "https://www.google.com/search?hl=en&q=großformat%20laserdrucker",
+        "ctry": "de"
+      }
+    }
+  ],
+
+  "mustNotContain": [
+    { "action": "top-stories" },
+    { "action": "ads_A" },
+    { "action": "ads_B" },
+    { "action": "ads_D" }
+  ]
+}

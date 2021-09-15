@@ -1,0 +1,20 @@
+{
+    "launchers": {
+      "unit-node": {
+        "exe": "node",
+        "args": ["--icu-data-dir=node_modules/full-icu", "tests/runners/unit-node.js"],
+        "protocol": "tap"
+      },
+      "firefox-web-ext": {
+        "exe": "node",
+        "args": ["tests/runners/firefox-web-ext.js"],
+        "protocol": "tap"
+      }
+    },
+    "browser_args": {
+      "chromium": [
+        "--no-sandbox"
+      ]
+    },
+    "test_page": "tests/index.mustache"
+}

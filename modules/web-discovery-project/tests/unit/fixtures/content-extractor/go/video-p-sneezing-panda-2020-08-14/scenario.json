@@ -1,0 +1,24 @@
+{
+  "url": "https://www.google.com/search?hl=en&q=sneezing%20panda",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "video-p",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "Sneezing Baby Panda | Original Video",
+            "u": "https://www.youtube.com/watch?v=93hq0YU3Gqk",
+            "len": "0:19"
+          }
+        },
+        "q": "sneezing panda",
+        "qurl": "https://www.google.com/search?hl=en&q=sneezing%20panda",
+        "ctry": "de"
+      }
+    }
+  ],
+
+  "mustNotContain": []
+}

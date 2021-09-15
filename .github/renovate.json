@@ -1,0 +1,16 @@
+{
+  "extends": [
+    "config:base"
+  ],
+  "ignoreDeps": [],
+  "prHourlyLimit": 50,
+  "prConcurrentLimit": 50,
+  "bumpVersion": "patch",
+  "labels": [
+    "PR: Dependencies :nut_and_bolt:",
+    "renovate"
+  ],
+  "reviewers": [
+    "remusao"
+  ]
+}

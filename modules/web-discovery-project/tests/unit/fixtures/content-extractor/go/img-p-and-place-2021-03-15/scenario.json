@@ -1,0 +1,74 @@
+{
+  "url": "https://www.google.com/search?hl=en&q=green%20apple",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "query",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "green apple: Hotel - Beratung Marketing Recruiting",
+            "u": "https://www.green-apple.de/",
+            "age": null
+          },
+          "1": {
+            "t": "green apple - Home | Facebook",
+            "u": "https://www.facebook.com/green.apple.de/",
+            "age": null
+          },
+          "2": {
+            "t": "green apple - Startseite | Facebook",
+            "u": "https://de-de.facebook.com/green.apple.de",
+            "age": null
+          },
+          "3": {
+            "t": "Green Apple | Lektüre | Englisch | Klett Sprachen",
+            "u": "https://www.klett-sprachen.de/green-apple/r-1/514",
+            "age": null
+          },
+          "4": {
+            "t": "myblu Green Apple Liquidpod: Fruchtig-frisches Apfel-Liquid ...",
+            "u": "https://www.blu.com/de/DE/aromen/myblu-liquidpods/blu-myblu-pod-green-apple-de",
+            "age": null
+          },
+          "5": {
+            "t": "Green-Apple-10-ml-Zazo | - eDampf-Shop",
+            "u": "https://www.edampf-shop.com/gruener-apfel-10-ml-zazo/a-1696",
+            "age": null
+          },
+          "6": {
+            "t": "a green apple - German translation – Linguee",
+            "u": "https://www.linguee.com/english-german/translation/a+green+apple.html",
+            "age": null
+          },
+          "7": {
+            "t": "green apple - Deutsch-Übersetzung – Linguee Wörterbuch",
+            "u": "https://www.linguee.de/englisch-deutsch/uebersetzung/green+apple.html",
+            "age": null
+          },
+          "8": {
+            "t": "Gestaffelte Lektüren | ENGLISCH | Teenagers (Green Apple)",
+            "u": "https://www.blackcat-cideb.com/de/katalog/englisch/gestaffelte-lekturen/teenagers-green-apple-de/",
+            "age": null
+          }
+        },
+        "q": "green apple",
+        "qurl": "https://www.google.com/search?hl=en&q=green%20apple",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "places2",
+      "payload": {
+        "q": "green apple",
+        "type": "map",
+        "qurl": "https://www.google.com/search?hl=en&q=green%20apple",
+        "ctry": "de"
+      }
+    }
+  ],
+
+  "mustNotContain": []
+}
