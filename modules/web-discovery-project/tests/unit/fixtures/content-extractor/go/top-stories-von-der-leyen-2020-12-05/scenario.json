@@ -1,0 +1,108 @@
+{
+  "url": "https://www.google.com/search?q=von+der+leyen",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "query",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "Ursula von der Leyen – Wikipedia",
+            "u": "https://de.wikipedia.org/wiki/Ursula_von_der_Leyen",
+            "age": null
+          },
+          "1": {
+            "t": "Ursula von der Leyen (@vonderleyen) · Twitter",
+            "u": "https://twitter.com/vonderleyen?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
+            "age": null
+          },
+          "2": {
+            "t": "Heiko von der Leyen – Wikipedia",
+            "u": "https://de.wikipedia.org/wiki/Heiko_von_der_Leyen",
+            "age": null
+          },
+          "3": {
+            "t": "Ursula von der Leyen | Europäische Kommission",
+            "u": "https://ec.europa.eu/commission/commissioners/2019-2024/president_de",
+            "age": null
+          },
+          "4": {
+            "t": "Dr. Ursula von der Leyen - Deutscher Bundestag",
+            "u": "https://www.bundestag.de/abgeordnete/biografien/L/leyen_ursula-521602",
+            "age": null
+          },
+          "5": {
+            "t": "Dr. Ursula von der Leyen, CDU - Deutscher Bundestag",
+            "u": "https://www.bundestag.de/blueprint/servlet/redirect/258710",
+            "age": null
+          },
+          "6": {
+            "t": "Ursula von der Leyen - Bundesregierung",
+            "u": "https://www.bundesregierung.de/breg-de/bundesregierung/bundeskabinett/ursula-von-der-leyen-422328",
+            "age": null
+          },
+          "7": {
+            "t": "Ursula von der Leyen - Konrad-Adenauer-Stiftung",
+            "u": "https://www.kas.de/de/web/geschichte-der-cdu/personen/biogramm-detail/-/content/ursula-von-der-leyen-1",
+            "age": null
+          }
+        },
+        "q": "von der leyen",
+        "qurl": "https://www.google.com/search?q=von+der+leyen",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "top-stories",
+      "payload": {
+        "r": {
+          "0": {
+            "u": "https://www.welt.de/politik/ausland/article221860408/Handelspakt-Brexit-Deal-auf-Messers-Schneide-Jetzt-uebernehmen-Johnson-und-von-der-Leyen.html",
+            "lu": "vor 2 Stunden",
+            "h": "Handelspakt: Brexit-Deal auf Messers Schneide – Jetzt übernehmen Johnson \nund von der Leyen"
+          },
+          "1": {
+            "u": "https://www.zeit.de/politik/ausland/2020-12/brexit-handelsabkommen-ursula-von-der-leyen-boris-johnson-verhandlung",
+            "lu": "vor 7 Stunden",
+            "h": "Brexit: Von der Leyen und Johnson wollen direkt miteinander verhandeln"
+          },
+          "2": {
+            "u": "https://www.tagesschau.de/ausland/brexit-verhandlungen-211.html",
+            "lu": "vor 19 Stunden",
+            "h": "Brexit-Verhandlungen: Von der Leyen und Johnson müssen reden"
+          }
+        },
+        "q": "von der leyen",
+        "qurl": "https://www.google.com/search?q=von+der+leyen",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "videos-p",
+      "payload": {
+        "q": "von der leyen",
+        "qurl": "https://www.google.com/search?q=von+der+leyen",
+        "r": {
+          "0": {
+            "t": "BREXIT WIRD CHEFSACHE: Boris Johnson versucht nun mit ...",
+            "u": "https://www.youtube.com/watch?v=2TLUydG7k4I"
+          },
+          "1": {
+            "t": "Berateraffäre: Wichtige Handydaten von Ex-Ministerin von der ...",
+            "u": "https://www.youtube.com/watch?v=Yc2BGoRq5qg"
+          },
+          "2": {
+            "t": "Ursula von der Leyen hält erste Rede zur Lage der EU | DW ...",
+            "u": "https://www.youtube.com/watch?v=efePPJETAlc"
+          }
+        },
+        "ctry": "de"
+      }
+    }
+  ],
+
+  "mustNotContain": [{ "action": "ads_*" }]
+}

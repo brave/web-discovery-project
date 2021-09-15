@@ -1,0 +1,1013 @@
+{
+  "urlPatterns": [
+    "\\.google\\..*?[#?&;]((q=[^&]+&([^&]+&)*tbm=isch)|(tbm=isch&([^&]+&)*q=[^&]+))",
+    "\\.google\\..*?[#?&;]q=[^$&]+",
+    ".search.yahoo\\..*?[#?&;][pq]=[^$&]+",
+    ".linkedin.*?\\/pub\\/dir+",
+    "\\.bing\\.[^/]+\\/images/search[?]q=[^$&]+",
+    "\\.bing\\..*?[#?&;]q=[^$&]+",
+    "\\.amazon\\.[^/]+\\/(s[?]k=[^$&]+|.*[?&]field-keywords=[^$&]+)",
+    "^https:[/][/]duckduckgo.com[/](?:html$|.*[?&]q=[^&]+.*&ia=web|[?]q=[^&]+$)"
+  ],
+  "searchEngines": ["0", "1", "2", "4", "5", "6", "7"],
+  "scrape": {
+    "0": {
+      "form[action=\"/search\"] input:first-child[name=\"q\"]": {
+        "q": {
+          "type": "searchQuery",
+          "etype": "value",
+          "keyName": "q"
+        }
+      },
+      "qurl": {
+        "qurl": {
+          "type": "standard",
+          "etype": "url",
+          "keyName": "qurl",
+          "functionsApplied": [["maskU", false, false]]
+        }
+      },
+      "ctry": {
+        "ctry": {
+          "type": "standard",
+          "etype": "ctry",
+          "keyName": "ctry"
+        }
+      },
+      "table.GpQGbf tbody > tr > td.e3goi > div.svla5d": {
+        "u": {
+          "item": "a",
+          "type": "arr",
+          "etype": "href",
+          "keyName": "u",
+          "functionsApplied": [
+            ["splitF", "/url?q=", 1],
+            ["splitF", "&sa=", 0]
+          ]
+        },
+        "ru": {
+          "item": "a > div > span.F9iS2e",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "ru"
+        },
+        "t": {
+          "item": "a > div > span.x3G5ab",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "t"
+        }
+      }
+    },
+    "1": {
+      "#mobile-search #sfcnt": {
+        "q": {
+          "item": "input",
+          "type": "searchQuery",
+          "etype": "value",
+          "keyName": "q"
+        }
+      },
+      "#main div.g": {
+        "t": {
+          "item": "div.yuRUbf > a > h3, div.DOqJne > g-link > a > h3",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "t"
+        },
+        "u": {
+          "item": "div.yuRUbf > a, div.DOqJne > g-link > a",
+          "type": "arr",
+          "etype": "href",
+          "keyName": "u"
+        },
+        "age": {
+          "item": "div.IsZvec > div > span > span.f",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "age"
+        }
+      },
+      ".g .r": {
+        "t": {
+          "item": "a",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "t"
+        },
+        "u": {
+          "item": "a",
+          "type": "arr",
+          "etype": "href",
+          "keyName": "u",
+          "functionsApplied": [
+            ["splitF", "&sa=", 0],
+            ["splitF", "url?q=", 1],
+            ["maskU", false, false]
+          ]
+        }
+      },
+      "#search": {
+        "q": {
+          "item": "#rso",
+          "type": "searchQuery",
+          "etype": "data-async-context",
+          "keyName": "q",
+          "functionsApplied": [["splitF", "query:", 1]]
+        }
+      },
+      "#tads .ads-ad": {
+        "u": {
+          "item": ".ads-visurl cite",
+          "type": "multiple",
+          "etype": "textContent",
+          "keyName": "u"
+        }
+      },
+      "#search .rSr7Wd .So9e7d": {
+        "u": {
+          "item": ":not(div) > a",
+          "type": "arr",
+          "etype": "href",
+          "keyName": "u",
+          "functionsApplied": [["maskU", false, false]]
+        },
+        "lu": {
+          "item": "span.f",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "lu",
+          "functionsApplied": []
+        },
+        "h": {
+          "item": ".pAx2Gb > div",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "h",
+          "functionsApplied": []
+        }
+      },
+      "#search div.dbsr": {
+        "u": {
+          "item": "a",
+          "type": "arr",
+          "etype": "href",
+          "keyName": "u",
+          "functionsApplied": [["maskU", false, false]]
+        },
+        "lu": {
+          "item": "span.FGlSad",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "lu",
+          "functionsApplied": []
+        },
+        "h": {
+          "item": "div.y9oXvf",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "h",
+          "functionsApplied": []
+        }
+      },
+      "#search g-scrolling-carousel div.fhQnRd g-inner-card": {
+        "u": {
+          "item": "a",
+          "type": "arr",
+          "etype": "href",
+          "keyName": "u",
+          "functionsApplied": [["maskU", false, false]]
+        },
+        "lu": {
+          "item": "p.S1FAPd > span",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "lu",
+          "functionsApplied": []
+        },
+        "h": {
+          "item": "div.mCBkyc[role='heading']",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "h",
+          "functionsApplied": []
+        }
+      },
+      "#mbEnd .ads-ad": {
+        "u": {
+          "item": "a[id^=s1p]",
+          "type": "multiple",
+          "etype": "href",
+          "keyName": "u",
+          "functionsApplied": [
+            ["parseU", "qs", "adurl"],
+            ["maskU", false, false]
+          ]
+        }
+      },
+      ".pla-unit-title": {
+        "u": {
+          "item": ".pla-unit-title-link",
+          "type": "multiple",
+          "etype": "href",
+          "keyName": "u",
+          "functionsApplied": [
+            ["parseU", "qs", "adurl"],
+            ["maskU", false, false]
+          ]
+        }
+      },
+      "#bottomads div.cUezCb": {
+        "u": {
+          "item": "a.Krnil",
+          "type": "arr",
+          "etype": "href",
+          "keyName": "u",
+          "functionsApplied": [["maskU", false, false]]
+        }
+      },
+      "qurl": {
+        "qurl": {
+          "type": "standard",
+          "etype": "url",
+          "keyName": "qurl",
+          "functionsApplied": [["maskU", false, false]]
+        }
+      },
+      "ctry": {
+        "ctry": {
+          "type": "standard",
+          "etype": "ctry",
+          "keyName": "ctry"
+        }
+      },
+      "._gt": {
+        "t": {
+          "item": "[data-akp-oq] ._rl",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "t"
+        },
+        "u": {
+          "item": ".rllt__action-button._Jrh",
+          "type": "arr",
+          "etype": "href",
+          "keyName": "u"
+        },
+        "mu": {
+          "item": ".rllt__action-button.rllt__directions-button",
+          "type": "arr",
+          "etype": "href",
+          "keyName": "mu"
+        }
+      },
+      ".kp-blk.fm06If.Wnoohf.OJXvsb": {
+        "ent": {
+          "item": "div[role=\"heading\"] > :nth-child(1)",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "ent"
+        },
+        "pred": {
+          "item": "div[role=\"heading\"] > :nth-child(3)",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "pred"
+        },
+        "ans": {
+          "item": "div.kno-fb-ctx[role=\"heading\"] > div",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "ans"
+        }
+      },
+      "._OKe .g": {
+        "u": {
+          "item": ".s",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "u"
+        }
+      },
+      "._IK": {
+        "ent": {
+          "item": ".kxbccp span",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "ent"
+        },
+        "pred": {
+          "item": ".kxbccm .kxbc",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "pred"
+        }
+      },
+      "#main": {
+        "sq": {
+          "item": "#taw #fprsl.gL9Hy",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "sq"
+        },
+        "oq": {
+          "item": "#fprs a.spell_orig",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "oq"
+        },
+        "type": {
+          "item": "#lu_map",
+          "type": "arr",
+          "etype": "id",
+          "keyName": "type",
+          "functionsApplied": [["splitF", "lu_", 1]]
+        }
+      },
+      "#main .VkpGBb": {
+        "t": {
+          "item": ".cXedhc div.dbg0pd",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "t"
+        },
+        "addr": {
+          "item": "div span.rllt__details.lqhpac > div:nth-child(2) > span:not(.BTtC6e):nth-child(1)",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "addr"
+        }
+      },
+      "#search g-scrolling-carousel img[id^='dimg_']": {
+        "u": {
+          "type": "arr",
+          "etype": "title",
+          "keyName": "u"
+        }
+      },
+      "div.bkWMgd g-section-with-header #iur img[id^='dimg_']": {
+        "u": {
+          "type": "arr",
+          "etype": "title",
+          "keyName": "u"
+        }
+      },
+      "#main div.knowledge-block__video-nav-block": {
+        "t": {
+          "item": "img",
+          "type": "arr",
+          "etype": "alt",
+          "keyName": "t"
+        },
+        "u": {
+          "item": "div.twQ0Be > a",
+          "type": "arr",
+          "etype": "href",
+          "keyName": "u"
+        },
+        "len": {
+          "item": "div.twQ0Be",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "len",
+          "functionsApplied": [["splitF", " ", 1]]
+        }
+      },
+      "#main div.PhiYYd.QBl4oe": {
+        "t": {
+          "item": "img",
+          "type": "arr",
+          "etype": "alt",
+          "keyName": "t"
+        },
+        "u": {
+          "item": "div.twQ0Be > a",
+          "type": "arr",
+          "etype": "href",
+          "keyName": "u"
+        }
+      },
+      "#main div.MGqjK div.QmUzgb": {
+        "t": {
+          "item": "div.fJiQld",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "t"
+        },
+        "u": {
+          "item": "a",
+          "type": "arr",
+          "etype": "href",
+          "keyName": "u"
+        }
+      },
+      "#rhs div.knowledge-panel": {
+        "t": {
+          "item": "div[data-attrid=\"title\"] > span",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "t"
+        },
+        "u": {
+          "item": "div.QqG1Sd:nth-child(1) > a[role=\"button\"]:not([data-url])",
+          "type": "arr",
+          "etype": "href",
+          "keyName": "u"
+        },
+        "addr": {
+          "item": "div[data-attrid=\"kc:/location/location:address\"]",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "addr"
+        },
+        "loc": {
+          "item": "a[data-url^='/maps/place/']",
+          "type": "arr",
+          "etype": "data-url",
+          "keyName": "loc",
+          "functionsApplied": [
+            ["splitF", "/", 4],
+            ["splitF", "@", 1]
+          ]
+        }
+      }
+    },
+    "2": {
+      ".dd.algo": {
+        "t": {
+          "item": "h3 [href]",
+          "type": "arr",
+          "etype": "text",
+          "keyName": "t"
+        },
+        "u": {
+          "item": "h3 [href]",
+          "type": "arr",
+          "etype": "href",
+          "keyName": "u",
+          "functionsApplied": [
+            ["splitF", "RU=", 1],
+            ["splitF", "RK=0/", 0],
+            ["maskU", false, false]
+          ]
+        }
+      },
+      ".sbq-w": {
+        "q": {
+          "item": "#yschsp",
+          "type": "searchQuery",
+          "etype": "value",
+          "keyName": "query"
+        }
+      },
+      "qurl": {
+        "qurl": {
+          "type": "standard",
+          "etype": "url",
+          "keyName": "qurl",
+          "functionsApplied": [["maskU", false, false]]
+        }
+      },
+      "ctry": {
+        "ctry": {
+          "type": "standard",
+          "etype": "ctry",
+          "keyName": "ctry"
+        }
+      }
+    },
+    "3": {},
+    "4": {
+      "div[role=\"main\"] div.imgpt > a": {
+        "t": {
+          "type": "array",
+          "etype": "m",
+          "keyName": "t",
+          "functionsApplied": [["json", "t", false]]
+        },
+        "u": {
+          "type": "array",
+          "etype": "m",
+          "keyName": "ru",
+          "functionsApplied": [["json", "murl", false]]
+        },
+        "ru": {
+          "type": "array",
+          "etype": "m",
+          "keyName": "ru",
+          "functionsApplied": [["json", "purl", false]]
+        }
+      },
+      "#sb_form": {
+        "q": {
+          "item": "#sb_form_q",
+          "type": "searchQuery",
+          "etype": "value",
+          "keyName": "query"
+        }
+      },
+      "qurl": {
+        "qurl": {
+          "type": "standard",
+          "etype": "url",
+          "keyName": "qurl",
+          "functionsApplied": [["maskU", false, false]]
+        }
+      },
+      "ctry": {
+        "ctry": {
+          "type": "standard",
+          "etype": "ctry",
+          "keyName": "ctry"
+        }
+      }
+    },
+    "5": {
+      ".b_algo": {
+        "t": {
+          "item": "h2 [href]",
+          "type": "arr",
+          "etype": "text",
+          "keyName": "t"
+        },
+        "u": {
+          "item": "h2 [href]",
+          "type": "arr",
+          "etype": "href",
+          "keyName": "u",
+          "functionsApplied": [["maskU", false, false]]
+        }
+      },
+      "#sb_form": {
+        "q": {
+          "item": "#sb_form_q",
+          "type": "searchQuery",
+          "etype": "value",
+          "keyName": "query"
+        }
+      },
+      "qurl": {
+        "qurl": {
+          "type": "standard",
+          "etype": "url",
+          "keyName": "qurl",
+          "functionsApplied": [["maskU", false, false]]
+        }
+      },
+      "ctry": {
+        "ctry": {
+          "type": "standard",
+          "etype": "ctry",
+          "keyName": "ctry"
+        }
+      }
+    },
+    "6": {
+      "#twotabsearchtextbox": {
+        "q": {
+          "type": "searchQuery",
+          "etype": "value",
+          "keyName": "query"
+        }
+      },
+      "#search div.s-result-item[data-component-type='s-search-result'] div.sg-col-inner div > div > div > h2 > a": {
+        "t": {
+          "item": "span",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "t"
+        },
+        "u": {
+          "type": "arr",
+          "etype": "href",
+          "keyName": "u",
+          "functionsApplied": [
+            ["splitF", "&url=", 1],
+            ["splitF", "/ref=", 0],
+            ["maskU", false, false]
+          ]
+        }
+      },
+      "[data-component-type='s-product-image']": {
+        "t": {
+          "item": "img",
+          "type": "arr",
+          "etype": "alt",
+          "keyName": "t"
+        },
+        "u": {
+          "item": "a",
+          "type": "arr",
+          "etype": "href",
+          "keyName": "u",
+          "functionsApplied": [
+            ["splitF", "&url=", 1],
+            ["splitF", "/ref=", 0],
+            ["maskU", false, false]
+          ]
+        }
+      },
+      "ctry": {
+        "ctry": {
+          "type": "standard",
+          "etype": "ctry",
+          "keyName": "ctry"
+        }
+      },
+      "qurl": {
+        "qurl": {
+          "type": "standard",
+          "etype": "url",
+          "keyName": "qurl",
+          "functionsApplied": [["maskU", false, false]]
+        }
+      }
+    },
+    "7": {
+      "#header": {
+        "q": {
+          "item": "#search_form_input[name=\"q\"]",
+          "type": "searchQuery",
+          "etype": "value",
+          "keyName": "query"
+        }
+      },
+      "qurl": {
+        "qurl": {
+          "type": "standard",
+          "etype": "url",
+          "keyName": "qurl"
+        }
+      },
+      "ctry": {
+        "ctry": {
+          "type": "standard",
+          "etype": "ctry",
+          "keyName": "ctry"
+        }
+      }
+    }
+  },
+  "payloads": {
+    "0": {
+      "form[action=\"/search\"] input:first-child[name=\"q\"]": {
+        "type": "query",
+        "results": "clustered",
+        "action": "img",
+        "fields": [
+          ["form[action=\"/search\"] input:first-child[name=\"q\"]", "q"],
+          ["qurl", "qurl"],
+          ["table.GpQGbf tbody > tr > td.e3goi > div.svla5d", "r", "join"],
+          ["ctry", "ctry"]
+        ]
+      }
+    },
+    "1": {
+      "#main div.g": {
+        "type": "query",
+        "results": "clustered",
+        "action": "query",
+        "fields": [
+          ["#main div.g", "r", "join"],
+          ["#search", "q"],
+          ["qurl", "qurl"],
+          ["ctry", "ctry"]
+        ]
+      },
+      "#tads .ads-ad": {
+        "type": "query",
+        "results": "clustered",
+        "action": "ads_A",
+        "fields": [
+          ["#tads .ads-ad", "r", "join"],
+          ["#search", "q"],
+          ["qurl", "qurl"],
+          ["ctry", "ctry"]
+        ]
+      },
+      "#mbEnd .ads-ad": {
+        "type": "query",
+        "results": "clustered",
+        "action": "ads_B",
+        "fields": [
+          ["#mbEnd .ads-ad", "r", "join"],
+          ["#search", "q"],
+          ["qurl", "qurl"],
+          ["ctry", "ctry"]
+        ]
+      },
+      "#search .rSr7Wd .So9e7d": {
+        "type": "query",
+        "results": "clustered",
+        "action": "top-stories",
+        "fields": [
+          ["#search .rSr7Wd .So9e7d", "r", "join"],
+          ["#search", "q"],
+          ["qurl", "qurl"],
+          ["ctry", "ctry"]
+        ]
+      },
+      "#search div.dbsr": {
+        "type": "query",
+        "results": "clustered",
+        "action": "top-stories",
+        "fields": [
+          ["#search div.dbsr", "r", "join"],
+          ["#search", "q"],
+          ["qurl", "qurl"],
+          ["ctry", "ctry"]
+        ]
+      },
+      "#search g-scrolling-carousel div.fhQnRd g-inner-card": {
+        "type": "query",
+        "results": "clustered",
+        "action": "top-stories",
+        "fields": [
+          ["#search g-scrolling-carousel div.fhQnRd g-inner-card", "r", "join"],
+          ["#search", "q"],
+          ["qurl", "qurl"],
+          ["ctry", "ctry"]
+        ]
+      },
+      ".pla-unit-title": {
+        "type": "query",
+        "results": "clustered",
+        "action": "ads_C",
+        "fields": [
+          [".pla-unit-title", "r", "join"],
+          ["#search", "q"],
+          ["qurl", "qurl"],
+          ["ctry", "ctry"]
+        ]
+      },
+      "#bottomads div.cUezCb": {
+        "type": "query",
+        "results": "clustered",
+        "action": "ads_D",
+        "fields": [
+          ["#bottomads div.cUezCb", "r", "join"],
+          ["#search", "q"],
+          ["qurl", "qurl"],
+          ["ctry", "ctry"]
+        ]
+      },
+      "._gt": {
+        "type": "query",
+        "results": "clustered",
+        "action": "locdata",
+        "fields": [
+          ["._gt", "r", "join"],
+          ["#search", "q"],
+          ["qurl", "qurl"]
+        ]
+      },
+      ".kp-blk.fm06If.Wnoohf.OJXvsb": {
+        "type": "query",
+        "results": "clustered",
+        "action": "snippet",
+        "fields": [
+          [".kp-blk.fm06If.Wnoohf.OJXvsb", "r", "join"],
+          ["#search", "q"],
+          ["qurl", "qurl"],
+          ["ctry", "ctry"]
+        ]
+      },
+      "._OKe .g": {
+        "type": "query",
+        "results": "clustered",
+        "action": "snippet2",
+        "fields": [
+          ["._OKe .g", "r", "join"],
+          ["#search", "q"],
+          ["qurl", "qurl"]
+        ]
+      },
+      "._IK": {
+        "type": "query",
+        "results": "clustered",
+        "action": "snippet3",
+        "fields": [
+          ["._IK", "r", "join"],
+          ["#search", "q"],
+          ["qurl", "qurl"]
+        ]
+      },
+      "#searchform": {
+        "type": "query",
+        "results": "clustered",
+        "action": "sq",
+        "fields": [
+          ["#main", "sq"],
+          ["#main", "oq"],
+          ["ctry", "ctry"]
+        ]
+      },
+      ".g .r": {
+        "type": "query",
+        "results": "clustered",
+        "action": "anon-query",
+        "fields": [
+          [".g .r", "r", "join"],
+          ["#mobile-search #sfcnt", "q"],
+          ["qurl", "qurl"],
+          ["ctry", "ctry"]
+        ]
+      },
+      "#lu_map": {
+        "type": "query",
+        "results": "clustered",
+        "action": "places2",
+        "fields": [
+          ["#search", "q"],
+          ["#main", "type"],
+          ["qurl", "qurl"],
+          ["ctry", "ctry"]
+        ]
+      },
+      "#main .VkpGBb": {
+        "type": "query",
+        "results": "clustered",
+        "action": "places",
+        "fields": [
+          ["#main .VkpGBb", "r", "join"],
+          ["ctry", "ctry"]
+        ]
+      },
+      "#rhs div.knowledge-panel": {
+        "type": "query",
+        "results": "clustered",
+        "action": "place",
+        "fields": [
+          ["#rhs div.knowledge-panel", "t"],
+          ["#rhs div.knowledge-panel", "u"],
+          ["#rhs div.knowledge-panel", "addr"],
+          ["#rhs div.knowledge-panel", "loc"],
+          ["ctry", "ctry"]
+        ]
+      },
+      "#search g-scrolling-carousel img[id^='dimg_']": {
+        "type": "query",
+        "results": "clustered",
+        "action": "img-p",
+        "fields": [
+          ["#search", "q"],
+          ["qurl", "qurl"],
+          ["#search g-scrolling-carousel img[id^='dimg_']", "r", "join"],
+          ["ctry", "ctry"]
+        ]
+      },
+      "div.bkWMgd g-section-with-header #iur img[id^='dimg_']": {
+        "type": "query",
+        "results": "clustered",
+        "action": "img-p",
+        "fields": [
+          ["#search", "q"],
+          ["qurl", "qurl"],
+          [
+            "div.bkWMgd g-section-with-header #iur img[id^='dimg_']",
+            "r",
+            "join"
+          ],
+          ["ctry", "ctry"]
+        ]
+      },
+      "#main div.knowledge-block__video-nav-block": {
+        "type": "query",
+        "results": "clustered",
+        "action": "video-p",
+        "fields": [
+          ["#search", "q"],
+          ["qurl", "qurl"],
+          ["#main div.knowledge-block__video-nav-block", "r", "join"],
+          ["ctry", "ctry"]
+        ]
+      },
+      "#main div.PhiYYd.QBl4oe": {
+        "type": "query",
+        "results": "clustered",
+        "action": "video-p",
+        "fields": [
+          ["#search", "q"],
+          ["qurl", "qurl"],
+          ["#main div.PhiYYd.QBl4oe", "r", "join"],
+          ["ctry", "ctry"]
+        ]
+      },
+      "#main div.MGqjK div.QmUzgb": {
+        "type": "query",
+        "results": "clustered",
+        "action": "videos-p",
+        "fields": [
+          ["#search", "q"],
+          ["qurl", "qurl"],
+          ["#main div.MGqjK div.QmUzgb", "r", "join"],
+          ["ctry", "ctry"]
+        ]
+      }
+    },
+    "2": {
+      ".dd.algo": {
+        "type": "query",
+        "results": "clustered",
+        "action": "query",
+        "fields": [
+          [".dd.algo", "r", "join"],
+          [".sbq-w", "q"],
+          ["qurl", "qurl"],
+          ["ctry", "ctry"]
+        ]
+      }
+    },
+    "3": {},
+    "4": {
+      "div[role=\"main\"] div.imgpt > a": {
+        "type": "query",
+        "results": "clustered",
+        "action": "img",
+        "fields": [
+          ["div[role=\"main\"] div.imgpt > a", "r", "join"],
+          ["#sb_form", "q"],
+          ["qurl", "qurl"],
+          ["ctry", "ctry"]
+        ]
+      }
+    },
+    "5": {
+      ".b_algo": {
+        "type": "query",
+        "results": "clustered",
+        "action": "query",
+        "fields": [
+          [".b_algo", "r", "join"],
+          ["#sb_form", "q"],
+          ["qurl", "qurl"],
+          ["ctry", "ctry"]
+        ]
+      }
+    },
+    "6": {
+      "#search div.s-result-item[data-component-type='s-search-result'] div.sg-col-inner div > div > div > h2 > a": {
+        "type": "query",
+        "results": "clustered",
+        "action": "query-am",
+        "fields": [
+          [
+            "#search div.s-result-item[data-component-type='s-search-result'] div.sg-col-inner div > div > div > h2 > a",
+            "r",
+            "join"
+          ],
+          ["#twotabsearchtextbox", "q"],
+          ["qurl", "qurl"],
+          ["ctry", "ctry"]
+        ]
+      },
+      "[data-component-type='s-product-image']": {
+        "type": "query",
+        "results": "clustered",
+        "action": "query-am",
+        "fields": [
+          ["[data-component-type='s-product-image']", "r", "join"],
+          ["[data-component-type=\"s-result-sort\"]", "q"],
+          ["qurl", "qurl"],
+          ["ctry", "ctry"]
+        ]
+      }
+    },
+    "7": {
+      "#header": {
+        "type": "query",
+        "results": "clustered",
+        "action": "query0",
+        "fields": [
+          ["#header", "q"],
+          ["qurl", "qurl"],
+          ["ctry", "ctry"]
+        ]
+      }
+    }
+  },
+  "queryTemplate": {
+    "0": {
+      "prefix": "search?tbm=isch&gbv=1&q="
+    },
+    "4": {
+      "prefix": "images/search?q="
+    },
+    "6": {
+      "prefix": "s/?field-keywords="
+    },
+    "7": {
+      "prefix": "?q="
+    }
+  },
+  "idMapping": {
+    "0": "goi",
+    "1": "go",
+    "2": "ya",
+    "3": "lnkd",
+    "4": "bingi",
+    "5": "bing",
+    "6": "am",
+    "7": "ddg"
+  }
+}

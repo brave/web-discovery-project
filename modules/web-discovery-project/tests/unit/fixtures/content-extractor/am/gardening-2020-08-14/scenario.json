@@ -1,0 +1,260 @@
+{
+  "url": "https://www.amazon.com/s?k=gardening&ref=nb_sb_noss_1",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "query-am",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "Scuddles Garden Tools Set - 8 Piece Heavy Duty Gardening Kit with Storage Organizer, Ergonomic Hand Digging Weeder Rake Shovel Trowel Sprayer Gloves Gift for Men Or Women",
+            "u": "/Scuddles-Garden-Tools-Set-Gardening/dp/B01H4LZR1E"
+          },
+          "1": {
+            "t": "49 Pcs Garden Tools Set, Extra Succulent Tools Set, Heavy Duty Gardening Tools Aluminum with Soft Rubberized Non-Slip Handle Tools, Durable Storage Tote Bag, Gifts for Men Women",
+            "u": "https://www.amazon.com/Succulent-Gardening-Aluminum-Rubberized-Non-Slip/dp/B0851VWG7R"
+          },
+          "2": {
+            "t": "Grow, Cook, Eat",
+            "u": "https://www.amazon.com/Sweetcorn/dp/B07S2143WG"
+          },
+          "3": {
+            "t": "AOKIWO 40 PCS Garden Tools Set Heavy Duty Aluminum Manual Garden kit Outdoor Gardening Gifts Tools Set for Men Women",
+            "u": "https://www.amazon.com/AOKIWO-20-Pcs-Garden-Aluminum/dp/B07SKV41SG"
+          },
+          "4": {
+            "t": "Home-Complete HC-4202 Walk-In Greenhouse- Indoor Outdoor with 8 Sturdy Shelves-Grow Plants, Seedlings, Herbs, or Flowers In Any Season-Gardening Rack",
+            "u": "https://www.amazon.com/Green-House-HC-4202-Greenhouse-Indoor-Shelves-Grow/dp/B01GDVVZY4"
+          },
+          "5": {
+            "t": "Vegetable Gardening for Beginners: A Simple Guide to Growing Vegetables at Home",
+            "u": "https://www.amazon.com/Vegetable-Gardening-Beginners-Growing-Vegetables/dp/1646115376"
+          },
+          "6": {
+            "t": "5-Tier Strawberry and Herb Garden Planter - Stackable Gardening Pots with 10 Inch Saucer (Terra-Cotta)",
+            "u": "https://www.amazon.com/5-Tier-Strawberry-Herb-Garden-Planter/dp/B07CKHLNGL"
+          },
+          "7": {
+            "t": "Scuddles Garden Tools Set - 8 Piece Heavy Duty Gardening Kit with Storage Organizer, Ergonomic Hand Digging Weeder Rake Shovel Trowel Sprayer Gloves Gift for Men Or Women",
+            "u": "https://www.amazon.com/Scuddles-Garden-Tools-Set-Gardening/dp/B01H4LZR1E"
+          },
+          "8": {
+            "t": "TomCare Garden Kneeler Seat Garden Bench Garden Stools Foldable Stool with Tool Bag Pouch EVA Foam Pad Outdoor Portable Kneeler for Gardening(Large-21.65\" x 10.62\" x 18.89\",Green)",
+            "u": "https://www.amazon.com/TomCare-Foldable-Portable-Gardening-Large-21-65/dp/B073ZBKN1Y"
+          },
+          "9": {
+            "t": "Ohuhu Garden Kneeler and Seat with 2 Bonus Tool Pouches, 2-in-1 Foldable Garden Bench Garden Stools, Portable Kneeler for Gardening Gardeners",
+            "u": "https://www.amazon.com/Ohuhu-Garden-Kneeler-Bonus-Pouches/dp/B00YQUSERQ"
+          },
+          "10": {
+            "t": "Homesteadonomics",
+            "u": "https://www.amazon.com/Shop-Shelving-Using-French-Cleats/dp/B07HF8PJN1"
+          },
+          "11": {
+            "t": "FCMP Outdoor IM4000 Tumbling Composter, 37 gallon, Black",
+            "u": "https://www.amazon.com/Yimby-Tumbler-Composter-Color-Black/dp/B009378AG2"
+          },
+          "12": {
+            "t": "Raised Bed Gardening for Beginners: Everything You Need to Know to Start and Sustain a Thriving Garden",
+            "u": "https://www.amazon.com/Raised-Bed-Gardening-Beginners-Everything/dp/1641525096"
+          },
+          "13": {
+            "t": "Good GAIN Garden Tools Stool, 12 pcs Gardening Hand Tools Set with Folding Chair Seat and Garden Storage Tote Bag, Garden Tools Carrier, Digging, Gardening Gifts Set for Mom/Dad and Gardeners. Green",
+            "u": "/GOOD-GAIN-Gardening-Folding-Gardeners/dp/B07WW49WCM"
+          },
+          "14": {
+            "t": "ECOgardener Premium 5oz Pro Garden Weed Barrier Landscape Fabric Durable & Heavy-Duty Weed Block Gardening Mat, Easy Setup & Superior Weed Control, Eco-Friendly & Convenient Design, 3ft x 250ft",
+            "u": "/ECOgardener-Landscape-Heavy-Duty-Eco-Friendly-Convenient/dp/B06VTSGB23"
+          },
+          "15": {
+            "t": "Womens Wide Brim Sun Hat with Wind Lanyard UPF Summer Straw Sun Hats for Women",
+            "u": "/Womens-Lanyard-Summer-Straw-Women/dp/B07BPLXSDK"
+          },
+          "16": {
+            "t": "Garden Tools Set - 9 Piece Gardening Kit - Easy to Carry Tote Bag - Pretty Floral Design - Ergonomic Wooden Handle - Heavy Duty - Bonus Gloves and Cutter - Machine Washable - Great as a Gift",
+            "u": "https://www.amazon.com/Juego-herramientas-jardín-jardinería-transportar/dp/B07QQ3C6L4"
+          },
+          "17": {
+            "t": "All New Square Foot Gardening, 3rd Edition, Fully Updated: MORE Projects - NEW Solutions - GROW Vegetables Anywhere (All New Square Foot Gardening (9))",
+            "u": "https://www.amazon.com/Square-Foot-Gardening-Fully-Updated/dp/0760362858"
+          },
+          "18": {
+            "t": "Keter Urban Bloomer 12.7 Gallon Raised Garden Bed with Self Watering Planter Box and Drainage Plug, Dark Grey",
+            "u": "https://www.amazon.com/Keter-Bloomer-Plastic-Elevated-Graphite/dp/B079SQRL46"
+          },
+          "19": {
+            "t": "Gorilla Carts GOR4PS Poly Garden Dump Cart with Steel Frame and 10-in. Pneumatic Tires, 600-Pound Capacity, Black",
+            "u": "https://www.amazon.com/Gorilla-Carts-GOR4PS-Pneumatic-600-Pound/dp/B01BECQAWO"
+          },
+          "20": {
+            "t": "Gardeners' World (2019)",
+            "u": "https://www.amazon.com/Episode-15/dp/B07Q78WNM6"
+          },
+          "21": {
+            "t": "Sloggers Women's Waterproof  Rain and Garden Shoe with Comfort Insole, Paisley Red, Size 7, Style 5104RD07",
+            "u": "https://www.amazon.com/Sloggers-Waterproof-Comfort-Paisley-5104RD07/dp/B0047O0LXQ"
+          },
+          "22": {
+            "t": "The Week-by-Week Vegetable Gardener's Handbook: Make the Most of Your Growing Season",
+            "u": "https://www.amazon.com/Week-Week-Vegetable-Gardeners-Handbook/dp/1603426949"
+          },
+          "23": {
+            "t": "Gorilla Carts GOR400-COM Steel Garden Cart with Removable Sides, 400-lbs. Capacity, Green",
+            "u": "https://www.amazon.com/Gorilla-Carts-GOR400-COM-Removable-400-lbs/dp/B01BECQBZ0"
+          },
+          "24": {
+            "t": "AeroGarden Black Harvest Indoor Hydroponic Garden, 2019 Model",
+            "u": "https://www.amazon.com/AeroGarden-901100-1200-Harvest-Black/dp/B07CKK8Z78"
+          },
+          "25": {
+            "t": "Harvest Season: a novel (Book 2)",
+            "u": "https://www.amazon.com/Harvest-Season-novel-Book-2-ebook/dp/B072C8QNJR"
+          },
+          "26": {
+            "t": "Floret Farm's Cut Flower Garden: Grow, Harvest, and Arrange Stunning Seasonal Blooms (Gardening Book for Beginners, Floral Design and Flower Arranging Book)",
+            "u": "https://www.amazon.com/Floret-Farms-Cut-Flower-Garden/dp/1452145768"
+          },
+          "27": {
+            "t": "GAGALUGEC 50ft Expandable Garden Hose with 9 Function Nozzle, Leakproof Lightweight Retractable Water Hose with Solid Brass Fittings, Extra Strength 3750D Durable Gardening Flexible Hose Pipe",
+            "u": "https://www.amazon.com/GAGALUGEC-Expandable-Leakproof-Lightweight-Retractable/dp/B083HDJS7X"
+          },
+          "28": {
+            "t": "Red Ocean Gardening So Exciting I Wet My Plants! Funny Wetting Pants Novelty Garden Plaque Gift Gardening Sign by Red Ocean",
+            "u": "/Red-Ocean-Gardening-Exciting-Wetting/dp/B011VHN93U"
+          },
+          "29": {
+            "t": "INNO STAGE 10 Piece Gardening Hand Tools Set with Garden Storage Tote Bag and Seat-Best Garden Tools Kit Organizer",
+            "u": "/herramientas-manuales-jardinería-almacenamiento-organizador/dp/B07D348X5T"
+          },
+          "30": {
+            "t": "Generic Brands Garden Tool Set 3 Piece Aluminum Heavy Duty Gardening Gifts Kits with Non-Slip Rubber Grip Trowel Transplant Trowel & Hand Rake",
+            "u": "/Generic-Brands-Aluminum-Gardening-Transplant/dp/B0894SNV94"
+          },
+          "31": {
+            "t": "Pure Garden 82-VY021 Garden Cart Rolling Scooter with Seat and Tool Tray for We, 17.5x19, Green/Black",
+            "u": "https://www.amazon.com/Pure-Garden-Rolling-Scooter-Gardening/dp/B00NR1X42K"
+          },
+          "32": {
+            "t": "Garden Genie Gloves with Claws, Waterproof and Breathable Garden Gloves for Digging Planting, Best Gardening Gifts for Women and Men (Purple 1 Pairs)",
+            "u": "https://www.amazon.com/Claws（2019-Upgrade）-Waterproof-Breathable-Gardening/dp/B07KR18W8H"
+          },
+          "33": {
+            "t": "Garden Kneeler And Seat - Protects Your Knees, Clothes From Dirt & Grass Stains - Foldable Stool For Ease Of Storage - EVA Foam Pad - Sturdy and Lightweight - Bench Comes With A Free Tool Pouch!",
+            "u": "https://www.amazon.com/Garden-Kneeler-Seat-Protects-Lightweight/dp/B01EIOXTLK"
+          },
+          "34": {
+            "t": "Landscape 101 with Ahmed Hassan",
+            "u": "https://www.amazon.com/Hawaiian-Wine-Country-Fusion/dp/B07V3P7QMW"
+          },
+          "35": {
+            "t": "Secret Gardens of England",
+            "u": "https://www.amazon.com/Secret-Gardens-England-Alan-Titchmarsh/dp/B00FX3JIO8"
+          },
+          "36": {
+            "t": "Marijuana Horticulture: The Indoor/Outdoor Medical Grower's Bible",
+            "u": "https://www.amazon.com/Marijuana-Horticulture-Outdoor-Medical-Growers/dp/187882323X"
+          },
+          "37": {
+            "t": "Topmart Upgraded Garden Kneeler Seat Garden Stools Portable Stool with 3 Extra Free Tools and Tool Pouch EVA Foam Pad Outdoor Foldable Sturdy Gardening Tools for Gardeners",
+            "u": "https://www.amazon.com/Upgraded-Portable-Foldable-Gardening-Gardeners/dp/B07N4366BW"
+          },
+          "38": {
+            "t": "Magid Glove & Safety Professional Rose Pruning Thorn Resistant Gardening Gloves with Long Forearm Protection for Women (BE195TM) - Puncture Resistant, Medium (1 Pair)",
+            "u": "https://www.amazon.com/Professional-Thornproof-Gardening-Protection-BE195T-M/dp/B00EONLNA0"
+          },
+          "39": {
+            "t": "Kitchen Garden Revival: A modern guide to creating a stylish small-scale, low-maintenance edible garden",
+            "u": "https://www.amazon.com/Kitchen-Garden-Revival-small-scale-low-maintenance/dp/0760366861"
+          },
+          "40": {
+            "t": "Green Thumb",
+            "u": "https://www.amazon.com/Garden-Masterpiece-Grown-Rescued-Plants/dp/B07G2MD4PT"
+          },
+          "41": {
+            "t": "Get Growing",
+            "u": "https://www.amazon.com/Episode-8/dp/B07F86GXJM"
+          },
+          "42": {
+            "t": "Men's and Women's Classic Clog | Water Shoes | Comfortable Slip On Shoes",
+            "u": "https://www.amazon.com/crocs-Unisex-Classic-Khaki-Women/dp/B0014C5THM"
+          },
+          "43": {
+            "t": "Atree Soil pH Meter, 3-in-1 Soil Tester Kits with Moisture,Light and PH Test for Garden, Farm, Lawn, Indoor & Outdoor (No Battery Needed)",
+            "u": "https://www.amazon.com/Atree-Tester-Moisture-Outdoor-Battery/dp/B07R4RPS54"
+          },
+          "44": {
+            "t": "Fiskars Kangaroo Collapsible Container Gardening Bag, 30 Gallon, Green (394050-1004)",
+            "u": "https://www.amazon.com/Fiskars-94056949-Gallon-Kangaroo-Container/dp/B00004SD7D"
+          },
+          "45": {
+            "t": "Field Guide to Urban Gardening: How to Grow Plants, No Matter Where You Live: Raised Beds - Vertical Gardening - Indoor Edibles - Balconies and Rooftops - Hydroponics",
+            "u": "https://www.amazon.com/Field-Guide-Urban-Gardening-Hydroponics/dp/076036396X"
+          },
+          "46": {
+            "t": "Back to Eden Film",
+            "u": "https://www.amazon.com/Back-Eden-Film-Paul-Gautschi/dp/B0845RJ6GR"
+          },
+          "47": {
+            "t": "Pine Tree Tools Bamboo Working Gloves for Women and Men. Ultimate Barehand Sensitivity Work Glove for Gardening, Fishing, Clamming, Restoration Work & More. S, M, L, XL, XXL (1 Pack L)",
+            "u": "https://www.amazon.com/Pine-Tree-Tools-Men-Ultimate-Sensitivity/dp/B00W5TGD5U"
+          },
+          "48": {
+            "t": "Marijuana Grower's Handbook: Your Complete Guide for Medical and Personal Marijuana Cultivation",
+            "u": "https://www.amazon.com/Marijuana-Growers-Handbook-Complete-Cultivation/dp/0932551467"
+          },
+          "49": {
+            "t": "My Dream Farm",
+            "u": "https://www.amazon.com/Nick-Talitha/dp/B083PQT8CZ"
+          },
+          "50": {
+            "t": "Mr. Stacky 1305-HG 5-Tier Stackable Strawberry, Herb, Flower, Vegetable Planter - Vertical Gardening Indoor/Outdoor Stacking Garden Pots",
+            "u": "https://www.amazon.com/Mr-Stacky-1305-HG-Stackable-Strawberry/dp/B007TFTVK4"
+          },
+          "51": {
+            "t": "The Drunken Botanist",
+            "u": "https://www.amazon.com/Drunken-Botanist-Amy-Stewart/dp/1616200464"
+          },
+          "52": {
+            "t": "NoCry Home & Gardening Knee Pads - with Lightweight Waterproof EVA Foam Cushion, Soft Inner Liner, and Easy Fit with Adjustable Hook'n'Loop Straps",
+            "u": "https://www.amazon.com/NoCry-Home-Gardening-Knee-Pads/dp/B06XJ2BFW7"
+          },
+          "53": {
+            "t": "The Vegetable Gardener's Bible, 2nd Edition: Discover Ed's High-Yield W-O-R-D System for All North American Gardening Regions: Wide Rows, Organic Methods, Raised Beds, Deep Soil",
+            "u": "https://www.amazon.com/Vegetable-Gardeners-Bible-2nd-R-D/dp/160342475X"
+          },
+          "54": {
+            "t": "Sustain",
+            "u": "https://www.amazon.com/Denver-Marketplace-Localizing-Food-Economy/dp/B07VGP9M9W"
+          },
+          "55": {
+            "t": "Garden Tool Set 8 Piece Cast-Aluminum Heavy Duty Gardening Kit Garden Gifts with Soft Rubberized Non-Slip Handle",
+            "u": "/Garden-Cast-Aluminum-Gardening-Rubberized-Non-Slip/dp/B08BRF7962"
+          },
+          "56": {
+            "t": "G-BAR Gardening Tool Kit Heavy Duty kit Gardening Set Tools Garden Gloves Garden Planting,Weeding, Trimming, Loosening, Transplanting … Gardening Hand Tools Kit with Storage Bag (9-Pieces, Yellow)",
+            "u": "/G-BAR-Gardening-Planting-loosening-transplanting/dp/B07RHXX35N"
+          },
+          "57": {
+            "t": "Byhagern Gardening Tool Set - 3 Piece Gardening Tools with Longer Handle, Gardening Gifts",
+            "u": "/Byhagern-Garden-Tool-Set-Steel/dp/B07YHCSGHZ"
+          },
+          "58": {
+            "t": "HORTICAN Gardening Tool Set 21 Piece Gardening Kit with Wooden Handle, Include Gardening Bag, Hand Rake Fork Trowel Gardening Accessories,Gardening Gifts Tools for Women",
+            "u": "/HORTICAN-Gardening-Wooden-Include-Accessories/dp/B088NJM79N"
+          },
+          "59": {
+            "t": "Garden Tools Set, 5 PCS Heavy Duty Aluminum Garden Hand Tools Kit, Floral Print Gardening Tools Gifts for Women",
+            "u": "/Garden-Tools-Aluminum-Floral-Gardening/dp/B08861L5FH"
+          }
+        },
+        "q": "gardening",
+
+        // this is a limitation of the current test setup:
+        // in production, it should be the doublefetch URL, which would be: "https://www.amazon.de/s/?field-keywords=gardening"
+        "qurl": "https://www.amazon.com/s?k=gardening&ref=nb_sb_noss_1",
+        "ctry": "de"
+      }
+    }
+  ]
+}

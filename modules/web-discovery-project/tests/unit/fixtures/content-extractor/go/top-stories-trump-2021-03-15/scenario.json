@@ -1,0 +1,108 @@
+{
+  "url": "https://www.google.com/search?q=trump",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "query",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "Donald Trump: Foto löst Gerüchte über schlechten ...",
+            "u": "https://www.fr.de/politik/donald-trump-gesundheit-mar-a-lago-florida-usa-praesident-90242481.html",
+            "age": null
+          },
+          "1": {
+            "t": "Donald Trump schießt gegen Herzogin Meghan: \"Sie taugt ...",
+            "u": "https://www.t-online.de/unterhaltung/stars/royals/id_89657140/donald-trump-schiesst-gegen-herzogin-meghan-sie-taugt-nichts-.html",
+            "age": null
+          },
+          "2": {
+            "t": "Donald Trump – Wikipedia",
+            "u": "https://de.wikipedia.org/wiki/Donald_Trump",
+            "age": null
+          },
+          "3": {
+            "t": "Trump News aktuell: Nachrichten und Neues von heute | FAZ",
+            "u": "https://www.faz.net/aktuell/politik/thema/donald-trump",
+            "age": null
+          },
+          "4": {
+            "t": "Donald Trump-News: Aktuelle deutsche Nachrichten von heute",
+            "u": "https://www.handelsblatt.com/themen/donald-trump",
+            "age": null
+          },
+          "5": {
+            "t": "Trump - aktuelle Nachrichten | tagesschau.de",
+            "u": "https://www.tagesschau.de/thema/trump/",
+            "age": null
+          },
+          "6": {
+            "t": "Donald Trump - DER SPIEGEL",
+            "u": "https://www.spiegel.de/thema/donald_trump/",
+            "age": null
+          },
+          "7": {
+            "t": "Donald Trump: News und Infos | ZEIT ONLINE",
+            "u": "https://www.zeit.de/thema/donald-trump",
+            "age": null
+          }
+        },
+        "q": "trump",
+        "qurl": "https://www.google.com/search?q=trump",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "top-stories",
+      "payload": {
+        "r": {
+          "0": {
+            "u": "https://www.fr.de/politik/donald-trump-usa-georgia-staatsanwaltschaft-tonband-aufnahmen-wahlbetrug-joe-biden-us-wahl-2020-news-90237324.html",
+            "lu": "vor 3 Stunden",
+            "h": "Donald Trump: „Etwas Schlimmes ist passiert“ – Neue Beweise zu Gespräch\naufgetaucht"
+          },
+          "1": {
+            "u": "https://www.t-online.de/unterhaltung/stars/royals/id_89657140/donald-trump-schiesst-gegen-herzogin-meghan-sie-taugt-nichts-.html",
+            "lu": "vor 2 Stunden",
+            "h": "Donald Trump schießt gegen Herzogin Meghan: \"Sie taugt nichts\""
+          },
+          "2": {
+            "u": "https://www.faz.net/aktuell/politik/von-trump-zu-biden/corona-bekaempfung-was-die-usa-richtig-machen-dank-trump-17243063.html",
+            "lu": "vor 19 Minuten",
+            "h": "Bidens Werk und Trumps Beitrag"
+          }
+        },
+        "q": "trump",
+        "qurl": "https://www.google.com/search?q=trump",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "videos-p",
+      "payload": {
+        "q": "trump",
+        "qurl": "https://www.google.com/search?q=trump",
+        "r": {
+          "0": {
+            "t": "Donald Trump: Last Week Tonight with John Oliver (HBO)",
+            "u": "https://www.youtube.com/watch?v=DnpO_RTSNmQ"
+          },
+          "1": {
+            "t": "New audio of Trump asking election investigator to overturn ...",
+            "u": "https://www.youtube.com/watch?v=B4j25C96Pfo"
+          },
+          "2": {
+            "t": "Trump makes surprise appearance at dog fundraiser | 9 News ...",
+            "u": "https://www.youtube.com/watch?v=pW4hf0V2T9U"
+          }
+        },
+        "ctry": "de"
+      }
+    }
+  ],
+
+  "mustNotContain": [{ "action": "ads_*" }]
+}

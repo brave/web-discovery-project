@@ -1,0 +1,260 @@
+{
+  "url": "https://www.amazon.de/s/ref=nb_sb_noss/261-9879674-9680331?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&url=search-alias%3Daps&field-keywords=test",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "query-am",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "AncestryDNA: Genetischer Herkunftstest",
+            "u": "/AncestryDNA-Genetischer-Herkunftstest/dp/B07JYKZL2K"
+          },
+          "1": {
+            "t": "LuxmedIQ® HIV Selbsttest - Aids Schnelltest für Zuhause - HIV Test: Anonym, Sicher, Schnell",
+            "u": "/LuxmedIQ®-HIV-Selbsttest-Deutschland´s-Schnelltest/dp/B082P4GDJ7"
+          },
+          "2": {
+            "t": "Zuhause Test Vaginalpilz-Scheidenpilz Schnelltest",
+            "u": "/ZUHAUSE-TEST-Vaginalpilz-1-Stück/dp/B07NJS3YZ3"
+          },
+          "3": {
+            "t": "1 x David HIV Testkit 1/2 Schnelltest test kit",
+            "u": "/David-Testkit-AIDS-Schnelltest-test/dp/B07KR2R1JK"
+          },
+          "4": {
+            "t": "Exacto® HIV Selbsttest für Zuhause – HIV Schnelltest: Anonym, Sicher, Schnell – HIV Test von der Deutschen AIDS-Hilfe empfohlen",
+            "u": "https://www.amazon.de/Exacto®-HIV-Selbsttest-für-Zuhause/dp/B07HFCYM28"
+          },
+          "5": {
+            "t": "The Test: A New Era For Australia's Team - Series 1",
+            "u": "https://www.amazon.de/Under-Siege/dp/B08BYY73XW"
+          },
+          "6": {
+            "t": "Clearblue Schwangerschaftsfrühtest mit Wochenbestimmung und eindeutigen digitalen Ergebnissen, 1 digitaler Test",
+            "u": "https://www.amazon.de/Clearblue-Schwangerschaftstest-Anzeige-Wochen-digitaler/dp/B00D6B1900"
+          },
+          "7": {
+            "t": "Clearblue Schwangerschaftstest Frühtest 2 Stück Schwangerschaft Test + 5 Schwangerschaftstest 10 miu ml",
+            "u": "https://www.amazon.de/Clearblue-Schwangerschaftstest-Frühtest-Stück-Schwangerschaft/dp/B01D1QPL9Y"
+          },
+          "8": {
+            "t": "AncestryDNA: Genetischer Herkunftstest",
+            "u": "https://www.amazon.de/AncestryDNA-Genetischer-Herkunftstest/dp/B07JYKZL2K"
+          },
+          "9": {
+            "t": "TellmeGen DNA Test Herkunft (Ancestry) + Gesundheit | +390 Online-Berichte: Der umfangreichste Gentest (ink. Ancestry und Ethnizitätstest) | kostenlose Updates",
+            "u": "https://www.amazon.de/tellmeGen-Genetische-Auswertung-Kit/dp/B01A0W1D9E"
+          },
+          "10": {
+            "t": "MyHeritage DNA Test Kit — Gentest für die Familienforschung",
+            "u": "https://www.amazon.de/MyHeritage-DNA-Test-Kit-Genetischer-Herkunfts-Ethnizitätstest/dp/B072SY5JHQ"
+          },
+          "11": {
+            "t": "Gesundheitstest für 10 Indikatoren - 100 Urin Teststreifen mit Referenzfarbkarte",
+            "u": "https://www.amazon.de/Gesundheitstest-für-Indikatoren-Teststreifen-Referenzfarbkarte/dp/B01B0IV7AW"
+          },
+          "12": {
+            "t": "First Response Early Result Pregnancy Test - (1 x 2 Stück)",
+            "u": "https://www.amazon.de/First-Response-Early-Result-Pregnancy/dp/B001DULLKE"
+          },
+          "13": {
+            "t": "Trinkwasser Wassertest (10 versch. Tests in 1) mit deutsch/englisch bedienungsanleitung",
+            "u": "https://www.amazon.de/Trinkwasser-Wassertest-versch-englisch-bedienungsanleitung/dp/B00643U1BU"
+          },
+          "14": {
+            "t": "Schimmeltest für zu Hause - Schimmelpilz Test für bis zu 6 Räume - Schimmelpilz Schnelltest zur Einschätzung der Luftqualität hinsichtlich einer Schimmelpilzbelastung in Innenräumen",
+            "u": "https://www.amazon.de/Schimmeltest-für-Hause-Schimmelpilz-Schimmelpilzbelastung/dp/B01M6CNPXU"
+          },
+          "15": {
+            "t": "Clearblue Kinderwunsch Ovulationstest Digital - Fruchtbarkeitstest für Eisprung, 20 Tests",
+            "u": "https://www.amazon.de/Clearblue-Ovulationstest-Digital-Tests-Stück/dp/B0774FLLWS"
+          },
+          "16": {
+            "t": "5x Telano Schwangerschaftstest Extra Früh 10mIU/ml Midstream | Schwangerschaftstests Frühtest zur frühen Erkennung einer Schwangerschaft | Früh Schwangerschaftstest zur Anwendung Zuhause",
+            "u": "/Telano-Schwangerschaftstest-Midstream-Schwangerschaftstests-Schwangerschaft/dp/B0851LW9K5"
+          },
+          "17": {
+            "t": "50x Telano Schwangerschaftstest Streifen Extra Früh 10mIU/ml | Schwangerschaftstest Frühtest zur frühen Erkennung einer Schwangerschaft | Frühschwangerschaftstest Streifen zur Anwendung Zuhause",
+            "u": "/Telano-Schwangerschaftstest-Erkennung-Schwangerschaft-Frühschwangerschaftstest/dp/B0851LVM2S"
+          },
+          "18": {
+            "t": "Femometer Schwangerschaftstest Frühtest 3er Pack mit HCG Teststreifen 12.5miu/ml, über 99% Genauigkeit, 2 Groß Wasserdicht Ergebnisfenster",
+            "u": "/Schwangerschaftstest-Teststreifen-Genauigkeit-Wasserdicht-Ergebnisfenster/dp/B07YZ6MH47"
+          },
+          "19": {
+            "t": "Gigaset DA810A - schnurgebundenes Telefon mit Anrufbeantworter - Haustelefon mit flexibler Freisprechfunktion und Direktruf, schwarz",
+            "u": "https://www.amazon.de/Gigaset-DA810A-Telefon-Schnurgebundes-Anrufbeantworter-schwarz/dp/B0094M2NLY"
+          },
+          "20": {
+            "t": "Test: Manchmal ist es nur eine Frage des Glucks. [OmU]",
+            "u": "https://www.amazon.de/Test-Manchmal-Frage-Glücks-Untertiteln/dp/B00KXV74UA"
+          },
+          "21": {
+            "t": "test Jahrbuch 2020: Mehr als 100 Tests und Reports",
+            "u": "https://www.amazon.de/test-Jahrbuch-2020-Tests-Reports-ebook/dp/B08231TGTG"
+          },
+          "22": {
+            "t": "Emerio WK-119988 Glas Wasserkocher,1.7 Liter, 2200 Watt, LED Innenbeleuchtung, 360° Basis, Sieger Preis/Leistung Haus & Garten Test 02/2019, 1.7 liters, Schwarz, Edelstahl",
+            "u": "https://www.amazon.de/Emerio-WK-119988-Wasserkocher-Innenbeleuchtung-Edelstahl/dp/B07GDVG5FQ"
+          },
+          "23": {
+            "t": "10 x One+Step THC Urintest, Drogentest Cannabis Marijuana Haschisch, Urin Teststreifen für den Schnelltest, hohe Sensitivität Cut-off: 20 ng/ml (10)",
+            "u": "https://www.amazon.de/One-Step-Teststreifen-Schnelltest-Sensitivität/dp/B081JZJ4JG"
+          },
+          "24": {
+            "t": "Clearblue Schwangerschaftstest Ultra Early Triple Check, Set mit 3 Tests",
+            "u": "https://www.amazon.de/Clearblue-Schwangerschaftstest-3-fach-Prüfung-Tests/dp/B07MH2LM43"
+          },
+          "25": {
+            "t": "Neudorff pH-Bodentest zur Ermittlung des Boden-pH-Wertes des Kalkbedarfs 8 Tests im Set",
+            "u": "https://www.amazon.de/Neudorff-00125-pH-Bodentest/dp/B000PTMD9C"
+          },
+          "26": {
+            "t": "Tests im Sachunterricht - Lernzielkontrollen 4. Klasse, A4- Heft (Lernzielkontrollen, Tests und Proben, Band 404)",
+            "u": "https://www.amazon.de/Tests-Sachunterricht-Lernzielkontrollen-Klasse-Proben/dp/3881004041"
+          },
+          "27": {
+            "t": "VAVA Nachtlicht Kind Nachttischlampe Baby Kinder ÖKO-TEST GUT Nachtleuchte LED Nachtlampe Schlummerlicht Stimmungslicht USB Batterie Baby-sicher Bruchsicher Augenfreundlich Farbtemperatur 2700-6500K",
+            "u": "https://www.amazon.de/VAVA-Nachtlicht-Kind-Nachtleuchte-Öko-Test/dp/B06XT2ZS8C"
+          },
+          "28": {
+            "t": "autotest VIH HIV-Selbsttest ratiopharm,1St",
+            "u": "https://www.amazon.de/autotest-VIH-1-St-Teststreifen/dp/B07J9JJJ17"
+          },
+          "29": {
+            "t": "100 One+Step pH Teststreifen für Urin UND Speichel - pH Test zur Ermittlung ph Wert",
+            "u": "https://www.amazon.de/One-Step-Teststreifen-Urin-Speichel/dp/B083R969T8"
+          },
+          "30": {
+            "t": "Tetra Test 6in1 - Wassertest für das Aquarium, schnelle und einfache Überprüfung der Wasserqualität, 1 Dose (25 Teststreifen)",
+            "u": "https://www.amazon.de/Tetra-Wassertest-Aquarium-Überprüfung-Wasserqualität/dp/B001B65ZVQ"
+          },
+          "31": {
+            "t": "BioSURE HIV-Selbsttest – Ein äußerst einfacher und mit > 99,7 % Genauigkeit höchst zuverlässiger Test. Mit CE-Kennzeichnung – Gebrauchshinweise in Englisch",
+            "u": "/BioSURE-HIV-SELF-TESTING-Instructions/dp/B00XAEGILS"
+          },
+          "32": {
+            "t": "Asbesttest + KMF Test – Analyse einer Staubprobe oder Materialprobe im Labor auf Asbest und Künstliche Mineralfasern (KMF)",
+            "u": "/Asbesttest-KMF-Test-Materialprobe-Mineralfasern/dp/B07RSSFX2Q"
+          },
+          "33": {
+            "t": "AFAC Schwangerschaftstest Frühtest 3er Pack Onestep Schwangerschaftstests mit ß HCG Teststreifen, über 99% Genauigkeit, 2 Groß Wasserdicht Ergebnisfenster",
+            "u": "/AFAC-Schwangerschaftstest-Schwangerschaftstests-Teststreifen-Ergebnisfenster/dp/B07NQDR9FM"
+          },
+          "34": {
+            "t": "2015/12/09 Test",
+            "u": "https://www.amazon.de/2015-12-09-Test-BCC/dp/B01BQWPVUO"
+          },
+          "35": {
+            "t": "Andrea And Trevor Dow's Timed Note Reading Tests For Piano, Book 2: 95 Days Of Exercises In Treble C Position And G Position (Piano Student Workbooks)",
+            "u": "https://www.amazon.de/Andrea-Trevor-Timed-Reading-Tests/dp/B08F7V6SF9"
+          },
+          "36": {
+            "t": "Aloe Vera Gel 99% Bio, 355 ml – ÖKO-TEST Sehr Gut – 100% Natürlich, Rein & Ohne Duftstoffe (Alkoholfrei, Kein Parfüm/WC-Duft) – Einzigartige Vegane Formel OHNE XANTHAN – aus ECHTEM SAFT, NICHT PULVER",
+            "u": "https://www.amazon.de/Aloe-Vera-Gel-99-Bio/dp/B07NGMKQH5"
+          },
+          "37": {
+            "t": "CentoKit-19 - Coronavirus PCR Test Kit - Single: Coronavirus Selbstabstrich-Kit & Laboranalyse mit schnellem Ergebnis, 1 Stück",
+            "u": "https://www.amazon.de/CentoKit-19-Coronavirus-Selbstabstrich-Kit-Laboranalyse-schnellem/dp/B08BCT2JMF"
+          },
+          "38": {
+            "t": "BAYROL Quick Test - 50 x Pool Teststreifen für pH Wert / Chlor / Alkalinität / Algizid",
+            "u": "https://www.amazon.de/BAYROL-Quick-Test-Teststreifen-Alkalinität/dp/B00C3YPSW6"
+          },
+          "39": {
+            "t": "TSH Schilddrüsenunterfunktion Test - Selbsttest für Zuhause, 1 Stück",
+            "u": "https://www.amazon.de/TSH-Schilddrüsenunterfunktion-Test-Selbsttest-Zuhause/dp/B0847BNXZY"
+          },
+          "40": {
+            "t": "DUR-line +Ultra Quad LNB - 4 Teilnehmer schwarz - mit LTE-Filter [ Test SEHR GUT *] 4-Fach, digital mit Wetterschutz, Full HD, 4K,Premium-Qualität",
+            "u": "https://www.amazon.de/DUR-line-Ultra-Quad-LNB-Premium-Qualität-Schwarz/dp/B01IV98CEM"
+          },
+          "41": {
+            "t": "Schwangerschaftstest Frühtest, 5 Stück Schwangerschaft Test Früh Stick Hochpräzise 10 miu/ml, Frühtest Pregnancy Test Early Detect",
+            "u": "https://www.amazon.de/Schwangerschaftstest-Frühtest-Schwangerschaft-Hochpräzise-Pregnancy/dp/B07NPG56R5"
+          },
+          "42": {
+            "t": "Söll  15336 Ammonium-Test - NH4+ Test-Kit für 10 Messungen",
+            "u": "https://www.amazon.de/Söll-15336-Ammonium-Test-Test-Kit-Messungen/dp/B006YPASSY"
+          },
+          "43": {
+            "t": "KeeYees SOIC8 SOP8 Test Clip für EEPROM 25CXX / 24CXX + CH341A 24 25 Serie EEPROM Flash BIOS USB Programmer",
+            "u": "https://www.amazon.de/KeeYees-SOIC8-EEPROM-CH341A-Programmer/dp/B07SNTL5V6"
+          },
+          "44": {
+            "t": "Vitamin B12 Test Kit von CERASCREEN – Vitamin-B12-Spiegel einfach per Selbsttest von Zuhause bestimmen I Zertifiziertes Labor I Detaillierter Ergebnisbericht I Holo-TC-Test",
+            "u": "https://www.amazon.de/Vitamin-Test-CERASCREEN-Vitamin-B12-Spiegel-Ergebnisbericht/dp/B07TS8DKYC"
+          },
+          "45": {
+            "t": "The Test (English Edition)",
+            "u": "https://www.amazon.de/Sylvain-Neuvel-ebook/dp/B07HF3QMBB"
+          },
+          "46": {
+            "t": "Test: „SEHR GUT“ - 50x TÜV geprüfte Einweg Atemmaske EN14683 TYP II mit 98% BFE - von Jiangsu Huayuan - Gesichtsmaske - Einwegmaske Mundschutz Staubschutz Maske mit Ohrschlaufen",
+            "u": "https://www.amazon.de/Test-Gesichtsmaske-Einwegmaske-Staubschutz-Ohrschlaufen/dp/B088TRGN36"
+          },
+          "47": {
+            "t": "viola Chlamydien Schnelltest Frauen | Chlamydia Trachomatis Abstrich-Schnell-Test | Check von Geschlechtskrankheiten wie Clamydien-Infektion die das Risiko von Unfruchtbarkeit der Frau erhöhen",
+            "u": "https://www.amazon.de/viola-Abstrich-Schnell-Test-Geschlechtskrankheiten-Clamydien-Infektion-Unfruchtbarkeit/dp/B07PXM81DH"
+          },
+          "48": {
+            "t": "Johnny Test: TV Series Complete Seasons 1-4 DVD Collection",
+            "u": "https://www.amazon.de/Johnny-Test-Complete-Seasons-Collection/dp/B07TWJ4G5R"
+          },
+          "49": {
+            "t": "Vitamin D Test Kit Rapid Selbsttest Vitamin D Gesundheit Test Kit",
+            "u": "https://www.amazon.de/Vitamin-Test-Rapid-Selbsttest-Gesundheit/dp/B084BPTNB1"
+          },
+          "50": {
+            "t": "Bodyguard Anti-Kartell-Matratze – Stiftung Warentest Note 1,7 (test 10/2018, H3 mittelfest, 90x200 cm) 2in1 Liegehärten H3&H4, abnehmbarer Bezug waschbar bis 60 Grad, OEKO-TEX 100, Deutschlands meistgekaufte Matratze",
+            "u": "https://www.amazon.de/Bodyguard-Anti-Kartell-Matratze-Liegehärten-abnehmbarer-Ergonomiemodule/dp/B01CGVNC3W"
+          },
+          "51": {
+            "t": "Fruchtbarkeitstest, Zeugungsfähigkeit Spermien Test, Spermien Fertilityscore Schnell Zuhause Test, Sperma Test Fertilität für Männer, Diskreter Versand (1 Test)",
+            "u": "https://www.amazon.de/Fruchtbarkeitstest-Zeugungsfähigkeit-Fertilityscore-Fertilität-Diskreter/dp/B07X5W769Z"
+          },
+          "52": {
+            "t": "Bügelbild Wunsch Name Text Sterne in Flex, Glitzer, Flock, Effekt in Wunschgröße",
+            "u": "https://www.amazon.de/Bügelbild-Wunsch-Sterne-Glitzer-Wunschgröße/dp/B07FQNKM2Q"
+          },
+          "53": {
+            "t": "2015/12/09 Test JP",
+            "u": "https://www.amazon.de/2015-12-09-Test-JP/dp/B077H6CWNQ"
+          },
+          "54": {
+            "t": "GutReise 10pc E10 Lampen Sockel E10 LED screw-mount klein Leuchtmittel-Halterung E10 Fassung mit Draht Light Base Sockel für Home Experiment elektrischen Test Zubehör",
+            "u": "https://www.amazon.de/GutReise-screw-mount-Leuchtmittel-Halterung-Experiment-elektrischen/dp/B06XRZ3M39"
+          },
+          "55": {
+            "t": "MediVinius Ketostix 100 Stück für sofortige Ketose Messergebnisse I Keton Teststreifen für die effektive Keto Ernährung und Diät I Ketosticks, Keton Sticks Urin",
+            "u": "https://www.amazon.de/MediVinius-sofortige-Messergebnisse-Teststreifen-Ketosticks/dp/B07ZDBMDX5"
+          },
+          "56": {
+            "t": "BioSURE HIV-Selbsttest – Ein äußerst einfacher und mit > 99,7 % Genauigkeit höchst zuverlässiger Test. Mit CE-Kennzeichnung – Gebrauchshinweise in Englisch",
+            "u": "https://www.amazon.de/BioSURE-HIV-SELF-TESTING-Instructions/dp/B00XAEGILS"
+          },
+          "57": {
+            "t": "DUR-line +Ultra Single LNB - 1 Teilnehmer weiß - mit LTE-Filter [ Test SEHR GUT *] 1-Fach, digital mit Wetterschutz, Full HD, 4K,Premium-Qualität",
+            "u": "https://www.amazon.de/DUR-line-Ultra-Single-LNB-Premium-Qualität/dp/B07JGYY129"
+          },
+          "58": {
+            "t": "Schwangerschaftstest (10 mIU hCG/ml) 8 Teststreifen (Versandzeit 1 Werktag)",
+            "u": "/Schwangerschaftstest-hCG-Teststreifen-Versandzeit-Werktag/dp/B00EMHSYKU"
+          },
+          "59": {
+            "t": "PreSense® - Schwangerschafts-Schnelltest - Labor Getestet – Schnell, Sicher, Zuverlässig und Einfach – Urintest - SS Test Schwanger – Schwangerschaft",
+            "u": "/PreSense®-Schwangerschafts-Schnelltest-Zuverlässig-Schwanger-Schwangerschaft/dp/B07YL74MNK"
+          }
+        },
+        "q": "test",
+        "ctry": "de",
+
+        // this is a limitation of the current test setup:
+        // in production, it should be the doublefetch URL, which would be: "https://www.amazon.de/s/?field-keywords=test"
+        "qurl": "https://www.amazon.de/s/ref=nb_sb_noss/261-9879674-9680331?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&url=search-alias%3Daps&field-keywords=test"
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+name: Integration tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+    - run: ./run_tests_in_docker.sh "configs/ci/integration-tests.js -l firefox-web-ext --firefox ~/firefoxBeta/firefox/firefox"

@@ -1,0 +1,54 @@
+{
+  "url": "https://www.google.com/search?hl=en&q=angela%20merkel",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "query",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "Elon Musk (@elonmusk) · Twitter",
+            "u": "https://twitter.com/elonmusk?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
+            "age": null
+          },
+          "1": {
+            "t": "Tesla (@Tesla) | Twitter",
+            "u": "https://twitter.com/tesla?lang=en",
+            "age": null
+          },
+          "2": {
+            "t": "Elon Musk News (@ElonMuskNewsOrg) | Twitter",
+            "u": "https://twitter.com/elonmusknewsorg?lang=en",
+            "age": null
+          },
+          "3": {
+            "t": "Elon Musk Just Revealed the Secret Story of Tesla on Twitter ...",
+            "u": "https://www.inc.com/justin-bariso/elon-musk-just-revealed-the-secret-story-of-tesla-on-twitter-and-it-is-epic.html",
+            "age": null
+          },
+          "4": {
+            "t": "Elon Musk Calls Out Jeff Bezos on Twitter Over Rocket ...",
+            "u": "https://www.inc.com/business-insider/elon-musk-calls-out-jeff-bezons-on-twitter.html",
+            "age": null
+          },
+          "5": {
+            "t": "Dogecoin and Elon Musk's cryptic 'SNL' tweet | Fox Business",
+            "u": "https://www.foxbusiness.com/lifestyle/dogecoin-price-spikes-after-elon-musk-snl-tweet",
+            "age": null
+          },
+          "6": {
+            "t": "To Tweet or not to Tweet? A look at Elon Musk's year on Twitter.",
+            "u": "https://www.thefirmpr.com/to-tweet-or-not-to-tweet-a-look-at-elon-musks-year-on-twitter/",
+            "age": null
+          }
+        },
+        "q": "elon musk twitter",
+        "qurl": "https://www.google.com/search?hl=en&q=angela%20merkel",
+        "ctry": "de"
+      }
+    }
+  ],
+
+  "mustNotContain": [{ "action": "ads_*" }]
+}

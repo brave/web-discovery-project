@@ -1,0 +1,27 @@
+{
+  "name": "WebDiscoveryProject",
+  "description": "WebDiscoveryProject standalone extension",
+  "version": "1.1.0",
+  "manifest_version": 2,
+  "icons": { "256": "assets/brave.png" },
+  "content_security_policy": "default-src 'self'; connect-src * data: blob: filesystem:; style-src 'self' data: 'unsafe-inline'; img-src 'self' data:; frame-src 'self' data:; font-src 'self' data:; media-src * data: blob: filesystem:; script-src 'self' 'wasm-eval';",
+  "permissions": [
+    "<all_urls>",
+    "history",
+    "storage",
+    "tabs",
+    "unlimitedStorage",
+    "webRequest",
+    "webNavigation",
+    "webRequestBlocking"
+  ],
+  "background": { "scripts": ["modules/webextension-specific/app.bundle.js"] },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "run_at": "document_start",
+      "match_about_blank": true,
+      "js": ["modules/core/content-script.bundle.js"]
+    }
+  ]
+}

@@ -1,0 +1,192 @@
+{
+  "urlPatterns": [
+    "\\.google\\..*?[#?&;]((q=[^&]+&([^&]+&)*tbm=isch)|(tbm=isch&([^&]+&)*q=[^&]+))",
+    "\\.google\\..*?[#?&;]q=[^$&]+",
+    ".search.yahoo\\..*?[#?&;]p=[^$&]+",
+    ".linkedin.*?\\/pub\\/dir+",
+    "\\.bing\\.[^/]+\\/images/search[?]q=[^$&]+",
+    "\\.bing\\..*?[#?&;]q=[^$&]+",
+    "\\.amazon\\.[^/]+\\/(s[?]k=[^$&]+|.*[?&]field-keywords=[^$&]+)",
+    "\\.amazon\\..*(/dp/|/gp/product/)",
+    "^https:[/][/]duckduckgo.com[/](?:html$|.*[?&]q=[^&]+.*&ia=web|[?]q=[^&]+$)"
+  ],
+  "searchEngines": ["0", "1", "2", "4", "5", "6", "8"],
+  "scrape": {
+    "0": {
+      "form[role=\"search\"]": {
+        "q": {
+          "item": "form input[name=\"q\"]",
+          "type": "searchQuery",
+          "etype": "value",
+          "keyName": "q"
+        }
+      }
+    },
+    "1": {
+      "#mobile-search #sfcnt": {
+        "q": {
+          "item": "input",
+          "type": "searchQuery",
+          "etype": "value",
+          "keyName": "q"
+        }
+      },
+      "form[role=\"search\"]": {
+        "q": {
+          "item": "form input[name=\"q\"]",
+          "type": "searchQuery",
+          "etype": "value",
+          "keyName": "q"
+        }
+      }
+    },
+    "2": {
+      ".sbq-w": {
+        "q": {
+          "item": "#yschsp",
+          "type": "searchQuery",
+          "etype": "value",
+          "keyName": "query"
+        }
+      }
+    },
+    "3": {
+      ".profile-card": {
+        "img": {
+          "item": ".image",
+          "type": "arr",
+          "etype": "src",
+          "keyName": "imgl"
+        },
+        "fullName": {
+          "item": ".content h3 a",
+          "type": "arr",
+          "etype": "text",
+          "keyName": "fn"
+        },
+        "profileLink": {
+          "item": ".content h3 a",
+          "type": "arr",
+          "etype": "href",
+          "keyName": "pl"
+        },
+        "currentWork": {
+          "item": ".content p.headline",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "cw"
+        }
+      },
+      "ctry": {
+        "ctry": {
+          "type": "standard",
+          "etype": "ctry",
+          "keyName": "ctry"
+        }
+      }
+    },
+    "4": {
+      "#sb_form": {
+        "q": {
+          "item": "#sb_form_q",
+          "type": "searchQuery",
+          "etype": "value",
+          "keyName": "query"
+        }
+      }
+    },
+    "5": {
+      "#sb_form": {
+        "q": {
+          "item": "#sb_form_q",
+          "type": "searchQuery",
+          "etype": "value",
+          "keyName": "query"
+        }
+      }
+    },
+    "6": {
+      "#twotabsearchtextbox": {
+        "q": {
+          "type": "searchQuery",
+          "etype": "value",
+          "keyName": "query"
+        }
+      },
+      "[data-component-type=\"s-result-sort\"]": {
+        "q": {
+          "item": "form > input[name=\"k\"]",
+          "type": "searchQuery",
+          "etype": "value",
+          "keyName": "query"
+        }
+      }
+    },
+    "7": {
+      "#wayfinding-breadcrumbs_container": {
+        "c": {
+          "item": "div",
+          "type": "searchQuery",
+          "etype": "textContent",
+          "keyName": "query"
+        }
+      },
+      "ctry": {
+        "ctry": {
+          "type": "standard",
+          "etype": "ctry",
+          "keyName": "ctry"
+        }
+      },
+      "head": {
+        "curl": {
+          "item": "link[rel='canonical']",
+          "etype": "href",
+          "keyName": "curl"
+        }
+      }
+    },
+    "8": {
+      "#header": {
+        "q": {
+          "item": "#search_form_input[name=\"q\"]",
+          "type": "searchQuery",
+          "etype": "value",
+          "keyName": "query"
+        }
+      }
+    }
+  },
+  "payloads": {
+    "3": {
+      ".profile-card": {
+        "type": "single",
+        "results": "single",
+        "action": "linkedin"
+      }
+    },
+    "7": {
+      "q": {
+        "type": "query",
+        "results": "clustered",
+        "action": "category-am",
+        "fields": [
+          ["#wayfinding-breadcrumbs_container", "c"],
+          ["head", "curl"],
+          ["ctry", "ctry"]
+        ]
+      }
+    }
+  },
+  "idMapping": {
+    "0": "goi",
+    "1": "go",
+    "2": "ya",
+    "3": "lnkd",
+    "4": "bingi",
+    "5": "bing",
+    "6": "am",
+    "7": "amc",
+    "8": "ddg"
+  }
+}

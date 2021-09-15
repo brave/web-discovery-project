@@ -1,0 +1,215 @@
+{
+  "url": "https://www.google.com/search?hl=en&q=kuckucksuhr%20kaufen",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "query",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "Kuckucksuhren - Amazon.de",
+            "u": "https://www.amazon.de/Kuckucksuhren/b?ie=UTF8&node=2970892031",
+            "age": null
+          },
+          "1": {
+            "t": "Kuckucksuhren günstig kaufen | eBay",
+            "u": "https://www.ebay.de/b/Kuckucksuhren/79644/bn_2394739",
+            "age": null
+          },
+          "2": {
+            "t": "Kuckucksuhren » jetzt online kaufen | uhren-park.de",
+            "u": "https://www.uhren-park.de/index.php/cat/c1_Kuckucksuhren.html",
+            "age": null
+          },
+          "3": {
+            "t": "Der Kuckucksuhren-Shop für original Kuckucksuhren aus dem ...",
+            "u": "https://www.kuckucksuhr.net/",
+            "age": null
+          },
+          "4": {
+            "t": "Original Kuckucksuhren aus dem Schwarzwald",
+            "u": "https://www.schwarzwaldpalast.de/",
+            "age": null
+          },
+          "5": {
+            "t": "Kuckucksuhr eBay Kleinanzeigen",
+            "u": "https://www.ebay-kleinanzeigen.de/s-kuckucksuhr/k0",
+            "age": null
+          },
+          "6": {
+            "t": "Kuckucksuhren günstig online kaufen | LadenZeile",
+            "u": "https://www.ladenzeile.de/uhren/kuckucksuhr/",
+            "age": null
+          },
+          "7": {
+            "t": "Kuckucksuhren Shop - Original Kuckucksuhren aus dem ...",
+            "u": "https://www.hausder1000uhren.de/",
+            "age": null
+          },
+          "8": {
+            "t": "deine-kuckucksuhr.de: Kuckucksuhren aus dem Schwarzwald ...",
+            "u": "https://www.deine-kuckucksuhr.de/",
+            "age": null
+          }
+        },
+        "q": "kuckucksuhr kaufen",
+        "qurl": "https://www.google.com/search?hl=en&q=kuckucksuhr%20kaufen",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "ads_C",
+      "payload": {
+        "r": {
+          "0": {
+            "u": "https://www.schwarzwaldpalast.de/Chalet-Kuckucksuhren/Kuckucksuhr-1-Tag-Uhrwerk-Chalet-Stil-23cm-von-August-Schwer::513.html?utm_campaign=shopping&utm_source=merchantcenter&utm_medium=googleshopping&utm_content=google-de"
+          },
+          "1": {
+            "u": "https://www.uhren-park.de/product_info.php/refID/99/info/p22501_Eble--Schwarzwaldhaus-23cm--60840000.html"
+          },
+          "2": {
+            "u": "https://www.manufactum.de/manufactum-kuckucksuhr-a86900/"
+          },
+          "3": {
+            "u": "https://www.wish.com/c/5dfdb8165524b5086d720f35?hide_login_modal=true&from_ad=goog_shopping&_display_country_code=DE&_force_currency_code=EUR&pid=googleadwords_int&c=%7BcampaignId%7D&ad_cid=5dfdb8165524b5086d720f35&ad_cc=DE&ad_lang=DE&ad_curr=EUR&ad_price=27.00"
+          },
+          "4": {
+            "u": "https://www.schwarzwaldpalast.de/Preisguenstige-Souvenir-Kuckucksuhren-Wetterhaeusschen/Kuckucksuhr-Kuckulino-Quarz-Uhrwerk-Chalet-Stil-12cm-von-Trenkle-Uhren::933.html?utm_campaign=shopping&utm_source=merchantcenter&utm_medium=googleshopping&utm_content=google-de"
+          },
+          "5": {
+            "u": "https://www.uhren-park.de/product_info.php/refID/99/info/p11632_Engstler--Holzhacker-30cm--4901-QMT.html"
+          },
+          "6": {
+            "u": "https://www.schwarzwaldpalast.de/Preisguenstige-Souvenir-Kuckucksuhren-Wetterhaeusschen/Kuckucksuhr-Kettenzug-Uhrwerk-25cm-von-Trenkle-Uhren::813.html?utm_campaign=shopping&utm_source=merchantcenter&utm_medium=googleshopping&utm_content=google-de"
+          },
+          "7": {
+            "u": "https://www.pearl.de/a-NX3211-3040.shtml?vid=917&wa_id=40&wa_num=5119&utm_source=googleps&utm_medium=cpc"
+          },
+          "8": {
+            "u": "https://www.amazon.de/Kuckucksuhr-Kuckuckuhr-batteriebetriebenes-Quartzwerk-Eble/dp/B00E8HR7GG?source=ps-sl-shoppingads-lpcontext&psc=1?source=ps-sl-shoppingads-lpcontext&psc=1"
+          },
+          "9": {
+            "u": "https://www.wayfair.de/Brambly-Cottage--Kuckucksuhr-Meyers-V112875693-L1563-K~D001653477.html?refid=GBde368-D001653477_1285244921&PiID%5B%5D=1285244921"
+          },
+          "10": {
+            "u": "https://selection4.store/wohnen/stand-wanduhren/wanduhr-clock-circle-moos-progetti?number=SW40238.1"
+          },
+          "11": {
+            "u": "https://www.uhren-park.de/product_info.php/refID/99/info/p479_Eble--Fuenflaub-28cm--28-01-12-80.html"
+          },
+          "12": {
+            "u": "https://www.schwarzwaldpalast.de/Geschnitzte-Schwarzwaelder-Kuckucksuhren/Kuckucksuhr-1-Tag-Uhrwerk-geschnitzt-50cm-von-August-Schwer::535.html?utm_campaign=shopping&utm_source=merchantcenter&utm_medium=googleshopping&utm_content=google-de"
+          },
+          "13": {
+            "u": "https://www.made.com/de/ppc/lark-kuckucksuhr-zartrosa-und-messing"
+          },
+          "14": {
+            "u": "https://www.uhren-park.de/product_info.php/refID/99/info/p562_Eble--Fuenflaub-22cm--85990000.html"
+          },
+          "15": {
+            "u": "https://www.schwarzwaldpalast.de/Geschnitzte-Schwarzwaelder-Kuckucksuhren/Kuckucksuhr-Quarz-Uhrwerk-geschnitzt-24cm-von-Trenkle-Uhren::332.html?utm_campaign=shopping&utm_source=merchantcenter&utm_medium=googleshopping&utm_content=google-de"
+          },
+          "16": {
+            "u": "https://www.jako-o.com/de_DE/kookoo-wanduhr--368349"
+          },
+          "17": {
+            "u": "https://www.uhren-park.de/product_info.php/refID/99/info/p14183_Engstler--Holzhacker-32cm--4091.html"
+          },
+          "18": {
+            "u": "https://www.bradford.de/der-verrueckte-hutmacher-disney-s-alice-im-wunderland-kuckucksuhr.html"
+          },
+          "19": {
+            "u": "https://www.schwarzwaldpalast.de/Chalet-Kuckucksuhren/Kuckucksuhr-1-Tag-Uhrwerk-Chalet-Stil-23cm-von-August-Schwer::514.html?utm_campaign=shopping&utm_source=merchantcenter&utm_medium=googleshopping&utm_content=google-de"
+          },
+          "20": {
+            "u": "https://www.schwarzwaldpalast.de/Geschnitzte-Schwarzwaelder-Kuckucksuhren/Kuckucksuhr-1-Tag-Uhrwerk-geschnitzt-26cm-von-Anton-Schneider::786.html?utm_campaign=shopping&utm_source=merchantcenter&utm_medium=googleshopping&utm_content=google-de"
+          },
+          "21": {
+            "u": "https://www.holzkern.com/de/vulkankrater-walnuss-basalt.html"
+          },
+          "22": {
+            "u": "https://www.schwarzwaldpalast.de/Geschnitzte-Schwarzwaelder-Kuckucksuhren/Kuckucksuhr-8-Tages-Uhrwerk-geschnitzt-40cm-von-August-Schwer::568.html?utm_campaign=shopping&utm_source=merchantcenter&utm_medium=googleshopping&utm_content=google-de"
+          },
+          "23": {
+            "u": "https://www.uhren-park.de/product_info.php/refID/99/info/p1623_Eble--Fuenflaub-30cm--55400000.html"
+          },
+          "24": {
+            "u": "https://www.schwarzwaldpalast.de/Geschnitzte-Schwarzwaelder-Kuckucksuhren/Kuckucksuhr-1-Tag-Uhrwerk-geschnitzt-33cm-von-August-Schwer::534.html?utm_campaign=shopping&utm_source=merchantcenter&utm_medium=googleshopping&utm_content=google-de"
+          },
+          "25": {
+            "u": "https://www.schwarzwaldpalast.de/Geschnitzte-Schwarzwaelder-Kuckucksuhren/Kuckucksuhr-Quarz-Uhrwerk-geschnitzt-23cm-von-Engstler::1071.html?utm_campaign=shopping&utm_source=merchantcenter&utm_medium=googleshopping&utm_content=google-de"
+          },
+          "26": {
+            "u": "https://www.uhren-park.de/product_info.php/refID/99/info/p494_Engstler--Fuenflaub-22cm--522-Q.html"
+          },
+          "27": {
+            "u": "https://www.uhren-park.de/product_info.php/refID/99/info/p22766_Eble--Schwarzwaldhaus-21cm--60850000.html"
+          },
+          "28": {
+            "u": "https://www.schwarzwaldpalast.de/Chalet-Kuckucksuhren/Kuckucksuhr-1-Tag-Uhrwerk-Chalet-Stil-25cm-von-August-Schwer::520.html?utm_campaign=shopping&utm_source=merchantcenter&utm_medium=googleshopping&utm_content=google-de"
+          }
+        },
+        "q": "kuckucksuhr kaufen",
+        "qurl": "https://www.google.com/search?hl=en&q=kuckucksuhr%20kaufen",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "places",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "Herrmann Geschenke GmbH",
+            "addr": "Neuhauser Str. 2"
+          },
+          "1": {
+            "t": "Haus der 1000 Uhren: Kuckucksuhren - Black Forest Cuckoo Clocks",
+            "addr": "Triberg im Schwarzwald"
+          },
+          "2": {
+            "t": "Kuckucksuhr.net",
+            "addr": "Schönwald im Schwarzwald"
+          }
+        },
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "img-p",
+      "payload": {
+        "q": "kuckucksuhr kaufen",
+        "qurl": "https://www.google.com/search?hl=en&q=kuckucksuhr%20kaufen",
+        "r": {
+          "0": {
+            "u": "https://www.herrmann-geschenke.de/sortiment/kuckucksuhren/"
+          },
+          "1": {
+            "u": "https://www.herrmann-geschenke.de/sortiment/kuckucksuhren/"
+          },
+          "2": {
+            "u": "https://www.herrmann-geschenke.de/sortiment/kuckucksuhren/"
+          },
+          "3": {
+            "u": "https://www.kuckucksuhr.net/"
+          },
+          "4": {
+            "u": "https://www.herrmann-geschenke.de/sortiment/kuckucksuhren/"
+          },
+          "5": {
+            "u": "https://www.kuckucksuhr.net/"
+          },
+          "6": {
+            "u": "https://kuckucksuhren.shop/"
+          }
+        },
+        "ctry": "de"
+      }
+    }
+  ],
+
+  "mustNotContain": [{ "action": "top-stories" }]
+}
