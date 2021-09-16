@@ -10,6 +10,7 @@ module.exports = {
     WDP_ENV: "sandbox",
   },
   default_prefs: {
+    ...base.default_prefs,
     "logger.hpnv2.level": "debug",
     "logger.web-discovery-project.level": "debug",
   },

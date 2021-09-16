@@ -74,7 +74,7 @@ module.exports = class BroccoliWebpack extends Plugin {
         },
         externals: this.builderConfig.globalDeps,
         optimization: {
-          minimize: process.env.NODE_ENV === 'production',
+          minimize: !!env.PROD,
         },
       });
 
