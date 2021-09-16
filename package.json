@@ -5,7 +5,7 @@
   "scripts": {
     "lint": "node --unhandled-rejections=strict fern.js lint",
     "build": "node --unhandled-rejections=strict fern.js build configs/sandbox.js --environment prod",
-    "build-module": "NODE_ENV=production node --unhandled-rejections=strict fern.js build configs/module.js --environment prod",
+    "build-module": "node --unhandled-rejections=strict fern.js build configs/module.js --environment prod",
     "start-brave-env": "web-ext run --source-dir='./build' --target chromium --chromium-binary \"$BRAVE_BIN\"",
     "start:brave": "web-ext run --source-dir='./build' --target chromium --chromium-binary ./brave/brave",
     "start:build": "node --unhandled-rejections=strict fern.js serve configs/sandbox.js --no-launch",
