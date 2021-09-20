@@ -2,7 +2,7 @@ import { fromBase64, toBase64 } from "../core/encoding";
 import { sha256 } from "../core/crypto/utils";
 import logger from "./logger";
 
-const THRESHOLD = 5; // current threshold
+const THRESHOLD = 20; // current threshold
 const EPOCH = "1"; // versioning
 
 export default class Star {
