@@ -20,7 +20,7 @@ export function parseDom(url, window, wdp) {
     jsRef = document.querySelector("script");
     if (jsRef && jsRef.innerHTML.indexOf("location.replace") > -1) {
       const location = document.querySelector("title").textContent;
-      wdp.modules['web-discovery-project'].action('jsRedirect', {
+      wdp.action("jsRedirect", {
         location,
         url: document.location.href,
       });
