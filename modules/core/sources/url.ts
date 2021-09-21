@@ -4,6 +4,8 @@
 
 import { toASCII } from "punycode";
 import { ImmutableURL, URL, getPunycodeEncoded } from "@cliqz/url-parser";
+import { parse as parseHostname } from "tldts-experimental";
+
 import Cache from "./helpers/string-cache";
 
 function tryDecode(fn: (url: string) => string): (url: string) => string {
@@ -30,24 +32,12 @@ function tryDecode(fn: (url: string) => string): (url: string) => string {
   };
 }
 
-const ipv4Part = "0*([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])"; // numbers 0 - 255
-const ipv4Regex = new RegExp(
-  `^${ipv4Part}\\.${ipv4Part}\\.${ipv4Part}\\.${ipv4Part}([:]([0-9])+)?$`
-); // port number
-const ipv6Regex = new RegExp(
-  "^\\[?(([0-9]|[a-f]|[A-F])*[:.]+([0-9]|[a-f]|[A-F])+[:.]*)+[\\]]?([:][0-9]+)?$"
-);
-
-export function isIpv4Address(host: string): boolean {
-  return ipv4Regex.test(host);
-}
-
-function isIpv6Address(host: string): boolean {
-  return ipv6Regex.test(host);
-}
-
 export function isIpAddress(host: string): boolean {
-  return isIpv4Address(host) || isIpv6Address(host);
+  const parsed = parseHostname(host);
+  if (parsed === null) {
+    return false;
+  }
+  return parsed.isIp === true;
 }
 
 const urlCache: Cache<ImmutableURL> = new Cache(128);
