@@ -101,14 +101,5 @@ export default function () {
     contentScriptActions.setActionCallbacks(
       runContentScripts(window, chrome, WDP)
     );
-
-    // Stop listening for messages on window unload
-    window.addEventListener(
-      "unload",
-      () => {
-        contentScriptActions.unload();
-      },
-      { once: true }
-    );
   });
 }

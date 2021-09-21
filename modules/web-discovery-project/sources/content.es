@@ -2,8 +2,6 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
-import runtime from "../platform/runtime";
-
 import { registerContentScript } from "../core/content/register";
 import { throttle } from "../core/decorators";
 
@@ -22,21 +20,9 @@ export function parseDom(url, window, wdp) {
     jsRef = document.querySelector("script");
     if (jsRef && jsRef.innerHTML.indexOf("location.replace") > -1) {
       const location = document.querySelector("title").textContent;
-      // NOTE: this should be migrated to use:
-      // WDP.modules['web-discovery-project'].action('jsRedirect', {
-      //   message: { ... }
-      // })
-      runtime.sendMessage({
-        module: "web-discovery-project",
-        action: "jsRedirect",
-        args: [
-          {
-            message: {
-              location,
-              url: document.location.href,
-            },
-          },
-        ],
+      wdp.modules['web-discovery-project'].action('jsRedirect', {
+        location,
+        url: document.location.href,
       });
     }
   } catch (ee) {
@@ -186,27 +172,6 @@ function contentScript(window, chrome, WDP) {
   window.addEventListener("mousemove", onMouseMove);
   window.addEventListener("scroll", onScroll);
   window.addEventListener("copy", onCopy);
-
-  function stop(ev) {
-    if (ev && ev.target !== window.document) {
-      return;
-    }
-
-    // detect dead windows
-    // https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Errors/Dead_object
-    try {
-      String(window);
-    } catch (e) {
-      return;
-    }
-
-    window.removeEventListener("keypress", onKeyPress);
-    window.removeEventListener("mousemove", onMouseMove);
-    window.removeEventListener("scroll", onScroll);
-    window.removeEventListener("copy", onCopy);
-  }
-
-  window.addEventListener("unload", stop);
 }
 
 registerContentScript({

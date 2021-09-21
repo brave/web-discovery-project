@@ -204,11 +204,11 @@ export default background({
 
     contentScriptTopAds() {},
 
-    jsRedirect(message) {
-      WebDiscoveryProject.httpCache[message.message.url] = {
+    jsRedirect({ url, location } = { url: undefined, location: undefined }) {
+      WebDiscoveryProject.httpCache[url] = {
         status: 301,
         time: WebDiscoveryProject.counter,
-        location: message.message.location,
+        location,
       };
     },
 
