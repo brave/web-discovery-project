@@ -83,9 +83,11 @@ function testStar() {
 function testDoubleFetch() {
   setTimeout(async () => {
     await Promise.all([
-      newTab('https://economist.com'),
-      newTab('https://www.economist.com/europe/2021/09/18/the-warring-parties-plans-for-germanys-economy-are-full-of-holes'),
-      newTab('https://remusao.github.io'),
+      newTab("https://economist.com"),
+      newTab(
+        "https://www.economist.com/europe/2021/09/18/the-warring-parties-plans-for-germanys-economy-are-full-of-holes"
+      ),
+      newTab("https://remusao.github.io"),
     ]);
     await sleep(10000);
     const results = await WDP.app.modules[
@@ -109,7 +111,7 @@ WDP.app
     ].background.webDiscoveryProject.patternsLoader.resourceWatcher.forceUpdate();
   })
   .then(() => {
-    // testStar();
+    testStar();
     testDoubleFetch();
   })
   .catch((ex) => {
