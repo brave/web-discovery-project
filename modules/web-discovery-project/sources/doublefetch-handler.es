@@ -93,17 +93,21 @@ export default class DoublefetchHandler {
    * a promise which resolves to the content of the response,
    * or is rejected if the doublefetch is aborted.
    */
-  anonymousHttpGet(url, overrideHeaders) {
+  async anonymousHttpGet(url, overrideHeaders) {
+    // Lazily initialize the webrequest handlers. They will be unloaded as soon
+    // as the double fetch is terminated.
+    await this.init();
+
     this._stats.callsToAnonymousHttpGet += 1;
 
-    const logPreviusError = (e) => {
+    const logPreviousError = (e) => {
       logger.debug(
         "Previous request failed (error: ",
         e || "<missing>",
         "). Ignore and continue..."
       );
     };
-    return this._pendingInit.catch(logPreviusError).then(() => {
+    return this._pendingInit.catch(logPreviousError).then(() => {
       const requestStartedAt = new Date();
       this._purgeObsoleteRequests(requestStartedAt);
 
@@ -153,6 +157,13 @@ export default class DoublefetchHandler {
       });
 
       return requestPromise;
+    }).catch((ex) => {
+      logger.error('Error while running double-fetch', ex);
+    }).then(async (response) => {
+      if (this._pendingRequests.length === 0) {
+        await this.unload();
+      }
+      return response; // forward response
     });
   }
 

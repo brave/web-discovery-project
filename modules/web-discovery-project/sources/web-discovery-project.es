@@ -3735,6 +3735,10 @@ const WebDiscoveryProject = {
     WebDiscoveryProject.safebrowsingEndpoint.unload();
 
     WebDiscoveryProject.patternsLoader.unload();
+
+    // NOTE - this should be called already after each double-fetch call, but
+    // we keep one last check here in case the extension is unloaded while
+    // double-fetch is happening.
     WebDiscoveryProject.doublefetchHandler.unload();
   },
   currentURL: function () {
@@ -4019,7 +4023,6 @@ const WebDiscoveryProject = {
           const promises = [];
 
           promises.push(WebDiscoveryProject.patternsLoader.init());
-          promises.push(WebDiscoveryProject.doublefetchHandler.init());
 
           // Load config from the backend
           promises.push(WebDiscoveryProject.fetchSafeQuorumConfig());
