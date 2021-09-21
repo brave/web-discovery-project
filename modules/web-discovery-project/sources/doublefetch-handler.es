@@ -125,10 +125,7 @@ export default class DoublefetchHandler {
     // bookkeeping: remember the request and clean it up in the end
     const entry = { ts: requestStartedAt, url, originalUrl: url };
     this._pendingRequests.push(entry);
-    logger.debug(
-      "doublefetch: pending requests",
-      this._pendingRequests.length
-    );
+    logger.debug("doublefetch: pending requests", this._pendingRequests.length);
 
     // start the anonymous GET request (stripping cookies, etc)
     this._stats.httpRequests.started += 1;
@@ -250,7 +247,13 @@ export default class DoublefetchHandler {
     // request. Note that the credentials=omit fetch init parameter
     // should already take care of cookies and HTTP basic auth, but
     // it's cheap to double-check.
-    const sensitiveHeaders = ["authorization", "cookie", "cookie2", "from", "origin"];
+    const sensitiveHeaders = [
+      "authorization",
+      "cookie",
+      "cookie2",
+      "from",
+      "origin",
+    ];
     function isSensitiveHeader(header) {
       const name = header.name.toLowerCase();
       if (sensitiveHeaders.includes(name.toLowerCase())) {
