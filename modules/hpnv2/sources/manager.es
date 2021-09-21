@@ -105,9 +105,9 @@ export class InitState {
 
   constructor() {
     this.state = InitState.UNINITIALIZED;
-    this._pendingInit = new Promise((resolve, reject) => {
+    this._pendingInit = new Promise((resolve) => {
       this._onReady = resolve;
-      this._onDestroy = reject;
+      this._onDestroy = resolve;
     });
   }
 
