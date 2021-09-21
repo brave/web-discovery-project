@@ -443,7 +443,8 @@ export default describeModule(
       });
 
       it("should reject requests when state is DISABLED", function () {
-        expect(uut._state).to.equal(State.DISABLED);
+        expect(uut._state, "initial state should be DISABLED").to.equal(State.DISABLED);
+        uut.init = () => { }; // noop for the sake of this test
 
         let sent = false;
         scriptedRequests({

@@ -130,15 +130,6 @@ registerContentScript({
       };
       window.addEventListener("mousedown", onMouseDown);
 
-      // Stop listening
-      window.addEventListener(
-        "unload",
-        () => {
-          window.removeEventListener("mousedown", onMouseDown);
-        },
-        { once: true }
-      );
-
       // Expose content actions
       return {
         getHTML,

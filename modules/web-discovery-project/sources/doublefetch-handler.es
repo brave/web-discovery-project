@@ -93,67 +93,79 @@ export default class DoublefetchHandler {
    * a promise which resolves to the content of the response,
    * or is rejected if the doublefetch is aborted.
    */
-  anonymousHttpGet(url, overrideHeaders) {
+  async anonymousHttpGet(url, overrideHeaders) {
+    // Lazily initialize the webrequest handlers. They will be unloaded as soon
+    // as the double fetch is terminated.
+    await this.init();
+
     this._stats.callsToAnonymousHttpGet += 1;
 
-    const logPreviusError = (e) => {
+    const logPreviousError = (e) => {
       logger.debug(
         "Previous request failed (error: ",
         e || "<missing>",
         "). Ignore and continue..."
       );
     };
-    return this._pendingInit.catch(logPreviusError).then(() => {
-      const requestStartedAt = new Date();
-      this._purgeObsoleteRequests(requestStartedAt);
 
-      if (this._state === State.DISABLED) {
-        this._stats.rejected.doubleFetchDisabled += 1;
-        return Promise.reject(
-          new Error(`doublefetch disabled: skipping request to fetch ${url}`)
-        );
-      }
+    try {
+      await this._pendingInit;
+    } catch (ex) {
+      logPreviousError(ex);
+    }
 
-      // bookkeeping: remember the request and clean it up in the end
-      const entry = { ts: requestStartedAt, url, originalUrl: url };
-      this._pendingRequests.push(entry);
-      logger.debug(
-        "doublefetch: pending requests",
-        this._pendingRequests.length
+    const requestStartedAt = Date.now();
+    this._purgeObsoleteRequests(requestStartedAt);
+
+    if (this._state === State.DISABLED) {
+      this._stats.rejected.doubleFetchDisabled += 1;
+      throw new Error(`doublefetch disabled: skipping request to fetch ${url}`);
+    }
+
+    // bookkeeping: remember the request and clean it up in the end
+    const entry = { ts: requestStartedAt, url, originalUrl: url };
+    this._pendingRequests.push(entry);
+    logger.debug("doublefetch: pending requests", this._pendingRequests.length);
+
+    // start the anonymous GET request (stripping cookies, etc)
+    this._stats.httpRequests.started += 1;
+    const requestPromise = this._makeRequestAndWaitForHandlers(
+      url,
+      entry,
+      3000,
+      overrideHeaders
+    );
+    entry.requestPromise = requestPromise;
+
+    try {
+      await requestPromise;
+    } catch (ex) {
+      logger.debug(ex);
+    }
+
+    const elapsedMs = Date.now() - requestStartedAt;
+    logger.debug(
+      `doublefetch for ${entry.url} completed after ${
+        elapsedMs / 1000
+      } seconds.`
+    );
+    this._stats.httpRequests.finished += 1;
+
+    const index = this._pendingRequests.indexOf(entry);
+    if (index !== -1) {
+      this._pendingRequests.splice(index, 1);
+    } else if (elapsedMs < this.zombieRequestTimelimitMs) {
+      logger.error(
+        `_pendingRequests is in an inconsistent state (url=${entry.url}).`
       );
+      this._stats.errors.inconsistentStateDetected += 1;
+    }
 
-      // start the anonymous GET request (stripping cookies, etc)
-      this._stats.httpRequests.started += 1;
-      const requestPromise = this._makeRequestAndWaitForHandlers(
-        url,
-        entry,
-        3000,
-        overrideHeaders
-      );
-      entry.requestPromise = requestPromise;
+    if (this._pendingRequests.length === 0) {
+      await this.unload();
+    }
 
-      requestPromise.catch(logger.debug).then(() => {
-        const elapsedMs = new Date() - requestStartedAt;
-        logger.debug(
-          `doublefetch for ${entry.url} completed after ${
-            elapsedMs / 1000
-          } seconds.`
-        );
-        this._stats.httpRequests.finished += 1;
-
-        const index = this._pendingRequests.indexOf(entry);
-        if (index !== -1) {
-          this._pendingRequests.splice(index, 1);
-        } else if (elapsedMs < this.zombieRequestTimelimitMs) {
-          logger.error(
-            `_pendingRequests is in an inconsistent state (url=${entry.url}).`
-          );
-          this._stats.errors.inconsistentStateDetected += 1;
-        }
-      });
-
-      return requestPromise;
-    });
+    return requestPromise;
   }
 
   _correlatePendingDoublefetchRequest(request) {
@@ -235,7 +247,13 @@ export default class DoublefetchHandler {
     // request. Note that the credentials=omit fetch init parameter
     // should already take care of cookies and HTTP basic auth, but
     // it's cheap to double-check.
-    const sensitiveHeaders = ["authorization", "cookie", "cookie2", "from", "origin"];
+    const sensitiveHeaders = [
+      "authorization",
+      "cookie",
+      "cookie2",
+      "from",
+      "origin",
+    ];
     function isSensitiveHeader(header) {
       const name = header.name.toLowerCase();
       if (sensitiveHeaders.includes(name.toLowerCase())) {
