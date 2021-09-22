@@ -4,6 +4,7 @@
 
 import { registerContentScript } from "../core/content/register";
 import { throttle } from "../core/decorators";
+import { documentBodyReady } from "../core/content/helpers";
 
 import { normalizeAclkUrl } from "./ad-detection";
 
@@ -148,7 +149,7 @@ function contentScript(window, chrome, WDP) {
 
   // Only add for main pages.
   if (window.top === window) {
-    window.addEventListener("DOMContentLoaded", () => {
+    documentBodyReady().then(() => {
       parseDom(url, window, wdp);
     });
   }
