@@ -480,7 +480,7 @@ It is worth noticing that both `WebDiscoveryProject.validDoubleFetch` and `WebDi
 
 ##### Quorum Validation Check
 
-To reduce the probability of collecting capability URLs, we have devised a state-less quorum system based on the STAR protocol (paper and open source code of the library to be released soon) by which a page message will only be decrypted by the server-side aggregator if more than **k** people have already seen that same URL; if this quorum is not reached, it is **impossible** for the server to retrive the content of the page message. Here is a brief explanation of how this works.
+To reduce the probability of collecting capability URLs, we have devised a state-less quorum system based on [the STAR protocol](https://arxiv.org/abs/2109.10074) (open source code of the library to be released soon) by which a page message will only be decrypted by the server-side aggregator if more than **k** people have already seen that same URL; if this quorum is not reached, it is **impossible** for the server to retrive the content of the page message. Here is a brief explanation of how this works.
 
 Whenever WDP wants to collect a message of type `page` (corresponding to a given `url`), it will:
 
