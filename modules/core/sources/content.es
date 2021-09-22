@@ -3,6 +3,7 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
 import { registerContentScript } from "./content/register";
+import { throttle } from "./decorators";
 
 function getContextHTML(ev) {
   let target = ev.target;
@@ -128,7 +129,7 @@ registerContentScript({
       const onMouseDown = (ev) => {
         recordMouseDown(ev, WDP);
       };
-      window.addEventListener("mousedown", onMouseDown);
+      window.addEventListener("mousedown", throttle(window, onMouseDown, 250));
 
       // Expose content actions
       return {
