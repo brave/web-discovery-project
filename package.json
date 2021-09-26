@@ -1,6 +1,6 @@
 {
   "name": "web-discovery-project",
-  "version": "1.1.36",
+  "version": "1.1.37",
   "description": "Standalone Web Discovery Project package and extension",
   "scripts": {
     "lint": "node fern.js lint",
@@ -121,7 +121,7 @@
     "pako": "2.0.4",
     "punycode": "2.1.1",
     "star-wasm": "https://github.com/brave/web-discovery-project/releases/download/star-wasm-0.1.3.tgz/star-wasm-0.1.3.tgz",
-    "tldts-experimental": "5.7.45",
+    "tldts-experimental": "5.7.46",
     "webextension-polyfill": "0.8.0"
   },
   "auto": {
