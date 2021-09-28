@@ -8653,17 +8653,17 @@ tldts-core@^5.7.43:
   resolved "https://registry.yarnpkg.com/tldts-core/-/tldts-core-5.7.43.tgz#0f2dfb323519035b0a17e28454997841c919c8a1"
   integrity sha512-wRc782c70Khcaa7wTxl2ddWN4Z9QLDBspYK+VU3gDmMingXP2qkSatayxPYP1qjUJgvOBsuKeuFzNllrCDyWww==
 
-tldts-core@^5.7.46:
-  version "5.7.46"
-  resolved "https://registry.yarnpkg.com/tldts-core/-/tldts-core-5.7.46.tgz#0c2c9ccd3604d57b25d15747f99d2aa840a2401e"
-  integrity sha512-BIsBAOg5DiPghE3ftSJjQOsG5F0lcmKTwvITcDRYAGNkMosN2jaL8ogZ7+dCCpPh4QIAt5p6XPXbNXZ79fLa1A==
+tldts-core@^5.7.47:
+  version "5.7.47"
+  resolved "https://registry.yarnpkg.com/tldts-core/-/tldts-core-5.7.47.tgz#a5660efed47891e148c56dc39c5ecc55101dc419"
+  integrity sha512-yPdz6a+xx+vp6LvlFw5oSrpfhuU5ORHZF+OXK1dx0IjYGjjYNLFkDQnjJ0CiHsmCQkZ2zTuEdIKUlGlZTXfLVA==
 
-tldts-experimental@5.7.46:
-  version "5.7.46"
-  resolved "https://registry.yarnpkg.com/tldts-experimental/-/tldts-experimental-5.7.46.tgz#7f83febd698a6af787c603f1f557837d096b550d"
-  integrity sha512-GRgx/zgjGdzrR7AZgIJVMUpDscIePI1pZCGuH+0wboC+hnIC92oBYoqZh8ko6z7nJexHikZotvrrgDpKVEvAlw==
+tldts-experimental@5.7.47:
+  version "5.7.47"
+  resolved "https://registry.yarnpkg.com/tldts-experimental/-/tldts-experimental-5.7.47.tgz#7b9c2e90ab58406a1ab9ab61554fde78dd82aaf3"
+  integrity sha512-Ro350xy7SMcAZa/nQJ5gfQa4oZHppC2f3LAho19JBssnCC34O5Oj3k+ogNt1w3yRhgGNQAoP9+L8gyFSoqzwsw==
   dependencies:
-    tldts-core "^5.7.46"
+    tldts-core "^5.7.47"
 
 tldts-experimental@^5.3.1:
   version "5.7.43"
