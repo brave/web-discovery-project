@@ -1,6 +1,6 @@
 {
   "name": "web-discovery-project",
-  "version": "1.1.40",
+  "version": "1.1.41",
   "description": "Standalone Web Discovery Project package and extension",
   "scripts": {
     "lint": "node fern.js lint",
@@ -45,13 +45,13 @@
   ],
   "homepage": "https://github.com/brave/web-discovery-project#readme",
   "devDependencies": {
-    "@babel/core": "7.15.5",
+    "@babel/core": "7.15.8",
     "@babel/plugin-proposal-class-properties": "7.14.5",
     "@babel/plugin-transform-modules-commonjs": "7.15.4",
     "@babel/plugin-transform-modules-systemjs": "7.15.4",
     "@babel/plugin-transform-regenerator": "7.14.5",
     "@babel/plugin-transform-template-literals": "7.14.5",
-    "@babel/preset-env": "7.15.6",
+    "@babel/preset-env": "7.15.8",
     "@babel/preset-typescript": "7.15.0",
     "@types/chrome": "0.0.159",
     "@types/mocha": "9.0.0",
