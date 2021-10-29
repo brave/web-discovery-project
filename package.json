@@ -110,7 +110,7 @@
     "untildify": "4.0.0",
     "watch-detector": "1.0.1",
     "web-ext": "6.5.0",
-    "webpack": "5.58.2",
+    "webpack": "5.60.0",
     "ws": "8.2.3"
   },
   "dependencies": {
