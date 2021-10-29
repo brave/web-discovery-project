@@ -55,7 +55,7 @@
     "@babel/preset-typescript": "7.15.0",
     "@types/chrome": "0.0.162",
     "@types/mocha": "9.0.0",
-    "@types/node": "16.4.13",
+    "@types/node": "16.11.6",
     "@types/punycode": "2.1.0",
     "@typescript-eslint/eslint-plugin": "5.0.0",
     "@typescript-eslint/parser": "5.0.0",
