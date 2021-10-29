@@ -1,6 +1,6 @@
 {
   "name": "web-discovery-project",
-  "version": "1.1.42",
+  "version": "1.1.43",
   "description": "Standalone Web Discovery Project package and extension",
   "scripts": {
     "lint": "node fern.js lint",
@@ -87,7 +87,7 @@
     "eslint-plugin-compat": "3.13.0",
     "eslint_d": "11.0.0",
     "express": "4.17.1",
-    "fake-indexeddb": "3.1.4",
+    "fake-indexeddb": "3.1.7",
     "filehound": "1.17.5",
     "full-icu": "1.4.0",
     "git-describe": "4.1.0",
