@@ -6,6 +6,7 @@
     "lint": "node fern.js lint",
     "build": "node fern.js build configs/sandbox.js --environment prod",
     "build-module": "node fern.js build configs/module.js --environment prod",
+    "preinstall": "npx npm-force-resolutions@0.0.10",
     "start-brave-env": "web-ext run --source-dir='./build' --target chromium --chromium-binary \"$BRAVE_BIN\"",
     "start:brave": "web-ext run --source-dir='./build' --target chromium --chromium-binary ./brave/brave",
     "start:build": "node --unhandled-rejections=strict fern.js serve configs/sandbox.js --no-launch",
@@ -44,6 +45,9 @@
     "not Safari >= 0"
   ],
   "homepage": "https://github.com/brave/web-discovery-project#readme",
+  "resolutions": {
+    "set-value": "4.0.1"
+  },
   "devDependencies": {
     "@babel/core": "7.15.8",
     "@babel/plugin-proposal-class-properties": "7.14.5",
