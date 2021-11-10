@@ -44,6 +44,9 @@
     "not Safari >= 0"
   ],
   "homepage": "https://github.com/brave/web-discovery-project#readme",
+  "resolutions": {
+    "set-value": "4.0.1"
+  },
   "devDependencies": {
     "@babel/core": "7.15.8",
     "@babel/plugin-proposal-class-properties": "7.14.5",
