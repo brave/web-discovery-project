@@ -73,8 +73,8 @@ RUN wget 'https://download.mozilla.org/?product=firefox-devedition-latest&os=lin
  && rm -f /home/node/firefox.tar.bz2
 
 COPY --chown=node:node package.json /app/
-COPY --chown=node:node yarn.lock /app/
+COPY --chown=node:node package-lock.json /app/
 
 WORKDIR /app/
 
-RUN yarn install --frozen-lock
+RUN npm ci

@@ -10,7 +10,7 @@
     "start-brave-env": "web-ext run --source-dir='./build' --target chromium --chromium-binary \"$BRAVE_BIN\"",
     "start:brave": "web-ext run --source-dir='./build' --target chromium --chromium-binary ./brave/brave",
     "start:build": "node --unhandled-rejections=strict fern.js serve configs/sandbox.js --no-launch",
-    "start": "yarn build && concurrently yarn:start:*",
+    "start": "npm run build && concurrently npm:start:*",
     "release": "auto shipit"
   },
   "repository": {
@@ -25,7 +25,8 @@
   "main": "./build/index.js",
   "files": [
     "build",
-    "package.json"
+    "package.json",
+    "package-lock.json"
   ],
   "publishConfig": {
     "access": "public"
