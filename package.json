@@ -45,7 +45,8 @@
   ],
   "homepage": "https://github.com/brave/web-discovery-project#readme",
   "resolutions": {
-    "set-value": "4.0.1"
+    "set-value": "4.0.1",
+    "json-schema": "0.4.0"
   },
   "devDependencies": {
     "@babel/core": "7.15.8",
