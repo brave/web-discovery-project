@@ -2,25 +2,30 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
-const Dexie = require("dexie");
 const IDBKeyRange = require("fake-indexeddb/lib/FDBKeyRange");
 const indexedDB = require("fake-indexeddb");
 
 global.indexedDB = indexedDB;
 global.IDBKeyRange = IDBKeyRange;
 
-function initDexie(name) {
-  return new Dexie(name, {
-    indexedDB,
-    IDBKeyRange,
-  });
+async function getInitDexie() {
+  const Dexie = await import("dexie");
+
+  function initDexie(name) {
+    return new Dexie(name, {
+      indexedDB,
+      IDBKeyRange,
+    });
+  }
+
+  initDexie.__proto__.delete = Dexie.delete;
+  initDexie.__proto__.exists = Dexie.exists;
+
+
+  return 
 }
-
-initDexie.__proto__.delete = Dexie.delete; // eslint-disable-line no-proto
-initDexie.__proto__.exists = Dexie.exists; // eslint-disable-line no-proto
-
 module.exports = {
   "platform/lib/dexie": {
-    default: () => Promise.resolve(initDexie),
+    default: () => getInitDexie,
   },
 };
