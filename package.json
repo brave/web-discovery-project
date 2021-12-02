@@ -1,6 +1,6 @@
 {
   "name": "web-discovery-project",
-  "version": "1.1.45",
+  "version": "1.1.46",
   "description": "Standalone Web Discovery Project package and extension",
   "scripts": {
     "lint": "node fern.js lint",
@@ -105,7 +105,7 @@
     "node-notifier": "10.0.0",
     "path-browserify": "1.0.1",
     "ramda": "0.27.1",
-    "sinon": "11.1.2",
+    "sinon": "12.0.1",
     "sinon-chai": "3.7.0",
     "strip-json-comments": "3.1.1",
     "systemjs": "0.19.47",
