@@ -50,13 +50,15 @@ const babelOptions = {
   filterExtensions: ["es", "jsx", "ts", "tsx"],
   plugins: [
     "@babel/plugin-proposal-class-properties",
-    "@babel/plugin-proposal-dynamic-import",
     ...(buildConfig.babelPlugins || []),
     ...(buildConfig.format === "common"
       ? ["@babel/plugin-transform-modules-commonjs"]
       : []),
     ...(buildConfig.format === "system"
-      ? ["@babel/plugin-transform-modules-systemjs"]
+      ? [
+          "@babel/plugin-transform-modules-systemjs",
+          "@babel/plugin-proposal-dynamic-import",
+        ]
       : []),
   ],
   throwUnlessParallelizable: true,
