@@ -9,7 +9,8 @@
 const fs = require("fs");
 const path = require("path");
 const zlib = require("zlib");
-const mockBrowser = require("mock-browser");
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
 
 const expect = chai.expect;
 const R = require("ramda");
@@ -107,7 +108,7 @@ export default describeModule(
       let fixture;
 
       const setupDocument = function (html) {
-        mockWindow = mockBrowser.mocks.MockBrowser.createWindow();
+        mockWindow = new JSDOM(`<!DOCTYPE html><p>Test DOM</p>`).window;
 
         document = mockWindow.document;
         document.open();
@@ -208,7 +209,6 @@ export default describeModule(
         global.URL = oldURL;
 
         if (mockWindow) {
-          mockWindow.close();
           mockWindow = null;
         }
       });

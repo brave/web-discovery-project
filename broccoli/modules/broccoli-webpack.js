@@ -60,13 +60,6 @@ module.exports = class BroccoliWebpack extends Plugin {
         resolve: {
           symlinks: false,
           modules: [path.resolve(process.cwd(), "node_modules")],
-          alias: {
-            "dexie": "dexie/dist/dexie.min.js",
-            "@cliqz/url-parser": "@cliqz/url-parser/dist/url-parser.esm.min.js",
-            chai: "chai/chai.js",
-            "chai-dom": "chai-dom/chai-dom.js",
-            pako: "pako/dist/pako.js",
-          },
           fallback: {
             fs: false,
             path: require.resolve("path-browserify"),

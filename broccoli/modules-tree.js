@@ -55,7 +55,10 @@ const babelOptions = {
       ? ["@babel/plugin-transform-modules-commonjs"]
       : []),
     ...(buildConfig.format === "system"
-      ? ["@babel/plugin-transform-modules-systemjs"]
+      ? [
+          "@babel/plugin-transform-modules-systemjs",
+          "@babel/plugin-proposal-dynamic-import",
+        ]
       : []),
   ],
   throwUnlessParallelizable: true,
