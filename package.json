@@ -46,6 +46,7 @@
   "homepage": "https://github.com/brave/web-discovery-project#readme",
   "resolutions": {
     "ansi-html": "mahdyar/ansi-html-community#v0.0.8",
+    "node-forge": "1.0.0",
     "ansi-regex": "5.0.1"
   },
   "devDependencies": {
