@@ -1,6 +1,6 @@
 {
   "name": "web-discovery-project",
-  "version": "1.1.49",
+  "version": "1.1.50",
   "description": "Standalone Web Discovery Project package and extension",
   "scripts": {
     "lint": "node fern.js lint",
@@ -46,7 +46,7 @@
   "homepage": "https://github.com/brave/web-discovery-project#readme",
   "resolutions": {
     "ansi-html": "mahdyar/ansi-html-community#v0.0.8",
-    "node-forge": "1.0.0",
+    "node-forge": "1.2.1",
     "ansi-regex": "5.0.1"
   },
   "devDependencies": {
