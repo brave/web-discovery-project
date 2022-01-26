@@ -47,6 +47,8 @@
   "resolutions": {
     "ansi-html": "mahdyar/ansi-html-community#v0.0.8",
     "node-forge": "1.2.1",
+    "node-fetch": "3.1.1",
+    "nanoid": "3.1.31",
     "ansi-regex": "5.0.1"
   },
   "devDependencies": {
