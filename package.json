@@ -49,7 +49,8 @@
     "node-forge": "1.2.1",
     "node-fetch": "3.1.1",
     "nanoid": "3.1.31",
-    "ansi-regex": "5.0.1"
+    "ansi-regex": "5.0.1",
+    "follow-redirect": "1.14.8"
   },
   "devDependencies": {
     "@babel/core": "7.16.7",
