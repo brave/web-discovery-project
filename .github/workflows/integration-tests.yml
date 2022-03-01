@@ -10,5 +10,5 @@ jobs:
   test:
     runs-on: ubuntu-20.04
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - run: ./run_tests_in_docker.sh "configs/ci/integration-tests.js -l firefox-web-ext --firefox ~/firefoxBeta/firefox/firefox"
