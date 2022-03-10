@@ -1,6 +1,6 @@
 # Web Discovery Project Overview
 
-*Web Discovery Project* is a methodology and system developped by Brave but heavily inspired by Cliqz's [Human Web](https://0x65.dev/blog/2019-12-03/human-web-collecting-data-in-a-socially-responsible-manner.html), we recommend to check the blog post as additional material even though there are, and will be, significant departures as *WDP* evolves. 
+*Web Discovery Project* is a methodology and system developed by Brave but heavily inspired by Cliqz's [Human Web](https://0x65.dev/blog/2019-12-03/human-web-collecting-data-in-a-socially-responsible-manner.html), we recommend to check the blog post as additional material even though there are, and will be, significant departures as *WDP* evolves. 
 
 ## Motivation
 
@@ -8,7 +8,7 @@
 
 Brave needs data to power is privacy search. This data, provided by Brave users, is collected in a very different way than typical data collection. We want to depart from the current standard model, where users must trust that the company collecting the data will not misuse it, ever, in any circumstance. We do not want users to have no other choice but to trust us. There are many ways a trust model can fail. Hackers can steal data. Governments can issue subpoenas, or get direct access to the data. Unethical employees can dig into the data for personal interests. Companies can go bankrupt and the data auctioned to the highest bidder. Finally, companies can unilaterally decide to change their privacy policies.
 
-In the trust model, which is the industry standard, the user has very little control and protection comes only from privacy policy and enforcing bodies. We believe we must do better, if only for selfish reasons becasue we use our own products, and consequently, our own data is collected. We are not comfortable with only a promise based on Terms of Service and Privacy Policy agreements. It is not enough for us, and should not be enough for our users either. As someone once said, if you do not like reality, feel free to change it. The Web Discovery Project is our proposal for a more responsible and less invasive data collection.
+In the trust model, which is the industry standard, the user has very little control and protection comes only from privacy policy and enforcing bodies. We believe we must do better, if only for selfish reasons because we use our own products, and consequently, our own data is collected. We are not comfortable with only a promise based on Terms of Service and Privacy Policy agreements. It is not enough for us, and should not be enough for our users either. As someone once said, if you do not like reality, feel free to change it. The Web Discovery Project is our proposal for a more responsible and less invasive data collection.
 
 ## Fundamentals
 
@@ -22,7 +22,7 @@ This is a strong departure from the industry standard of data collections. Let u
 
 Since Brave Search is a search engine we need to know for which queries our results are not good enough. A very legitimate use-case, let's call it **bad-queries**. How do we achieve this?
 
-It is easy to do if the users help us with their data. Simply observe the event in which a user does a query **q** in Brave and then, within one hour, does the same query on a different search engine. That would be a good signal that Brave's results for query **q** need to be improved. There are several approaches to collect the data needed for quality assesssment. We want to show you why the industry standard approach has privacy risks.
+It is easy to do if the users help us with their data. Simply observe the event in which a user does a query **q** in Brave and then, within one hour, does the same query on a different search engine. That would be a good signal that Brave's results for query **q** need to be improved. There are several approaches to collect the data needed for quality assessment. We want to show you why the industry standard approach has privacy risks.
 
 Let's first start with the typical way to collect data: the **server-side aggregation**,
 
@@ -480,7 +480,7 @@ It is worth noticing that both `WebDiscoveryProject.validDoubleFetch` and `WebDi
 
 ##### Quorum Validation Check
 
-To reduce the probability of collecting capability URLs, we have devised a state-less quorum system based on [the STAR protocol](https://arxiv.org/abs/2109.10074) (open source code of the library to be released soon) by which a page message will only be decrypted by the server-side aggregator if more than **k** people have already seen that same URL; if this quorum is not reached, it is **impossible** for the server to retrive the content of the page message. Here is a brief explanation of how this works.
+To reduce the probability of collecting capability URLs, we have devised a state-less quorum system based on [the STAR protocol](https://arxiv.org/abs/2109.10074) (open source code of the library to be released soon) by which a page message will only be decrypted by the server-side aggregator if more than **k** people have already seen that same URL; if this quorum is not reached, it is **impossible** for the server to retrieve the content of the page message. Here is a brief explanation of how this works.
 
 Whenever WDP wants to collect a message of type `page` (corresponding to a given `url`), it will:
 
