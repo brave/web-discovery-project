@@ -2,7 +2,7 @@
   "extends": [
     "config:base"
   ],
-  "ignoreDeps": [],
+  "ignoreDeps": ["ansi-regex", "systemjs", "eslint"],
   "prHourlyLimit": 50,
   "prConcurrentLimit": 50,
   "bumpVersion": "patch",
