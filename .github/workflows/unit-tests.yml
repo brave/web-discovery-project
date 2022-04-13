@@ -29,8 +29,8 @@ jobs:
 
     - run: npm install
 
-    - run: npm audit
-
     - run: node --unhandled-rejections=strict fern.js build configs/ci/unit-tests.js --include-tests
 
     - run: node --unhandled-rejections=strict fern.js test configs/ci/unit-tests.js -l unit-node --environment testing --no-build --ci report.xml
+
+    - run: npm audit
