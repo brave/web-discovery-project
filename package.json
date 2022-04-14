@@ -208,5 +208,9 @@
         "color": "#5dbdcc"
       }
     ]
-  }
+  },
+  "overrides": {
+    "async": "3.2.2"
+  },
+  "engines": { "npm": "8.5.5" }
 }
