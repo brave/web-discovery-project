@@ -1644,10 +1644,10 @@ const WebDiscoveryProject = {
     config_location: null,
   },
   whitelist: [
-    /play.google.com\/store\/apps\/details\?id=[^\/]+$/,
-    /apps.apple.com\/\D{2}\/app\/[\w-]+\/id\d+$/,
-    /www.npr.org\/\d{4}\/\d{2}\/\d{2}/,
-    /variety.com\/\d{4}\//,
+    /play\.google\.com\/store\/apps\/details\?id=[^\/]+$/,
+    /apps\.apple\.com\/\D{2}\/app\/[\w-]+\/id\d+$/,
+    /www\.npr\.org\/\d{4}\/\d{2}\/\d{2}/,
+    /variety\.com\/\d{4}\//,
   ],
 
   _md5: function (str) {
