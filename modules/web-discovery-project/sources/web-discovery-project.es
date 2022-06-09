@@ -1643,6 +1643,13 @@ const WebDiscoveryProject = {
     config_ts: null,
     config_location: null,
   },
+  whitelist: [
+    /play.google.com\/store\/apps\/details\?id=[^\/]+$/,
+    /apps.apple.com\/\D{2}\/app\/[\w-]+\/id\d+$/,
+    /www.npr.org\/\d{4}\/\d{2}\/\d{2}/,
+    /variety.com\/\d{4}\//,
+  ],
+
   _md5: function (str) {
     return md5(str);
   },
@@ -3352,6 +3359,17 @@ const WebDiscoveryProject = {
                 WebDiscoveryProject.queryCache[redURL];
             }
           }
+
+          var whitelisted = false;
+
+          for (var i = 0; i < WebDiscoveryProject.whitelist.length; i++) {
+            let whitelist_regex = WebDiscoveryProject.whitelist[i];
+            if (whitelist_regex.test(activeURL)) {
+              whitelisted = true;
+              break;
+            }
+          }
+
           // Page details to be saved.
           WebDiscoveryProject.state["v"][activeURL] = {
             url: activeURL,
@@ -3369,6 +3387,7 @@ const WebDiscoveryProject = {
             c: [],
             ref: referral,
             red: red,
+            wht: whitelisted,
           };
 
           if (referral) {
