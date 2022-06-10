@@ -1642,11 +1642,11 @@ const WebDiscoveryProject = {
     config_ts: null,
     config_location: null,
   },
-  whitelist: [
-    /play\.google\.com\/store\/apps\/details\?id=[^\/]+$/,
-    /apps\.apple\.com\/\D{2}\/app\/[\w-]+\/id\d+$/,
-    /www\.npr\.org\/\d{4}\/\d{2}\/\d{2}/,
-    /variety\.com\/\d{4}\//,
+  allowlist: [
+    /https:\/\/play\.google\.com\/store\/apps\/details\?id=[^\/]+$/,
+    /https:\/\/apps\.apple\.com\/\D{2}\/app\/[\w-]+\/id\d+$/,
+    /https:\/\/www\.npr\.org\/\d{4}\/\d{2}\/\d{2}/,
+    /https:\/\/variety\.com\/\d{4}\//,
   ],
 
   _md5: function (str) {
@@ -3357,15 +3357,7 @@ const WebDiscoveryProject = {
             }
           }
 
-          var whitelisted = false;
-
-          for (var i = 0; i < WebDiscoveryProject.whitelist.length; i++) {
-            let whitelist_regex = WebDiscoveryProject.whitelist[i];
-            if (whitelist_regex.test(activeURL)) {
-              whitelisted = true;
-              break;
-            }
-          }
+          const allowlisted = WebDiscoveryProject.allowlist.some(allowlist_regex => allowlist_regex.test(activeURL));
 
           // Page details to be saved.
           WebDiscoveryProject.state["v"][activeURL] = {
@@ -3384,7 +3376,7 @@ const WebDiscoveryProject = {
             c: [],
             ref: referral,
             red: red,
-            wht: whitelisted,
+            alw: allowlisted,
           };
 
           if (referral) {
