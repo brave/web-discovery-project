@@ -1846,7 +1846,7 @@ const WebDiscoveryProject = {
       return true;
     }
   },
-  calculateStrictness: function (url, page_doc) {
+  calculateStrictness: function (url, page_doc, structure = false) {
     var strict_value = true;
     if (page_doc && page_doc["x"] && page_doc["x"]["canonical_url"]) {
       // there is canonical,
@@ -1869,6 +1869,8 @@ const WebDiscoveryProject = {
           // the page has a canonical of same domain, which usually is a sign that is public,
           // and the canonical is not the same url, which comes out of automatic generation
           // of canonicals
+          strict_value = false;
+        } else if (!structure && page_doc["alw"]) {
           strict_value = false;
         }
       }
@@ -2742,9 +2744,15 @@ const WebDiscoveryProject = {
             // url, we should have the data of the double for the referral in WebDiscoveryProject.docCache
             //
             WebDiscoveryProject.fetchReferral(page_doc["ref"], function () {
-              var strict_value = WebDiscoveryProject.calculateStrictness(
+              var url_strict_value = WebDiscoveryProject.calculateStrictness(
                 url,
                 page_doc
+              );
+
+              var structure_strict_value = WebDiscoveryProject.calculateStrictness(
+                url,
+                page_doc,
+                true
               );
 
               if (page_doc["ref"] && page_doc["ref"] != "") {
@@ -2763,7 +2771,10 @@ const WebDiscoveryProject = {
                 );
 
                 // overwrite strict value because the link exists on a public fetchable page
-                if (hasurl) strict_value = false;
+                if (hasurl) {
+                  url_strict_value = false;
+                  structure_strict_value = false;
+                }
               } else {
                 // page has no referral
                 _log("PPP: page has NO referral,", url);
@@ -2772,17 +2783,17 @@ const WebDiscoveryProject = {
                 // there is no canonical or if there is canonical and is the same as the url,
               }
 
-              _log("strict URL:", url, ">", strict_value);
+              _log("strict URL:", url, "> struct:", structure_strict_value, " url:", url_strict_value);
 
               if (
                 WebDiscoveryProject.validDoubleFetch(page_doc["x"], data, {
-                  structure_strict: strict_value,
+                  structure_strict: structure_strict_value,
                 })
               ) {
                 // we do not know the origin of the page, run the dropLongURL strict version
 
                 if (
-                  WebDiscoveryProject.dropLongURL(url, { strict: strict_value })
+                  WebDiscoveryProject.dropLongURL(url, { strict: url_strict_value })
                 ) {
                   if (
                     page_doc &&
@@ -2792,7 +2803,7 @@ const WebDiscoveryProject = {
                     if (
                       WebDiscoveryProject.dropLongURL(
                         page_doc["x"]["canonical_url"],
-                        { strict: strict_value }
+                        { strict: url_strict_value }
                       )
                     ) {
                       privateUrlFound(
@@ -2814,7 +2825,7 @@ const WebDiscoveryProject = {
                 // since we do not know the origin mark as private
                 privateUrlFound(
                   url,
-                  `rejected by validDoubleFetch(structure_strict=${strict_value})`
+                  `rejected by validDoubleFetch(structure_strict=${structure_strict_value})`
                 );
                 return;
               }
