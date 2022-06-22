@@ -64,6 +64,7 @@ RUN mkdir /tmp/.X11-unix \
 # Expose port for VNC
 EXPOSE 5900
 
+RUN npm install -g npm@8.3.1
 USER node
 
 # Install Firefox beta
