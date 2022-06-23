@@ -30,6 +30,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - run: npm install
+      - run: |
+          npm install -g npm@8.3.1
+          npm install
 
       - run: node --unhandled-rejections=strict fern.js build ${{ matrix.config }}
