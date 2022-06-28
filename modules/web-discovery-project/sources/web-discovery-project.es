@@ -1646,8 +1646,6 @@ const WebDiscoveryProject = {
   allowlist: [
     /^https:\/\/play\.google\.com\/store\/apps\/details\?id=[^\/]+$/,
     /^https:\/\/apps\.apple\.com\/\D{2}\/app\/[\w-]+\/id\d+$/,
-    /^https:\/\/www\.npr\.org\/\d{4}\/\d{2}\/\d{2}/,
-    /^https:\/\/variety\.com\/\d{4}\//,
   ],
 
   _md5: function (str) {
@@ -1861,7 +1859,6 @@ const WebDiscoveryProject = {
         url_parts.hostname == can_url_parts.hostname
       ) {
         // both canonical and url have a hostname and is the same,
-
         if (
           page_doc["x"]["canonical_url"] != url &&
           page_doc["x"]["canonical_url"].length < url.length
@@ -1919,13 +1916,16 @@ const WebDiscoveryProject = {
         if (
           url_parts.query_string &&
           url_parts.query_string.length > WebDiscoveryProject.qs_len
-        )
+        ) {
+          _log('DLU failed: length of query string is longer than qs_len');
           return true;
+        }
 
         if (url_parts.query_string) {
           var v = url_parts.query_string.split(/[&;]/);
           if (v.length > 4) {
             // that means that there is a least one &; hence 5 params
+            _log('DLU failed: there are more than 4 parameters');
             return true;
           }
           if (
@@ -1933,12 +1933,16 @@ const WebDiscoveryProject = {
               url_parts.query_string,
               12
             ) != null
-          )
+          ) {
+            _log('DLU failed: long number in the query string: ' + url_parts.query_string);
             return true;
+          }
         }
 
-        if (WebDiscoveryProject.checkForLongNumber(url_parts.path, 12) != null)
+        if (WebDiscoveryProject.checkForLongNumber(url_parts.path, 12) != null) {
+          _log('DLU failed: long number in path: ' + url_parts.path);
           return true;
+        }
       }
 
       var vpath = url_parts.path.split(/[\/\._ \-:\+;]/);
@@ -1952,8 +1956,10 @@ const WebDiscoveryProject = {
           if (vpath[i].length > 5 && WebDiscoveryProject.isHash(vpath[i]))
             return true;
         } else {
-          if (vpath[i].length > 12 && WebDiscoveryProject.isHash(vpath[i]))
+          if (vpath[i].length > 12 && WebDiscoveryProject.isHash(vpath[i])) {
+            _log('DLU failed: hash in the URL ' + vpath[i]);
             return true;
+          }
         }
       }
 
@@ -1963,7 +1969,10 @@ const WebDiscoveryProject = {
         var mult = 1.0;
         if (options.strict == true) mult = 0.5;
         if (cstr.length > WebDiscoveryProject.rel_segment_len * mult) {
-          if (WebDiscoveryProject.isHash(cstr)) return true;
+          if (WebDiscoveryProject.isHash(cstr)) {
+            _log('DLU failed: hash in the path ' + cstr);
+            return true;
+          }
         }
       }
 
@@ -2027,12 +2036,18 @@ const WebDiscoveryProject = {
 
         if (url_parts.query_string && url_parts.query_string.length > 0) {
           for (var i = 0; i < v.length; i++)
-            if (v[i].test("?" + url_parts.query_string)) return true;
+            if (v[i].test("?" + url_parts.query_string)) {
+              _log("Prohibited keyword found: " + url_parts.query_string);
+              return true;
+            }
         }
 
         if (path_query_string && path_query_string.length > 0) {
           for (var i = 0; i < v.length; i++)
-            if (v[i].test(path_query_string)) return true;
+            if (v[i].test(path_query_string)) {
+              _log("Prohibited keyword found: " + path_query_string);
+              return true;
+            }
         }
       }
 
