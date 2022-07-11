@@ -1,6 +1,6 @@
 {
   "name": "web-discovery-project",
-  "version": "1.1.50",
+  "version": "1.1.51",
   "description": "Standalone Web Discovery Project package and extension",
   "scripts": {
     "lint": "node fern.js lint",
@@ -94,7 +94,7 @@
     "git-rev": "0.2.1",
     "glob": "8.0.1",
     "jsdom": "19.0.0",
-    "mocha": "9.2.2",
+    "mocha": "10.0.0",
     "mockdate": "3.0.5",
     "node-notifier": "10.0.1",
     "path-browserify": "1.0.1",
