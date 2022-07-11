@@ -27,7 +27,6 @@ jobs:
 
       - name: Bootstrap
         run: |
-          npm install -g npm@8.3.1
           npm install
 
       - name: Build
