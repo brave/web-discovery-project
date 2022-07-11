@@ -3,7 +3,7 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
 import inject from "../core/kord/inject";
-import { DOMParser } from "linkedom";
+import window from "../core/globals-window";
 
 const core = inject.module("core");
 
@@ -18,7 +18,7 @@ function getHTML(originalURL) {
 
 export function parseHtml(html) {
   if (!parseHtml.domParser) {
-    parseHtml.domParser = new DOMParser();
+    parseHtml.domParser = new window.DOMParser();
   }
 
   return parseHtml.domParser.parseFromString(html, "text/html");
