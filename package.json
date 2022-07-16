@@ -111,7 +111,7 @@
     "watch-detector": "1.0.1",
     "web-ext": "6.8.0",
     "webpack": "5.73.0",
-    "ws": "8.8.0"
+    "ws": "8.8.1"
   },
   "dependencies": {
     "@cliqz/url-parser": "1.1.4",
