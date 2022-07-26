@@ -23,7 +23,7 @@ guarantees as well as examples of messages sent, visit [this README](./modules/w
 
 ## Manual setup
 
-#### Yarn
+### Yarn
 
 ```sh
 $ yarn install --frozen-lock
@@ -43,17 +43,17 @@ $ npm run start:brave # start Brave with extension loaded
 
 Run `npm run start-brave-env` intead of `:brave`
 
-Which takes the brave binary from the ENV variable `BRAVE_BIN`
+Which takes the brave binary from the ENV variable `BRAVE_PATH`
 
 ```
-export BRAVE_BIN="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
+export BRAVE_PATH="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
 ```
 
-### Useful commands
+## Useful commands
 
 Open extension dev tools (burger menu > extensions > developer mode toggle > background page) then switch to console tab.
 
-#### For `query` messages
+### For `query` messages
 
 Force updating WebDiscoveryProject patterns:
 ```javascript
@@ -91,6 +91,44 @@ Force a double-fetch of a single URL, (URL as appears in the table above, it mig
 
 ```javascript
 WDP.app.modules['web-discovery-project'].background.webDiscoveryProject.forceDoubleFetch("https://www.marca.com/")
+```
+
+## Tests
+
+There are two kinds of tests in WDP: `unit` and `integration`. All of them run
+in CI and you can run then on your computer too.
+
+### Unit tests
+
+```sh
+$ ./fern.js test configs/ci/unit-tests.js
+```
+
+You should now get live feedback about the running tests. If you change the
+code, a rebuild will be triggered and tests will restart.
+
+### Integration tests
+
+Integration tests (in Brave):
+```sh
+./fern.js test configs/ci/integration-tests.js -l brave-web-ext --brave /opt/brave.com/brave/brave-browser
+```
+
+**Note that you should replace the path to Brave in the command above**.
+
+You can also use the `--keep-open` flag so that the test runner keeps watching
+for code changes and will restart the tests whenever that happens.
+
+Another useful flag is `--grep`, which allows you to select a subset of tests
+to run based on their names. For example:
+
+```sh
+./fern.js test configs/ci/integration-tests.js -l brave-web-ext --brave /opt/brave.com/brave/brave-browser --keep-open --grep registerContentScript
+```
+
+Integration tests in **Docker**:
+```sh
+./run_tests_in_docker.sh "configs/ci/integration-tests.js -l brave-web-ext --brave /opt/brave.com/brave/brave-browser"
 ```
 
 ### Copyright

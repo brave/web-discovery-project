@@ -2,8 +2,8 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
-import { newTab } from "../core/browser";
-import sleep from "../core/helpers/sleep";
+// import { newTab } from "../core/browser";
+// import sleep from "../core/helpers/sleep";
 import App from "../core/app";
 
 const WDP = { app: undefined };
@@ -13,89 +13,89 @@ WDP.app = new App({
 });
 window.WDP = WDP;
 
-function testStar() {
-  console.error("Fake message sending");
-  WDP.app.modules[
-    "web-discovery-project"
-  ].background.webDiscoveryProject.network.dns.cacheDnsResolution(
-    `remusao.github.io`,
-    "172.31.23.1"
-  );
-
-  let oc = 14;
-  const n = Date.now();
-  setTimeout(() => {
-    for (let i = 0; i < 5; i += 1) {
-      // Fake 'page message'
-      const page = {
-        type: "wdp",
-        action: "page",
-        oc: `${oc + i}`,
-        payload: {
-          url: `https://remusao.github.io/posts/packaging-nodejs-apps.html2`,
-          a: 2,
-          x: {
-            lh: 20729,
-            lt: 15503,
-            t: "Packaging Node.js apps the easy way",
-            nl: 12,
-            ni: 0,
-            ninh: 0,
-            nip: 0,
-            nf: 0,
-            pagel: "en",
-            ctry: "fr",
-            iall: true,
-            canonical_url: "https://remusao.github.io/ (PROTECTED)",
-            nfsh: 0,
-            nifsh: 0,
-            nifshmatch: true,
-            nfshmatch: true,
-            nifshbf: 0,
-            nfshbf: 0,
-          },
-          e: {
-            cp: 0,
-            mm: 0,
-            kp: 0,
-            sc: 0,
-            md: 0,
-          },
-          st: 200,
-          c: null,
-          ref: null,
-          red: null,
-          dur: 7841,
-        },
-        ver: "1.0",
-        channel: "brave",
-        ts: "20210912",
-        "anti-duplicates": n,
-      };
-
-      WDP.app.modules[
-        "web-discovery-project"
-      ].background.webDiscoveryProject.telemetry(page, false);
-    }
-  }, 5000);
-}
-
-function testDoubleFetch() {
-  setTimeout(async () => {
-    await Promise.all([
-      newTab("https://economist.com"),
-      newTab(
-        "https://www.economist.com/europe/2021/09/18/the-warring-parties-plans-for-germanys-economy-are-full-of-holes"
-      ),
-      newTab("https://remusao.github.io"),
-    ]);
-    await sleep(10000);
-    const results = await WDP.app.modules[
-      "web-discovery-project"
-    ].background.webDiscoveryProject._simulateDoublefetch();
-    console.error("??? results", results);
-  }, 2000);
-}
+// function testStar() {
+//   console.error("Fake message sending");
+//   WDP.app.modules[
+//     "web-discovery-project"
+//   ].background.webDiscoveryProject.network.dns.cacheDnsResolution(
+//     `remusao.github.io`,
+//     "172.31.23.1"
+//   );
+//
+//   let oc = 14;
+//   const n = Date.now();
+//   setTimeout(() => {
+//     for (let i = 0; i < 5; i += 1) {
+//       // Fake 'page message'
+//       const page = {
+//         type: "wdp",
+//         action: "page",
+//         oc: `${oc + i}`,
+//         payload: {
+//           url: `https://remusao.github.io/posts/packaging-nodejs-apps.html2`,
+//           a: 2,
+//           x: {
+//             lh: 20729,
+//             lt: 15503,
+//             t: "Packaging Node.js apps the easy way",
+//             nl: 12,
+//             ni: 0,
+//             ninh: 0,
+//             nip: 0,
+//             nf: 0,
+//             pagel: "en",
+//             ctry: "fr",
+//             iall: true,
+//             canonical_url: "https://remusao.github.io/ (PROTECTED)",
+//             nfsh: 0,
+//             nifsh: 0,
+//             nifshmatch: true,
+//             nfshmatch: true,
+//             nifshbf: 0,
+//             nfshbf: 0,
+//           },
+//           e: {
+//             cp: 0,
+//             mm: 0,
+//             kp: 0,
+//             sc: 0,
+//             md: 0,
+//           },
+//           st: 200,
+//           c: null,
+//           ref: null,
+//           red: null,
+//           dur: 7841,
+//         },
+//         ver: "1.0",
+//         channel: "brave",
+//         ts: "20210912",
+//         "anti-duplicates": n,
+//       };
+//
+//       WDP.app.modules[
+//         "web-discovery-project"
+//       ].background.webDiscoveryProject.telemetry(page, false);
+//     }
+//   }, 5000);
+// }
+//
+// function testDoubleFetch() {
+//   setTimeout(async () => {
+//     await Promise.all([
+//       newTab("https://economist.com"),
+//       newTab(
+//         "https://www.economist.com/europe/2021/09/18/the-warring-parties-plans-for-germanys-economy-are-full-of-holes"
+//       ),
+//       newTab("https://remusao.github.io"),
+//     ]);
+//     await sleep(10000);
+//     const results = await WDP.app.modules[
+//       "web-discovery-project"
+//     ].background.webDiscoveryProject._simulateDoublefetch();
+//     console.error("??? results", results);
+//   }, 2000);
+// }
 
 WDP.app
   .start()
@@ -111,8 +111,9 @@ WDP.app
     ].background.webDiscoveryProject.patternsLoader.resourceWatcher.forceUpdate();
   })
   .then(() => {
-    testStar();
-    testDoubleFetch();
+    // NOTE: This can be un-commented for local testing
+    // testStar();
+    // testDoubleFetch();
   })
   .catch((ex) => {
     console.error("????", ex);
