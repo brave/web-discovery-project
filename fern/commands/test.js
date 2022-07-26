@@ -30,7 +30,7 @@ module.exports = (program) => {
     .option("--environment <environment>")
     .option("--port [port]", "dev server port", 4300)
     .option("--firefox [firefox]", "Firefox path", "nightly")
-    .option("--brave [brave]", "Brave path", "nightly")
+    .option("--brave [brave]", "Brave path")
     .option("--no-build", "skip the build, run tests only")
     .option("-l --launchers [launchers]", "comma separted list of launchers")
     .option(

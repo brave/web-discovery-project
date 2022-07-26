@@ -43,10 +43,10 @@ $ npm run start:brave # start Brave with extension loaded
 
 Run `npm run start-brave-env` intead of `:brave`
 
-Which takes the brave binary from the ENV variable `BRAVE_BIN`
+Which takes the brave binary from the ENV variable `BRAVE_PATH`
 
 ```
-export BRAVE_BIN="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
+export BRAVE_PATH="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
 ```
 
 ## Useful commands

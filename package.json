@@ -6,7 +6,7 @@
     "lint": "node fern.js lint",
     "build": "node fern.js build configs/sandbox.js --environment prod",
     "build-module": "node fern.js build configs/module.js --environment prod",
-    "start-brave-env": "web-ext run --source-dir='./build' --target chromium --chromium-binary \"$BRAVE_BIN\"",
+    "start-brave-env": "web-ext run --source-dir='./build' --target chromium --chromium-binary \"$BRAVE_PATH\"",
     "start:brave": "web-ext run --source-dir='./build' --target chromium --chromium-binary ./brave/brave",
     "start:build": "node --unhandled-rejections=strict fern.js serve configs/sandbox.js --no-launch",
     "start": "npm run build && concurrently npm:start:*",
