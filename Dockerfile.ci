@@ -20,7 +20,7 @@ RUN wget 'https://github.com/brave/brave-browser/releases/download/v1.41.100/bra
  && wget 'https://brave-browser-apt-release.s3.brave.com/pool/main/b/brave-keyring/brave-keyring_1.13-1.deb' -O /home/node/brave-keyring.deb \
  && apt-get update --no-install-recommends \
  && dpkg --install /home/node/brave-keyring.deb \
- && apt-get install -y libnss3 openbox xvfb x11vnc libgbm1 libasound2 fonts-liberation xdg-utils \
+ && apt-get install -y libnss3 openbox xvfb x11vnc libgbm1 libasound2 fonts-liberation xdg-utils menu \
  && dpkg --install /home/node/brave.deb \
  && rm -f /home/node/brave.deb /home/node/brave-keyring.deb
 
