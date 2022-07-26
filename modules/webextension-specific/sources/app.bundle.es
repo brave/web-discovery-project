@@ -111,8 +111,9 @@ WDP.app
     ].background.webDiscoveryProject.patternsLoader.resourceWatcher.forceUpdate();
   })
   .then(() => {
-    testStar();
-    testDoubleFetch();
+    // NOTE: This can be un-commented for local testing
+    // testStar();
+    // testDoubleFetch();
   })
   .catch((ex) => {
     console.error("????", ex);

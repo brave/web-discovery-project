@@ -9,6 +9,11 @@
         "exe": "node",
         "args": ["tests/runners/firefox-web-ext.js"],
         "protocol": "tap"
+      },
+      "brave-web-ext": {
+        "exe": "node",
+        "args": ["tests/runners/brave-web-ext.js"],
+        "protocol": "tap"
       }
     },
     "browser_args": {

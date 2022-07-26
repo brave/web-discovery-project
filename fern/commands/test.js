@@ -29,7 +29,8 @@ module.exports = (program) => {
     )
     .option("--environment <environment>")
     .option("--port [port]", "dev server port", 4300)
-    .option("--firefox [firefox]", "firefox path", "nightly")
+    .option("--firefox [firefox]", "Firefox path", "nightly")
+    .option("--brave [brave]", "Brave path", "nightly")
     .option("--no-build", "skip the build, run tests only")
     .option("-l --launchers [launchers]", "comma separted list of launchers")
     .option(
@@ -62,6 +63,10 @@ module.exports = (program) => {
 
       if (options.firefox) {
         process.env.FIREFOX_PATH = untildify(options.firefox);
+      }
+
+      if (options.brave) {
+        process.env.BRAVE_PATH = untildify(options.brave);
       }
 
       if (options.keepOpen) {

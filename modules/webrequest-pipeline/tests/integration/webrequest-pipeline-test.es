@@ -124,7 +124,7 @@ export default () => {
         // sub_frame
         expect(details[1].frameId).to.not.eql(0);
         expect(details[1]).to.deep.include({
-          frameAncestors: [{ frameId: 0, url: getUrl() }],
+          frameAncestors: isChromium ? [] : [{ frameId: 0, url: getUrl() }],
           // frameId: 0,
           url: getUrl("iframe"),
           frameUrl: getUrl("iframe"),

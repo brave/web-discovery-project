@@ -1,55 +1,6 @@
-FROM node:lts-buster
+FROM node:lts-bullseye
 
 ENV DEBIAN_FRONTEND=noninteractive
-
-RUN apt-get update --no-install-recommends  \
- && apt-get install -y \
-    build-essential \
-    bzip2 \
-    ca-certificates \
-    dbus \
-    jq \
-    libasound2 \
-    libatk1.0-0 \
-    libc6 \
-    libcairo-gobject2 \
-    libcairo2 \
-    libdbus-1-3 \
-    libdbus-glib-1-2 \
-    libfontconfig1 \
-    libfreetype6 \
-    libgbm-dev \
-    libgbm1 \
-    libgcc1 \
-    libgconf-2-4 \
-    libgdk-pixbuf2.0-0 \
-    libglib2.0-0 \
-    libgtk-3-0 \
-    libgtk2.0-0 \
-    libpango-1.0-0 \
-    libpangocairo-1.0-0 \
-    libstartup-notification0 \
-    libstdc++6 \
-    libx11-6 \
-    libxcomposite1 \
-    libxdamage1 \
-    libxext6 \
-    libxfixes3 \
-    libxml2-utils \
-    libxrender1 \
-    libxt6 \
-    lsb-release \
-    menu \
-    openbox \
-    python-dev \
-    python-pip \
-    unzip \
-    wget \
-    x11vnc \
-    xauth \
-    xvfb \
-    zip \
- && rm -rf /var/lib/apt/lists/*
 
 ENV PATH "/usr/local/ssl/bin:$PATH"
 
@@ -64,13 +15,16 @@ RUN mkdir /tmp/.X11-unix \
 # Expose port for VNC
 EXPOSE 5900
 
-USER node
+# Install Brave
+RUN wget 'https://github.com/brave/brave-browser/releases/download/v1.41.100/brave-browser_1.41.100_amd64.deb' -O /home/node/brave.deb \
+ && wget 'https://brave-browser-apt-release.s3.brave.com/pool/main/b/brave-keyring/brave-keyring_1.13-1.deb' -O /home/node/brave-keyring.deb \
+ && apt-get update --no-install-recommends \
+ && dpkg --install /home/node/brave-keyring.deb \
+ && apt-get install -y libnss3 openbox xvfb x11vnc libgbm1 libasound2 fonts-liberation xdg-utils \
+ && dpkg --install /home/node/brave.deb \
+ && rm -f /home/node/brave.deb /home/node/brave-keyring.deb
 
-# Install Firefox beta
-RUN wget 'https://download.mozilla.org/?product=firefox-devedition-latest&os=linux64&lang=en-US' -O /home/node/firefox.tar.bz2 \
- && mkdir /home/node/firefoxBeta \
- && tar xjvf /home/node/firefox.tar.bz2 -C /home/node/firefoxBeta \
- && rm -f /home/node/firefox.tar.bz2
+USER node
 
 COPY --chown=node:node package.json /app/
 COPY --chown=node:node package-lock.json /app/
