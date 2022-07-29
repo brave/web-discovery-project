@@ -9,6 +9,8 @@ import { wait } from "../../core/helpers/wait";
 export * from "../../platform/test-helpers/helpers";
 export { wait, waitFor } from "../../core/helpers/wait";
 
+export { testPageSources } from "../../platform/integration-tests/test-page-sources";
+
 // Re-export some browser utils
 export { closeTab, newTab, updateTab, getTab } from "../../platform/tabs";
 

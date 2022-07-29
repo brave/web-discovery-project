@@ -82,6 +82,7 @@ const WebDiscoveryProject = {
   PAGE_WAIT_TIME: 5000,
   LOG_KEY: "wdp",
   debug: false,
+  utility_regression_tests: false,
   httpCache: {},
   httpCache401: {},
   queryCache: {},
@@ -1786,6 +1787,7 @@ const WebDiscoveryProject = {
       }
 
       if (
+        (!WebDiscoveryProject.utility_regression_tests) &
         (url_parts.port != "") &
         (url_parts.port != "80" && url_parts.port != "443")
       ) {
@@ -1813,6 +1815,7 @@ const WebDiscoveryProject = {
       }
 
       if (
+        (!WebDiscoveryProject.utility_regression_tests) &
         url_parts.hostname.indexOf("localhost") > -1 ||
         url_parts.hostname.endsWith(".local")
       ) {
