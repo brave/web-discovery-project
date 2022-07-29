@@ -20,7 +20,6 @@ export default () => {
 
         const WebDiscoveryProject = app.modules["web-discovery-project"].background.webDiscoveryProject;
         const pipeline = app.modules["webrequest-pipeline"].background;
-        let addPipeline;
 
         const openTab = async (url) => {
             const tabId = await newTab("about:blank");
@@ -51,13 +50,6 @@ export default () => {
             // Reload pipeline
             pipeline.unload();
             await pipeline.init();
-
-            addPipeline = (cb) =>
-                pipeline.actions.addPipelineStep("onBeforeRequest", {
-                name: "test",
-                spec: "blocking",
-                fn: cb,
-                });
         });
 
         afterEach(() =>
