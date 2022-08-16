@@ -13,6 +13,13 @@ import {
   testPageSources
 } from "../../../tests/core/integration/helpers";
 
+const test_urls = [
+    'https://www.reddit.com/r/betterCallSaul/comments/urbkns/',
+    'https://www.twitch.tv/maynarde',
+    'https://www.youtube.com/watch?v=ooXvqQYEipY',
+    'https://www.dailymail.co.uk/tvshowbiz/article-10828127/This-viewers-break-watching-heartbreakingly-beautiful-penultimate-episod.html'
+]
+
 export default () => {
     describe("UtilityRegression tests", () => {
         const getSuffix = (path = "base") => `/${path}`;
@@ -45,6 +52,7 @@ export default () => {
 
         beforeEach(async () => {
             await app.modules["web-discovery-project"].isReady();
+            WebDiscoveryProject.debug = true;
             WebDiscoveryProject.utility_regression_tests = true;
 
             // Reload pipeline
@@ -58,14 +66,30 @@ export default () => {
 
         describe("utility-regression-test.base", () => {
             it("mock_url appears in wdp state", async () => {
-                let mock_path = 'helloworld.com/hello'
-                await testServer.registerPathHandler(getSuffix(mock_path), {
-                  result: testPageSources['pages'][0][mock_path],
+                let page = testPageSources['pages'][0]
+                let path = page['url']
+                await testServer.registerPathHandler(getSuffix(path), {
+                  result: page['content'],
                 });
 
-                await openTab(getUrl(mock_path));
-                await waitFor(() => expect(Object.keys(WebDiscoveryProject.state.v)).to.include(getUrl(mock_path)), 2000);
+                await openTab(getUrl(path));
+                await waitFor(() => expect(Object.keys(WebDiscoveryProject.state.v)).to.include(getUrl(path)), 2000);
               });
+        });
+
+        describe("utility-regression-test.utility-regression", () => {
+            // const safe_pages = testPageSources['pages'];
+            test_urls.forEach((url) => {
+                it(`'${url}' is allowed`, async () => {
+                    await openTab(url);
+                    await waitFor(async () => (await new Promise((resolve) => WebDiscoveryProject.db.getURL(url, resolve))).length == 1);
+                    await WebDiscoveryProject.forceDoubleFetch(url);
+                    await waitFor(async () => (await new Promise((resolve) => WebDiscoveryProject.db.getURL(url, resolve))).length == 0);
+                    WebDiscoveryProject.isAlreadyMarkedPrivate(url, (res) => {
+                        expect(res.private, "url is marked as private!").equal(0);
+                    });
+                });
+            });
         });
     });
 };
