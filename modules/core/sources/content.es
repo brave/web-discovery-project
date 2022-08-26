@@ -130,6 +130,9 @@ registerContentScript({
         recordMouseDown(ev, WDP);
       };
       window.addEventListener("mousedown", throttle(window, onMouseDown, 250));
+      window.addEventListener("pagehide", () => {
+        window.removeEventListener("mousedown", onMouseDown);
+      }, { once: true });
 
       // Expose content actions
       return {
