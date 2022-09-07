@@ -104,7 +104,7 @@ export default function () {
 
     // Stop listening for messages on window unload
     window.addEventListener(
-      "unload",
+      "pagehide",
       () => {
         contentScriptActions.unload();
       },

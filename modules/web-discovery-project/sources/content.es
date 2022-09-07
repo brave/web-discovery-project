@@ -173,6 +173,27 @@ function contentScript(window, chrome, WDP) {
   window.addEventListener("mousemove", onMouseMove);
   window.addEventListener("scroll", onScroll);
   window.addEventListener("copy", onCopy);
+
+  function stop(ev) {
+    if (ev && (ev.target !== window.document)) {
+      return;
+    }
+
+    // detect dead windows
+    // https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Errors/Dead_object
+    try {
+      String(window);
+    } catch (e) {
+      return;
+    }
+
+    window.removeEventListener("keypress", onKeyPress);
+    window.removeEventListener("mousemove", onMouseMove);
+    window.removeEventListener("scroll", onScroll);
+    window.removeEventListener("copy", onCopy);
+  }
+
+  window.addEventListener("pagehide", stop);
 }
 
 registerContentScript({

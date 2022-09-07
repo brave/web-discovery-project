@@ -266,7 +266,7 @@ export default () => {
           testServer.registerPathHandler(getSuffix(), {
             result: `<html><body><script>
               navigator.sendBeacon('${getSuffix("beacon")}', 'foo');
-              window.addEventListener('unload', () => {
+              window.addEventListener('pagehide', () => {
                 var client = new XMLHttpRequest();
                 client.open('GET', '${getSuffix("beacon")}', false);
                 client.send(null);
@@ -345,7 +345,7 @@ export default () => {
         testServer.registerPathHandler(getSuffix("frame"), {
           result: `<html><body><script>
             navigator.sendBeacon('${getSuffix("beacon")}', 'foo');
-            window.addEventListener('unload', () => {
+            window.addEventListener('pagehide', () => {
               navigator.sendBeacon('${getSuffix("beacon")}', 'bar');
               var client = new XMLHttpRequest();
               client.open('GET', '${getSuffix("beacon")}', ${
