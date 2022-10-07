@@ -14,56 +14,45 @@ import {
 } from "../../../tests/core/integration/helpers";
 
 const test_urls = [
-    "https://www.theblaze.com/news/john-kennedy-call-a-crackhead",
-    "https://abcnews.go.com/Sports/wireStory/indonesia-police-stadium-exit-gates-small-escape-90965283",
-    "https://www.bostonglobe.com/2022/10/03/business/imagining-new-role-kennedy-compound/?camp=bg:brief:rss:feedly&rss_id=feedly_rss_brief",
-    "https://www.foxnews.com/world/russia-mobilization-over-200000-citizens-drafted-military-since-putin-order",
-    "https://www.dailymail.co.uk/news/article-11279085/Oxford-University-student-union-trigger-warnings-Freshers-Fair-stalls.html?ns_mchannel=rss&ns_campaign=1490&ito=1490",
-    "https://nypost.com/2022/10/04/ecuador-prison-clash-leaves-at-least-15-dead-20-injured/",
-    "https://www.democracynow.org/2022/9/29/florida_prisons_hurricane_ian_evacuated_evacuation",
-    "https://nypost.com/2022/10/04/russia-planning-nuke-test-near-ukraine-border-report/",
-    "https://www.motherjones.com/politics/2022/10/oath-keepers-trial-day-1-january-6-rifles/",
-    "https://abcnews.go.com/International/wireStory/iran-launched-test-tug-suborbital-space-90961665",
-    "https://www.thedailybeast.com/nasas-james-webb-space-telescope-could-lead-us-to-treasure-trove-of-rogue-alien-planets?source=articles&via=rss",
-    "https://www.spiegel.de/international/germany/inflation-bankruptcies-and-fears-of-decline-is-this-the-return-of-the-sick-man-of-europe-a-41d914b0-0322-46a8-9087-d118b3f0b399#ref=rss",
-    "https://www.bostonglobe.com/2022/10/03/metro/details-emerge-about-mystery-woman-who-led-migrants-marthas-vineyard/?camp=bg:brief:rss:feedly&rss_id=feedly_rss_brief",
-    "https://www.dailymail.co.uk/sciencetech/article-11278563/Nobel-Prize-physics-awarded-three-quantum-mechanics-scientists.html?ns_mchannel=rss&ns_campaign=1490&ito=1490",
-    "https://www.ft.com/content/4351d5b0-0888-4b47-9368-6bc4dfbccbf5",
-    "https://www.thenation.com/article/politics/frank-watkins-obituary/",
-    "https://www.propublica.org/article/us-ban-mexicans-sell-blood-plasma#1440010",
-    "https://www.ft.com/content/41cdc7e9-e0eb-4aa7-8e18-4681f4fa2a23",
-    "https://abcnews.go.com/US/wireStory/us-require-rest-shifts-flight-attendants-90974287",
-    "https://www.washingtontimes.com/news/2022/oct/4/live-updates-russia-ukraine-war/?utm_source=RSS_Feed&utm_medium=RSS",
-    "https://www.thenation.com/article/society/lady-justice/",
-    "https://nypost.com/2022/10/04/biden-told-al-sharpton-he-will-seek-2024-reelection-report/",
-    "https://www.nbcnews.com/politics/supreme-court/not-parody-onion-files-brief-supreme-court-rcna50615",
-    "https://www.spiegel.de/international/world/the-great-bluff-how-the-ukrainians-outwitted-putin-s-army-a-05d74f95-a5c5-482e-bb6a-837de8700fc9#ref=rss",
-    "https://www.breitbart.com/clips/2022/10/03/herschel-walker-on-abortion-report-a-flat-out-lie/",
-    "https://www.npr.org/2022/10/04/1126240060/meet-the-california-farmers-awash-in-colorado-river-water-even-in-a-drought",
-    "https://www.thedailybeast.com/hasan-minhaj-on-the-kings-jester-netflix-special-and-doing-the-right-thing-for-the-wrong-reasons?source=articles&via=rss",
-    "https://www.smh.com.au/national/superquiz-and-target-time-wednesday-october-5-20221004-p5bn2p.html?ref=rss&utm_medium=rss&utm_source=rss_feed",
-    "https://www.euronews.com/2022/10/03/denmarks-queen-margrethe-sorry-for-stripping-royal-titles-from-grandchildren",
-    "https://www.thedailybeast.com/herschel-walkers-son-lashes-out-at-him-after-abortion-revelation?source=articles&via=rss",
-    "https://www.thenation.com/article/society/nixon-watergate-jan-6/",
-    "https://news.sky.com/story/nuclear-strike-could-become-more-appealing-for-putin-as-options-shrink-12711789",
-    "https://www.csmonitor.com/Commentary/the-monitors-view/2022/1003/Russia-s-war-of-the-pews-in-Ukraine?icid=rss",
-    "https://www.bostonglobe.com/2022/10/03/metro/brother-patient-who-died-new-hampshire-hospital-slams-state-regulators/?camp=bg:brief:rss:feedly&rss_id=feedly_rss_brief",
-    "https://www.latimes.com/california/story/2022-10-03/slave-auction-high-school-football-team-forfeits-season-yuba-city-river-valley",
-    "https://www.breitbart.com/europe/2022/10/04/blackout-britain-significant-risk-of-gas-shortages-this-winter/",
-    "https://www.aljazeera.com/news/2022/10/4/haitian-police-use-tear-gas-as-thousands-march-port-au-prince",
-    "https://www.dailymail.co.uk/news/article-11278923/If-voted-Tory-dont-deserve-resuscitated-NHS-Outrage-nurses-outburst.html?ns_mchannel=rss&ns_campaign=1490&ito=1490",
-    "https://www.newsweek.com/newsweek-com-worm-spit-digests-most-common-plastic-1748767",
-    "https://dailycaller.com/2022/10/03/planned-parenthood-abortions-rv-mobile/",
-    "https://newrepublic.com/article/167904/hurricane-ian-exposes-ron-desantiss-faux-environmentalism",
-    "https://foreignpolicy.com/2022/10/01/moskva-south-china-sea-russia/",
-    "https://www.thedailybeast.com/tv-garden-experts-rod-and-rachel-saunders-killed-and-fed-to-hungry-crocodiles-over-rare-seeds-court-hears?source=articles&via=rss",
-    "https://www.axios.com/2022/10/03/iran-protests-spread-university-mahsa-amini",
-    "https://www.cnn.com/2022/10/04/us/hurricane-ian-florida-recovery-tuesday/index.html",
-    "https://www.cnn.com/2022/10/04/opinions/inflation-high-prices-pandemic-stewart/index.html",
-    "https://www.washingtontimes.com/news/2022/oct/4/new-york-moves-to-ban-gas-powered-cars-by-2035-cal/?utm_source=RSS_Feed&utm_medium=RSS",
-    "https://foreignpolicy.com/2022/10/02/ngos-nongovernmental-organizations-problems-crackdown-democracy/",
-    "https://www.huffpost.com/entry/denmark-queen-strips-titles-grandchildren_n_633c227ae4b02816452dc04f",
-    "https://www.spiegel.de/international/europe/open-arms-the-exploitation-of-ukrainians-in-the-european-union-a-83327326-3692-4663-92f3-85a26731c0c2#ref=rss",
+  "https://foreignpolicy.com/2022/10/06/opec-oil-production-economy-us-russia-recession/",
+  "https://www.newsweek.com/visiting-parents-needy-mother-laws-mumsnet-1749779",
+  "https://www.bostonglobe.com/2022/10/07/metro/back-homeschool/?camp=bg:brief:rss:feedly&rss_id=feedly_rss_brief",
+  "https://www.independent.co.uk/f1/japanese-grand-prix-practice-live-stream-updates-results-b2197145.html",
+  "https://www.dailymail.co.uk/news/article-11290767/The-heroes-Bishopsgate-Incredible-footage-shows-fearless-passersby-confront-phone-muggers.html?ns_mchannel=rss&ns_campaign=1490&ito=1490",
+  "https://www.washingtonpost.com/world/2022/10/07/russia-ukraine-war-latest-updates/?utm_source=rss&utm_medium=referral&utm_campaign=wp_homepage",
+  "https://www.cnn.com/2022/10/06/europe/wagner-ukraine-struggles-marat-gabidullin-cmd-intl/index.html",
+  "https://www.bbc.com/news/world-africa-63155899?at_medium=RSS&at_campaign=KARANGA",
+  "https://www.aljazeera.com/news/2022/10/7/grief-and-shock-in-thailand-over-attack-on-daycare-tiny-angels",
+  "https://abcnews.go.com/GMA/Culture/video/kate-make-cocktails-visit-northern-ireland-91135829",
+  "https://www.axios.com/2022/10/07/caribbean-coral-disease-new-plan",
+  "https://nypost.com/2022/10/07/1-dead-as-police-fans-clash-outside-argentine-soccer-match/",
+  "https://www.ft.com/content/e7faef6b-f2a3-4622-a51b-896b7d25e45d",
+  "https://www.nytimes.com/2022/10/07/world/europe/ukraine-war-fighters.html",
+  "https://www.smh.com.au/politics/federal/alan-moir-20150921-gjrcxr.html?ref=rss&utm_medium=rss&utm_source=rss_feed",
+  "https://www.euronews.com/video/2022/10/07/latest-news-bulletin-october-7th-morning",
+  "https://www.foxnews.com/us/kanye-west-tucker-carlson-white-lives-matter-shirt",
+  "https://www.latimes.com/california/story/2022-10-06/two-inmates-killed-at-california-state-prisons-within-24-hours-officials-say",
+  "https://www.propublica.org/article/new-mexico-foster-care-rtc-teens",
+  "https://www.nbcnews.com/politics/congress/republican-sen-ben-sasse-will-resign-congress-rcna51109",
+  "https://www.wsj.com/articles/russian-missiles-hit-civilian-targets-in-southeastern-ukraine-11665046368",
+  "https://www.thedailybeast.com/jaguar-queen-on-the-lam-after-cops-use-instagram-to-id-her?source=articles&via=rss",
+  "https://www.telegraph.co.uk/news/2022/10/06/shakespeares-globe-rushes-delete-derogatory-poem-transphobic/",
+  "https://www.motherjones.com/environment/2022/10/north-carolina-outer-banks-sea-level-rise-homes-consumed/",
+  "https://newrepublic.com/article/167979/gretchen-whitmer-2022-reelection-presidential-nominee-2024",
+  "https://www.cbc.ca/news/canada/saskatchewan/myles-sanderson-acted-alone-during-james-smith-cree-nation-mass-stabbing-police-say-1.6608887?cmp=rss",
+  "https://news.sky.com/story/ukraine-war-first-time-since-the-cuban-missile-crisis-we-have-a-direct-threat-of-the-use-nuclear-weapons-says-president-biden-12714106",
+  "https://www.npr.org/2022/10/07/1125588656/comic-how-foraging-restored-my-relationship-with-food",
+  "https://www.huffpost.com/entry/european-union-agrees-on-price-cap-for-russian-oil-over-ukraine-war_n_633e2379e4b028164531059c",
+  "https://www.politico.com/video/2022/09/28/newsom-says-dems-have-a-messaging-problem-716228",
+  "https://www.theguardian.com/environment/2022/oct/05/drone-footage-orcas-killing-white-shark-south-africa",
+  "https://www.washingtontimes.com/news/2022/oct/7/nobel-peace-prize-to-activists-from-belarus-russia/?utm_source=RSS_Feed&utm_medium=RSS",
+  "https://www.breitbart.com/politics/2022/10/06/democrat-mike-franken-accuser-responds-to-backlash-multiple-women-allege-serial-misconduct/",
+  "https://www.theblaze.com/news/alternatives-to-detention-program-gives-some-illegal-migrants-smartphone-monitoring-devices-and-lets-them-loose-in-the-us-costing-taxpayers-billions",
+  "https://dailycaller.com/2022/10/06/washington-dc-crime-shootings-four-victims-north-capitol-street/",
+  "https://www.csmonitor.com/World/Asia-South-Central/2022/1006/Meet-the-amateur-art-sleuths-helping-bring-back-Asia-s-stolen-heritage?icid=rss",
+  "https://www.spiegel.de/international/germany/inflation-bankruptcies-and-fears-of-decline-is-this-the-return-of-the-sick-man-of-europe-a-41d914b0-0322-46a8-9087-d118b3f0b399#ref=rss",
+  "https://www.thenation.com/article/society/mahsa-amini-and-the-women-of-iran/",
+  "https://www.democracynow.org/2022/10/5/haiti_demands_pm_resignation_lower_fuel",
 ]
 
 export default () => {
@@ -76,9 +65,7 @@ export default () => {
         let addPipeline;
 
         const addCookiesToRequest = (request, response) => {
-            request.requestHeaders.push("Cookie", "Secret");
-            // request.requestHeaders['cookie'].push({'OptanonAlertBoxClosed', '2022-10-05T10:34:28.502Z'})
-            // request.requestHeaders['cookie2'].push({'OptanonAlertBoxClosed': '2022-10-05T10:34:28.502Z'})
+          response.modifyHeader("Cookie", "OptanonAlertBoxClosed : 2022-10-05T10:34:28.502Z;")
         };
 
         const openTab = async (url) => {
@@ -133,7 +120,7 @@ export default () => {
                 });
 
                 await openTab(getUrl(path));
-                await waitFor(() => expect(Object.keys(WebDiscoveryProject.state.v)).to.include(getUrl(path)), 2000);
+              await waitFor(() => expect(Object.keys(WebDiscoveryProject.state.v)).to.include(getUrl(path)), 5000);
               });
         });
 
@@ -143,12 +130,29 @@ export default () => {
                 it(`'${url}' is allowed`, async () => {
                     addPipeline(addCookiesToRequest);
                     await openTab(url);
-                    await waitFor(async () => (await new Promise((resolve) => WebDiscoveryProject.db.getURL(url, resolve))).length == 1);
-                    await WebDiscoveryProject.forceDoubleFetch(url);
-                    await waitFor(async () => (await new Promise((resolve) => WebDiscoveryProject.db.getURL(url, resolve))).length == 0);
-                    WebDiscoveryProject.isAlreadyMarkedPrivate(url, (res) => {
-                        expect(res.private, "url is marked as private!").equal(0);
-                    });
+                  await waitFor(async () => {
+                    // getURL needs to be called on the canonical url
+                    let canonical_url = null;
+                    console.log(WebDiscoveryProject.state.v)
+                    Object.values(WebDiscoveryProject.state.v).every((entry) => {
+                      if (entry.url == url || (entry.red && entry.red[0] == url)) {
+                        canonical_url = entry.url
+                        return false;
+                      }
+
+                      return true;
+                    })
+                    if (canonical_url != null) {
+                      console.log(canonical_url)
+                      return (await new Promise((resolve) => WebDiscoveryProject.db.getURL(canonical_url, resolve))).length == 1
+                    }
+                  });
+                  console.log("about to force double fetch");
+                  await WebDiscoveryProject.forceDoubleFetch(url);
+                  await waitFor(async () => (await new Promise((resolve) => WebDiscoveryProject.db.getURL(url, resolve))).length == 0);
+                  WebDiscoveryProject.isAlreadyMarkedPrivate(url, (res) => {
+                    expect(res.private, "url is marked as private!").equal(0);
+                  });
                 });
             });
         });
