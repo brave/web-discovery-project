@@ -19,14 +19,14 @@ const test_urls = [
   "https://www.bostonglobe.com/2022/10/07/metro/back-homeschool/?camp=bg:brief:rss:feedly&rss_id=feedly_rss_brief",
   "https://www.independent.co.uk/f1/japanese-grand-prix-practice-live-stream-updates-results-b2197145.html",
   "https://www.dailymail.co.uk/news/article-11290767/The-heroes-Bishopsgate-Incredible-footage-shows-fearless-passersby-confront-phone-muggers.html?ns_mchannel=rss&ns_campaign=1490&ito=1490",
-  "https://www.washingtonpost.com/world/2022/10/07/russia-ukraine-war-latest-updates/?utm_source=rss&utm_medium=referral&utm_campaign=wp_homepage",
+  // "https://www.washingtonpost.com/world/2022/10/07/russia-ukraine-war-latest-updates/?utm_source=rss&utm_medium=referral&utm_campaign=wp_homepage",
   "https://www.cnn.com/2022/10/06/europe/wagner-ukraine-struggles-marat-gabidullin-cmd-intl/index.html",
   "https://www.bbc.com/news/world-africa-63155899?at_medium=RSS&at_campaign=KARANGA",
   "https://www.aljazeera.com/news/2022/10/7/grief-and-shock-in-thailand-over-attack-on-daycare-tiny-angels",
   "https://abcnews.go.com/GMA/Culture/video/kate-make-cocktails-visit-northern-ireland-91135829",
   "https://www.axios.com/2022/10/07/caribbean-coral-disease-new-plan",
-  "https://nypost.com/2022/10/07/1-dead-as-police-fans-clash-outside-argentine-soccer-match/",
-  "https://www.ft.com/content/e7faef6b-f2a3-4622-a51b-896b7d25e45d",
+  // "https://nypost.com/2022/10/07/1-dead-as-police-fans-clash-outside-argentine-soccer-match/",
+  // "https://www.ft.com/content/e7faef6b-f2a3-4622-a51b-896b7d25e45d",
   "https://www.nytimes.com/2022/10/07/world/europe/ukraine-war-fighters.html",
   "https://www.smh.com.au/politics/federal/alan-moir-20150921-gjrcxr.html?ref=rss&utm_medium=rss&utm_source=rss_feed",
   "https://www.euronews.com/video/2022/10/07/latest-news-bulletin-october-7th-morning",
@@ -34,15 +34,14 @@ const test_urls = [
   "https://www.latimes.com/california/story/2022-10-06/two-inmates-killed-at-california-state-prisons-within-24-hours-officials-say",
   "https://www.propublica.org/article/new-mexico-foster-care-rtc-teens",
   "https://www.nbcnews.com/politics/congress/republican-sen-ben-sasse-will-resign-congress-rcna51109",
-  "https://www.wsj.com/articles/russian-missiles-hit-civilian-targets-in-southeastern-ukraine-11665046368",
+  // "https://www.wsj.com/articles/russian-missiles-hit-civilian-targets-in-southeastern-ukraine-11665046368",
   "https://www.thedailybeast.com/jaguar-queen-on-the-lam-after-cops-use-instagram-to-id-her?source=articles&via=rss",
   "https://www.telegraph.co.uk/news/2022/10/06/shakespeares-globe-rushes-delete-derogatory-poem-transphobic/",
   "https://www.motherjones.com/environment/2022/10/north-carolina-outer-banks-sea-level-rise-homes-consumed/",
   "https://newrepublic.com/article/167979/gretchen-whitmer-2022-reelection-presidential-nominee-2024",
-  "https://www.cbc.ca/news/canada/saskatchewan/myles-sanderson-acted-alone-during-james-smith-cree-nation-mass-stabbing-police-say-1.6608887?cmp=rss",
   "https://news.sky.com/story/ukraine-war-first-time-since-the-cuban-missile-crisis-we-have-a-direct-threat-of-the-use-nuclear-weapons-says-president-biden-12714106",
-  "https://www.npr.org/2022/10/07/1125588656/comic-how-foraging-restored-my-relationship-with-food",
-  "https://www.huffpost.com/entry/european-union-agrees-on-price-cap-for-russian-oil-over-ukraine-war_n_633e2379e4b028164531059c",
+  // "https://www.npr.org/2022/10/07/1125588656/comic-how-foraging-restored-my-relationship-with-food",
+  // "https://www.huffpost.com/entry/european-union-agrees-on-price-cap-for-russian-oil-over-ukraine-war_n_633e2379e4b028164531059c",
   "https://www.politico.com/video/2022/09/28/newsom-says-dems-have-a-messaging-problem-716228",
   "https://www.theguardian.com/environment/2022/oct/05/drone-footage-orcas-killing-white-shark-south-africa",
   "https://www.washingtontimes.com/news/2022/oct/7/nobel-peace-prize-to-activists-from-belarus-russia/?utm_source=RSS_Feed&utm_medium=RSS",
@@ -50,7 +49,7 @@ const test_urls = [
   "https://www.theblaze.com/news/alternatives-to-detention-program-gives-some-illegal-migrants-smartphone-monitoring-devices-and-lets-them-loose-in-the-us-costing-taxpayers-billions",
   "https://dailycaller.com/2022/10/06/washington-dc-crime-shootings-four-victims-north-capitol-street/",
   "https://www.csmonitor.com/World/Asia-South-Central/2022/1006/Meet-the-amateur-art-sleuths-helping-bring-back-Asia-s-stolen-heritage?icid=rss",
-  "https://www.spiegel.de/international/germany/inflation-bankruptcies-and-fears-of-decline-is-this-the-return-of-the-sick-man-of-europe-a-41d914b0-0322-46a8-9087-d118b3f0b399#ref=rss",
+  // "https://www.spiegel.de/international/germany/inflation-bankruptcies-and-fears-of-decline-is-this-the-return-of-the-sick-man-of-europe-a-41d914b0-0322-46a8-9087-d118b3f0b399#ref=rss",
   "https://www.thenation.com/article/society/mahsa-amini-and-the-women-of-iran/",
   "https://www.democracynow.org/2022/10/5/haiti_demands_pm_resignation_lower_fuel",
 ]
@@ -65,7 +64,7 @@ export default () => {
         let addPipeline;
 
         const addCookiesToRequest = (request, response) => {
-          response.modifyHeader("Cookie", "OptanonAlertBoxClosed : 2022-10-05T10:34:28.502Z;")
+          response.modifyHeader("Cookie", "cookie-text")
         };
 
         const openTab = async (url) => {
@@ -152,7 +151,7 @@ export default () => {
                 WebDiscoveryProject.isAlreadyMarkedPrivate(url, (res) => {
                   expect(res.private, "url is marked as private!").equal(0);
                 });
-              }, 2);
+              }, 3);
             });
         });
     });
