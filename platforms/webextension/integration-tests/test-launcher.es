@@ -4,8 +4,8 @@
 
 import { chrome } from "../globals";
 
-export default function (indexFilePath, { grep, autostart }) {
+export default function (indexFilePath, { grep, autostart, invert }) {
   return chrome.runtime.getURL(
-    `/modules/${indexFilePath}?grep=${grep}&autostart=${autostart}`
+    `/modules/${indexFilePath}?grep=${grep}&autostart=${autostart}&invert=${invert}`
   );
 }

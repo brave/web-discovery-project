@@ -14,6 +14,14 @@ mocha.setup({
     const grep = greps[greps.length - 1];
     return grep;
   })(),
+  invert: (() => {
+    const searchParams = new window.URLSearchParams(window.location.search);
+    const invert = searchParams.get("invert");
+    if (invert == "true") {
+      return true;
+    }
+    return false;
+  })(),
 });
 
 window.TESTS = {};

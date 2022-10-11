@@ -88,6 +88,7 @@ export default {
     const { url } = await getActiveTab();
     const prefix = "data:text/plain,";
     let grep = "";
+    let invert = false;
     let forceExtensionReload = false;
     let autostart = true;
     if (url.startsWith(prefix)) {
@@ -95,6 +96,7 @@ export default {
       grep = options.grep;
       forceExtensionReload = options.forceExtensionReload;
       autostart = options.autostart;
+      invert = options.invert;
     }
 
     // Create test URL
@@ -102,6 +104,7 @@ export default {
       forceExtensionReload,
       grep,
       autostart,
+      invert,
     });
 
     // Start tests

@@ -26,7 +26,8 @@ module.exports = (program) => {
     .option(
       "--fgrep [pattern]",
       "only run tests with file names matching <pattern>"
-    )
+  )
+    .option("-i --invert", "inverts --grep and --fgrep matches")
     .option("--environment <environment>")
     .option("--port [port]", "dev server port", 4300)
     .option("--firefox [firefox]", "Firefox path", "nightly")
@@ -59,6 +60,10 @@ module.exports = (program) => {
 
       if (options.fgrep) {
         process.env.MOCHA_FGREP = options.fgrep;
+      }
+
+      if (options.invert) {
+        process.env.MOCHA_INVERT = options.invert;
       }
 
       if (options.firefox) {
