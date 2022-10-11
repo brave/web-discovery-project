@@ -16,7 +16,8 @@ mocha.setup({
   })(),
   invert: (() => {
     const searchParams = new window.URLSearchParams(window.location.search);
-    const invert = searchParams.get("invert");
+    const invertParams = searchParams.getAll("invert");
+    const invert = invertParams[invertParams.length - 1];
     if (invert == "true") {
       return true;
     }
