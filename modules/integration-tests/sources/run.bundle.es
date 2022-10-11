@@ -91,6 +91,7 @@ const TEST_URL = window.location.href;
   const autostart = autostartParams[autostartParams.length - 1];
 
   if (autostart === "true") {
+    console.log(mocha.options);
     mocha.run();
   }
 })();

@@ -18,11 +18,10 @@ mocha.setup({
     const searchParams = new window.URLSearchParams(window.location.search);
     const invertParams = searchParams.getAll("invert");
     const invert = invertParams[invertParams.length - 1];
-    if (invert == "true") {
-      return true;
-    }
-    return false;
+    return invert == "true";
   })(),
 });
+
+console.log(mocha.options);
 
 window.TESTS = {};
