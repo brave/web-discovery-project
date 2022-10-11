@@ -131,7 +131,6 @@ export default () => {
                 await waitFor(async () => {
                   // getURL needs to be called on the canonical url
                   let canonical_url = null;
-                  console.log(WebDiscoveryProject.state.v)
                   Object.values(WebDiscoveryProject.state.v).every((entry) => {
                     if (entry.url == url || (entry.red && entry.red[0] == url)) {
                       canonical_url = entry.url
@@ -141,11 +140,9 @@ export default () => {
                     return true;
                   })
                   if (canonical_url != null) {
-                    console.log(canonical_url)
                     return (await new Promise((resolve) => WebDiscoveryProject.db.getURL(canonical_url, resolve))).length == 1
                   }
                 });
-                console.log("about to force double fetch");
                 await WebDiscoveryProject.forceDoubleFetch(url);
                 await waitFor(async () => (await new Promise((resolve) => WebDiscoveryProject.db.getURL(url, resolve))).length == 0);
                 WebDiscoveryProject.isAlreadyMarkedPrivate(url, (res) => {
