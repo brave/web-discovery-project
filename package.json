@@ -1,6 +1,6 @@
 {
   "name": "web-discovery-project",
-  "version": "1.1.60",
+  "version": "1.1.61",
   "description": "Standalone Web Discovery Project package and extension",
   "scripts": {
     "lint": "node fern.js lint",
@@ -59,7 +59,7 @@
     "@types/punycode": "2.1.0",
     "@typescript-eslint/eslint-plugin": "5.31.0",
     "@typescript-eslint/parser": "5.31.0",
-    "@xmldom/xmldom": "0.8.2",
+    "@xmldom/xmldom": "0.8.3",
     "auto": "10.37.4",
     "babel-eslint": "10.1.0",
     "body-parser": "1.20.0",
