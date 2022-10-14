@@ -5,7 +5,15 @@
 import { chrome } from "../globals";
 
 export default function (indexFilePath, { grep, autostart, invert }) {
-  return chrome.runtime.getURL(
-    `/modules/${indexFilePath}?grep=${grep}&autostart=${autostart}&invert=${invert}`
-  );
+  let url = `/modules/${indexFilePath}?autostart=${autostart}`;
+
+  if (invert === "true") {
+    url = `${url}&invert=true`;
+  }
+
+  if (grep) {
+    url = `${url}&grep=${grep}`;
+  }
+
+  return chrome.runtime.getURL(url);
 }

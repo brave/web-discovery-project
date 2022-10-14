@@ -16,7 +16,7 @@ RUN mkdir /tmp/.X11-unix \
 EXPOSE 5900
 
 # Install Brave
-RUN wget 'https://github.com/brave/brave-browser/releases/download/v1.41.100/brave-browser_1.41.100_amd64.deb' -O /home/node/brave.deb \
+RUN wget 'https://github.com/brave/brave-browser/releases/download/v1.44.108/brave-browser_1.44.108_amd64.deb' -O /home/node/brave.deb \
  && wget 'https://brave-browser-apt-release.s3.brave.com/pool/main/b/brave-keyring/brave-keyring_1.13-1.deb' -O /home/node/brave-keyring.deb \
  && apt-get update --no-install-recommends \
  && dpkg --install /home/node/brave-keyring.deb \

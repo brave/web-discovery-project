@@ -8,18 +8,6 @@ mocha.setup({
   ui: "bdd",
   timeout: 20000,
   reporter: TAP,
-  grep: (() => {
-    const searchParams = new window.URLSearchParams(window.location.search);
-    const greps = searchParams.getAll("grep");
-    const grep = greps[greps.length - 1];
-    return grep;
-  })(),
-  invert: (() => {
-    const searchParams = new window.URLSearchParams(window.location.search);
-    const invertParams = searchParams.getAll("invert");
-    const invert = invertParams[invertParams.length - 1];
-    return invert == "true";
-  })(),
 });
 
 console.log(mocha.options);

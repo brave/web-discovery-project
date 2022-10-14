@@ -148,7 +148,7 @@ export default () => {
                 WebDiscoveryProject.isAlreadyMarkedPrivate(url, (res) => {
                   expect(res.private, "url is marked as private!").equal(0);
                 });
-              }, 3);
+              });
             });
         });
     });
