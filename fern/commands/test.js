@@ -34,6 +34,7 @@ module.exports = (program) => {
     .option("--brave [brave]", "Brave path")
     .option("--no-build", "skip the build, run tests only")
     .option("-l --launchers [launchers]", "comma separted list of launchers")
+    .option("-r --retries [retries]", "number of retries for failing tests")
     .option(
       "--extension-log [output]",
       "save extension logger messages to the file. When using with `run_tests_in_docker.sh`, the file should be in the directory `report`."
@@ -64,6 +65,10 @@ module.exports = (program) => {
 
       if (options.invert) {
         process.env.MOCHA_INVERT = options.invert;
+      }
+
+      if (options.retries) {
+        process.env.MOCHA_RETRIES = options.retries;
       }
 
       if (options.firefox) {

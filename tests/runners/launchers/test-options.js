@@ -4,5 +4,6 @@ module.exports = function getOptionsUrl() {
     grep: process.env.MOCHA_GREP || "",
     autostart: "true",
     invert: process.env.MOCHA_INVERT || "false",
+    retries: process.env.MOCHA_RETRIES || 1,
   })}`;
 };

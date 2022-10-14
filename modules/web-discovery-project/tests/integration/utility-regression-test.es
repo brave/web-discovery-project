@@ -61,11 +61,11 @@ export default () => {
 
         const WebDiscoveryProject = app.modules["web-discovery-project"].background.webDiscoveryProject;
         const pipeline = app.modules["webrequest-pipeline"].background;
-        let addPipeline;
+        // let addPipeline;
 
-        const addCookiesToRequest = (request, response) => {
-          response.modifyHeader("Cookie", "cookie-text")
-        };
+        // const addCookiesToRequest = (request, response) => {
+        //   response.modifyHeader("Cookie", "cookie-text")
+        // };
 
         const openTab = async (url) => {
             const tabId = await newTab("about:blank");
@@ -98,12 +98,12 @@ export default () => {
             pipeline.unload();
             await pipeline.init();
 
-            addPipeline = (cb) =>
-                pipeline.actions.addPipelineStep("onBeforeRequest", {
-                name: "test",
-                spec: "blocking",
-                fn: cb,
-            });
+            // addPipeline = (cb) =>
+            //     pipeline.actions.addPipelineStep("onBeforeRequest", {
+            //     name: "test",
+            //     spec: "blocking",
+            //     fn: cb,
+            // });
         });
 
         afterEach(() =>
@@ -126,7 +126,7 @@ export default () => {
       describe("utility-regression-test.utility-regression", () => {
             test_urls.forEach((url) => {
               it(`'${url}' is allowed`, async () => {
-                addPipeline(addCookiesToRequest);
+                // addPipeline(addCookiesToRequest);
                 await openTab(url);
                 await waitFor(async () => {
                   // getURL needs to be called on the canonical url
@@ -148,7 +148,7 @@ export default () => {
                 WebDiscoveryProject.isAlreadyMarkedPrivate(url, (res) => {
                   expect(res.private, "url is marked as private!").equal(0);
                 });
-              }, 3);
+              });
             });
         });
     });

@@ -90,11 +90,13 @@ export default {
     let grep = "";
     let invert = false;
     let autostart = true;
+    let retries = 0;
     if (url.startsWith(prefix)) {
       const options = JSON.parse(url.substr(prefix.length));
       grep = options.grep;
       autostart = options.autostart;
       invert = options.invert;
+      retries = options.retries;
     }
 
     // Create test URL
@@ -102,6 +104,7 @@ export default {
       grep,
       autostart,
       invert,
+      retries,
     });
 
     // Start tests
