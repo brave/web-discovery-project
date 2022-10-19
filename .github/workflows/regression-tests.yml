@@ -1,0 +1,14 @@
+name: Regression tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - run: ./run_tests_in_docker.sh "configs/ci/integration-tests.js -l brave-web-ext --grep UtilityRegression --brave /opt/brave.com/brave/brave-browser"
