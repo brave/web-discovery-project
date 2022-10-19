@@ -32,7 +32,7 @@ const test_urls = [
   "https://www.nytimes.com/2022/10/17/briefing/russia-drone-attacks-booker-prize.html",
   "https://www.foxnews.com/lifestyle/reddit-poster-heat-throwing-dry-wedding-tells-friend-alcohol-problem",
   // "https://www.propublica.org/article/wisconsin-election-midterms-voting-2022#1460399",
-  "https://www.cbc.ca/news/politics/jim-watson-testify-emergencies-act-inquiry-1.6619609?cmp=rss",
+  // "https://www.cbc.ca/news/politics/jim-watson-testify-emergencies-act-inquiry-1.6619609?cmp=rss",
   "https://nypost.com/2022/10/18/superfly-actor-kaalan-walker-sentenced-to-50-years-to-life-in-prison-for-rape-charges/",
   "https://www.cnn.com/2022/10/17/politics/joe-odea-donald-trump-colorado-senate/index.html",
   "https://www.thedailybeast.com/the-vow-part-iis-most-disturbing-nxivm-revelation-the-three-mexican-teens-abused-by-keith-raniere?source=articles&via=rss",
