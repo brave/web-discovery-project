@@ -114,6 +114,13 @@ Integration tests (in Brave):
 ./fern.js test configs/ci/integration-tests.js -l brave-web-ext --brave /opt/brave.com/brave/brave-browser
 ```
 
+### Regression tests
+
+Regression tests (in Brave):
+```sh
+./fern.js test configs/ci/integration-tests.js -l brave-web-ext --grep UtilityRegression --brave /opt/brave.com/brave/brave-browser
+```
+
 **Note that you should replace the path to Brave in the command above**.
 
 You can also use the `--keep-open` flag so that the test runner keeps watching

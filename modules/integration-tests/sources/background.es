@@ -88,20 +88,23 @@ export default {
     const { url } = await getActiveTab();
     const prefix = "data:text/plain,";
     let grep = "";
-    let forceExtensionReload = false;
+    let invert = false;
     let autostart = true;
+    let retries = 0;
     if (url.startsWith(prefix)) {
       const options = JSON.parse(url.substr(prefix.length));
       grep = options.grep;
-      forceExtensionReload = options.forceExtensionReload;
       autostart = options.autostart;
+      invert = options.invert;
+      retries = options.retries;
     }
 
     // Create test URL
     const testsUrl = getTestUrl("integration-tests/index.html", {
-      forceExtensionReload,
       grep,
       autostart,
+      invert,
+      retries,
     });
 
     // Start tests

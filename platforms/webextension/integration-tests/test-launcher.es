@@ -4,8 +4,20 @@
 
 import { chrome } from "../globals";
 
-export default function (indexFilePath, { grep, autostart }) {
-  return chrome.runtime.getURL(
-    `/modules/${indexFilePath}?grep=${grep}&autostart=${autostart}`
-  );
+export default function (indexFilePath, { grep, autostart, invert, retries }) {
+  let url = `/modules/${indexFilePath}?autostart=${autostart}`;
+
+  if (invert === "true") {
+    url = `${url}&invert=true`;
+  }
+
+  if (grep) {
+    url = `${url}&grep=${grep}`;
+  }
+
+  if (retries) {
+    url = `${url}&retries=${grep}`;
+  }
+
+  return chrome.runtime.getURL(url);
 }
