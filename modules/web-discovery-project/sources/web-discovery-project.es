@@ -33,6 +33,7 @@ const bloomFilterNHashes = 7;
 const allowedCountryCodes = config.settings.ALLOWED_COUNTRY_CODES;
 
 function _log(...msg) {
+  console.log(msg);
   if (WebDiscoveryProject.debug) {
     logger.log(WebDiscoveryProject.LOG_KEY, ...msg);
   }
@@ -1644,8 +1645,13 @@ const WebDiscoveryProject = {
     config_location: null,
   },
   allowlist: [
-    /^https:\/\/play\.google\.com\/store\/apps\/details\?id=[^\/]+$/,
-    /^https:\/\/apps\.apple\.com\/\D{2}\/app\/[\w-]+\/id\d+$/,
+    /^https:\/\/www\.ft\.com\/content\//,
+    /^https:\/\/www\.huffpost\.com\/entry\//,
+    /^https:\/\/www\.npr\.org\/[0-9]{4}\/[0-9]{2}\/[0-9]{2}\//,
+    /^https:\/\/www\.propublica\.org\/article\//,
+    /^https:\/\/www\.spiegel\.de\/international\//,
+    /^https:\/\/www\.washingtonpost\.com\/history\/[0-9]{4}\/[0-9]{2}\/[0-9]{2}\//,
+    /^https:\/\/www\.wsj\.com\/articles\//,
   ],
 
   _md5: function (str) {
@@ -1868,6 +1874,7 @@ const WebDiscoveryProject = {
           // of canonicals
           strict_value = false;
         } else if (!structure && page_doc["alw"]) {
+          // if page url is among allowlisted (alw) patterns
           strict_value = false;
         }
       }
@@ -1875,8 +1882,12 @@ const WebDiscoveryProject = {
     return strict_value;
   },
   dropLongURL: function (url, options) {
+    _log("DLU called with arguments:", url, options);
     try {
-      if (options == null) options = { strict: false };
+      if (options == null) options = {
+        strict: false,
+        allowlisted: false,
+      };
 
       if (WebDiscoveryProject.checkForEmail(url)) return true;
 
@@ -1914,6 +1925,7 @@ const WebDiscoveryProject = {
           return true;
       } else {
         if (
+          !options.allowlisted &&
           url_parts.query_string &&
           url_parts.query_string.length > WebDiscoveryProject.qs_len
         ) {
@@ -1929,6 +1941,7 @@ const WebDiscoveryProject = {
             return true;
           }
           if (
+            !options.allowlisted &&
             WebDiscoveryProject.checkForLongNumber(
               url_parts.query_string,
               12
@@ -1939,7 +1952,7 @@ const WebDiscoveryProject = {
           }
         }
 
-        if (WebDiscoveryProject.checkForLongNumber(url_parts.path, 12) != null) {
+        if (!options.allowlisted && WebDiscoveryProject.checkForLongNumber(url_parts.path, 12) != null) {
           _log('DLU failed: long number in path: ' + url_parts.path);
           return true;
         }
@@ -2636,11 +2649,13 @@ const WebDiscoveryProject = {
       return discard("URL failed the isSuspiciousURL check");
     }
 
+    let allowlisted = page_doc["alw"]
+
     if (WebDiscoveryProject.dropLongURL(url)) {
       // The URL itself is considered unsafe, but it has a canonical URL, so it should be public
       const cUrl = page_doc["x"]["canonical_url"];
       if (cUrl) {
-        if (WebDiscoveryProject.dropLongURL(cUrl)) {
+        if (!allowlisted && WebDiscoveryProject.dropLongURL(cUrl)) {
           // oops, the canonical is also bad, therefore mark as private
           _log(`both URL=${url} and canonical_url=${cUrl} are too long`);
           return discard(`both URL and canonical_url are too long`);
@@ -2770,6 +2785,9 @@ const WebDiscoveryProject = {
                 true
               );
 
+              var allowlisted = page_doc["alw"];
+              url_strict_value = url_strict_value && !allowlisted;
+
               if (page_doc["ref"] && page_doc["ref"] != "") {
                 // the page has a referral
                 _log(
@@ -2786,6 +2804,7 @@ const WebDiscoveryProject = {
                 );
 
                 // overwrite strict value because the link exists on a public fetchable page
+                _log("Strictness values:", url_strict_value, structure_strict_value);
                 if (hasurl) {
                   url_strict_value = false;
                   structure_strict_value = false;
@@ -2808,7 +2827,9 @@ const WebDiscoveryProject = {
                 // we do not know the origin of the page, run the dropLongURL strict version
 
                 if (
-                  WebDiscoveryProject.dropLongURL(url, { strict: url_strict_value })
+                  WebDiscoveryProject.dropLongURL(url, {
+                    strict: url_strict_value,
+                  })
                 ) {
                   if (
                     page_doc &&
@@ -2816,9 +2837,12 @@ const WebDiscoveryProject = {
                     page_doc["x"]["canonical_url"]
                   ) {
                     if (
+                      !allowlisted &&
                       WebDiscoveryProject.dropLongURL(
                         page_doc["x"]["canonical_url"],
-                        { strict: url_strict_value }
+                        {
+                          strict: url_strict_value,
+                        }
                       )
                     ) {
                       privateUrlFound(
@@ -2874,9 +2898,7 @@ const WebDiscoveryProject = {
                 if (
                   page_doc["x"]["canonical_url"] != null &&
                   page_doc["x"]["canonical_url"] != "" &&
-                  WebDiscoveryProject.dropLongURL(
-                    page_doc["x"]["canonical_url"]
-                  ) == false
+                  (allowlisted || WebDiscoveryProject.dropLongURL(page_doc["x"]["canonical_url"]) == false)
                 ) {
                   page_doc["url"] = page_doc["x"]["canonical_url"];
                   page_doc["x"] = data;
@@ -2884,7 +2906,7 @@ const WebDiscoveryProject = {
                 } else {
                   // there was no canonical either on page_doc['x'] or in data or it was droppable
 
-                  if (WebDiscoveryProject.dropLongURL(url) == false) {
+                  if (allowlisted || WebDiscoveryProject.dropLongURL(url) == false) {
                     page_doc["url"] = url;
                     page_doc["x"] = data;
 
@@ -3571,7 +3593,7 @@ const WebDiscoveryProject = {
               }
             })
             .catch((e) => {
-              _log("Error fetching fetching the currentURL: " + e);
+              //_log("Error fetching fetching the currentURL: " + e);
             });
 
           WebDiscoveryProject.counter += 4;
