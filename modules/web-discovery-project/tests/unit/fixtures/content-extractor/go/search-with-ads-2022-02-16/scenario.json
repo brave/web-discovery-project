@@ -1,0 +1,297 @@
+{
+  "url": "https://www.google.com/search?hl=en&q=kuckucksuhr%20kaufen",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "query",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "Kuckucksuhren online kaufen | eBay",
+            "u": "https://www.ebay.de/b/Kuckucksuhren/79644/bn_2394739",
+            "age": null,
+            "m": null
+          },
+          "1": {
+            "t": "Original Kuckucksuhren aus dem Schwarzwald",
+            "u": "https://www.schwarzwaldpalast.de/",
+            "age": null,
+            "m": null
+          },
+          "2": {
+            "t": "Kuckucksuhren » jetzt online kaufen | uhren-park.de",
+            "u": "https://www.uhren-park.de/index.php/cat/c1_Kuckucksuhren.html",
+            "age": null,
+            "m": null
+          },
+          "3": {
+            "t": "Der Kuckucksuhren-Shop für original Kuckucksuhren aus ...",
+            "u": "https://www.kuckucksuhr.net/",
+            "age": null,
+            "m": null
+          },
+          "4": {
+            "t": "Kuckucksuhren günstig online kaufen | Kaufland.de",
+            "u": "https://www.kaufland.de/wanduhren/kuckucksuhren/",
+            "age": null,
+            "m": null
+          },
+          "5": {
+            "t": "Suchergebnis auf Amazon.de für: Kuckucksuhren",
+            "u": "https://www.amazon.de/-/en/Kuckucksuhren/b?ie=UTF8&node=2970892031",
+            "age": null,
+            "m": null
+          },
+          "6": {
+            "t": "kuckucksuhr - eBay Kleinanzeigen",
+            "u": "https://www.ebay-kleinanzeigen.de/s-kuckucksuhr/k0",
+            "age": null,
+            "m": null
+          },
+          "7": {
+            "t": "Ihre Schwarzwalduhr - Handwerk, Kunst und Präzision in ...",
+            "u": "https://www.haus-der-schwarzwalduhren.de/",
+            "age": null,
+            "m": null
+          },
+          "8": {
+            "t": "Kuckucksuhren | Trends 2022 | Günstig online kaufen",
+            "u": "https://www.ladenzeile.de/uhren/kuckucksuhr/",
+            "age": null,
+            "m": null
+          }
+        },
+        "q": "kuckucksuhr kaufen",
+        "qurl": "https://www.google.com/search?hl=en&q=kuckucksuhr%20kaufen",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "rel-query",
+      "payload": {
+       "r": {
+          "0": {
+            "t": "kuckucksuhr schwarzwald"
+          },
+          "1": {
+            "t": "kuckucksuhr modern"
+          },
+          "2": {
+            "t": "kuckucksuhr amazon"
+          },
+          "3": {
+            "t": "kuckucksuhr schwarzwald triberg"
+          },
+          "4": {
+            "t": "kuckucksuhr wiesbaden"
+          },
+          "5": {
+            "t": "kuckucksuhr reparieren"
+          },
+          "6": {
+            "t": "größte kuckucksuhr der welt"
+          },
+          "7": {
+            "t": "kuckucksuhr münchen"
+          }
+        },
+        "q": "kuckucksuhr kaufen",
+        "qurl": "https://www.google.com/search?hl=en&q=kuckucksuhr%20kaufen",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "ads_C",
+      "payload": {
+        "r": {
+          "0": {
+            "u": "https://www.schwarzwaldpalast.de/Geschnitzte-Schwarzwaelder-Kuckucksuhren/Kuckucksuhr-Quarz-Uhrwerk-geschnitzt-23cm-von-Anton-Schneider::105.html?utm_campaign=shopping&utm_source=merchantcenter&utm_medium=googleshopping&utm_content=google-de",
+            "t": "Kuckucksuhr Quarz-Uhrwerk geschnitzt 23cm von Anton Schneider - Original aus dem Schwarzwald"
+          },
+          "1": {
+            "u": "https://www.schwarzwaldpalast.de/Chalet-Kuckucksuhren/Kuckucksuhr-Quarz-Uhrwerk-Chalet-Stil-25cm-von-Hekas::1266.html?utm_campaign=shopping&utm_source=merchantcenter&utm_medium=googleshopping&utm_content=google-de",
+            "t": "Kuckucksuhr Quarz-Uhrwerk Chalet-Stil 25cm von Hekas - Original aus dem Schwarzwald"
+          },
+          "2": {
+            "u": "https://www.schwarzwaldpalast.de/Preisguenstige-Souvenir-Kuckucksuhren-Wetterhaeusschen/Kuckucksuhr-Kettenzug-Uhrwerk-25cm-von-Trenkle-Uhren::813.html?utm_campaign=shopping&utm_source=merchantcenter&utm_medium=googleshopping&utm_content=google-de",
+            "t": "Kuckucksuhr Kettenzug-Uhrwerk 25cm von Trenkle Uhren - Original aus dem Schwarzwald"
+          },
+          "3": {
+            "u": "https://www.schwarzwaldpalast.de/Preisguenstige-Souvenir-Kuckucksuhren-Wetterhaeusschen/Kuckucksuhr-Kuckulino-Quarz-Uhrwerk-Chalet-Stil-12cm-von-Trenkle-Uhren::933.html?utm_campaign=shopping&utm_source=merchantcenter&utm_medium=googleshopping&utm_content=google-de",
+            "t": "Kuckucksuhr Kuckulino Quarz-Uhrwerk Chalet-Stil 12cm von Trenkle Uhren - Original aus dem Schwarzwald"
+          },
+          "4": {
+            "u": "https://www.schwarzwaldpalast.de/Preisguenstige-Souvenir-Kuckucksuhren-Wetterhaeusschen/Kuckucksuhr-Kuckulino-Quarz-Uhrwerk-Schwarzwaelder-Pendeluhr-16cm-von-Trenkle-Uhren::924.html?utm_campaign=shopping&utm_source=merchantcenter&utm_medium=googleshopping&utm_content=google-de",
+            "t": "Kuckucksuhr Kuckulino Quarz-Uhrwerk Schwarzwälder Pendeluhr 16cm vo... - Original aus dem Schwarzwald"
+          },
+          "5": {
+            "u": "https://www.schwarzwaldpalast.de/Chalet-Kuckucksuhren/Kuckucksuhr-1-Tag-Uhrwerk-Chalet-Stil-23cm-von-August-Schwer::513.html?utm_campaign=shopping&utm_source=merchantcenter&utm_medium=googleshopping&utm_content=google-de",
+            "t": "Kuckucksuhr 1-Tag-Uhrwerk Chalet-Stil 23cm von August Schwer - Original aus dem Schwarzwald"
+          },
+          "6": {
+            "u": "https://www.schwarzwaldpalast.de/Preisguenstige-Souvenir-Kuckucksuhren-Wetterhaeusschen/Schwarzwaelder-Pendeluhr-25cm-Quarz-Uhrwerk-von-Trenkle::441.html?utm_campaign=shopping&utm_source=merchantcenter&utm_medium=googleshopping&utm_content=google-de",
+            "t": "Schwarzwälder Pendeluhr 25cm - Quarz-Uhrwerk von Trenkle - Original aus dem Schwarzwald"
+          },
+          "7": {
+            "u": "https://www.schwarzwaldpalast.de/Preisguenstige-Souvenir-Kuckucksuhren-Wetterhaeusschen/Schwarzwaelder-Pendeluhr-17cm-Quarz-Uhrwerk-von-Trenkle::451.html?utm_campaign=shopping&utm_source=merchantcenter&utm_medium=googleshopping&utm_content=google-de",
+            "t": "Schwarzwälder Pendeluhr 17cm - Quarz-Uhrwerk von Trenkle - Original aus dem Schwarzwald"
+          },
+          "8": {
+            "u": "https://www.schwarzwaldpalast.de/Chalet-Kuckucksuhren/Kuckucksuhr-8-Tages-Uhrwerk-Chalet-Stil-30cm-von-Hekas::211.html?utm_campaign=shopping&utm_source=merchantcenter&utm_medium=googleshopping&utm_content=google-de",
+            "t": "Kuckucksuhr 8-Tages-Uhrwerk Chalet-Stil 30cm von Hekas - Original aus dem Schwarzwald"
+          },
+          "9": {
+            "u": "https://www.schwarzwaldpalast.de/Preisguenstige-Souvenir-Kuckucksuhren-Wetterhaeusschen/Kuckucksuhr-Wetterhaus-Uhrwerk-Chalet-Stil-20cm-von-Trenkle-Uhren::890.html?utm_campaign=shopping&utm_source=merchantcenter&utm_medium=googleshopping&utm_content=google-de",
+            "t": "Kuckucksuhr Wetterhaus-Uhrwerk Chalet-Stil 20cm von Trenkle Uhren - Original aus dem Schwarzwald"
+          },
+          "10": {
+            "u": "https://www.schwarzwaldpalast.de/Geschnitzte-Schwarzwaelder-Kuckucksuhren/Kuckucksuhr-Quarz-Uhrwerk-geschnitzt-36cm-von-Trenkle-Uhren::328.html?utm_campaign=shopping&utm_source=merchantcenter&utm_medium=googleshopping&utm_content=google-de",
+            "t": "Kuckucksuhr Quarz-Uhrwerk geschnitzt 36cm von Trenkle Uhren - Original aus dem Schwarzwald"
+          },
+          "11": {
+            "u": "https://www.schwarzwaldpalast.de/Geschnitzte-Schwarzwaelder-Kuckucksuhren/Kuckucksuhr-Quarz-Uhrwerk-geschnitzt-24cm-von-Trenkle-Uhren::1000.html?utm_campaign=shopping&utm_source=merchantcenter&utm_medium=googleshopping&utm_content=google-de",
+            "t": "Kuckucksuhr Quarz-Uhrwerk geschnitzt 24cm von Trenkle Uhren - Original aus dem Schwarzwald"
+          },
+          "12": {
+            "u": "https://www.schwarzwaldpalast.de/Geschnitzte-Schwarzwaelder-Kuckucksuhren/Kuckucksuhr-Quarz-Uhrwerk-geschnitzt-38cm-von-Trenkle-Uhren::325.html?utm_campaign=shopping&utm_source=merchantcenter&utm_medium=googleshopping&utm_content=google-de",
+            "t": "Kuckucksuhr Quarz-Uhrwerk geschnitzt 38cm von Trenkle Uhren - Original aus dem Schwarzwald"
+          },
+          "13": {
+            "u": "https://www.schwarzwaldpalast.de/Geschnitzte-Schwarzwaelder-Kuckucksuhren/Kuckucksuhr-8-Tages-Uhrwerk-geschnitzt-41cm-von-August-Schwer::589.html?utm_campaign=shopping&utm_source=merchantcenter&utm_medium=googleshopping&utm_content=google-de",
+            "t": "Kuckucksuhr 8-Tages-Uhrwerk geschnitzt 41cm von August Schwer - Original aus dem Schwarzwald"
+          },
+          "14": {
+            "u": "https://www.schwarzwaldpalast.de/Geschnitzte-Schwarzwaelder-Kuckucksuhren/Kuckucksuhr-Quarz-Uhrwerk-geschnitzt-24cm-von-Trenkle-Uhren::910.html?utm_campaign=shopping&utm_source=merchantcenter&utm_medium=googleshopping&utm_content=google-de",
+            "t": "Kuckucksuhr Quarz-Uhrwerk geschnitzt 24cm von Trenkle Uhren - Original aus dem Schwarzwald"
+          },
+          "15": {
+            "u": "https://www.schwarzwaldpalast.de/Geschnitzte-Schwarzwaelder-Kuckucksuhren/Kuckucksuhr-Quarz-Uhrwerk-geschnitzt-23cm-von-Trenkle-Uhren::911.html?utm_campaign=shopping&utm_source=merchantcenter&utm_medium=googleshopping&utm_content=google-de",
+            "t": "Kuckucksuhr Quarz-Uhrwerk geschnitzt 23cm von Trenkle Uhren - Original aus dem Schwarzwald"
+          },
+          "16": {
+            "u": "https://www.schwarzwaldpalast.de/Chalet-Kuckucksuhren/Kuckucksuhr-Quarz-Uhrwerk-Chalet-Stil-20cm-von-Trenkle-Uhren::707.html?utm_campaign=shopping&utm_source=merchantcenter&utm_medium=googleshopping&utm_content=google-de",
+            "t": "Kuckucksuhr Quarz-Uhrwerk Chalet-Stil 20cm von Trenkle Uhren - Original aus dem Schwarzwald"
+          },
+          "17": {
+            "u": "https://www.schwarzwaldpalast.de/Chalet-Kuckucksuhren/Kuckucksuhr-1-Tag-Uhrwerk-Chalet-Stil-27cm-von-August-Schwer::521.html?utm_campaign=shopping&utm_source=merchantcenter&utm_medium=googleshopping&utm_content=google-de",
+            "t": "Kuckucksuhr 1-Tag-Uhrwerk Chalet-Stil 27cm von August Schwer - Original aus dem Schwarzwald"
+          },
+          "18": {
+            "u": "https://www.schwarzwaldpalast.de/Preisguenstige-Souvenir-Kuckucksuhren-Wetterhaeusschen/Schwarzwaelder-Pendeluhr-14cm-Quarz-Uhrwerk-von-Trenkle::444.html?utm_campaign=shopping&utm_source=merchantcenter&utm_medium=googleshopping&utm_content=google-de",
+            "t": "Schwarzwälder Pendeluhr 14cm - Quarz-Uhrwerk von Trenkle - Original aus dem Schwarzwald"
+          },
+          "19": {
+            "u": "https://www.schwarzwaldpalast.de/Chalet-Kuckucksuhren/Kuckucksuhr-1-Tag-Uhrwerk-Chalet-Stil-34cm-von-August-Schwer::532.html?utm_campaign=shopping&utm_source=merchantcenter&utm_medium=googleshopping&utm_content=google-de",
+            "t": "Kuckucksuhr 1-Tag-Uhrwerk Chalet-Stil 34cm von August Schwer - Original aus dem Schwarzwald"
+          },
+          "20": {
+            "u": "https://www.schwarzwaldpalast.de/Preisguenstige-Souvenir-Kuckucksuhren-Wetterhaeusschen/Schwarzwaelder-Schaukeluhr-Kuckulino-Quarz-Uhrwerk-20cm-von-Trenkle-Uhren::929.html?utm_campaign=shopping&utm_source=merchantcenter&utm_medium=googleshopping&utm_content=google-de",
+            "t": "Schwarzwälder Schaukeluhr Kuckulino Quarz-Uhrwerk 20cm von Trenkle ... - Original aus dem Schwarzwald"
+          },
+          "21": {
+            "u": "https://www.schwarzwaldpalast.de/Geschnitzte-Schwarzwaelder-Kuckucksuhren/Kuckucksuhr-Quarz-Uhrwerk-geschnitzt-35cm-von-Trenkle-Uhren::334.html?utm_campaign=shopping&utm_source=merchantcenter&utm_medium=googleshopping&utm_content=google-de",
+            "t": "Kuckucksuhr Quarz-Uhrwerk geschnitzt 35cm von Trenkle Uhren - Original aus dem Schwarzwald"
+          },
+          "22": {
+            "u": "https://www.manufactum.de/manufactum-kuckucksuhr-a86900/",
+            "t": "Rombach & Haas Manufactum Kuckucksuhr"
+          },
+          "23": {
+            "u": "https://www.schwarzwaldpalast.de/Geschnitzte-Schwarzwaelder-Kuckucksuhren/Kuckucksuhr-Quarz-Uhrwerk-geschnitzt-24cm-von-Trenkle-Uhren::1001.html?utm_campaign=shopping&utm_source=merchantcenter&utm_medium=googleshopping&utm_content=google-de",
+            "t": "Kuckucksuhr Quarz-Uhrwerk geschnitzt 24cm von Trenkle Uhren - Original aus dem Schwarzwald"
+          },
+          "24": {
+            "u": "https://www.schwarzwaldpalast.de/Preisguenstige-Souvenir-Kuckucksuhren-Wetterhaeusschen/Kuckucksuhr-Kuckulino-Quarz-Uhrwerk-Schwarzwaelder-Pendeluhr-16cm-von-Trenkle-Uhren::923.html?utm_campaign=shopping&utm_source=merchantcenter&utm_medium=googleshopping&utm_content=google-de",
+            "t": "Kuckucksuhr Kuckulino Quarz-Uhrwerk Schwarzwälder Pendeluhr 16cm vo... - Original aus dem Schwarzwald"
+          },
+          "25": {
+            "u": "https://www.schwarzwaldpalast.de/Geschnitzte-Schwarzwaelder-Kuckucksuhren/Kuckucksuhr-Quarz-Uhrwerk-geschnitzt-24cm-von-Trenkle-Uhren::332.html?utm_campaign=shopping&utm_source=merchantcenter&utm_medium=googleshopping&utm_content=google-de",
+            "t": "Kuckucksuhr Quarz-Uhrwerk geschnitzt 24cm von Trenkle Uhren - Original aus dem Schwarzwald"
+          },
+          "26": {
+            "u": "https://www.schwarzwaldpalast.de/Chalet-Kuckucksuhren/Kuckucksuhr-8-Tages-Uhrwerk-Chalet-Stil-40cm-von-August-Schwer::558.html?utm_campaign=shopping&utm_source=merchantcenter&utm_medium=googleshopping&utm_content=google-de",
+            "t": "Kuckucksuhr 8-Tages-Uhrwerk Chalet-Stil 40cm von August Schwer - Original aus dem Schwarzwald"
+          },
+          "27": {
+            "u": "https://www.schwarzwaldpalast.de/Geschnitzte-Schwarzwaelder-Kuckucksuhren/Kuckucksuhr-Quarz-Uhrwerk-geschnitzt-40cm-von-Trenkle-Uhren::326.html?utm_campaign=shopping&utm_source=merchantcenter&utm_medium=googleshopping&utm_content=google-de",
+            "t": "Kuckucksuhr Quarz-Uhrwerk geschnitzt 40cm von Trenkle Uhren - Original aus dem Schwarzwald"
+          }
+        },
+        "q": "kuckucksuhr kaufen",
+        "qurl": "https://www.google.com/search?hl=en&q=kuckucksuhr%20kaufen",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "places",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "Herrmann Geschenke GmbH",
+            "addr": "Neuhauser Str. 2 · Near the Frauenkirche · 089 229308"
+          },
+          "1": {
+            "t": "Haus der 1000 Uhren: Kuckucksuhren - Black Forest Cuckoo Clocks",
+            "addr": "Triberg · 07722 96300"
+          },
+          "2": {
+            "t": "Kuckucksuhr.net",
+            "addr": "Schönwald im Schwarzwald · 07722 77154"
+          }
+        },
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "img-p",
+      "payload": {
+        "q": "kuckucksuhr kaufen",
+        "qurl": "https://www.google.com/search?hl=en&q=kuckucksuhr%20kaufen",
+        "r": {
+         "0": {
+            "u": "http://www.schwarzwaldpalast.de/neuigkeiten-und-angebote/"
+          },
+          "1": {
+            "u": "https://www.herrmann-geschenke.de/sortiment/kuckucksuhren/"
+          },
+          "2": {
+            "u": "https://www.kuckucksuhr.net/"
+          },
+          "3": {
+            "u": "https://shop.dolfi.com/de/quarz-kuckucksuhren/11417-Moderne-Kuckucksuhr-kaufen.html"
+          },
+          "4": {
+            "u": "https://www.kuckucksuhr.net/"
+          },
+          "5": {
+            "u": "https://kuckucksuhren.shop/"
+          },
+          "6": {
+            "u": "https://www.uhren-park.de/index.php/cat/c1_Kuckucksuhren.html"
+          },
+          "7": {
+            "u": "https://www.schwarzwaldpalast.de/"
+          },
+          "8": {
+            "u": "https://www.uhren-park.de/index.php/cat/c1_Kuckucksuhren.html"
+          },
+          "9": {
+            "u": "https://www.kuckucksuhr.net/"
+          }
+        },
+        "ctry": "de"
+      }
+    }
+  ],
+
+  "mustNotContain": [
+    { "action": "top-stories" },
+    { "action": "ads_A" },
+    { "action": "ads_D" }
+  ]
+}

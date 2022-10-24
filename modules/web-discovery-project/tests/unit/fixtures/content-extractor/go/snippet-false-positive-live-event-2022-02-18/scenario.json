@@ -1,0 +1,5 @@
+{
+  "url": "https://www.google.com/search?q=liverpool+inter",
+
+  "mustNotContain": [{ "action": "snippet" }]
+}

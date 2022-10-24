@@ -1,0 +1,96 @@
+{
+  "url": "https://www.google.de/search?q=ubiquiti+edgerouter",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "query",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "EdgeRouter X - Ubiquiti Store",
+            "u": "https://store.ui.com/products/edgerouter-x",
+            "age": null,
+            "m": null
+          },
+          "1": {
+            "t": "Ubiquiti EdgeRouter X - ER-X | OMG.de GmbH - OMG.de",
+            "u": "https://www.omg.de/ubiquiti-networks/edgemax/edgerouter/ubiquiti-edgerouter-x/a-13643",
+            "age": null,
+            "m": null
+          },
+          "2": {
+            "t": "Ubiquiti EdgeRouter X ab 50,75 € (April 2022 Preise ...",
+            "u": "https://www.idealo.de/preisvergleich/OffersOfProduct/4806495_-edgerouter-x-ubiquiti.html",
+            "age": null,
+            "m": null
+          },
+          "3": {
+            "t": "Ubiquiti EdgeRouter X ab € 51,14 - Geizhals",
+            "u": "https://geizhals.de/ubiquiti-edgerouter-x-er-x-a1271798.html",
+            "age": null,
+            "m": null
+          },
+          "4": {
+            "t": "EdgeRouter / EdgeMax Serie - Ubiquiti Networks - WLAN ...",
+            "u": "https://www.wlan-shop24.de/ubiquiti-edgerouter-edgemax",
+            "age": null,
+            "m": null
+          },
+          "5": {
+            "t": "Ubiquiti ER-X Netzwerk/Router, Schwarz - Amazon",
+            "u": "https://www.amazon.de/Ubiquiti-ER-X-Netzwerk-Router/dp/B011N1IT2A",
+            "age": null,
+            "m": null
+          },
+          "6": {
+            "t": "Kurzanleitung ER-X-SFP - Ubiquiti",
+            "u": "https://dl.ubnt.com/qsg/ER-X-SFP/ER-X-SFP_DE.html",
+            "age": null,
+            "m": null
+          },
+          "7": {
+            "t": "UBI ER-X Ubiquiti EdgeRouter X - mit Gigabit Ethernet ...",
+            "u": "https://www.reichelt.de/ubiquiti-edgerouter-x-mit-gigabit-ethernet-ubi-er-x-p277333.html",
+            "age": "Artikel 1 - 139 von 162",
+            "m": null
+          },
+          "8": {
+            "t": "Ubiquiti Router - EdgeRouter günstig bei JACOB kaufen",
+            "u": "https://www.jacob.de/p/ubiquiti-router-unifi-edgerouter/",
+            "age": null,
+            "m": null
+          }
+        },
+        "q": "ubiquiti edgerouter",
+        "qurl": "https://www.google.de/search?q=ubiquiti+edgerouter",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "ads_B",
+      "payload": {
+        "r": {
+         "0": {
+            "u": "https://www.notebooksbilliger.de/ubiquiti+edgerouter+4+port+router+er+4+370189",
+            "t": null
+          },
+          "1": {
+            "u": "https://direktkauf.idealo.de/productpage/6221170?siteid=1&offerKey=60d2d8fd26d2af1fcc2069367b252580&shopping=1",
+            "t": null
+          }
+        },
+        "q": "ubiquiti edgerouter",
+        "qurl": "https://www.google.de/search?q=ubiquiti+edgerouter",
+        "ctry": "de"
+      }
+    }
+  ],
+
+  "mustNotContain": [
+    { "action": "ads_A" },
+    { "action": "ads_C" },
+    { "action": "ads_D" }
+  ]
+}

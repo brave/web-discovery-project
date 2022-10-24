@@ -1,0 +1,60 @@
+{
+  "url": "https://www.google.com/search?q=Welche+L%C3%A4nder+geh%C3%B6rten+zum+russischen+Kaiserreich%3F",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "snippet2",
+      "payload": {
+        "r": {
+          "0": {
+            "u": "https://de.wikipedia.org/wiki/Russisches_Kaiserreich"
+          }
+        },
+        "q": "Welche Länder gehörten zum russischen Kaiserreich?",
+        "qurl": "https://www.google.com/search?q=Welche+L%C3%A4nder+geh%C3%B6rten+zum+russischen+Kaiserreich%3F",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "snippet4",
+      "payload": {
+        "r": {
+          "0": {
+            "k": "russische"
+          }
+        },
+        "t": "Sie umfassten das Territorium der modernen Staaten Kasachstan, Kirgisistan, Tadschikistan, Turkmenistan und Usbekistan. Bis 1867 wurde Alaska als russische Kolonie angesehen.",
+        "u": "https://de.wikipedia.org/wiki/Russisches_Kaiserreich",
+        "q": "Welche Länder gehörten zum russischen Kaiserreich?",
+        "qurl": "https://www.google.com/search?q=Welche+L%C3%A4nder+geh%C3%B6rten+zum+russischen+Kaiserreich%3F",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "faq",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "Welche Länder wurden von Russland erobert?"
+          },
+          "1": {
+            "t": "Wie viele Menschen lebten 1900 in Russland?"
+          },
+          "2": {
+            "t": "Wie hieß Russland im Mittelalter?"
+          },
+          "3": {
+            "t": "Wie starb Zar Peter der Große?"
+          }
+        },
+        "q": "Welche Länder gehörten zum russischen Kaiserreich?",
+        "qurl": "https://www.google.com/search?q=Welche+L%C3%A4nder+geh%C3%B6rten+zum+russischen+Kaiserreich%3F",
+        "ctry": "de"
+      }
+    }
+  ],
+  "mustNotContain": [{ "action": "snippet" }, { "action": "snippet3" }]
+}

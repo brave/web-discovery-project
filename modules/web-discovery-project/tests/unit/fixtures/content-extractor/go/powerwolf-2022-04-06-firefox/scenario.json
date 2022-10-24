@@ -1,0 +1,79 @@
+{
+  "url": "https://www.google.com/search?hl=en&q=powerwolf",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "query",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "POWERWOLF - Official Website",
+            "u": "https://www.powerwolf.net/",
+            "age": null,
+            "m": null
+          },
+          "1": {
+            "t": "Powerwolf - Wikipedia",
+            "u": "https://en.wikipedia.org/wiki/Powerwolf",
+            "age": null,
+            "m": null
+          },
+          "2": {
+            // Note: duplicate of "1"
+            "t": "Powerwolf - Wikipedia",
+            "u": "https://en.wikipedia.org/wiki/Powerwolf",
+            "age": null,
+            "m": null
+          },
+          "3": {
+            "t": "Powerwolf - Wikipedia",
+            "u": "https://de.wikipedia.org/wiki/Powerwolf",
+            "age": null,
+            "m": null
+          },
+          "4": {
+            "t": "Powerwolf - Facebook",
+            "u": "https://www.facebook.com/powerwolfmetal",
+            "age": null,
+            "m": null
+          },
+          "5": {
+            "t": "Powerwolf (@powerwolfband) · Twitter",
+            "u": "https://twitter.com/powerwolfband",
+            "age": null,
+            "m": null
+          },
+          "6": {
+            "t": "Dancing With The Dead (Official Video) | Napalm Records",
+            "u": "https://www.youtube.com/watch?v=Xp_rlSmt2P0",
+            "age": "24 Jun 2021",
+            "m": null
+          },
+          "7": {
+            "t": "Sainted By The Storm (Official Lyric Video) | Napalm Records",
+            "u": "https://www.youtube.com/watch?v=1SIhedUuqjE",
+            "age": "1 week ago",
+            "m": null
+          },
+          "8": {
+            "t": "Powerwolf | Spotify",
+            "u": "https://open.spotify.com/artist/5HFkc3t0HYETL4JeEbDB1v",
+            "age": null,
+            "m": null
+          },
+          "9": {
+            "t": "Powerwolf (@officialpowerwolf) • Instagram photos and videos",
+            "u": "https://www.instagram.com/officialpowerwolf/?hl=en",
+            "age": null,
+            "m": null
+          }
+        },
+        "q": "powerwolf",
+        "qurl": "https://www.google.com/search?hl=en&q=powerwolf",
+        "ctry": "de"
+      }
+    }
+  ],
+  "mustNotContain": []
+}

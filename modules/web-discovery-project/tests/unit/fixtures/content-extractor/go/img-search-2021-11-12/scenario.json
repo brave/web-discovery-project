@@ -1,0 +1,118 @@
+{
+  "url": "https://www.google.de/search?tbm=isch&gbv=1&q=konrad zuse bilder",
+
+  "mustContain": [{
+      "type": "wdp",
+      "action": "img",
+      "payload": {
+        "r": {
+          "0": {
+            "u": "https://de.wikipedia.org/wiki/Konrad_Zuse",
+            "ru": "de.wikipedia.org",
+            "t": "Konrad Zuse – Wikipedia"
+          },
+          "1": {
+            "u": "https://www.hnf.de/ausstellungen/rueckblick/showroom/zuse-extra-der-computererfinder-und-seine-ideen.html",
+            "ru": "www.hnf.de",
+            "t": "HNF - Zuse Extra: Der..."
+          },
+          "2": {
+            "u": "http://www.horst-zuse.homepage.t-online.de/malerei.html",
+            "ru": "www.horst-zuse.homepage.t-o...",
+            "t": "Kunstdrucke von Ölbildern..."
+          },
+          "3": {
+            "u": "http://www.konrad-zuse.de/",
+            "ru": "www.konrad-zuse.de",
+            "t": "konrad-zuse.de"
+          },
+          "4": {
+            "u": "https://www.osthessen-zeitung.de/einzelansicht/news/2020/juni/konrad-zuse-als-kuenstler-sonderausstellung-zum-110-geburtstag.html",
+            "ru": "www.osthessen-zeitung.de",
+            "t": "Konrad Zuse als Künstler –..."
+          },
+          "5": {
+            "u": "https://www.faz.net/aktuell/wirtschaft/wie-wir-reich-wurden/serie-wie-wir-reich-wurden-wie-ein-deutscher-tueftler-den-computer-erfand-1577946.html",
+            "ru": "www.faz.net",
+            "t": "Serie: Wie wir reich..."
+          },
+          "6": {
+            "u": "https://www.bilder-fuchs.de/konrad-zuse-grosse-auswahl-an-original-gemaelden-aus-den-jahren-1963-1976/",
+            "ru": "www.bilder-fuchs.de",
+            "t": "KONRAD ZUSE | Grosse..."
+          },
+          "7": {
+            "u": "http://www.horst-zuse.homepage.t-online.de/malerei.html",
+            "ru": "www.horst-zuse.homepage.t-o...",
+            "t": "Kunstdrucke von Ölbildern..."
+          },
+          "8": {
+            "u": "https://www.bilder-fuchs.de/produkt/konrad-zuse-explosion-und-dynamik-oelgemaeldeleinwand-format-55x80-cm-jahr-1963/",
+            "ru": "www.bilder-fuchs.de",
+            "t": "Konrad Zuse | Explosion und..."
+          },
+          "9": {
+            "u": "https://www.osthessen-zeitung.de/einzelansicht/news/2020/juni/konrad-zuse-als-kuenstler-sonderausstellung-zum-110-geburtstag.html",
+            "ru": "www.osthessen-zeitung.de",
+            "t": "Konrad Zuse als Künstler –..."
+          },
+          "10": {
+            "u": "https://www.katholische-sonntagszeitung.de/Im-Blickpunkt/Schneller-als-die-US-Konkurrenz-Sonntag-21.-Juni-2020-08-07-00",
+            "ru": "www.katholische-sonntagszei...",
+            "t": "Schneller als die..."
+          },
+          "11": {
+            "u": "https://oiger.de/2017/02/03/zuse-war-zu-faul-zum-rechnen/162589/konrad-zuse-meets-bill-gates-on-cebit95-hannover",
+            "ru": "oiger.de",
+            "t": "Konrad ZUSE meets Bill..."
+          },
+          "12": {
+            "u": "https://www.invaluable.com/artist/zuse-konrad-smxqcw2o4n/sold-at-auction-prices/",
+            "ru": "www.invaluable.com",
+            "t": "Konrad Zuse Paintings &..."
+          },
+          "13": {
+            "u": "https://www.rnz.de/panorama/magazin_artikel,-Magazin-Computer-Alles-begann-mit-Konrad-Zuse-_arid,191493.html",
+            "ru": "www.rnz.de",
+            "t": "Computer: Alles begann mit..."
+          },
+          "14": {
+            "u": "https://www.wikiart.org/de/konrad-zuse",
+            "ru": "www.wikiart.org",
+            "t": "Konrad Zuse - 53 Kunstwerke..."
+          },
+          "15": {
+            "u": "https://zuse-computer-museum.com/2015/06/01/kunst-des-zuse/",
+            "ru": "zuse-computer-museum.com",
+            "t": "Die Kunst des Konrad Zuse –..."
+          },
+          "16": {
+            "u": "https://www.wikiart.org/de/konrad-zuse",
+            "ru": "www.wikiart.org",
+            "t": "Konrad Zuse - 53 Kunstwerke..."
+          },
+          "17": {
+            "u": "http://www.horst-zuse.homepage.t-online.de/malerei.html",
+            "ru": "www.horst-zuse.homepage.t-o...",
+            "t": "Kunstdrucke von Ölbildern..."
+          },
+          "18": {
+            "u": "https://www.welt.de/kultur/history/article9638228/Der-Mann-der-den-ersten-Computer-der-Welt-baute.html",
+            "ru": "www.welt.de",
+            "t": "Technikgeschichte: Der..."
+          },
+          "19": {
+            "u": "http://www.konrad-zuse.de/",
+            "ru": "www.konrad-zuse.de",
+            "t": "konrad-zuse.de"
+          }
+        },
+        "q": "konrad zuse bilder",
+        "qurl": "https://www.google.de/search?tbm=isch&gbv=1&q=konrad zuse bilder",
+        "ctry": "de"
+      }
+    }
+  ],
+
+  "mustNotContain": [{ "action": "query" }]
+}

@@ -1,0 +1,23 @@
+{
+  "url": "https://www.google.com/search?q=popular+rock+songs+with+keyboard",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "snippet3",
+      "payload": {
+        "r": {
+          "0": {
+            "ent": "Lieder",
+            "pred": "keyboard"
+          }
+        },
+        "q": "popular rock songs with keyboard",
+        "qurl": "https://www.google.com/search?q=popular+rock+songs+with+keyboard",
+        "ctry": "de"
+      }
+    }
+  ],
+
+  "mustNotContain": [{ "action": "snippet" }, { "action": "snippet2" }]
+}

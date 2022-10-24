@@ -1,0 +1,110 @@
+{
+  "url": "https://www.google.com/search?q=von+der+leyen",
+
+  "mustContain": [{
+    "type": "wdp",
+    "action": "query",
+    "payload": {
+      "r": {
+        "0": {
+          "t": "Ursula von der Leyen - Wikipedia",
+          "u": "https://de.wikipedia.org/wiki/Ursula_von_der_Leyen",
+          "age": null,
+          "m": null
+        },
+        "1": {
+          "t": "Ursula von der Leyen (@vonderleyen) · Twitter",
+          "u": "https://twitter.com/vonderleyen",
+          "age": null,
+          "m": null
+        },
+        "2": {
+          "t": "Von der Leyen zu EU-Beitritt : \"Werden Ukraine aufbauen ...",
+          "u": "https://www.tagesschau.de/inland/von-der-leyen-417.html",
+          "age": "vor 2 Tagen",
+          "m": null
+        },
+        "3": {
+          "t": "Geschichte der CDU - Ursula von der Leyen - Konrad ...",
+          "u": "https://www.kas.de/de/web/geschichte-der-cdu/personen/biogramm-detail/-/content/ursula-von-der-leyen-1",
+          "age": null,
+          "m": null
+        },
+        "4": {
+          "t": "Ursula von der Leyen | Europäische Kommission",
+          "u": "https://ec.europa.eu/commission/commissioners/2019-2024/president_de",
+          "age": null,
+          "m": null
+        },
+        "5": {
+          "t": "Dr. Ursula von der Leyen, CDU - Deutscher Bundestag",
+          "u": "https://www.bundestag.de/webarchiv/abgeordnete/biografien18/L/leyen_ursula-258710",
+          "age": null,
+          "m": null
+        },
+        "6": {
+          "t": "Ursula von der Leyen - Biografie WHO'S WHO",
+          "u": "https://whoswho.de/bio/ursula-von-der-leyen.html",
+          "age": null,
+          "m": null
+        },
+        "7": {
+          "t": "Ursula von der Leyen | Steckbrief, Bilder und News | WEB.DE",
+          "u": "https://web.de/magazine/politik/thema/ursula-von-der-leyen",
+          "age": null,
+          "m": null
+        }
+      },
+      "q": "von der leyen",
+      "qurl": "https://www.google.com/search?q=von+der+leyen",
+      "ctry": "de"
+    }
+  }, {
+    "type": "wdp",
+    "action": "top-stories",
+    "payload": {
+       "r": {
+         "0": {
+           "u": "https://www.tagesspiegel.de/politik/spitzenpolitikerin-besucht-butscha-von-der-leyen-sichert-ukraine-rasche-entscheidung-zu-eu-beitritt-zu/28238412.html",
+           "lu": "vor 3 Tagen",
+           "h": "Spitzenpolitikerin besucht Butscha: Von der Leyen sichert Ukraine rasche \nEntscheidung zu EU-Beitritt zu"
+         },
+         "1": {
+           "u": "https://www.n-tv.de/mediathek/videos/politik/Selenskyj-bringt-von-der-Leyen-am-Ende-zum-Lachen-article23257505.html",
+           "lu": "vor 2 Tagen",
+           "h": "Selenskyj bringt von der Leyen am Ende zum Lachen"
+         },
+         "2": {
+           "u": "https://www.tagesschau.de/inland/von-der-leyen-417.html",
+           "lu": "vor 1 Tag",
+           "h": "Von der Leyen zu EU-Beitritt: \"Werden Ukraine aufbauen müssen\""
+         },
+         "3": {
+           "u": "https://www.spiegel.de/ausland/von-der-leyens-ukraine-besuch-in-einer-woche-ursula-a-27070fad-381a-4444-855a-f3336da7b964",
+           "lu": "vor 2 Tagen",
+           "h": "Von der Leyens Ukraine-Besuch: »In einer Woche, Ursula«"
+         },
+         "4": {
+           "u": "https://www.br.de/nachrichten/deutschland-welt/ukraine-krieg-ursula-von-der-leyen-sieht-in-graeueltaten-von-butscha-kriegsverbrechen,T2V7kVq",
+           "lu": "vor 2 Tagen",
+           "h": "Von der Leyen sieht in Gräueltaten von Butscha Kriegsverbrechen"
+         },
+         "5": {
+           "u": "https://www.tagesschau.de/ausland/kiew-reise-von-der-leyen-103.html",
+           "lu": "vor 3 Tagen",
+           "h": "Von der Leyen in Kiew: \"Ukraine gehört zur europäischen Familie\""
+         },
+         "6": {
+           "u": "https://www.t-online.de/nachrichten/ausland/id_91960894/news-zum-ukraine-krieg-von-der-leyen-in-butscha-menschlichkeit-zertruemmert-.html",
+           "lu": "vor 3 Tagen",
+           "h": "++ News zum Ukraine-Krieg ++ Joe Biden: \"Eine schreckliche Gräueltat \nRusslands\""
+         }
+       },
+       "q": "von der leyen",
+       "qurl": "https://www.google.com/search?q=von+der+leyen",
+       "ctry": "de"
+    }
+  }],
+
+  "mustNotContain": [{ "action": "ads_*" }]
+}

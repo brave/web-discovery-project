@@ -1,25 +1,78 @@
 {
   "urlPatterns": [
+    "\\.google\\..*?[#?&;]((q=[^&]+&([^&]+&)*tbm=isch)|(tbm=isch&([^&]+&)*q=[^&]+))",
     "\\.google\\..*?[#?&;]q=[^$&]+",
     ".search.yahoo\\..*?[#?&;]p=[^$&]+",
     ".linkedin.*?\\/pub\\/dir+",
+    "\\.bing\\.[^/]+\\/images/search[?]q=[^$&]+",
     "\\.bing\\..*?[#?&;]q=[^$&]+",
-    ".*"
+    "\\.amazon\\.[^/]+\\/(s[?]k=[^$&]+|.*[?&]field-keywords=[^$&]+)",
+    "\\.amazon\\..*(/dp/|/gp/product/)"
   ],
-  "searchEngines": ["0", "1", "3"],
+  "searchEngines": [
+    "0",
+    "1",
+    "2",
+    "4",
+    "5",
+    "6"
+  ],
   "scrape": {
     "0": {
-      ".med #search": {
+      "form[role=\"search\"]": {
         "q": {
-          "item": "#ires",
+          "item": "form input[name=\"q\"]",
           "type": "searchQuery",
-          "etype": "data-async-context",
-          "keyName": "q",
-          "functionsApplied": [["splitF", "query:", 1]]
+          "etype": "value",
+          "keyName": "q"
         }
       }
     },
     "1": {
+      "#mobile-search #sfcnt": {
+        "q": {
+          "item": "input",
+          "type": "searchQuery",
+          "etype": "value",
+          "keyName": "q"
+        }
+      },
+      "form[role=\"search\"]": {
+        "q": {
+          "item": "form input[name=\"q\"]",
+          "type": "searchQuery",
+          "etype": "value",
+          "keyName": "q"
+        }
+      },
+      "#tw-main": {
+        "sl": {
+          "item": "#tw-sl",
+          "type": "arr",
+          "etype": "data-dslc",
+          "keyName": "sl"
+        },
+        "tl": {
+          "item": "#tw-tl",
+          "type": "arr",
+          "etype": "data-lang",
+          "keyName": "sl"
+        },
+        "st": {
+          "item": "#tw-source-text-ta",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "st"
+        },
+        "tt": {
+          "item": "#tw-target-text",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "tt"
+        }
+      }
+    },
+    "2": {
       ".sbq-w": {
         "q": {
           "item": "#yschsp",
@@ -29,7 +82,7 @@
         }
       }
     },
-    "2": {
+    "3": {
       ".profile-card": {
         "img": {
           "item": ".image",
@@ -64,7 +117,7 @@
         }
       }
     },
-    "3": {
+    "4": {
       "#sb_form": {
         "q": {
           "item": "#sb_form_q",
@@ -74,21 +127,46 @@
         }
       }
     },
-    "4": {
-      "#errorPageContainer": {
-        "reason": {
-          "item": "h1[id^=errorTitleText_]",
-          "type": "arr",
-          "etype": "id",
-          "keyName": "reason",
-          "required": "yes"
+    "5": {
+      "#sb_form": {
+        "q": {
+          "item": "#sb_form_q",
+          "type": "searchQuery",
+          "etype": "value",
+          "keyName": "query"
+        }
+      }
+    },
+    "6": {
+      "#twotabsearchtextbox": {
+        "q": {
+          "type": "searchQuery",
+          "etype": "value",
+          "keyName": "query"
         }
       },
-      "qurl": {
-        "qurl": {
-          "type": "standard",
-          "etype": "url",
-          "keyName": "qurl"
+      "[data-component-type=\"s-result-sort\"]": {
+        "q": {
+          "item": "form > input[name=\"k\"]",
+          "type": "searchQuery",
+          "etype": "value",
+          "keyName": "query"
+        }
+      }
+    },
+    "7": {
+      ".nav-search-field > input": {
+        "q": {
+          "type": "searchQuery",
+          "etype": "value",
+          "keyName": "query"
+        }
+      },
+      "#wayfinding-breadcrumbs_container": {
+        "c": {
+          "item": "div",
+          "etype": "textContent",
+          "keyName": "c"
         }
       },
       "ctry": {
@@ -97,34 +175,81 @@
           "etype": "ctry",
           "keyName": "ctry"
         }
+      },
+      "link[rel='canonical']": {
+        "curl": {
+          "etype": "href",
+          "keyName": "curl"
+        }
       }
     }
   },
   "payloads": {
-    "2": {
+    "3": {
       ".profile-card": {
         "type": "single",
         "results": "single",
         "action": "linkedin"
       }
     },
-    "4": {
-      "#errorPageContainer": {
-        "type": "single",
-        "results": "custom",
-        "action": "maliciousUrl",
+    "7": {
+      "q": {
+        "type": "query",
+        "results": "clustered",
+        "action": "category-am",
         "fields": [
-          ["qurl", "qurl"],
-          ["#errorPageContainer", "reason"],
-          ["ctry", "ctry"]
+          [
+            "#wayfinding-breadcrumbs_container",
+            "c"
+          ],
+          [
+            "link[rel='canonical']",
+            "curl"
+          ],
+          [
+            "ctry",
+            "ctry"
+          ]
+        ]
+      }
+    },
+    "1": {
+      "#tw-main": {
+        "type": "translate",
+        "action": "translate",
+        "fields": [
+          [
+            "#search",
+            "q"
+          ],
+          [
+            "#tw-main",
+            "sl"
+          ],
+          [
+            "#tw-main",
+            "tl"
+          ],
+          [
+            "#tw-main",
+            "st"
+          ],
+          [
+            "#tw-main",
+            "tt"
+          ]
         ]
       }
     }
   },
   "idMapping": {
-    "0": "go",
-    "1": "ya",
-    "2": "lnkd",
-    "3": "bing"
+    "0": "goi",
+    "1": "go",
+    "2": "ya",
+    "3": "lnkd",
+    "4": "bingi",
+    "5": "bing",
+    "6": "am",
+    "7": "amc"
   }
 }

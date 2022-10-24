@@ -1,0 +1,23 @@
+{
+  "url": "https://www.google.com/search?q=how+many+people+live+in+concord%2C+NH",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "snippet",
+      "payload": {
+        "r": {
+          "0": {
+            "ent": "Concord",
+            "pred": "Bevölkerung",
+            "ans": "43.244 (2019)"
+          }
+        },
+        "q": "how many people live in concord, NH",
+        "qurl": "https://www.google.com/search?q=how+many+people+live+in+concord%2C+NH",
+        "ctry": "de"
+      }
+    }
+  ],
+  "mustNotContain": []
+}

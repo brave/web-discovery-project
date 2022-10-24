@@ -1,0 +1,23 @@
+{
+  "url": "https://www.google.com/search?q=dog+breeds",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "snippet3",
+      "payload": {
+        "r": {
+          "0": {
+            "ent": "Hund",
+            "pred": "Rassen"
+          }
+        },
+        "q": "dog breeds",
+        "qurl": "https://www.google.com/search?q=dog+breeds",
+        "ctry": "de"
+      }
+    }
+  ],
+
+  "mustNotContain": [{ "action": "snippet" }, { "action": "snippet2" }]
+}

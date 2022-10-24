@@ -1,15 +1,139 @@
 {
   "urlPatterns": [
+    "\\.google\\..*?[#?&;]((q=[^&]+&([^&]+&)*tbm=isch)|(tbm=isch&([^&]+&)*q=[^&]+))",
     "\\.google\\..*?[#?&;]q=[^$&]+",
     ".search.yahoo\\..*?[#?&;][pq]=[^$&]+",
     ".linkedin.*?\\/pub\\/dir+",
+    "\\.bing\\.[^/]+\\/images/search[?]q=[^$&]+",
     "\\.bing\\..*?[#?&;]q=[^$&]+",
-    ".*"
+    "\\.amazon\\.[^/]+\\/(s[?]k=[^$&]+|.*[?&]field-keywords=[^$&]+)"
   ],
-  "searchEngines": ["0", "1", "3"],
+  "searchEngines": [
+    "0",
+    "1",
+    "2",
+    "4",
+    "5",
+    "6"
+  ],
   "scrape": {
     "0": {
-      ".r": {
+      "form[action=\"/search\"] input:first-child[name=\"q\"]": {
+        "q": {
+          "type": "searchQuery",
+          "etype": "value",
+          "keyName": "q"
+        }
+      },
+      "qurl": {
+        "qurl": {
+          "type": "standard",
+          "etype": "url",
+          "keyName": "qurl",
+          "functionsApplied": [
+            [
+              "maskU",
+              false,
+              false
+            ]
+          ]
+        }
+      },
+      "ctry": {
+        "ctry": {
+          "type": "standard",
+          "etype": "ctry",
+          "keyName": "ctry"
+        }
+      },
+      ".IkMU6e": {
+        "u": {
+          "item": "tr > td > a",
+          "type": "arr",
+          "etype": "href",
+          "keyName": "u",
+          "functionsApplied": [
+            [
+              "splitF",
+              "/url?q=",
+              1
+            ],
+            [
+              "splitF",
+              "&amp;sa=U&amp;ved",
+              0
+            ],
+            [
+              "splitF",
+              "&sa=",
+              0
+            ]
+          ]
+        },
+        "ru": {
+          "item": ".F9iS2e .fYyStc",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "ru"
+        },
+        "t": {
+          "item": ".x3G5ab .fYyStc",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "t"
+        }
+      }
+    },
+    "1": {
+      "#mobile-search #sfcnt": {
+        "q": {
+          "item": "input",
+          "type": "searchQuery",
+          "etype": "value",
+          "keyName": "q"
+        }
+      },
+      "div#rso div.g": {
+        "t": {
+          "item": "div.yuRUbf > a > h3, div.ct3b9e > a > h3, g-section-with-header g-link > a > h3.haz7je",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "t"
+        },
+        "u": {
+          "item": "div.yuRUbf > a, div.ct3b9e > a, g-section-with-header g-link > a.a-no-hover-decoration",
+          "type": "arr",
+          "etype": "href",
+          "keyName": "u",
+          "functionsApplied": [
+            [
+              "splitF",
+              "?ref_src=twsrc",
+              0
+            ]
+          ]
+        },
+        "age": {
+          "item": "div > span.MUxGbd > span, div.mSA5Bd > div.P7xzyf > span > span",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "age"
+        },
+        "m": {
+          "item": ".TXwUJf a.fl",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "m"
+        }
+      },
+      "div.tF2Cxc div > span > em": {
+        "k": {
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "k"
+        }
+      },
+      ".g .r": {
         "t": {
           "item": "a",
           "type": "arr",
@@ -21,64 +145,184 @@
           "type": "arr",
           "etype": "href",
           "keyName": "u",
-          "functionsApplied": [["maskU", false, false]]
+          "functionsApplied": [
+            [
+              "splitF",
+              "&sa=",
+              0
+            ],
+            [
+              "splitF",
+              "url?q=",
+              1
+            ],
+            [
+              "maskU",
+              false,
+              false
+            ]
+          ]
         }
       },
-      ".med #search": {
+      "#search": {
         "q": {
-          "item": "#ires",
+          "item": "#rso",
           "type": "searchQuery",
           "etype": "data-async-context",
           "keyName": "q",
-          "functionsApplied": [["splitF", "query:", 1]]
+          "functionsApplied": [
+            [
+              "splitF",
+              "query:",
+              1
+            ]
+          ]
         }
       },
-      "#tads .ads-ad": {
+      "#tads div[data-text-ad]": {
         "u": {
-          "item": ".ads-visurl cite",
+          "item": "a.sVXRqc > div.d8lRkd > span[role='text']",
           "type": "multiple",
           "etype": "textContent",
           "keyName": "u",
           "functionsApplied": [
-            [false, false, false],
-            [false, false, false]
+            [
+              "maskU",
+              false,
+              false
+            ]
           ]
-        }
-      },
-      "#mbEnd .ads-ad": {
-        "u": {
-          "item": "a[id^=s1p]",
-          "type": "multiple",
-          "etype": "href",
-          "keyName": "u",
-          "functionsApplied": [
-            ["parseU", "qs", "adurl"],
-            ["maskU", false, false]
-          ]
-        }
-      },
-      ".pla-unit-title": {
-        "u": {
-          "item": ".pla-unit-title-link",
-          "type": "multiple",
-          "etype": "href",
-          "keyName": "u",
-          "functionsApplied": [
-            ["parseU", "qs", "adurl"],
-            ["maskU", false, false]
-          ]
-        }
-      },
-      "#tadsb .ads-ad": {
-        "u": {
-          "item": ".ads-visurl cite",
-          "type": "multiple",
+        },
+        "t": {
+          "item": "a.sVXRqc > div.CCgQ5[role='heading'] > span",
           "etype": "textContent",
+          "keyName": "t"
+        }
+      },
+      "#search .rSr7Wd .So9e7d": {
+        "u": {
+          "item": ":not(div) > a",
+          "type": "arr",
+          "etype": "href",
           "keyName": "u",
           "functionsApplied": [
-            [false, false, false],
-            ["maskU", false, false]
+            [
+              "maskU",
+              false,
+              false
+            ]
           ]
+        },
+        "lu": {
+          "item": "span.f",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "lu",
+          "functionsApplied": []
+        },
+        "h": {
+          "item": ".pAx2Gb > div",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "h",
+          "functionsApplied": []
+        }
+      },
+      "#search div.dbsr": {
+        "u": {
+          "item": "a",
+          "type": "arr",
+          "etype": "href",
+          "keyName": "u",
+          "functionsApplied": [
+            [
+              "maskU",
+              false,
+              false
+            ]
+          ]
+        },
+        "lu": {
+          "item": "span.FGlSad",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "lu",
+          "functionsApplied": []
+        },
+        "h": {
+          "item": "div.y9oXvf",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "h",
+          "functionsApplied": []
+        }
+      },
+      "#rso a.WlydOe": {
+        "u": {
+          "type": "arr",
+          "etype": "href",
+          "keyName": "u",
+          "functionsApplied": [
+            [
+              "maskU",
+              false,
+              false
+            ]
+          ]
+        },
+        "lu": {
+          "item": "div.OSrXXb.ZE0LJd > span",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "lu",
+          "functionsApplied": []
+        },
+        "h": {
+          "item": "div.mCBkyc[role='heading']",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "h",
+          "functionsApplied": []
+        }
+      },
+      "[id^='vplap']": {
+        "u": {
+          "type": "multiple",
+          "etype": "href",
+          "keyName": "u",
+          "functionsApplied": [
+            [
+              "maskU",
+              false,
+              false
+            ]
+          ]
+        },
+        "t": {
+          "type": "multiple",
+          "etype": "aria-label",
+          "keyName": "t"
+        }
+      },
+      "#bottomads div[data-text-ad]": {
+        "u": {
+          "item": "a[data-pcu]",
+          "type": "arr",
+          "etype": "href",
+          "keyName": "u",
+          "functionsApplied": [
+            [
+              "maskU",
+              false,
+              false
+            ]
+          ]
+        },
+        "t": {
+          "item": "div[role='heading']",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "t"
         }
       },
       "qurl": {
@@ -86,7 +330,13 @@
           "type": "standard",
           "etype": "url",
           "keyName": "qurl",
-          "functionsApplied": [["maskU", false, false]]
+          "functionsApplied": [
+            [
+              "maskU",
+              false,
+              false
+            ]
+          ]
         }
       },
       "ctry": {
@@ -116,71 +366,241 @@
           "keyName": "mu"
         }
       },
-      ".kp-blk._rod._Rqb._RJe": {
+      "#search #rso div > block-component > div.JnwWd > div.EyBRub div.ifM9O > div": {
         "ent": {
-          "item": "._f2g ._g2g span",
+          "item": "div[role=\"heading\"] > :nth-child(1)",
           "type": "arr",
           "etype": "textContent",
           "keyName": "ent"
         },
         "pred": {
-          "item": "._f2g ._i2g span",
+          "item": "div[role=\"heading\"] > :nth-child(3)",
           "type": "arr",
           "etype": "textContent",
           "keyName": "pred"
         },
         "ans": {
-          "item": "._XWk",
+          "item": "div.kno-fb-ctx.KBXm4e, .kp-header div[data-attrid] > div",
           "type": "arr",
           "etype": "textContent",
           "keyName": "ans"
         }
       },
-      "._OKe .g": {
+      "div#rcnt.GyAeWb div#rso > div.ULSxyf, div#rcnt.GyAeWb > div.M8OgIe": {
         "u": {
-          "item": ".s",
+          "item": "div.yuRUbf a",
           "type": "arr",
-          "etype": "textContent",
-          "keyName": "u"
+          "etype": "href",
+          "keyName": "u",
+          "functionsApplied": [
+            [
+              "splitF",
+              "#",
+              0
+            ],
+            [
+              "maskU",
+              false,
+              false
+            ]
+          ]
         }
       },
-      "._IK": {
+      "#extabar div.EyBRub > div.LXqMce": {
         "ent": {
-          "item": ".kxbccp span",
+          "item": "a.TXBhSe.z4P7Tc > span.Wkr6U.z4P7Tc",
           "type": "arr",
           "etype": "textContent",
           "keyName": "ent"
         },
         "pred": {
-          "item": ".kxbccm .kxbc",
+          "item": "a.TXBhSe.z4P7Tc + span + span.Wkr6U.z4P7Tc, a.TXBhSe.z4P7Tc + span + a.z4P7Tc + span + span.Wkr6U.z4P7Tc",
           "type": "arr",
           "etype": "textContent",
           "keyName": "pred"
         }
       },
-      "#taw p.card-section": {
+      "#main": {
         "sq": {
-          "item": "a.spell",
+          "item": "#taw #fprsl.gL9Hy",
           "type": "arr",
           "etype": "textContent",
           "keyName": "sq"
+        },
+        "oq": {
+          "item": "#fprs a.spell_orig",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "oq"
+        },
+        "type": {
+          "item": "#lu_map",
+          "type": "arr",
+          "etype": "id",
+          "keyName": "type",
+          "functionsApplied": [
+            [
+              "splitF",
+              "lu_",
+              1
+            ]
+          ]
         }
       },
-      "#gs_lc0": {
-        "oq": {
-          "item": "#lst-ib.gsfi",
+      "#main .VkpGBb": {
+        "t": {
+          "item": ".cXedhc div.dbg0pd",
           "type": "arr",
-          "etype": "value",
-          "keyName": "oq"
+          "etype": "textContent",
+          "keyName": "t"
+        },
+        "addr": {
+          "item": "div.cXedhc.uQ4NLd > div + div.rllt__details > [role=\"heading\"] + div + div, a.rllt__link > div.cXedhc > div.rllt__tile-label + div.rllt__details > [role=\"heading\"] + div, a.rllt__link > div.cXedhc > div.rllt__details > [role=\"heading\"] + div + div",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "addr"
+        }
+      },
+      "#search g-scrolling-carousel img[id^='dimg_']": {
+        "u": {
+          "type": "arr",
+          "etype": "title",
+          "keyName": "u"
+        }
+      },
+      "div.EyBRub div[data-lpage]": {
+        "u": {
+          "type": "arr",
+          "etype": "data-lpage",
+          "keyName": "u"
+        }
+      },
+      "#main div.knowledge-block__video-nav-block": {
+        "t": {
+          "item": "img",
+          "type": "arr",
+          "etype": "alt",
+          "keyName": "t"
+        },
+        "u": {
+          "item": "div.twQ0Be > a",
+          "type": "arr",
+          "etype": "href",
+          "keyName": "u"
+        },
+        "len": {
+          "item": "div.twQ0Be",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "len",
+          "functionsApplied": [
+            [
+              "splitF",
+              "\u00a0",
+              1
+            ]
+          ]
+        }
+      },
+      "#main div.PhiYYd.QBl4oe": {
+        "t": {
+          "item": "img",
+          "type": "arr",
+          "etype": "alt",
+          "keyName": "t"
+        },
+        "u": {
+          "item": "div.twQ0Be > a",
+          "type": "arr",
+          "etype": "href",
+          "keyName": "u"
+        }
+      },
+      "#main div.o0igqc div.mLmaBd": {
+        "t": {
+          "item": "div.fc9yUc",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "t"
+        },
+        "u": {
+          "item": "a",
+          "type": "arr",
+          "etype": "href",
+          "keyName": "u"
+        }
+      },
+      "#rhs div.knowledge-panel": {
+        "t": {
+          "item": "div[data-attrid=\"title\"] > span",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "t"
+        },
+        "u": {
+          "item": "div.QqG1Sd:nth-child(1) > a[role=\"button\"]:not([data-url])",
+          "type": "arr",
+          "etype": "href",
+          "keyName": "u"
+        },
+        "addr": {
+          "item": "div[data-attrid=\"kc:/location/location:address\"]",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "addr"
+        },
+        "loc": {
+          "item": "a[data-url^='/maps/place/']",
+          "type": "arr",
+          "etype": "data-url",
+          "keyName": "loc",
+          "functionsApplied": [
+            [
+              "splitF",
+              "/",
+              4
+            ],
+            [
+              "splitF",
+              "@",
+              1
+            ]
+          ]
+        }
+      },
+      "#tw-main": {
+        "sl": {
+          "item": "#tw-sl",
+          "type": "arr",
+          "etype": "data-dslc",
+          "keyName": "sl"
+        },
+        "tl": {
+          "item": "#tw-tl",
+          "type": "arr",
+          "etype": "data-lang",
+          "keyName": "sl"
+        },
+        "st": {
+          "item": "#tw-source-text-ta",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "st"
+        },
+        "tt": {
+          "item": "#tw-target-text",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "tt"
         }
       }
     },
-    "1": {
+    "2": {
       ".dd.algo": {
         "t": {
           "item": "h3 [href]",
           "type": "arr",
-          "etype": "text",
+          "etype": "textContent",
           "keyName": "t"
         },
         "u": {
@@ -189,9 +609,26 @@
           "etype": "href",
           "keyName": "u",
           "functionsApplied": [
-            ["splitF", "RU=", 1],
-            ["splitF", "RK=0/", 0],
-            ["maskU", false, false]
+            [
+              "splitF",
+              "RK=2/",
+              0
+            ],
+            [
+              "splitF",
+              "RU=",
+              1
+            ],
+            [
+              "splitF",
+              "RK=0/",
+              0
+            ],
+            [
+              "maskU",
+              false,
+              false
+            ]
           ]
         }
       },
@@ -208,7 +645,13 @@
           "type": "standard",
           "etype": "url",
           "keyName": "qurl",
-          "functionsApplied": [["maskU", false, false]]
+          "functionsApplied": [
+            [
+              "maskU",
+              false,
+              false
+            ]
+          ]
         }
       },
       "ctry": {
@@ -219,21 +662,44 @@
         }
       }
     },
-    "2": {},
-    "3": {
-      ".b_algo": {
+    "3": {},
+    "4": {
+      "div[role=\"main\"] div.imgpt > a": {
         "t": {
-          "item": "h2 [href]",
-          "type": "arr",
-          "etype": "text",
-          "keyName": "t"
+          "type": "array",
+          "etype": "m",
+          "keyName": "t",
+          "functionsApplied": [
+            [
+              "json",
+              "t",
+              false
+            ]
+          ]
         },
         "u": {
-          "item": "h2 [href]",
-          "type": "arr",
-          "etype": "href",
-          "keyName": "u",
-          "functionsApplied": [["maskU", false, false]]
+          "type": "array",
+          "etype": "m",
+          "keyName": "ru",
+          "functionsApplied": [
+            [
+              "json",
+              "murl",
+              false
+            ]
+          ]
+        },
+        "ru": {
+          "type": "array",
+          "etype": "m",
+          "keyName": "ru",
+          "functionsApplied": [
+            [
+              "json",
+              "purl",
+              false
+            ]
+          ]
         }
       },
       "#sb_form": {
@@ -249,7 +715,13 @@
           "type": "standard",
           "etype": "url",
           "keyName": "qurl",
-          "functionsApplied": [["maskU", false, false]]
+          "functionsApplied": [
+            [
+              "maskU",
+              false,
+              false
+            ]
+          ]
         }
       },
       "ctry": {
@@ -260,59 +732,346 @@
         }
       }
     },
-    "4": {}
+    "5": {
+      ".b_algo": {
+        "t": {
+          "item": "h2 [href]",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "t"
+        },
+        "u": {
+          "item": "h2 [href]",
+          "type": "arr",
+          "etype": "href",
+          "keyName": "u",
+          "functionsApplied": [
+            [
+              "maskU",
+              false,
+              false
+            ]
+          ]
+        }
+      },
+      "#sb_form": {
+        "q": {
+          "item": "#sb_form_q",
+          "type": "searchQuery",
+          "etype": "value",
+          "keyName": "query"
+        }
+      },
+      "qurl": {
+        "qurl": {
+          "type": "standard",
+          "etype": "url",
+          "keyName": "qurl",
+          "functionsApplied": [
+            [
+              "maskU",
+              false,
+              false
+            ]
+          ]
+        }
+      },
+      "ctry": {
+        "ctry": {
+          "type": "standard",
+          "etype": "ctry",
+          "keyName": "ctry"
+        }
+      }
+    },
+    "6": {
+      "#twotabsearchtextbox": {
+        "q": {
+          "type": "searchQuery",
+          "etype": "value",
+          "keyName": "query"
+        }
+      },
+      "#search div.s-result-item[data-component-type='s-search-result']": {
+        "t": {
+          "item": "div.sg-col-inner div > div > div > h2 > a span",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "t"
+        },
+        "a": {
+          "item": ".a-declarative .s-label-popover-default span",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "a"
+        },
+        "u": {
+          "item": "div.sg-col-inner div > div > div > h2 > a",
+          "type": "arr",
+          "etype": "href",
+          "keyName": "u",
+          "functionsApplied": [
+            [
+              "splitF",
+              "&url=",
+              1
+            ],
+            [
+              "splitF",
+              "/ref=",
+              0
+            ]
+          ]
+        }
+      },
+      "[data-component-type='s-product-image']": {
+        "t": {
+          "item": "img",
+          "type": "arr",
+          "etype": "alt",
+          "keyName": "t"
+        },
+        "u": {
+          "item": "a",
+          "type": "arr",
+          "etype": "href",
+          "keyName": "u",
+          "functionsApplied": [
+            [
+              "splitF",
+              "&url=",
+              1
+            ],
+            [
+              "splitF",
+              "/ref=",
+              0
+            ],
+            [
+              "maskU",
+              false,
+              false
+            ]
+          ]
+        }
+      },
+      "ctry": {
+        "ctry": {
+          "type": "standard",
+          "etype": "ctry",
+          "keyName": "ctry"
+        }
+      },
+      "qurl": {
+        "qurl": {
+          "type": "standard",
+          "etype": "url",
+          "keyName": "qurl",
+          "functionsApplied": [
+            [
+              "maskU",
+              false,
+              false
+            ]
+          ]
+        }
+      }
+    }
   },
   "payloads": {
     "0": {
-      ".r": {
+      "form[action=\"/search\"] input:first-child[name=\"q\"]": {
+        "type": "query",
+        "results": "clustered",
+        "action": "img",
+        "fields": [
+          [
+            "form[action=\"/search\"] input:first-child[name=\"q\"]",
+            "q"
+          ],
+          [
+            "qurl",
+            "qurl"
+          ],
+          [
+            ".IkMU6e",
+            "r",
+            "join"
+          ],
+          [
+            "ctry",
+            "ctry"
+          ]
+        ]
+      }
+    },
+    "1": {
+      "div#rso div.g": {
         "type": "query",
         "results": "clustered",
         "action": "query",
         "fields": [
-          [".r", "r", "join"],
-          [".med #search", "q"],
-          ["qurl", "qurl"],
-          ["ctry", "ctry"]
+          [
+            "div#rso div.g",
+            "r",
+            "join"
+          ],
+          [
+            "#search",
+            "q"
+          ],
+          [
+            "qurl",
+            "qurl"
+          ],
+          [
+            "ctry",
+            "ctry"
+          ]
         ]
       },
-      "#tads .ads-ad": {
+      "#tads div[data-text-ad]": {
         "type": "query",
         "results": "clustered",
         "action": "ads_A",
         "fields": [
-          ["#tads .ads-ad", "r", "join"],
-          [".med #search", "q"],
-          ["qurl", "qurl"]
+          [
+            "#tads div[data-text-ad]",
+            "r",
+            "join"
+          ],
+          [
+            "#search",
+            "q"
+          ],
+          [
+            "qurl",
+            "qurl"
+          ],
+          [
+            "ctry",
+            "ctry"
+          ]
         ]
       },
-      "#mbEnd .ads-ad": {
+      "#search .rSr7Wd .So9e7d": {
         "type": "query",
         "results": "clustered",
-        "action": "ads_B",
+        "action": "top-stories",
         "fields": [
-          ["#mbEnd .ads-ad", "r", "join"],
-          [".med #search", "q"],
-          ["qurl", "qurl"]
+          [
+            "#search .rSr7Wd .So9e7d",
+            "r",
+            "join"
+          ],
+          [
+            "#search",
+            "q"
+          ],
+          [
+            "qurl",
+            "qurl"
+          ],
+          [
+            "ctry",
+            "ctry"
+          ]
         ]
       },
-      ".pla-unit-title": {
+      "#search div.dbsr": {
+        "type": "query",
+        "results": "clustered",
+        "action": "top-stories",
+        "fields": [
+          [
+            "#search div.dbsr",
+            "r",
+            "join"
+          ],
+          [
+            "#search",
+            "q"
+          ],
+          [
+            "qurl",
+            "qurl"
+          ],
+          [
+            "ctry",
+            "ctry"
+          ]
+        ]
+      },
+      "#rso a.WlydOe": {
+        "type": "query",
+        "results": "clustered",
+        "action": "top-stories",
+        "fields": [
+          [
+            "#rso a.WlydOe",
+            "r",
+            "join"
+          ],
+          [
+            "#search",
+            "q"
+          ],
+          [
+            "qurl",
+            "qurl"
+          ],
+          [
+            "ctry",
+            "ctry"
+          ]
+        ]
+      },
+      "[id^='vplap']": {
         "type": "query",
         "results": "clustered",
         "action": "ads_C",
         "fields": [
-          [".pla-unit-title", "r", "join"],
-          [".med #search", "q"],
-          ["qurl", "qurl"]
+          [
+            "[id^='vplap']",
+            "r",
+            "join"
+          ],
+          [
+            "#search",
+            "q"
+          ],
+          [
+            "qurl",
+            "qurl"
+          ],
+          [
+            "ctry",
+            "ctry"
+          ]
         ]
       },
-      "#tadsb .ads-ad": {
+      "#bottomads div[data-text-ad]": {
         "type": "query",
         "results": "clustered",
         "action": "ads_D",
         "fields": [
-          ["#tadsb .ads-ad", "r", "join"],
-          [".med #search", "q"],
-          ["qurl", "qurl"]
+          [
+            "#bottomads div[data-text-ad]",
+            "r",
+            "join"
+          ],
+          [
+            "#search",
+            "q"
+          ],
+          [
+            "qurl",
+            "qurl"
+          ],
+          [
+            "ctry",
+            "ctry"
+          ]
         ]
       },
       "._gt": {
@@ -320,84 +1079,497 @@
         "results": "clustered",
         "action": "locdata",
         "fields": [
-          ["._gt", "r", "join"],
-          [".med #search", "q"],
-          ["qurl", "qurl"]
+          [
+            "._gt",
+            "r",
+            "join"
+          ],
+          [
+            "#search",
+            "q"
+          ],
+          [
+            "qurl",
+            "qurl"
+          ]
         ]
       },
-      ".kp-blk._rod._Rqb._RJe": {
+      "#search #rso div > block-component > div.JnwWd > div.EyBRub div.ifM9O > div": {
         "type": "query",
         "results": "clustered",
         "action": "snippet",
         "fields": [
-          [".kp-blk._rod._Rqb._RJe", "r", "join"],
-          [".med #search", "q"],
-          ["qurl", "qurl"]
+          [
+            "#search #rso div > block-component > div.JnwWd > div.EyBRub div.ifM9O > div",
+            "r",
+            "join"
+          ],
+          [
+            "#search",
+            "q"
+          ],
+          [
+            "qurl",
+            "qurl"
+          ],
+          [
+            "ctry",
+            "ctry"
+          ]
         ]
       },
-      "._OKe .g": {
+      "div#rcnt.GyAeWb div#rso > div.ULSxyf, div#rcnt.GyAeWb > div.M8OgIe": {
         "type": "query",
         "results": "clustered",
         "action": "snippet2",
         "fields": [
-          ["._OKe .g", "r", "join"],
-          [".med #search", "q"],
-          ["qurl", "qurl"]
+          [
+            "div#rcnt.GyAeWb div#rso > div.ULSxyf, div#rcnt.GyAeWb > div.M8OgIe",
+            "r",
+            "join"
+          ],
+          [
+            "#search",
+            "q"
+          ],
+          [
+            "qurl",
+            "qurl"
+          ],
+          [
+            "ctry",
+            "ctry"
+          ]
         ]
       },
-      "._IK": {
+      "#extabar div.EyBRub > div.LXqMce": {
         "type": "query",
         "results": "clustered",
         "action": "snippet3",
         "fields": [
-          ["._IK", "r", "join"],
-          [".med #search", "q"],
-          ["qurl", "qurl"]
+          [
+            "#extabar div.EyBRub > div.LXqMce",
+            "r",
+            "join"
+          ],
+          [
+            "#search",
+            "q"
+          ],
+          [
+            "qurl",
+            "qurl"
+          ],
+          [
+            "ctry",
+            "ctry"
+          ]
         ]
       },
-      "#taw p.card-section": {
+      "#searchform": {
         "type": "query",
         "results": "clustered",
         "action": "sq",
         "fields": [
-          ["#taw p.card-section", "r", "join"],
-          ["#gs_lc0", "oq"]
+          [
+            "#main",
+            "sq"
+          ],
+          [
+            "#main",
+            "oq"
+          ],
+          [
+            "ctry",
+            "ctry"
+          ]
+        ]
+      },
+      ".g .r": {
+        "type": "query",
+        "results": "clustered",
+        "action": "anon-query",
+        "fields": [
+          [
+            ".g .r",
+            "r",
+            "join"
+          ],
+          [
+            "#mobile-search #sfcnt",
+            "q"
+          ],
+          [
+            "qurl",
+            "qurl"
+          ],
+          [
+            "ctry",
+            "ctry"
+          ]
+        ]
+      },
+      "#lu_map": {
+        "type": "query",
+        "results": "clustered",
+        "action": "places2",
+        "fields": [
+          [
+            "#search",
+            "q"
+          ],
+          [
+            "#main",
+            "type"
+          ],
+          [
+            "qurl",
+            "qurl"
+          ],
+          [
+            "ctry",
+            "ctry"
+          ]
+        ]
+      },
+      "#main .VkpGBb": {
+        "type": "query",
+        "results": "clustered",
+        "action": "places",
+        "fields": [
+          [
+            "#main .VkpGBb",
+            "r",
+            "join"
+          ],
+          [
+            "ctry",
+            "ctry"
+          ]
+        ]
+      },
+      "#rhs div.knowledge-panel": {
+        "type": "query",
+        "results": "clustered",
+        "action": "place",
+        "fields": [
+          [
+            "#rhs div.knowledge-panel",
+            "t"
+          ],
+          [
+            "#rhs div.knowledge-panel",
+            "u"
+          ],
+          [
+            "#rhs div.knowledge-panel",
+            "addr"
+          ],
+          [
+            "#rhs div.knowledge-panel",
+            "loc"
+          ],
+          [
+            "ctry",
+            "ctry"
+          ]
+        ]
+      },
+      "#search g-scrolling-carousel img[id^='dimg_']": {
+        "type": "query",
+        "results": "clustered",
+        "action": "img-p",
+        "fields": [
+          [
+            "#search",
+            "q"
+          ],
+          [
+            "qurl",
+            "qurl"
+          ],
+          [
+            "#search g-scrolling-carousel img[id^='dimg_']",
+            "r",
+            "join"
+          ],
+          [
+            "ctry",
+            "ctry"
+          ]
+        ]
+      },
+      "div.EyBRub div[data-lpage]": {
+        "type": "query",
+        "results": "clustered",
+        "action": "img-p",
+        "fields": [
+          [
+            "#search",
+            "q"
+          ],
+          [
+            "qurl",
+            "qurl"
+          ],
+          [
+            "div.EyBRub div[data-lpage]",
+            "r",
+            "join"
+          ],
+          [
+            "ctry",
+            "ctry"
+          ]
+        ]
+      },
+      "#main div.knowledge-block__video-nav-block": {
+        "type": "query",
+        "results": "clustered",
+        "action": "video-p",
+        "fields": [
+          [
+            "#search",
+            "q"
+          ],
+          [
+            "qurl",
+            "qurl"
+          ],
+          [
+            "#main div.knowledge-block__video-nav-block",
+            "r",
+            "join"
+          ],
+          [
+            "ctry",
+            "ctry"
+          ]
+        ]
+      },
+      "#main div.PhiYYd.QBl4oe": {
+        "type": "query",
+        "results": "clustered",
+        "action": "video-p",
+        "fields": [
+          [
+            "#search",
+            "q"
+          ],
+          [
+            "qurl",
+            "qurl"
+          ],
+          [
+            "#main div.PhiYYd.QBl4oe",
+            "r",
+            "join"
+          ],
+          [
+            "ctry",
+            "ctry"
+          ]
+        ]
+      },
+      "#main div.o0igqc div.mLmaBd": {
+        "type": "query",
+        "results": "clustered",
+        "action": "videos-p",
+        "fields": [
+          [
+            "#search",
+            "q"
+          ],
+          [
+            "qurl",
+            "qurl"
+          ],
+          [
+            "#main div.o0igqc div.mLmaBd",
+            "r",
+            "join"
+          ],
+          [
+            "ctry",
+            "ctry"
+          ]
+        ]
+      },
+      "#tw-main": {
+        "type": "translate",
+        "action": "translate",
+        "fields": [
+          [
+            "#search",
+            "q"
+          ],
+          [
+            "#tw-main",
+            "sl"
+          ],
+          [
+            "#tw-main",
+            "tl"
+          ],
+          [
+            "#tw-main",
+            "st"
+          ],
+          [
+            "#tw-main",
+            "tt"
+          ]
         ]
       }
     },
-    "1": {
+    "2": {
       ".dd.algo": {
         "type": "query",
         "results": "clustered",
         "action": "query",
         "fields": [
-          [".dd.algo", "r", "join"],
-          [".sbq-w", "q"],
-          ["qurl", "qurl"],
-          ["ctry", "ctry"]
+          [
+            ".dd.algo",
+            "r",
+            "join"
+          ],
+          [
+            ".sbq-w",
+            "q"
+          ],
+          [
+            "qurl",
+            "qurl"
+          ],
+          [
+            "ctry",
+            "ctry"
+          ]
         ]
       }
     },
-    "2": {},
-    "3": {
+    "3": {},
+    "4": {
+      "div[role=\"main\"] div.imgpt > a": {
+        "type": "query",
+        "results": "clustered",
+        "action": "img",
+        "fields": [
+          [
+            "div[role=\"main\"] div.imgpt > a",
+            "r",
+            "join"
+          ],
+          [
+            "#sb_form",
+            "q"
+          ],
+          [
+            "qurl",
+            "qurl"
+          ],
+          [
+            "ctry",
+            "ctry"
+          ]
+        ]
+      }
+    },
+    "5": {
       ".b_algo": {
         "type": "query",
         "results": "clustered",
         "action": "query",
         "fields": [
-          [".b_algo", "r", "join"],
-          ["#sb_form", "q"],
-          ["qurl", "qurl"],
-          ["ctry", "ctry"]
+          [
+            ".b_algo",
+            "r",
+            "join"
+          ],
+          [
+            "#sb_form",
+            "q"
+          ],
+          [
+            "qurl",
+            "qurl"
+          ],
+          [
+            "ctry",
+            "ctry"
+          ]
         ]
       }
     },
-    "4": {}
+    "6": {
+      "#search div.s-result-item[data-component-type='s-search-result']": {
+        "type": "query",
+        "results": "clustered",
+        "action": "query-am",
+        "fields": [
+          [
+            "#search div.s-result-item[data-component-type='s-search-result']",
+            "r",
+            "join"
+          ],
+          [
+            "#twotabsearchtextbox",
+            "q"
+          ],
+          [
+            "qurl",
+            "qurl"
+          ],
+          [
+            "ctry",
+            "ctry"
+          ]
+        ]
+      },
+      "[data-component-type='s-product-image']": {
+        "type": "query",
+        "results": "clustered",
+        "action": "query-am",
+        "fields": [
+          [
+            "[data-component-type='s-product-image']",
+            "r",
+            "join"
+          ],
+          [
+            "[data-component-type=\"s-result-sort\"]",
+            "q"
+          ],
+          [
+            "qurl",
+            "qurl"
+          ],
+          [
+            "ctry",
+            "ctry"
+          ]
+        ]
+      }
+    }
+  },
+  "queryTemplate": {
+    "0": {
+      "prefix": "search?tbm=isch&gbv=1&q="
+    },
+    "4": {
+      "prefix": "images/search?q="
+    },
+    "6": {
+      "prefix": "s/?field-keywords="
+    }
   },
   "idMapping": {
-    "0": "go",
-    "1": "ya",
-    "2": "lnkd",
-    "3": "bing"
+    "0": "goi",
+    "1": "go",
+    "2": "ya",
+    "3": "lnkd",
+    "4": "bingi",
+    "5": "bing",
+    "6": "am"
   }
 }

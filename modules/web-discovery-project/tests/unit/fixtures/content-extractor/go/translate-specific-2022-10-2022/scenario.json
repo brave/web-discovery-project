@@ -1,0 +1,124 @@
+{
+  "url": "https://www.google.com/search?hl=en&q=angela%20merkel",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "query",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "Latest version added Brave translate - Browser Support",
+            "u": "https://community.brave.com/t/latest-version-added-brave-translate/428268",
+            "age": "Sep 1, 2022",
+            "m": null
+          },
+          "1": {
+            "t": "Translation of pages in Brave - Desktop Support",
+            "u": "https://community.brave.com/t/translation-of-pages-in-brave/75633",
+            "age": "Aug 14, 2019",
+            "m": null
+          },
+          "2": {
+            "t": "Support in browser translation - Brave Feature Requests",
+            "u": "https://community.brave.com/t/support-in-browser-translation/427146",
+            "age": "Aug 26, 2022",
+            "m": null
+          },
+          "3": {
+            "t": "Set the browser language - Desktop Support - Brave Community",
+            "u": "https://community.brave.com/t/set-the-browser-language/436037",
+            "age": "Oct 4, 2022",
+            "m": null
+          },
+          "4": {
+            "t": "Translate feature still not working - Brave Community",
+            "u": "https://community.brave.com/t/translate-feature-still-not-working/174899",
+            "age": "Oct 29, 2020",
+            "m": null
+          },
+          "5": {
+            "t": "\"On the fly\" translation on desktop & mobile - Brave Community",
+            "u": "https://community.brave.com/t/on-the-fly-translation-on-desktop-mobile/429186",
+            "age": "Sep 6, 2022",
+            "m": null
+          },
+          "6": {
+            "t": "Know how to put Brave in French on Chrome OS (Linux)",
+            "u": "https://community.brave.com/t/know-how-to-put-brave-in-french-on-chrome-os-linux/170735",
+            "age": "Oct 12, 2020",
+            "m": null
+          },
+          "7": {
+            "t": "Where is the 'foreign language translation' option in Dev?",
+            "u": "https://community.brave.com/t/where-is-the-foreign-language-translation-option-in-dev/80506",
+            "age": "Sep 5, 2019",
+            "m": null
+          },
+          "8": {
+            "t": "Add translation service to Brave · Issue #23813 - GitHub",
+            "u": "https://github.com/brave/brave-browser/issues/23813",
+            "age": "Jun 30, 2022",
+            "m": null
+          },
+          "9": {
+            "t": "brave explorer - French translation – Linguee",
+            "u": "https://www.linguee.com/english-french/translation/brave+explorer.html",
+            "age": null,
+            "m": null
+          }
+        },
+        "q": "translate brave is the best browser from english to french",
+        "qurl": "https://www.google.com/search?hl=en&q=angela%20merkel",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "translate-intent",
+      "payload": {
+        "q": "translate brave is the best browser from english to french",
+        "sl": "en",
+        "tl": "fr",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "translate-full",
+      "payload": {
+        "q": "translate brave is the best browser from english to french",
+        "sl": "en",
+        "tl": "fr",
+        "st": "brave is the best browser",
+        "tt": "courageux est le meilleur navigateur",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "rel-query",
+      "payload": {
+        "r": { "0": { "t": "brave browser" } },
+        "q": "translate brave is the best browser from english to french",
+        "qurl": "https://www.google.com/search?hl=en&q=angela%20merkel",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "faq",
+      "payload": {
+        "r": {
+          "0": { "t": "How do I translate a brave browser?" },
+          "1": { "t": "Which browser has the best translator?" },
+          "2": { "t": "How do I translate in browser?" }
+        },
+        "q": "translate brave is the best browser from english to french",
+        "qurl": "https://www.google.com/search?hl=en&q=angela%20merkel",
+        "ctry": "de"
+      }
+    }
+  ],
+  "mustNotContain": [{ "action": "ads_*" }]
+}

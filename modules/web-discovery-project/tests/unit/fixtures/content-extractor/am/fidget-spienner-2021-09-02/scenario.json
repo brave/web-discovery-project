@@ -1,0 +1,316 @@
+{
+  "url": "https://www.amazon.de/s?k=fidget+spinner&ref=nb_sb_noss_2",
+
+  "mustContain": [{
+    "type": "humanweb",
+    "action": "query-am",
+    "payload": {
+      "r": {
+        "0": {
+          "t": "FOYOCER Fidget Spinner Hand Spielzeug Leicht zu Tragen (Blau+Gold)",
+          "a": "Gesponsert",
+          "u": "/FOYOCER-Fidget-Spinner-Spielzeug-Leicht/dp/B09C24NMVP"
+        },
+        "1": {
+          "t": "VAPIAO Fidget Spinner Hand Spielzeug Special Hochleistungs Kugellager Anti Stress Kreisel I Regenbogen Farben",
+          "a": "Gesponsert",
+          "u": "/VAPIAO-Hochleistungs-Kugellager-Spielzeug-Regenbogen/dp/B01MQCRWDV"
+        },
+        "2": {
+          "t": "4x Push Pop Fidget Spinner | DIE NEUHEIT | Sensory Spinner Fidget POP IT Set - 5 Bubbles | Magic Push Pop Fidget Rainbow Toy | Hand-Spinner ideal als Antistress Spiel für Kinder - Jungs & Mädchen",
+          "a": "Gesponsert",
+          "u": "/Push-Fidget-Spinner-NEUHEIT-Sensory/dp/B09B7PQTS5"
+        },
+        "3": {
+          "t": "VAPIAO 4er Set Fidget Spinner Hand Spielzeug Special Hochleistungs Kugellager Anti Stress Kreisel in Blau, Rot, Weiß und Schwarz",
+          "a": "Gesponsert",
+          "u": "/Hochleistungs-Kugellagern-fluoreszierendem-Gummiband-Spielzeug/dp/B0737NBJG9"
+        },
+        "4": {
+          "t": "Handkreisel Fidget Spinner Hand Spielzeug Special Hochleistungs Kugellager Anti Stress Kinder Zappeln Finger Spinner Legierung Kleines Infinity Cube Fokus Gyro Stressabbau Anti Angst Geschenk",
+          "a": null,
+          "u": "https://www.amazon.de/Handkreisel-Spielzeug-Hochleistungs-Kugellager-Stressabbau/dp/B08917WRY9"
+        },
+        "5": {
+          "t": "VAPIAO Fidget Spinner Hand Spielzeug Special Hochleistungs Kugellager Anti Stress Kreisel I Regenbogen Farben",
+          "a": null,
+          "u": "https://www.amazon.de/VAPIAO-Hochleistungs-Kugellager-Spielzeug-Regenbogen/dp/B01MQCRWDV"
+        },
+        "6": {
+          "t": "VAPIAO 4er Set Fidget Spinner Hand Spielzeug Special Hochleistungs Kugellager Anti Stress Kreisel in Blau, Rot, Weiß und Schwarz",
+          "a": null,
+          "u": "https://www.amazon.de/Hochleistungs-Kugellagern-fluoreszierendem-Gummiband-Spielzeug/dp/B0737NBJG9"
+        },
+        "7": {
+          "t": "Premium Fidget Spinner - leuchtet im Dunkeln - hochwertiges Kugellager - Lange Drehzeit - Leise",
+          "a": null,
+          "u": "https://www.amazon.de/Premium-Fidget-Spinner-hochwertiges-Kugellager/dp/B071GL7LH3"
+        },
+        "8": {
+          "t": "HONZIN Auto Schlüsselanhänger,Schwere Flaschenöffner Fingertip Gyroskop multifunktionale Business Schlüsselbund",
+          "a": null,
+          "u": "https://www.amazon.de/TNEW-Schlüsselanhänger-Flaschenöffner-multifunktionale-Schlüsselbund/dp/B07L9RWT53"
+        },
+        "9": {
+          "t": "OKCS Fidget Spinner Spielzeug Tri Spinner Stresslöser Konzentration Rundes Design - Rainbow",
+          "a": null,
+          "u": "https://www.amazon.de/OKCS-Spinner-Spielzeug-Stresslöser-Konzentration/dp/B071GTC5ZX"
+        },
+        "10": {
+          "t": "JTLB Mini Gear Metalllegierung Spinner Zappeln Spielzeug Pure Brass Fidget Cube Fidget Toys Hand Spinner Finger Fokus Spielzeug Stressabbau Geschenk",
+          "a": null,
+          "u": "https://www.amazon.de/JTLB-Metalllegierung-Spielzeug-Stressabbau-Geschenk/dp/B08GSN7SM5"
+        },
+        "11": {
+          "t": "SNITCH Handkreisel Fidget Spinner Hand Spielzeug Special Hochleistungs Kugellager Anti Stress Kinder Zappeln Finger Spinner Legierung Kleines Infinity Cube Fokus Gyro Stressabbau Anti Angst Geschenk",
+          "a": null,
+          "u": "https://www.amazon.de/Anzmtosn-Handheld-Toys-HandBalls/dp/B07TCXS12Y"
+        },
+        "12": {
+          "t": "3-5 Minuten Zappeln Spinner EDC Hand Zappeln Spielzeug Mehrfarbiges Lenkrad Regenbogen Galvanisieren Legierung Spannungsreduzierer Hochgeschwindigkeit Edelstahl Finger Entlastungsspielzeug für Fokus",
+          "a": null,
+          "u": "https://www.amazon.de/Mehrfarbiges-Galvanisieren-Spannungsreduzierer-Hochgeschwindigkeit-Entlastungsspielzeug/dp/B073SBDWTM"
+        },
+        "13": {
+          "t": "Excellentas 4er Set Fidget Toy Hand Spinner Handspielzeug Fingerspinner für Jung und Alt High-Speed Kugellager",
+          "a": null,
+          "u": "https://www.amazon.de/Excellentas-Handspielzeug-Fingerspinner-High-Speed-Kugellager/dp/B077XZ1YBY"
+        },
+        "14": {
+          "t": "FLYNOVA PRO Fliegendes Spielzeug, Kugelform Magischer Controller Mini Drohne Flugspielzeuge Fliegender Spinner 360° Drehbare Rotierende LED Leuchten für Kinder Erwachsene",
+          "a": null,
+          "u": "https://www.amazon.de/Fliegendes-Controller-Flugspielzeuge-Fliegender-Rotierende/dp/B08QMXFF3K"
+        },
+        "15": {
+          "t": "GOLDEN Handkreisel Fidget Spinner Hand Spielzeug Special Hochleistungs Kugellager Anti Stress Kinder Zappeln Finger Spinner Legierung Kleines Infinity Cube Fokus Gyro Stressabbau Anti Angst",
+          "a": null,
+          "u": "https://www.amazon.de/Handkreisel-Spielzeug-Hochleistungs-Kugellager-Stressabbau/dp/B07TBW53BC"
+        },
+        "16": {
+          "t": "Excellentas 5er Set Fidget Toy Hand Spinner Handspielzeug Fingerspinner für Jung und Alt High-Speed Kugellager",
+          "a": null,
+          "u": "https://www.amazon.de/Excellentas-Handspielzeug-Fingerspinner-High-Speed-Kugellager/dp/B078CY96VW"
+        },
+        "17": {
+          "t": "Fidget Spinner Cube Fidgetwürfel Handkreisel Fingerspielzeug Anti Stress Kinetic Schreibtischspielzeug Office Metal Spinner Antistress Würfel Finger Spielzeug Stressabbau klein Gadget Kinder Junge",
+          "a": null,
+          "u": "https://www.amazon.de/Fidgetwürfel-Handkreisel-Fingerspielzeug-Schreibtischspielzeug-Stressabbau/dp/B0827CH2CL"
+        },
+        "18": {
+          "t": "Gazaar LED Fidget Spinner Spielzeug Clear LED Light Up Fidget Finger Würfel Angst Stress Relief EDC Spielzeug für Kinder und Erwachsene",
+          "a": null,
+          "u": "https://www.amazon.de/Gazaar-Fidget-Spinner-Spielzeug-Erwachsene/dp/B0919KWV31"
+        },
+        "19": {
+          "t": "CaLeQi Simple Rotation Dimple Sensorisches Spielzeug Mini Fidget Dimple Toy Silikon Gamepad Flip Board Spielzeug Frühes Lernspielzeug Stressabbau Sensorisches Hand spielzeug Gehirn entwicklung",
+          "a": null,
+          "u": "https://www.amazon.de/CaLeQi-Sensorisches-Lernspielzeug-Stressabbau-entwicklung/dp/B08Z7YXX79"
+        },
+        "20": {
+          "t": "Excellentas 4er Set Alu Fidget Toy Hand Spinner Handspielzeug Fingerspinner für Jung und Alt High-Speed Kugellager",
+          "a": null,
+          "u": "https://www.amazon.de/Excellentas-Handspielzeug-Fingerspinner-High-Speed-Kugellager/dp/B077XY6468"
+        },
+        "21": {
+          "t": "Paochocky Bubble Sensorisches Antistress Spielzeug Handspielzeug für Stressabbau und Anti-Angst ADS ADHS für Kinder Erwachsene",
+          "a": null,
+          "u": "https://www.amazon.de/Paochocky-Sensorisches-Antistress-Handspielzeug-Stressabbau/dp/B0928TSV2Y"
+        },
+        "22": {
+          "t": "Fidget Spinner",
+          "a": null,
+          "u": "https://www.amazon.de/Cellfish-Games-Fidget-Spinner/dp/B072PSC4XP"
+        },
+        "23": {
+          "t": "Beliebte Fidget Spinner",
+          "a": null,
+          "u": "https://www.amazon.de/Sparrow-Games-Beliebte-Fidget-Spinner/dp/B0745YD9HG"
+        },
+        "24": {
+          "t": "Fidget Spinner ( Hand Spinner )",
+          "a": null,
+          "u": "https://www.amazon.de/Gredsup-Studio-Fidget-Spinner-Hand/dp/B0716VZD76"
+        },
+        "25": {
+          "t": "4 Pcs Anti Stress Spielzeug, Fidget Toys, Sensory Anti-Stress Toy, Hand Toy, Push Bubble Fidget Sensory Toy, Bubble Sensory Anti-Stress Toy for Adults Stress Reliefand Children Early Learning Toy",
+          "a": null,
+          "u": "https://www.amazon.de/Spielzeug-Anti-Stress-Reliefand-Children-Learning/dp/B0982TDRDP"
+        },
+        "26": {
+          "t": "skicare FLYNOVA PRO Flugball Mini Drohne, Flying Orb Kinder Spielzeug LED Leuchten Fliegendes Spielzeug Geschenke für Jungen Mädchen Indoor Outdoor Flugzeuge für Kinder Anfänge, 2021 Verbesserte",
+          "a": null,
+          "u": "https://www.amazon.de/skicare-Spielzeug-Fliegendes-Geschenke-Verbesserte/dp/B097D155NM"
+        },
+        "27": {
+          "t": "Fidget Toys Set, Anti Stress Spielzeug Set, Anti Stress Bälle für Stress und Angst Abbauen, Fidget Toys Pack für Erwachsene Und Kinder Geschenke",
+          "a": null,
+          "u": "https://www.amazon.de/Fidget-Spielzeug-Abbauen-Erwachsene-Geschenke/dp/B08XW338N2"
+        },
+        "28": {
+          "t": "4 Pcs Fidget Toys,Push Pop Fidget Spinner,Anti Stress Spielzeug,Hand Spinner,Antistress Spiel für Kinder,Anti Stress Hand Spinner,Bubble Sensorisches Antistress,for Stress Reliefand Early Learning",
+          "a": "Gesponsert",
+          "u": "/Spielzeug-Antistress-Sensorisches-Reliefand-Learning/dp/B09BCXXW78"
+        },
+        "29": {
+          "t": "17Tek Fidget Spinner mit silberfarbenem Flügel, goldfarben",
+          "a": "Gesponsert",
+          "u": "/17Tek-Fidget-Spinner-silberfarbenem-goldfarben/dp/B07YB3QVND"
+        },
+        "30": {
+          "t": "Excellentas 4er Set Fidget Toy Hand Spinner Handspielzeug Fingerspinner für Jung und Alt High-Speed Kugellager",
+          "a": "Gesponsert",
+          "u": "/Excellentas-Handspielzeug-Fingerspinner-High-Speed-Kugellager/dp/B077XZ1YBY"
+        },
+        "31": {
+          "t": "VAPIAO Fidget Cube - Anti Stess Würfel - Stresswürfel 'Spielzeug' zum Stressaubbau bei Nervösität für alle Altersklassen in Schwarz Rot",
+          "a": "Gesponsert",
+          "u": "/VAPIAO-Fidget-Cube-Stresswürfel-Altersklassen/dp/B07VWJ6QCN"
+        },
+        "32": {
+          "t": "Gmajtars Fidget Sensory Toy Set, Fidget Sensorik Toys Pack, Tie Dye Antistress Autismus Popet Fidget Spielzeug Set Stressabbau Anti Stress Balle Mochis Figit Toy Box für Erwachsene Kinder",
+          "a": null,
+          "u": "https://www.amazon.de/Gmajtars-Antistress-Spielzeug-Stressabbau-Erwachsene/dp/B09579D3K7"
+        },
+        "33": {
+          "t": "iCOOLIO pop it Fidget Toy Set, popit XXL Toys, Popet figetttoys, Poppet Antistress Spielzeug, poppit groß fitgetoys, poppitz riesen Spiel, popets Fitchet, fitschetoys, Push pop Bubble figet",
+          "a": null,
+          "u": "https://www.amazon.de/iCOOLIO-figetttoys-Antistress-Spielzeug-fitschetoys/dp/B09817L4PT"
+        },
+        "34": {
+          "t": "LEGO 71756 Ninjago Wassersegler, U-Boot Spielzeug für Jungen und Mädchen ab 9 Jahre, Set mit 10 Ninja Mini Figuren",
+          "a": null,
+          "u": "https://www.amazon.de/71756-Ninjago-Wassersegler-Spielzeug-Mädchen/dp/B08WWWYGZ5"
+        },
+        "35": {
+          "t": "AnanBros XXL Pop Fidget Toy Großes 196 Bubbles 30*30cm Push Pop Pop Bubble Fidget Toys, Pop Set, Baby Spielzeug, Pop Figetttoys Set für Kinder, Erwachsene,Autismus ADHS, Poppet Antistress Spielzeug",
+          "a": null,
+          "u": "https://www.amazon.de/AnanBros-Spielzeug-Figetttoys-Erwachsene-Antistress/dp/B096X2DDDX"
+        },
+        "36": {
+          "t": "LEGO 76389 Harry Potter Schloss Hogwarts Kammer des Schreckens Spielzeug, Set mit Voldemort als goldene Minifigur und der Großen Halle",
+          "a": null,
+          "u": "https://www.amazon.de/LEGO-76389-Schreckens-Spielzeug-Voldemort/dp/B08WWRJ2QJ"
+        },
+        "37": {
+          "t": "Push Bubble Pop Blase Fidget Sensory Spielzeug 2 Satz Regenbogen Fidget Popper für Kinder Stress-Angst Relief Spielzeug für Autismus ADHS Special Squeeze Sensory Spielzeug für Kinder Erwachsene",
+          "a": null,
+          "u": "https://www.amazon.de/Spielzeug-Regenbogen-Stress-Angst-Autismus-Erwachsene/dp/B094919W82"
+        },
+        "38": {
+          "t": "LEGO 71736 NINJAGO Coles Felsenbrecher Flugzeugspielzeug mit Gefängnis und sammelbarer Figur des Goldenen Ninja Kai",
+          "a": null,
+          "u": "https://www.amazon.de/LEGO-71736-Felsenbrecher-Flugzeugspielzeug-sammelbarer/dp/B08G4HBJ1J"
+        },
+        "39": {
+          "t": "LEGO 76191 Marvel Super Heroes Infinity Handschuh, Avengers Set für Erwachsene mit dem Gauntlet von Thanos, Fanartikel",
+          "a": null,
+          "u": "https://www.amazon.de/LEGO-76191-Handschuh-Erwachsene-Fanartikel/dp/B08WX4YRK7"
+        },
+        "40": {
+          "t": "Fidget Toy, Simple Fidget Toy Anti Stress Spielzeug Set, Fidget Toy Set Box für Stress und Angst Abbauen, Anti Stress Spielzeug Set für Kinder Geburtstagsfeier, KlassenbelohnungenUnd Kinder Geschenke",
+          "a": null,
+          "u": "https://www.amazon.de/Spielzeug-Abbauen-Geburtstagsfeier-KlassenbelohnungenUnd-Geschenke/dp/B096XFK1X6"
+        },
+        "41": {
+          "t": "LEGO 71739 NINJAGO Ultraschall-Raider, Konstruktionsspielzeug Set für Jungen und Mädchen ab 9 Jahre mit Figuren",
+          "a": null,
+          "u": "https://www.amazon.de/71739-NINJAGO-Ultraschall-Raider-Konstruktionsspielzeug-Mädchen/dp/B08WWZ5Y4V"
+        },
+        "42": {
+          "t": "LEGO 71746 NINJAGO Dschungeldrache Bauset, mit Ninja Lloyd und Zane Minifiguren, Drache Spielzeug ab 8 Jahren für Jungen und Mädchen",
+          "a": null,
+          "u": "https://www.amazon.de/LEGO-71746-Dschungeldrache-Minifiguren-Spielzeug/dp/B08G46PN5C"
+        },
+        "43": {
+          "t": "LEGO 71750 NINJAGO Lloyds Hydro-Mech, Unterwasser Set, Spielzeug für Kinder ab 7 Jahre mit 2 Ninja Mini Figuren",
+          "a": null,
+          "u": "https://www.amazon.de/LEGO-71750-Hydro-Mech-Unterwasser-Spielzeug/dp/B08W9W7TSZ"
+        },
+        "44": {
+          "t": "LEGO 71753 NINJAGO Kais Feuerdrache Drachen Spielzeug ab 8 Jahre, Set mit 4 Ninja Mini Figuren",
+          "a": null,
+          "u": "https://www.amazon.de/71753-NINJAGO-Feuerdrache-Drachen-Spielzeug/dp/B08WX97HWC"
+        },
+        "45": {
+          "t": "TT Finger Kreisel Fidget 6er Set Preis Gilt für alle 6 Kreisel !!",
+          "a": null,
+          "u": "https://www.amazon.de/TT-Finger-Kreisel-Fidget-Preis/dp/B0736R629X"
+        },
+        "46": {
+          "t": "CT Finger Kreisel 5er Set Preis Gilt für alle 5 Kreisel !!",
+          "a": null,
+          "u": "https://www.amazon.de/CT-Finger-Kreisel-Preis-Gilt/dp/B0736QMRRZ"
+        },
+        "47": {
+          "t": "Abree UFO Mini Drohne Flying Ball Handgesteuerter Fliegender Ball, Fingerkreisel Flugspielzeug mit 360°Rotierenden und LED-Leuchten für Kinder und Erwachsene (Blau)",
+          "a": null,
+          "u": "https://www.amazon.de/Abree-Handgesteuerter-Fingerkreisel-Flugspielzeug-360°Rotierenden/dp/B087M6W6B3"
+        },
+        "48": {
+          "t": "Fidget Hand Spinner",
+          "a": null,
+          "u": "https://www.amazon.de/naheed-azizza-Fidget-Hand-Spinner/dp/B074DJNNPW"
+        },
+        "49": {
+          "t": "LEGO 71752 NINJAGO Ninja-Unterwasserspeeder, U-Boot Spielzeug ab 8 Jahre, Set mit 4 Ninja Mini Figuren",
+          "a": null,
+          "u": "https://www.amazon.de/LEGO-71752-NINJAGO-Ninja-Unterwasserspeeder-Spielzeug/dp/B08W8JMTP6"
+        },
+        "50": {
+          "t": "17Tek Fidget Spinner mit silberfarbenem Flügel, goldfarben",
+          "a": null,
+          "u": "https://www.amazon.de/17Tek-Fidget-Spinner-silberfarbenem-goldfarben/dp/B07YB3QVND"
+        },
+        "51": {
+          "t": "Gmajtars Fidget Sensory Toys Set Sensorische Fidget Spielzeug-Satz Einfaches Grübchen Push Pop für Kinder Erwachsene Autistisch Stressabbau und Anti-Angst Zappeln",
+          "a": null,
+          "u": "https://www.amazon.de/Gmajtars-Sensorische-Spielzeug-Satz-Erwachsene-Stressabbau/dp/B0953STPQL"
+        },
+        "52": {
+          "t": "FLYNOVA PRO Fiegender Spielzeug, Handgesteuerter Mini Drohne, Fliegender Spinner mit 360 ° rotierenden LED-Leuchten für Kinder Erwachsene Innen im Freien (Rot)",
+          "a": null,
+          "u": "https://www.amazon.de/Handgesteuerter-Fliegender-rotierenden-LED-Leuchten-Erwachsene/dp/B08YJKDPBG"
+        },
+        "53": {
+          "t": "TT Finger Kreisel Crazy Farben 6-er Set- Preis Gilt für alle 6 Kreisel !!",
+          "a": null,
+          "u": "https://www.amazon.de/TT-Finger-Kreisel-Crazy-Farben/dp/B0736R2141"
+        },
+        "54": {
+          "t": "CJRNBU Fidget Toy Set, Simple Fidget Toy Anti Stress Spielzeug Set für Stress und Angst Abbauen, Fidget Toys Pack für Erwachsene Und Kinder Geschenke",
+          "a": null,
+          "u": "https://www.amazon.de/CJRNBU-Spielzeug-Abbauen-Erwachsene-Geschenke/dp/B0922SDY3N"
+        },
+        "55": {
+          "t": "2Pack Sensory Fidget Toy, Johiux Bubble Sensory Fidget Toys,Anti Stress Spielzeug Bubble Sensory Gadget Toys,Sensory Toys Anxiety Relief Tool for Kids and Adults（2）",
+          "a": null,
+          "u": "https://www.amazon.de/Sensory-Johiux-Spielzeug-Anxiety-Adults（2）/dp/B0964QFHPX"
+        },
+        "56": {
+          "t": "SNITCH Handkreisel Fidget Spinner Hand Spielzeug Special Hochleistungs Kugellager Anti Stress Kinder Zappeln Finger Spinner Legierung Kleines Infinity Cube Fokus Gyro Stressabbau Anti Angst Geschenk",
+          "a": "Gesponsert",
+          "u": "/Anzmtosn-Handheld-Toys-HandBalls/dp/B07TCXS12Y"
+        },
+        "57": {
+          "t": "MOKRMA Zappelspielzeug Push Bubble Zappeln Sensory Toys Zappeln Packung mit 2 Stress Reliever Toys Zappeln Spielzeug Squeeze Sensory Toy für Kinder mit ADS, ADHS oder Autismus",
+          "a": "Gesponsert",
+          "u": "/MOKRMA-Zappelspielzeug-Reliever-Spielzeug-Autismus/dp/B096FG3ZQS"
+        },
+        "58": {
+          "t": "Kreisel Spielzeug, Shineus Gyro Kreisel mit bunten Blitz Licht emittierende rote Laser Linie Weihnachtsgeschenk für Jungen Kinder Kinder Mädchen 2 Stk",
+          "a": "Gesponsert",
+          "u": "/Kreisel-Spielzeug-Shineus-emittierende-Weihnachtsgeschenk/dp/B08R9Y2M6H"
+        },
+        "59": {
+          "t": "GOLDEN Handkreisel Fidget Spinner Hand Spielzeug Special Hochleistungs Kugellager Anti Stress Kinder Zappeln Finger Spinner Legierung Kleines Infinity Cube Fokus Gyro Stressabbau Anti Angst",
+          "a": "Gesponsert",
+          "u": "/Handkreisel-Spielzeug-Hochleistungs-Kugellager-Stressabbau/dp/B07TBW53BC"
+        }
+      },
+      "q": "fidget spinner",
+
+      "qurl": "https://www.amazon.de/s?k=fidget+spinner&ref=nb_sb_noss_2",
+      "ctry": "de"
+    }
+  }]
+}

@@ -1,0 +1,141 @@
+{
+  "url": "https://www.google.com/search?hl=en&q=angela%20merkel",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "rel-query",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "angela merkel kinder"
+          },
+          "1": {
+            "t": "angela merkel zapfenstreich"
+          },
+          "2": {
+            "t": "angela merkel haus"
+          },
+          "3": {
+            "t": "was macht angela merkel"
+          },
+          "4": {
+            "t": "angela merkel familie"
+          },
+          "5": {
+            "t": "angela merkel -- wikipedia"
+          },
+          "6": {
+            "t": "angela merkel wohnung hamburg"
+          },
+          "7": {
+            "t": "angela merkel kontakt"
+          }
+        },
+        "q": "angela merkel",
+        "qurl": "https://www.google.com/search?hl=en&q=angela%20merkel",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "query",
+      "payload": {
+       "r": {
+          "0": {
+            "t": "angela-merkel.de",
+            "u": "https://www.angela-merkel.de/",
+            "age": null,
+            "m": null
+          },
+          "1": {
+            "t": "Angela Merkel - Wikipedia",
+            "u": "https://de.wikipedia.org/wiki/Angela_Merkel",
+            "age": null,
+            "m": null
+          },
+          "2": {
+            "t": "LeMO Biografie Angela Merkel - Stiftung Haus der ...",
+            "u": "https://www.hdg.de/lemo/biografie/angela-merkel.html",
+            "age": null,
+            "m": null
+          },
+          "3": {
+            "t": "Kritik an Russland-Politik: Merkel wehrt sich gegen Vorwürfe",
+            "u": "https://www.tagesschau.de/inland/ukraine-steinmeier-merkel-101.html",
+            "age": "vor 1 Tag",
+            "m": null
+          },
+          "4": {
+            "t": "Dr. Angela Dorothea Merkel - Deutscher Bundestag",
+            "u": "https://www.bundestag.de/webarchiv/abgeordnete/biografien19/M/merkel_angela-521968",
+            "age": null,
+            "m": null
+          },
+          "5": {
+            "t": "Angela Merkel - DER SPIEGEL",
+            "u": "https://www.spiegel.de/thema/angela_merkel/",
+            "age": "vor 21 Stunden",
+            "m": null
+          },
+          "6": {
+            "t": "Angela Merkel: Themenseite zur Person - Tagesspiegel",
+            "u": "https://www.tagesspiegel.de/themen/angela-merkel/",
+            "age": "vor 3 Stunden",
+            "m": null
+          }
+        },
+        "q": "angela merkel",
+        "qurl": "https://www.google.com/search?hl=en&q=angela%20merkel",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "top-stories",
+      "payload": {
+        "r": {
+          "0": {
+            "u": "https://www.zeit.de/politik/ausland/2022-04/russische-invasion-angela-merkel-kritik-wolodymyr-selenskyj-nato-beitritt",
+            "lu": "vor 1 Tag",
+            "h": "Russische Invasion: Angela Merkel verteidigt Ablehnung von Nato-Beitritt \nder Ukraine"
+          },
+          "1": {
+            "u": "https://www.tagesspiegel.de/politik/zugestaendnisse-an-russland-selenskyj-geht-merkel-wegen-gescheiterter-nato-mitgliedschaft-an-ex-kanzlerin-reagiert/28224978.html",
+            "lu": "vor 1 Tag",
+            "h": "„Zugeständnisse an Russland“: Selenskyj geht Merkel wegen gescheiterter \nNato-Mitgliedschaft an – Ex-Kanzlerin reagiert"
+          },
+          "2": {
+            "u": "https://www.tagesschau.de/ausland/ukraine-selenkyj-merkel-sarkozy-101.html",
+            "lu": "vor 1 Tag",
+            "h": "Selenskyj: \"Ich lade Frau Merkel ein, Butscha zu besuchen\""
+          },
+          "3": {
+            "u": "https://www.faz.net/aktuell/politik/ausland/nato-gipfel-2008-in-bukarest-merkels-strategischer-fehler-zur-ukraine-17934232.html",
+            "lu": "vor 1 Tag",
+            "h": "Merkels strategischer Fehler"
+          },
+          "4": {
+            "u": "https://www.spiegel.de/ausland/ukraine-krieg-wolodymyr-selenskyj-macht-angela-merkel-und-nicolas-sarkozy-schwere-vorwuerfe-a-c160b0ff-b8cf-4968-ad90-6947fcf90c87",
+            "lu": "vor 1 Tag",
+            "h": "Selenskyj greift Merkel und Sarkozy an: »Sehen Sie sich die Gefolterten mit \nIhren eigenen Augen an«"
+          },
+          "5": {
+            "u": "https://www.spiegel.de/politik/deutschland/news-frank-walter-steinmeier-entschuldigt-sich-was-ist-mit-angela-merkel-putin-anhaenger-kfw-foerderung-a-ea71cabf-0e5c-426d-95aa-877bfceeed99",
+            "lu": "vor 2 Stunden",
+            "h": "Die Lage am Abend: Steinmeier sagt Entschuldigung – und was sagt Merkel?"
+          },
+          "6": {
+            "u": "https://www.tagesschau.de/inland/ukraine-steinmeier-merkel-101.html",
+            "lu": "vor 1 Tag",
+            "h": "Kritik an Russland-Politik: Merkel wehrt sich gegen Vorwürfe"
+          }
+        },
+        "q": "angela merkel",
+        "qurl": "https://www.google.com/search?hl=en&q=angela%20merkel",
+        "ctry": "de"
+      }
+    }
+  ],
+  "mustNotContain": [{ "action": "ads_*" }]
+}

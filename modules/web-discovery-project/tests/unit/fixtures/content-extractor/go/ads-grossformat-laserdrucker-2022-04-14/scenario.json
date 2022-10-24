@@ -1,0 +1,248 @@
+{
+  "url": "https://www.google.com/search?hl=en&q=großformat%20laserdrucker",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "query",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "Suchergebnis auf Amazon.de für: Großformat-Laserdrucker",
+            "u": "https://www.amazon.de/Großformat-Laserdrucker/s?k=Großformat-Laserdrucker",
+            "age": "Ergebnissen 1 - 16 von 130",
+            "m": null
+          },
+          "1": {
+            "t": "Gibt es Großformat Laserdrucker? | Forum | Druckerchannel",
+            "u": "https://www.druckerchannel.de/forum.php?seite=beitrag&ID=86431&t=gibt_es_grossformat_laserdrucker",
+            "age": null,
+            "m": null
+          },
+          "2": {
+            "t": "Large Format Laser Printer - Alibaba",
+            "u": "https://german.alibaba.com/g/large-format-laser-printer.html",
+            "age": null,
+            "m": null
+          },
+          "3": {
+            "t": "Großformat-Drucksysteme - Canon Deutschland",
+            "u": "https://www.canon.de/business/products/wide-format-printers/",
+            "age": null,
+            "m": null
+          },
+          "4": {
+            "t": "Plotter | Scanner-Bundle - EBT Bürotechnik GmbH",
+            "u": "https://www.ebt-buerotechnik.de/plotter-scanner-bundle",
+            "age": null,
+            "m": null
+          },
+          "5": {
+            "t": "Großformat Multifunktionsdrucker - Xerox",
+            "u": "https://www.xerox.com/de-lu/office-produkte/multifunktionsdrucker/paper-12x18-plus",
+            "age": null,
+            "m": null
+          },
+          "6": {
+            "t": "HP DesignJet Großformatdrucker - HP Store Deutschland",
+            "u": "https://www.hp.com/de-de/shop/offer.aspx?p=b-gsb-designjet-grossformat-drucker-plotter-buero",
+            "age": null,
+            "m": null
+          },
+          "7": {
+            "t": "Großformatdrucker: Funktionen, Eigenschaften und Vorteile",
+            "u": "https://www.tonerpartner.de/grossformatdrucker/",
+            "age": null,
+            "m": null
+          },
+          "8": {
+            "t": "Großformatdrucker: Test & Empfehlungen (04/22)",
+            "u": "https://www.technikhiwi.de/grossformatdrucker-test/",
+            "age": "07.07.2020",
+            "m": null
+          }
+        },
+        "q": "großformat laserdrucker",
+        "qurl": "https://www.google.com/search?hl=en&q=großformat%20laserdrucker",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "rel-query",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "a2 laserdrucker"
+          },
+          "1": {
+            "t": "xerox digital"
+          },
+          "2": {
+            "t": "xerox professional printer"
+          },
+          "3": {
+            "t": "laserdrucker farbig"
+          },
+          "4": {
+            "t": "laserdrucker test"
+          },
+          "5": {
+            "t": "laser oder tintenstrahldrucker"
+          },
+          "6": {
+            "t": "laserdrucker schwarz weiß"
+          }
+        },
+        "q": "großformat laserdrucker",
+        "qurl": "https://www.google.com/search?hl=en&q=großformat%20laserdrucker",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "ads_A",
+      "payload": {
+        "r": {
+         "0": {
+            "u": "https://www.hp.com/drucker/designjet",
+            "t": "Großformatdrucker 24\" - Offizielles HP® Produkt - Think big"
+          }
+        },
+        "q": "großformat laserdrucker",
+        "qurl": "https://www.google.com/search?hl=en&q=großformat%20laserdrucker",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "ads_C",
+      "payload": {
+        "r": {
+          "0": {
+            "u": "https://www.druckerxpert.de/kopierer/a3-kopierer/kopierer-multifunktionsgeraet-a3-farbe-laser/hp-laserjet-700-color-mfp-m775.html",
+            "t": "HP - LaserJet 700 color MFP M775 Laser- Multifunktionsdrucker"
+          },
+          "1": {
+            "u": "https://www.obergfell-online.de/hp-designjet-xl-3600dr-multifunktionsgrossformatdrucker-36.html?utm_source=froogle",
+            "t": "HP - Tintenstrahl - DesignJet XL 3600dr Multifunktionsgroßformatdrucker"
+          },
+          "2": {
+            "u": "http://bauer-pk.net/Epson-ColorWorks-C3500-Cutter-Disp.-USB-Ethernet-NiceLabel-weiss-C31CD54012CD/C31CD54012CD",
+            "t": "Epson ColorWorks C3500, Cutter, Disp., USB, ..."
+          },
+          "3": {
+            "u": "https://www.druckerxpert.de/kopierer/a3-kopierer/kopierer-multifunktionsgeraet-a3-farbe-laser/hp-laserjet-color-mfp-m880z.html",
+            "t": "HP - LaserJet Enterprise Flow MFP M880z Laser- ..."
+          },
+          "4": {
+            "u": "https://grossformat.kautbullinger.de/products/epson-sc-t3405?variant=40787174686871&currency=EUR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic",
+            "t": "Epson SC-T3405"
+          },
+          "5": {
+            "u": "https://www.bueromarkt-ag.de/laserdrucker_kyocera_ecosys_p2040dn,p-p2040dn,l-google-css,pd-b2c.html",
+            "t": "Kyocera - ECOSYS P2040dn Laserdrucker"
+          },
+          "6": {
+            "u": "https://samcopy.de/ricoh-produktionsdrucksystem-pro-c651-ex-farbkopierer-netzwerkdrucker-scanner.html",
+            "t": "RICOH Produktionsdrucksystem Pro C651 EX Farbkopierer, ..."
+          },
+          "7": {
+            "u": "https://grossformat.kautbullinger.de/products/epson-sc-p700?variant=40805071749271&currency=EUR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic",
+            "t": "Epson - Tintenstrahl - SC-P700"
+          },
+          "8": {
+            "u": "https://www.druckerhaus24.de/hp-color-laserjet-enterprise-flow-m680z-cz250a",
+            "t": "HP - Color LaserJet Enterprise Flow M680z - CZ250A"
+          },
+          "9": {
+            "u": "https://grossformat.kautbullinger.de/products/epson-sc-p20000?variant=40812630671511&currency=EUR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic",
+            "t": "Epson - Tintenstrahl - SC-P20000"
+          },
+          "10": {
+            "u": "https://www.obergfell-online.de/hp-designjet-t730-36.html?utm_source=froogle",
+            "t": "HP - Tintenstrahl - DesignJet T730 - 36"
+          },
+          "11": {
+            "u": "https://samcopy.de/samsung-multixpress-c9201na-clx-99201-farbkopierer-laserdrucker-scanner-fax-1178-1913.html",
+            "t": "Samsung - Laser - MultiXpress C9201NA CLX-9201 ..."
+          },
+          "12": {
+            "u": "https://www.1a-gebrauchte-drucker.de/samsung-proxpress-sl-m4583fx-inkl.-wlan/nfc-kit?sPartner=gs",
+            "t": "Samsung - Laser - ProXpress SL-M4583FX inkl. WLAN/NFC-Kit"
+          },
+          "13": {
+            "u": "https://www.c-nw.de/epson-surecolor-sc-t3100.html?utm_source=kelkoo&utm_medium=cpc&utm_campaign=kelkoo",
+            "t": "Epson - Tintenstrahl - SureColor SC-T3100"
+          },
+          "14": {
+            "u": "https://mein-plotter.de/produkt/hp-designjet-t1200ps-ck834a/",
+            "t": "HP Designjet T1200ps 44 Zoll 1118mm DIN A0+ Plotter ..."
+          },
+          "15": {
+            "u": "https://gebrauchte-laserdrucker-kopierer.de/de/hp-laserjet-enterprise-m775z-ohne-toner.html",
+            "t": "HP - LaserJet Enterprise 700 Color MFP M775Z ..."
+          },
+          "16": {
+            "u": "https://www.bueromarkt-ag.de/multifunktionsgeraet_hp_officejet_pro_7740_aio,p-g5j38a,l-google-prd,pd-b2c.html",
+            "t": "HP - Tintenstrahl - OfficeJet Pro 7740 e-AIO All-in-One Drucker"
+          },
+          "17": {
+            "u": "https://samcopy.de/konica-minolta-bizhub-754.html",
+            "t": "Konica Minolta Bizhub 754 schwarz/weiss-Kopierer, ..."
+          },
+          "18": {
+            "u": "https://www.1a-gebrauchte-drucker.de/hp-laserjet-enterprise-500-color-m551xh-cf083a?sPartner=gs",
+            "t": "HP - Laserjet Enterprise 500 Color M551xh - CF083A"
+          },
+          "19": {
+            "u": "https://www.calumetphoto.de/product/Epson-SureColor-SC-P9000/EPSSCP9000",
+            "t": "Epson SureColor SC-P9000"
+          },
+          "20": {
+            "u": "https://www.druckerhaus24.de/hp-laserjet-enterprise-m806x-cz245a",
+            "t": "HP - LaserJet Enterprise M806X+ - CZ245A"
+          },
+          "21": {
+            "u": "https://www.c-nw.de/epson-surecolor-sc-p20000.html?utm_source=guenstigerde&utm_medium=cpc&utm_campaign=guenstigerde",
+            "t": "Epson - Tintenstrahl - Surecolor Sc-p20000 - 50€ ..."
+          },
+          "22": {
+            "u": "https://www.1a-gebrauchte-drucker.de/hp-laserjet-enterprise-700-color-mfp-m775f-cc523a?sPartner=gs",
+            "t": "HP - Laserjet Enterprise 700 Color MFP M775f - CC523A"
+          },
+          "23": {
+            "u": "https://samcopy.de/Konica-Minolta-bizhub-c364-Farbkopierer.html",
+            "t": "Konica Minolta bizhub C364 Farbkopierer, Netzwerkdrucker,"
+          },
+          "24": {
+            "u": "https://www.bueromarkt-ag.de/laserdrucker_hp_laserjet_pro_m404dn,p-w1a53a,l-google-prd,pd-b2c.html",
+            "t": "HP - Laserdrucker LaserJet Pro M404dn, Druck/"
+          }
+        },
+        "q": "großformat laserdrucker",
+        "qurl": "https://www.google.com/search?hl=en&q=großformat%20laserdrucker",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "ads_D",
+      "payload": {
+        "r": {
+         "0": {
+            "u": "https://www.buerotechnikmarkt.de/",
+            "t": "Großformat drucker - für professionelle Anwendungen"
+          }
+        },
+        "q": "großformat laserdrucker",
+        "qurl": "https://www.google.com/search?hl=en&q=großformat%20laserdrucker",
+        "ctry": "de"
+      }
+    }
+  ],
+
+  "mustNotContain": [
+    { "action": "top-stories" }
+  ]
+}

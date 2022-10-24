@@ -1,0 +1,38 @@
+{
+  "url": "https://www.google.com/search?q=star+wars+filme+und+serien+list",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "snippet2",
+      "payload": {
+        "r": {
+          "0": {
+            "u": "https://www.prosieben.de/film/filmreihen/star-wars-reihenfolge-filme"
+          }
+        },
+        "q": "star wars filme und serien list",
+        "qurl": "https://www.google.com/search?q=star+wars+filme+und+serien+list",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "faq",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "In welcher Reihenfolge Star Wars Serien gucken?"
+          },
+          "1": {
+            "t": "Was sind die besten Star Wars Filme?"
+          }
+        },
+        "q": "star wars filme und serien list",
+        "qurl": "https://www.google.com/search?q=star+wars+filme+und+serien+list",
+        "ctry": "de"
+      }
+    }
+  ],
+  "mustNotContain": [{ "action": "snippet" }, { "action": "snippet3" }, { "action": "snippet4" }]
+}

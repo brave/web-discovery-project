@@ -1,0 +1,63 @@
+{
+  "url": "https://www.google.com/search?q=adidas photos",
+
+  "mustContain": [{
+      "type": "wdp",
+      "action": "img-p",
+      "payload": {
+        "r": {
+          "0": {
+            "u": "https://unsplash.com/wallpapers/companies/adidas"
+          },
+          "1": {
+              "u": "https://www.shutterstock.com/search/adidas+originals"
+          },
+          "2": {
+              "u": "https://unsplash.com/wallpapers/companies/adidas"
+          },
+          "3": {
+              "u": "https://www.pexels.com/search/adidas/"
+          },
+          "4": {
+              "u": "https://www.facebook.com/adidas/"
+          },
+          "5": {
+              "u": "https://www.adidas-group.com/en/media/media-center/"
+          },
+          "6": {
+              "u": "https://www.pinterest.com/pin/555279829049552035/"
+          },
+          "7": {
+              "u": "https://www.facebook.com/adidas/"
+          },
+          "8": {
+              "u": "https://www.istockphoto.com/photos/adidas"
+          },
+          "9": {
+              "u": "https://www.dreamstime.com/photos-images/adidas.html"
+          },
+          "10": {
+              "u": "https://www.pinterest.com/pamirayes/adidas/"
+          },
+          "11": {
+              "u": "https://www.gettyimages.com/photos/adidas-logo-images"
+          },
+          "12": {
+              "u": "https://www.istockphoto.com/photos/adidas"
+          },
+          "13": {
+              "u": "https://www.istockphoto.com/photos/adidas"
+          },
+          "14": {
+              "u": "https://unsplash.com/wallpapers/companies/adidas"
+          }
+        },
+        "q": "adidas photos",
+        "qurl": "https://www.google.com/search?q=adidas photos",
+        "ctry": "de"
+      }
+    }
+  ],
+
+  "mustNotContain": []
+}

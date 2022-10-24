@@ -1,0 +1,67 @@
+{
+  "url": "https://www.google.com/search?q=elon+musk+twitter",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "query",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "Elon Musk (@elonmusk) · Twitter",
+            "u": "https://twitter.com/elonmusk",
+            "age": null,
+            "m": null
+          },
+          "1": {
+            "t": "Tweets with replies by Elon Musk (@elonmusk) / Twitter",
+            "u": "https://twitter.com/elonmusk/with_replies?lang=de",
+            "age": "vor 22 Stunden",
+            "m": null
+          },
+          "2": {
+            "t": "Elon Musk fragt bei Twitter: »Stirbt Twitter?« - DER SPIEGEL",
+            "u": "https://www.spiegel.de/netzwelt/netzpolitik/elon-musk-fragt-bei-twitter-stirbt-twitter-a-a744d73b-ed85-4646-afc4-239655fdab0e",
+            "age": "vor 2 Tagen",
+            "m": null
+          },
+          "3": {
+            "t": "Elon Musk dürfte wegen seinem Twitter-Einstieg neuer Ärger ...",
+            "u": "https://www.finanzen.net/nachricht/aktien/verfehlungen-elon-musk-duerfte-wegen-seinem-twitter-einstieg-neuer-aerger-mit-der-sec-drohen-11219149",
+            "age": "vor 2 Stunden",
+            "m": null
+          },
+          "4": {
+            "t": "Twitter CEO: Elon Musk will not join Twitter board - CNN ...",
+            "u": "https://edition.cnn.com/2022/04/11/tech/elon-musk-twitter-board/index.html",
+            "age": "vor 16 Stunden",
+            "m": null
+          },
+          "5": {
+            "t": "Elon Musk decides against joining Twitter board - Financial ...",
+            "u": "https://www.ft.com/content/13b749d5-9434-4a07-88e3-92eb42eeb749",
+            "age": "vor 1 Stunde",
+            "m": null
+          },
+          "6": {
+            "t": "Musk Rejects Twitter's Offer to Join Board in Surprise Twist",
+            "u": "https://www.bloomberg.com/news/articles/2022-04-11/twitter-ceo-says-musk-declined-to-join-social-media-firm-s-board",
+            "age": "vor 9 Stunden",
+            "m": null
+          },
+          "7": {
+            "t": "Elon Musk wird doch nicht Twitter-Verwaltungsrat - News - SRF",
+            "u": "https://www.srf.ch/news/wirtschaft/kurznachrichtendienst-twitter-elon-musk-wird-doch-nicht-twitter-verwaltungsrat",
+            "age": "vor 12 Stunden",
+            "m": null
+          }
+        },
+        "q": "elon musk twitter",
+        "qurl": "https://www.google.com/search?q=elon+musk+twitter",
+        "ctry": "de"
+      }
+    }
+  ],
+
+  "mustNotContain": [{ "action": "ads_*" }]
+}

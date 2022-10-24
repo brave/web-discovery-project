@@ -1,0 +1,325 @@
+{
+  "url": "https://www.google.de/search?q=sunnybag+leaf+pro",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "query",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "Sunnybag LEAF PRO",
+            "u": "https://www.sunnybag.at/products/sunnybag-leaf-pro_1",
+            "age": null,
+            "m": null
+          },
+          "1": {
+            "t": "Sunnybag LEAF PRO",
+            "u": "https://www.sunnybag.at/products/sunnybag-leaf-pro_1",
+            "age": null,
+            "m": null
+          },
+          "2": {
+            "t": "Sunnybag Leaf PRO | 7,5 Watt | USB-Anschluss - Amazon",
+            "u": "https://www.amazon.de/SunnyBAG-Leaf-2018-leichteste-Solarpanel/dp/B07CN5K8JK",
+            "age": null,
+            "m": null
+          },
+          "3": {
+            "t": "SunnyBAG Leaf+ ab 98,00 € (April 2022 Preise) - IDEALO",
+            "u": "https://www.idealo.de/preisvergleich/OffersOfProduct/6468049_-leaf-sunnybag.html",
+            "age": null,
+            "m": null
+          },
+          "4": {
+            "t": "SunnyBAG Leaf Pro online kaufen bei Sport Conrad",
+            "u": "https://www.sport-conrad.com/produkte/sunnybag/leaf-pro.html",
+            "age": null,
+            "m": null
+          },
+          "5": {
+            "t": "Outdoor Solar Ladegeräte, Solarpanel für Outdoor-Aktivitäten",
+            "u": "https://www.sunnybag.com/collections/outdoor",
+            "age": null,
+            "m": null
+          },
+          "6": {
+            "t": "SunnyBAG LEAF MINI - Das musst du vor dem Kauf wissen!",
+            "u": "https://www.youtube.com/watch?v=whCLRSJmFXw",
+            "age": "15.09.2021",
+            "m": null
+          }
+        },
+        "q": "sunnybag leaf pro",
+        "qurl": "https://www.google.de/search?q=sunnybag+leaf+pro",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "bolded",
+      "payload": {
+        "r": {
+          "0": {
+            "k": "Sunnybag LEAF PRO"
+          }
+        },
+        "q": "sunnybag leaf pro",
+        "qurl": "https://www.google.de/search?q=sunnybag+leaf+pro",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "rel-query",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "sunnybag leaf pro test"
+          },
+          "1": {
+            "t": "sunnybag leaf pro kaufen"
+          },
+          "2": {
+            "t": "sunnybag leaf mini erfahrungen"
+          },
+          "3": {
+            "t": "sunnybag leaf mini"
+          },
+          "4": {
+            "t": "sunnybag test"
+          },
+          "5": {
+            "t": "sunnybag leaf pro amazon"
+          },
+          "6": {
+            "t": "sunnybag powerbank"
+          },
+          "7": {
+            "t": "sunnybag sunbooster"
+          }
+        },
+        "q": "sunnybag leaf pro",
+        "qurl": "https://www.google.de/search?q=sunnybag+leaf+pro",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "ads_A",
+      "payload": {
+        "r": {
+          "0": {
+            "u": "https://www.amazon.de/",
+            "t": "Sunnybag Leaf Pro bei Amazon.de - Riesenauswahl &..."
+          },
+          "1": {
+            "u": "https://www.natureon.de/sunnybag",
+            "t": "Sunnybag Leaf Pro - Entdecke jetzt www.natureon.de"
+          }
+        },
+        "q": "sunnybag leaf pro",
+        "qurl": "https://www.google.de/search?q=sunnybag+leaf+pro",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "ads_B",
+      "payload": {
+        "r": {
+         "0": {
+            "u": "https://www.natureon.de/Sunnybag-LEAF-PRO?curr=EUR&gs-DE=1",
+            "t": "Sunnybag LEAF PRO - Solarpanel für unterwegs"
+          },
+          "1": {
+            "u": "https://www.amazon.de/SUNNYBAG-Solar-Modul-umweltfreundlich-Solar-Energie-Ultra-leicht/dp/B08FRL5G5S?source=ps-sl-shoppingads-lpcontext&psc=1&smid=AFDDCQLX14EDY?source=ps-sl-shoppingads-lpcontext&psc=1",
+            "t": "Sunnybag Leaf Mini | Solar Ladegerät mit 5 Watt Leistung | Unterwegs Handy Laden mit Solar Panels | Ultra-leicht, kompakt und wasserfest | nur 158g"
+          },
+          "2": {
+            "u": "https://www.42things.de/sunnybag/sunnybag-leaf-pro",
+            "t": "Sunnybag LEAF PRO"
+          },
+          "3": {
+            "u": "https://www.voelkner.de/index.php?mp=products&file=info&ref=43&products_id=5858425&offer=0&utm_source=google&utm_medium=organic&utm_campaign=fpla",
+            "t": "SunnyBag Leaf mini 138A_01Leaf Solar-Ladegerät Ladestrom Solarzelle 800mA 5W"
+          },
+          "4": {
+            "u": "https://direktkauf.idealo.de/productpage/6468049?siteid=1&offerKey=c47418f96ff581b71c2e1ac39edfece9&shopping=1",
+            "t": "SunnyBAG Leaf+ Solar Powerbank / 10.000 mAh / micro USB"
+          }
+        },
+        "q": "sunnybag leaf pro",
+        "qurl": "https://www.google.de/search?q=sunnybag+leaf+pro",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "ads_C",
+      "payload": {
+        "r": {
+          "0": {
+            "u": "https://www.natureon.de/Sunnybag-LEAF-PRO?curr=EUR&gs-DE=1",
+            "t": "Sunnybag LEAF PRO - Solarpanel für unterwegs"
+          },
+          "1": {
+            "u": "https://www.42things.de/sunnybag/sunnybag-leaf-pro",
+            "t": "Sunnybag LEAF PRO"
+          },
+          "2": {
+            "u": "https://www.amazon.de/SunnyBAG-Leaf-2018-leichteste-Solarpanel/dp/B07CN5K8JK?source=ps-sl-shoppingads-lpcontext&psc=1&smid=AFDDCQLX14EDY?source=ps-sl-shoppingads-lpcontext&psc=1",
+            "t": "Sunnybag Leaf PRO | Award-Sieger: Das weltweit stärkste"
+          },
+          "3": {
+            "u": "https://www.amazon.de/SUNNYBAG-Solar-Modul-umweltfreundlich-Solar-Energie-Ultra-leicht/dp/B08FRL5G5S?source=ps-sl-shoppingads-lpcontext&psc=1&smid=AFDDCQLX14EDY?source=ps-sl-shoppingads-lpcontext&psc=1",
+            "t": "Sunnybag Leaf Mini | Solar Ladegerät mit 5 Watt Leistung | ..."
+          },
+          "4": {
+            "u": "https://www.bergzeit.de/p/biolite-solarpanel-5/5050482/?itemId=5050482-001",
+            "t": "BioLite Biolite SolarPanel 5+ (Größe One Size, 2220 mAh"
+          },
+          "5": {
+            "u": "https://www.sport-conrad.com/produkte/sunnybag/sunbooster.html",
+            "t": "SunnyBAG Sunbooster Solarpanel"
+          },
+          "6": {
+            "u": "https://www.sport-conrad.com/produkte/sunnybag/leaf-pro.html",
+            "t": "SunnyBAG Leaf Pro Solarpanel Schwarz"
+          },
+          "7": {
+            "u": "https://www.bresser.de/Astronomie/BRESSER-Mobiles-Solar-Ladegeraet-40-Watt-mit-USB-u-DC-Anschluss.html?mtm_campaign=Google_Shopping&mtm_kwd=3810040&mtm_source=German&mtm_medium=CPC&mtm_cid=Germany&mtm_group=PLA",
+            "t": "BRESSER Mobiles Solar-Ladegerät 40 Watt mit USB- u."
+          },
+          "8": {
+            "u": "https://notfallrucksack.net/products/copy-of-solar-powerbank-testsieger-mit-26800mah?currency=EUR&utm_medium=cpc&utm_source=google&utm_campaign=Google%20Shopping",
+            "t": "Solar Powerbank Testsieger Premium ..."
+          },
+          "9": {
+            "u": "https://www.amazon.de/Anker-PowerPort-Ladeger%C3%A4t-2-Port-Solarladeger%C3%A4t/dp/B012VQMGCA?source=ps-sl-shoppingads-lpcontext&psc=1&smid=A2PGPJL0BBLHLX?source=ps-sl-shoppingads-lpcontext&psc=1",
+            "t": "Anker PowerPort Solar Ladegerät 21W 2-Port, USB Solarladegerät ..."
+          },
+          "10": {
+            "u": "https://ration1.de/produkt/solar-panel-21w/?utm_source=Google%20Shopping&utm_campaign=ration1-neu&utm_medium=cpc&utm_term=6406",
+            "t": "ration1 Solar-Panel 21W"
+          },
+          "11": {
+            "u": "https://www.amazon.de/Plyisty-faltbares-Solarpanel-tragbares-Solarzellen-Ladeger%C3%A4t/dp/B097KFNW2S?source=ps-sl-shoppingads-lpcontext&psc=1&smid=A2KIR130CICOJZ?source=ps-sl-shoppingads-lpcontext&psc=1",
+            "t": "Faltbare Solar Power Bank, tragbares Solarzellen- ..."
+          },
+          "12": {
+            "u": "https://www.gomibo.de/zubehoer-detail/goal-zero-nomad-5-tragbares-solarpanel-5w",
+            "t": "Goal Zero Nomad 5 Tragbares Solarpanel 5W"
+          },
+          "13": {
+            "u": "https://www.amazon.de/SunnyBAG-Rucksack-integriertem-Anschluss-schwarz-schwarz/dp/B07CT18KGS?source=ps-sl-shoppingads-lpcontext&psc=1&smid=AFDDCQLX14EDY?source=ps-sl-shoppingads-lpcontext&psc=1",
+            "t": "SUNNYBAG EXPLORER+ Solar-Rucksack mit ..."
+          },
+          "14": {
+            "u": "https://www.voelkner.de/index.php?mp=products&file=info&ref=43&products_id=5858425&offer=0&utm_source=google&utm_medium=organic&utm_campaign=fpla",
+            "t": "SunnyBag Leaf mini 138A_01Leaf Solar-Ladegerät"
+          },
+          "15": {
+            "u": "https://www.42things.de/sunnybag/sunnybag-leaf-mini",
+            "t": "Sunnybag LEAF MINI"
+          },
+          "16": {
+            "u": "https://www.amazon.de/SunnyBAG-SUNBOOSTER-Solarmodul-Ultraleicht-Micro-USB-Kabel-schwarz/dp/B07RSZCHR9?source=ps-sl-shoppingads-lpcontext&psc=1&smid=AFDDCQLX14EDY?source=ps-sl-shoppingads-lpcontext&psc=1",
+            "t": "Sunnybag SUNBOOSTER | Solarpanel faltbar mit 21 ..."
+          },
+          "17": {
+            "u": "https://direktkauf.idealo.de/productpage/6468049?siteid=1&offerKey=c47418f96ff581b71c2e1ac39edfece9&shopping=1",
+            "t": "SunnyBAG Leaf+ Solar Powerbank / 10.000 mAh / ..."
+          },
+          "18": {
+            "u": "https://www.conrad.de/de/p/sunnybag-sunbooster-144a-01-solar-ladegeraet-ladestrom-solarzelle-2000-ma-21-w-2386777.html?utm_source=google&utm_medium=organic&utm_campaign=shopping",
+            "t": "SunnyBag Sunbooster 144A_01 Solar-Ladegerät ..."
+          },
+          "19": {
+            "u": "https://www.conrad.de/de/p/sunnybag-leaf-mini-138a-01leaf-solar-ladegeraet-ladestrom-solarzelle-800-ma-5-w-2576669.html?utm_source=google&utm_medium=organic&utm_campaign=shopping",
+            "t": "SunnyBag Leaf mini 138A_01Leaf Solar-Ladegerät"
+          },
+          "20": {
+            "u": "https://www.sport-conrad.com/produkte/sunnybag/sunnybag-leaf-mini-solarpanel.html",
+            "t": "SunnyBAG Sunnybag Leaf Mini Solarpanel Solarpanel ..."
+          },
+          "21": {
+            "u": "https://www.voelkner.de/index.php?mp=products&file=info&ref=43&products_id=4802385&offer=0&utm_source=google&utm_medium=organic&utm_campaign=fpla",
+            "t": "SunnyBag Sunbooster 144A_01 Solar-Ladegerät ..."
+          }
+        },
+        "q": "sunnybag leaf pro",
+        "qurl": "https://www.google.de/search?q=sunnybag+leaf+pro",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "img-p",
+      "payload": {
+        "r": {
+          "0": {
+            "u": "https://www.youtube.com/watch?v=hYWv53Iju5o"
+          },
+          "1": {
+            "u": "https://www.sunnybag.at/products/sunnybag-leaf-pro_1"
+          },
+          "2": {
+            "u": "https://www.amazon.de/SunnyBAG-Leaf-2018-leichteste-Solarpanel/dp/B07CN5K8JK"
+          },
+          "3": {
+            "u": "https://www.amazon.de/SunnyBAG-Leaf-2018-leichteste-Solarpanel/dp/B07CN5K8JK"
+          },
+          "4": {
+            "u": "https://www.sunnybag.at/products/sunnybag-leaf-pro_1"
+          },
+          "5": {
+            "u": "https://www.sunnybag.at/products/sunnybag-leaf-pro_1"
+          },
+          "6": {
+            "u": "https://www.sunnybag.at/products/sunnybag-leaf-pro_1"
+          },
+          "7": {
+            "u": "https://www.sunnybag.at/products/sunnybag-leaf-pro_1"
+          },
+          "8": {
+            "u": "https://shop.golfball-uhu.de/produkt/sunnybag-leaf-pro-outdoor-solarpaneel/"
+          },
+          "9": {
+            "u": "https://www.youtube.com/watch?v=MCGvsfv7cP4"
+          }
+        },
+        "q": "sunnybag leaf pro",
+        "qurl": "https://www.google.de/search?q=sunnybag+leaf+pro",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "videos-p",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "Sunnybag LEAF Pro - Erfahrungen und Probleme ...",
+            "u": "https://www.youtube.com/watch?v=oiCYtfFy5V8"
+          },
+          "1": {
+            "t": "Test & Review SunnyBAG Leaf PRO - Das weltweit stärkste ...",
+            "u": "https://www.youtube.com/watch?v=_1UWRhrD6w4"
+          },
+          "2": {
+            "t": "Solar-Panel \"LEAF PRO\" von Sunnybag",
+            "u": "https://www.youtube.com/watch?v=hYWv53Iju5o"
+          }
+        },
+        "q": "sunnybag leaf pro",
+        "qurl": "https://www.google.de/search?q=sunnybag+leaf+pro",
+        "ctry": "de"
+      }
+    }
+  ],
+
+  "mustNotContain": [
+    { "action": "top-stories" }
+  ]
+}

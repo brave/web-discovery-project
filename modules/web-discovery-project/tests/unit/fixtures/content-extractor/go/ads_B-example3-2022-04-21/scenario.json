@@ -1,0 +1,132 @@
+{
+  "url": "https://www.google.com/search?q=Krups+Siebtr%C3%A4germaschine+Virtuoso+XP442C",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "query",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "Virtuoso XP442C - Krups",
+            "u": "https://www.krups.de/p/VIRTUOSO-XP442/8010001013",
+            "age": null,
+            "m": null
+          },
+          "1": {
+            "t": "Krups Siebträgermaschine Virtuoso XP442C ...",
+            "u": "https://www.amazon.de/Krups-Espressomaschine-automatisch-Cappuccinos-XP442C11/dp/B08GY3R1MG",
+            "age": null,
+            "m": null
+          },
+          "2": {
+            "t": "Krups Virtuoso XP442C Siebträgermaschine Test Rezension ...",
+            "u": "https://www.siebland.com/siebtraegermaschine/krups-virtuoso-xp442c/",
+            "age": "vor 6 Tagen",
+            "m": null
+          },
+          "3": {
+            "t": "Krups XP442C11 Virtuoso ab 149,17 € (April 2022 Preise)",
+            "u": "https://www.idealo.de/preisvergleich/OffersOfProduct/200908149_-xp442c11-virtuoso-krups.html",
+            "age": null,
+            "m": null
+          },
+          "4": {
+            "t": "KRUPS Espresso-Siebträgermaschine XP442C Silber ...",
+            "u": "https://www.mediamarkt.at/de/product/_krups-espresso-siebträgermaschine-xp442c-silber-schwarz-1824085.html",
+            "age": null,
+            "m": null
+          },
+          "5": {
+            "t": "Krups Siebträgermaschine Virtuoso XP442C, Integrierter ...",
+            "u": "https://www.otto.de/p/krups-siebtraegermaschine-virtuoso-xp442c-integrierter-tassenwaermer-intuitives-bedienfeld-automatische-abschaltung-heisswasser-funktion-C1359780080/",
+            "age": null,
+            "m": null
+          },
+          "6": {
+            "t": "Krups XP 442 Virtuoso ab € 149,17 (2022) - Geizhals",
+            "u": "https://geizhals.de/krups-xp-442-virtuoso-xp442c11-a2577301.html",
+            "age": null,
+            "m": null
+          },
+          "7": {
+            "t": "KRUPS XP442C Virtuoso Espressomaschine Schwarz ...",
+            "u": "https://www.saturn.de/de/product/_krups-xp442c-virtuoso-2709164.html",
+            "age": null,
+            "m": null
+          },
+          "8": {
+            "t": "Krups XP442C Preisvergleich | guenstiger.de",
+            "u": "https://www.guenstiger.de/Produkt/Krups/XP442C.html",
+            "age": null,
+            "m": null
+          },
+          "9": {
+            "t": "Krups XP442C11 Virtuoso Test - Testbericht.de",
+            "u": "https://www.testbericht.de/produkte/krups-xp442c11",
+            "age": null,
+            "m": null
+          }
+        },
+        "q": "Krups Siebträgermaschine Virtuoso XP442C",
+        "qurl": "https://www.google.com/search?q=Krups+Siebtr%C3%A4germaschine+Virtuoso+XP442C",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "ads_A",
+      "payload": {
+        "r": {
+          "0": {
+            "u": "https://www.idealo.de/",
+            "t": "Krups XP442C11 Virtuoso ab 149,16 € | Preisvergleich bei..."
+          },
+          "1": {
+            "u": "https://www.amazon.de/",
+            "t": "Krups Virtuoso Xp442c - bei Amazon.de"
+          }
+         },
+        "q": "Krups Siebträgermaschine Virtuoso XP442C",
+        "qurl": "https://www.google.com/search?q=Krups+Siebtr%C3%A4germaschine+Virtuoso+XP442C",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "ads_B",
+      "payload": {
+        "r": {
+          "0": {
+            "u": "https://direktkauf.idealo.de/productpage/200908149?siteid=1&offerKey=fa9806a6d58d1ba4b7f652fb59335c28&shopping=1",
+            "t": "Krups XP442C11 Virtuoso Siebträgermaschine / Milchaufschäumdüse /"
+          },
+          "1": {
+            "u": "https://www.mediamarkt.de/de/product/_krups-xp442c-virtuoso-2709164.html?utm_source=google&utm_medium=seo-product%20feed",
+            "t": "KRUPS XP442C Virtuoso Espressomaschine Schwarz/verchromte Applikationen"
+          },
+          "2": {
+            "u": "https://www.amazon.de/Krups-Espressomaschine-automatisch-Cappuccinos-XP442C11/dp/B08GY3R1MG?&smid=A3JWKAKR8XB7XFth=1&psc=1&language=de_DE&currency=EUR",
+            "t": "Krups Siebträgermaschine Virtuoso XP442C | Tassenwärmer; Intuitives Bedienfeld | Automatische Abschaltung | Heißwasser Funktion, Schwarz/Edelstahl"
+          },
+          "3": {
+            "u": "https://www.alza.de/krups-xp442c11-virtuose-silver-d6160191.htm?country=DE&language=en",
+            "t": "Krups XP442C11 Virtuose Silver Siebträgermaschine"
+          },
+          "4": {
+            "u": "https://www.galaxus.de/de/product/16452363?utm_campaign=organicshopping&utm_source=google&utm_medium=organic",
+            "t": "Krups Virtuoso, Siebträgermaschine, Schwarz"
+          }
+         },
+        "q": "Krups Siebträgermaschine Virtuoso XP442C",
+        "qurl": "https://www.google.com/search?q=Krups+Siebtr%C3%A4germaschine+Virtuoso+XP442C",
+        "ctry": "de"
+      }
+    }
+  ],
+
+  "mustNotContain": [
+    { "action": "ads_C" },
+    { "action": "ads_D" }
+  ]
+}

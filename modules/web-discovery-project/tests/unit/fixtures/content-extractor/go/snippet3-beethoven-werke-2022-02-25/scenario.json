@@ -1,0 +1,22 @@
+{
+  "url": "https://www.google.com/search?q=beethoven+werke",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "snippet3",
+      "payload": {
+        "r": {
+          "0": {
+            "ent": "Ludwig van Beethoven",
+            "pred": "Kompositionen"
+          }
+        },
+        "q": "beethoven werke",
+        "qurl": "https://www.google.com/search?q=beethoven+werke",
+        "ctry": "de"
+      }
+    }
+  ],
+  "mustNotContain": [{ "action": "snippet" }, { "action": "snippet2" }]
+}

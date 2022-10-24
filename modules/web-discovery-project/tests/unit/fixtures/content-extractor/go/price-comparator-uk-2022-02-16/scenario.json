@@ -1,0 +1,136 @@
+{
+  "url": "https://www.google.com/search?hl=en&q=price%20comparison%20uk",
+
+  "mustContain": [
+   {
+      "type": "wdp",
+      "action": "query",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "PriceRunner UK - Save by comparing prices from 6,000 ...",
+            "u": "https://www.pricerunner.com/",
+            "age": null,
+            "m": null
+          },
+          "1": {
+            "t": "Price Comparison | Compare Prices on idealo.co.uk",
+            "u": "https://www.idealo.co.uk/",
+            "age": null,
+            "m": null
+          },
+          "2": {
+            "t": "Price Comparison | Find the best deals at PriceSpy UK",
+            "u": "https://pricespy.co.uk/",
+            "age": null,
+            "m": null
+          },
+          "3": {
+            "t": "Kelkoo Shopping Search Engine | Online shopping & Price ...",
+            "u": "https://www.kelkoo.co.uk/",
+            "age": null,
+            "m": null
+          },
+          "4": {
+            "t": "Price Checker. Compare Prices in the UK. www.pricechecker ...",
+            "u": "https://www.pricechecker.co.uk/",
+            "age": null,
+            "m": null
+          },
+          "5": {
+            "t": "Cheap online shopping: price comparison & tricks - MSE",
+            "u": "https://www.moneysavingexpert.com/shopping/cheap-online-shopping-shopbots/",
+            "age": "09.11.2021",
+            "m": null
+          },
+          "6": {
+            "t": "Top 13 Best Price Comparison Websites UK (2022)",
+            "u": "https://www.comparism.com/best-price-comparison-websites-uk/",
+            "age": null,
+            "m": null
+          },
+          "7": {
+            "t": "uk.best-price.com, the leading price comparison website!",
+            "u": "https://uk.best-price.com/",
+            "age": null,
+            "m": null
+          },
+          "8": {
+            "t": "Buy Online with Compare A Price",
+            "u": "https://www.compareaprice.co.uk/buy-online",
+            "age": null,
+            "m": null
+          },
+          "9": {
+            "t": "Trolley.co.uk: Compare Supermarket Prices",
+            "u": "https://www.trolley.co.uk/",
+            "age": null,
+            "m": null
+          }
+        },
+        "q": "price comparison uk",
+        "qurl": "https://www.google.com/search?hl=en&q=price%20comparison%20uk",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "rel-query",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "pricerunner"
+          },
+          "1": {
+            "t": "price comparison websites"
+          },
+          "2": {
+            "t": "compare prices europe"
+          },
+          "3": {
+            "t": "price comparison usa"
+          },
+          "4": {
+            "t": "price compare"
+          },
+          "5": {
+            "t": "pricespy"
+          },
+          "6": {
+            "t": "pricegrabber"
+          },
+          "7": {
+            "t": "google shopping"
+          }
+        },
+        "q": "price comparison uk",
+        "qurl": "https://www.google.com/search?hl=en&q=price%20comparison%20uk",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "ads_A",
+      "payload": {
+        "r": {
+          "0": {
+            "u": "https://www.boardfy.com/",
+            "t": "Ecommerce Price Comparison - Best Price Comparison Site uk"
+          },
+          "1": {
+            "u": "https://www.idealo.co.uk/price/comparison",
+            "t": "Product Price Comparison UK - Compare UK's best prices"
+          }
+        },
+        "q": "price comparison uk",
+        "qurl": "https://www.google.com/search?hl=en&q=price%20comparison%20uk",
+        "ctry": "de"
+      }
+    }
+  ],
+
+  "mustNotContain": [
+    { "action": "ads_C" },
+    { "action": "ads_D" }
+  ]
+}
