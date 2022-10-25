@@ -4335,7 +4335,15 @@ const WebDiscoveryProject = {
 
     //Remove the msg if the query is too long,
 
-    if (msg.action == "query" || msg.action == "anon-query") {
+    if (
+      msg.action == "query" ||
+      msg.action == "anon-query" ||
+      msg.action === "translate-intent" ||
+      msg.action === "translate-full" ||
+      // Make sure we sanitize any msg with a `q` attribute (not only from the
+      // shortlist above). This is also more future-proof to new actions added.
+      msg.payload.q
+    ) {
       //Remove the msg if the query is too long,
       if (msg.payload.q == null || msg.payload.q == "") {
         return null;
