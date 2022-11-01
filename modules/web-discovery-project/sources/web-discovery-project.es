@@ -33,7 +33,6 @@ const bloomFilterNHashes = 7;
 const allowedCountryCodes = config.settings.ALLOWED_COUNTRY_CODES;
 
 function _log(...msg) {
-  console.log(msg);
   if (WebDiscoveryProject.debug) {
     logger.log(WebDiscoveryProject.LOG_KEY, ...msg);
   }
@@ -1947,13 +1946,13 @@ const WebDiscoveryProject = {
               12
             ) != null
           ) {
-            _log('DLU failed: long number in the query string: ' + url_parts.query_string);
+            _log('DLU failed: long number in the query string: ', url_parts.query_string);
             return true;
           }
         }
 
         if (!options.allowlisted && WebDiscoveryProject.checkForLongNumber(url_parts.path, 12) != null) {
-          _log('DLU failed: long number in path: ' + url_parts.path);
+          _log('DLU failed: long number in path: ', url_parts.path);
           return true;
         }
       }
@@ -1970,7 +1969,7 @@ const WebDiscoveryProject = {
             return true;
         } else {
           if (vpath[i].length > 12 && WebDiscoveryProject.isHash(vpath[i])) {
-            _log('DLU failed: hash in the URL ' + vpath[i]);
+            _log('DLU failed: hash in the URL ', vpath[i]);
             return true;
           }
         }
@@ -1983,7 +1982,7 @@ const WebDiscoveryProject = {
         if (options.strict == true) mult = 0.5;
         if (cstr.length > WebDiscoveryProject.rel_segment_len * mult) {
           if (WebDiscoveryProject.isHash(cstr)) {
-            _log('DLU failed: hash in the path ' + cstr);
+            _log('DLU failed: hash in the path ', cstr);
             return true;
           }
         }
@@ -2050,7 +2049,7 @@ const WebDiscoveryProject = {
         if (url_parts.query_string && url_parts.query_string.length > 0) {
           for (var i = 0; i < v.length; i++)
             if (v[i].test("?" + url_parts.query_string)) {
-              _log("Prohibited keyword found: " + url_parts.query_string);
+              _log("Prohibited keyword found: ", url_parts.query_string);
               return true;
             }
         }
@@ -2058,7 +2057,7 @@ const WebDiscoveryProject = {
         if (path_query_string && path_query_string.length > 0) {
           for (var i = 0; i < v.length; i++)
             if (v[i].test(path_query_string)) {
-              _log("Prohibited keyword found: " + path_query_string);
+              _log("Prohibited keyword found: ", path_query_string);
               return true;
             }
         }
