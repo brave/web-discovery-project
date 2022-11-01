@@ -1649,7 +1649,7 @@ const WebDiscoveryProject = {
     /^https:\/\/www\.npr\.org\/[0-9]{4}\/[0-9]{2}\/[0-9]{2}\//,
     /^https:\/\/www\.propublica\.org\/article\//,
     /^https:\/\/www\.spiegel\.de\/international\//,
-    /^https:\/\/www\.washingtonpost\.com\/history\/[0-9]{4}\/[0-9]{2}\/[0-9]{2}\//,
+    /^https:\/\/www\.washingtonpost\.com\/[a-z]+\/[0-9]{4}\/[0-9]{2}\/[0-9]{2}\//,
     /^https:\/\/www\.wsj\.com\/articles\//,
   ],
 
@@ -3592,7 +3592,7 @@ const WebDiscoveryProject = {
               }
             })
             .catch((e) => {
-              //_log("Error fetching fetching the currentURL: " + e);
+              _log("Error fetching fetching the currentURL: " + e);
             });
 
           WebDiscoveryProject.counter += 4;
