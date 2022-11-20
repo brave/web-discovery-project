@@ -1643,6 +1643,16 @@ const WebDiscoveryProject = {
     config_ts: null,
     config_location: null,
   },
+  allowlist: [
+    /^https:\/\/www\.ft\.com\/content\//,
+    /^https:\/\/www\.huffpost\.com\/entry\//,
+    /^https:\/\/www\.npr\.org\/[0-9]{4}\/[0-9]{2}\/[0-9]{2}\//,
+    /^https:\/\/www\.propublica\.org\/article\//,
+    /^https:\/\/www\.spiegel\.de\/international\//,
+    /^https:\/\/www\.washingtonpost\.com\/[a-z]+\/[0-9]{4}\/[0-9]{2}\/[0-9]{2}\//,
+    /^https:\/\/www\.wsj\.com\/articles\//,
+  ],
+
   _md5: function (str) {
     return md5(str);
   },
@@ -1839,7 +1849,7 @@ const WebDiscoveryProject = {
       return true;
     }
   },
-  calculateStrictness: function (url, page_doc) {
+  calculateStrictness: function (url, page_doc, structure = false) {
     var strict_value = true;
     if (page_doc && page_doc["x"] && page_doc["x"]["canonical_url"]) {
       // there is canonical,
@@ -1854,7 +1864,6 @@ const WebDiscoveryProject = {
         url_parts.hostname == can_url_parts.hostname
       ) {
         // both canonical and url have a hostname and is the same,
-
         if (
           page_doc["x"]["canonical_url"] != url &&
           page_doc["x"]["canonical_url"].length < url.length
@@ -1863,14 +1872,21 @@ const WebDiscoveryProject = {
           // and the canonical is not the same url, which comes out of automatic generation
           // of canonicals
           strict_value = false;
+        } else if (!structure && page_doc["alw"]) {
+          // if page url is among allowlisted (alw) patterns
+          strict_value = false;
         }
       }
     }
     return strict_value;
   },
   dropLongURL: function (url, options) {
+    _log("DLU called with arguments:", url, options);
     try {
-      if (options == null) options = { strict: false };
+      if (options == null) options = {
+        strict: false,
+        allowlisted: false,
+      };
 
       if (WebDiscoveryProject.checkForEmail(url)) return true;
 
@@ -1908,28 +1924,37 @@ const WebDiscoveryProject = {
           return true;
       } else {
         if (
+          !options.allowlisted &&
           url_parts.query_string &&
           url_parts.query_string.length > WebDiscoveryProject.qs_len
-        )
+        ) {
+          _log('DLU failed: length of query string is longer than qs_len');
           return true;
+        }
 
         if (url_parts.query_string) {
           var v = url_parts.query_string.split(/[&;]/);
           if (v.length > 4) {
             // that means that there is a least one &; hence 5 params
+            _log('DLU failed: there are more than 4 parameters');
             return true;
           }
           if (
+            !options.allowlisted &&
             WebDiscoveryProject.checkForLongNumber(
               url_parts.query_string,
               12
             ) != null
-          )
+          ) {
+            _log('DLU failed: long number in the query string: ', url_parts.query_string);
             return true;
+          }
         }
 
-        if (WebDiscoveryProject.checkForLongNumber(url_parts.path, 12) != null)
+        if (!options.allowlisted && WebDiscoveryProject.checkForLongNumber(url_parts.path, 12) != null) {
+          _log('DLU failed: long number in path: ', url_parts.path);
           return true;
+        }
       }
 
       var vpath = url_parts.path.split(/[\/\._ \-:\+;]/);
@@ -1943,8 +1968,10 @@ const WebDiscoveryProject = {
           if (vpath[i].length > 5 && WebDiscoveryProject.isHash(vpath[i]))
             return true;
         } else {
-          if (vpath[i].length > 12 && WebDiscoveryProject.isHash(vpath[i]))
+          if (vpath[i].length > 12 && WebDiscoveryProject.isHash(vpath[i])) {
+            _log('DLU failed: hash in the URL ', vpath[i]);
             return true;
+          }
         }
       }
 
@@ -1954,7 +1981,10 @@ const WebDiscoveryProject = {
         var mult = 1.0;
         if (options.strict == true) mult = 0.5;
         if (cstr.length > WebDiscoveryProject.rel_segment_len * mult) {
-          if (WebDiscoveryProject.isHash(cstr)) return true;
+          if (WebDiscoveryProject.isHash(cstr)) {
+            _log('DLU failed: hash in the path ', cstr);
+            return true;
+          }
         }
       }
 
@@ -2018,12 +2048,18 @@ const WebDiscoveryProject = {
 
         if (url_parts.query_string && url_parts.query_string.length > 0) {
           for (var i = 0; i < v.length; i++)
-            if (v[i].test("?" + url_parts.query_string)) return true;
+            if (v[i].test("?" + url_parts.query_string)) {
+              _log("Prohibited keyword found: ", url_parts.query_string);
+              return true;
+            }
         }
 
         if (path_query_string && path_query_string.length > 0) {
           for (var i = 0; i < v.length; i++)
-            if (v[i].test(path_query_string)) return true;
+            if (v[i].test(path_query_string)) {
+              _log("Prohibited keyword found: ", path_query_string);
+              return true;
+            }
         }
       }
 
@@ -2612,11 +2648,13 @@ const WebDiscoveryProject = {
       return discard("URL failed the isSuspiciousURL check");
     }
 
+    let allowlisted = page_doc["alw"]
+
     if (WebDiscoveryProject.dropLongURL(url)) {
       // The URL itself is considered unsafe, but it has a canonical URL, so it should be public
       const cUrl = page_doc["x"]["canonical_url"];
       if (cUrl) {
-        if (WebDiscoveryProject.dropLongURL(cUrl)) {
+        if (!allowlisted && WebDiscoveryProject.dropLongURL(cUrl)) {
           // oops, the canonical is also bad, therefore mark as private
           _log(`both URL=${url} and canonical_url=${cUrl} are too long`);
           return discard(`both URL and canonical_url are too long`);
@@ -2735,10 +2773,19 @@ const WebDiscoveryProject = {
             // url, we should have the data of the double for the referral in WebDiscoveryProject.docCache
             //
             WebDiscoveryProject.fetchReferral(page_doc["ref"], function () {
-              var strict_value = WebDiscoveryProject.calculateStrictness(
+              var url_strict_value = WebDiscoveryProject.calculateStrictness(
                 url,
                 page_doc
               );
+
+              var structure_strict_value = WebDiscoveryProject.calculateStrictness(
+                url,
+                page_doc,
+                true
+              );
+
+              var allowlisted = page_doc["alw"];
+              url_strict_value = url_strict_value && !allowlisted;
 
               if (page_doc["ref"] && page_doc["ref"] != "") {
                 // the page has a referral
@@ -2756,7 +2803,11 @@ const WebDiscoveryProject = {
                 );
 
                 // overwrite strict value because the link exists on a public fetchable page
-                if (hasurl) strict_value = false;
+                _log("Strictness values:", url_strict_value, structure_strict_value);
+                if (hasurl) {
+                  url_strict_value = false;
+                  structure_strict_value = false;
+                }
               } else {
                 // page has no referral
                 _log("PPP: page has NO referral,", url);
@@ -2765,17 +2816,19 @@ const WebDiscoveryProject = {
                 // there is no canonical or if there is canonical and is the same as the url,
               }
 
-              _log("strict URL:", url, ">", strict_value);
+              _log("strict URL:", url, "> struct:", structure_strict_value, " url:", url_strict_value);
 
               if (
                 WebDiscoveryProject.validDoubleFetch(page_doc["x"], data, {
-                  structure_strict: strict_value,
+                  structure_strict: structure_strict_value,
                 })
               ) {
                 // we do not know the origin of the page, run the dropLongURL strict version
 
                 if (
-                  WebDiscoveryProject.dropLongURL(url, { strict: strict_value })
+                  WebDiscoveryProject.dropLongURL(url, {
+                    strict: url_strict_value,
+                  })
                 ) {
                   if (
                     page_doc &&
@@ -2783,9 +2836,12 @@ const WebDiscoveryProject = {
                     page_doc["x"]["canonical_url"]
                   ) {
                     if (
+                      !allowlisted &&
                       WebDiscoveryProject.dropLongURL(
                         page_doc["x"]["canonical_url"],
-                        { strict: strict_value }
+                        {
+                          strict: url_strict_value,
+                        }
                       )
                     ) {
                       privateUrlFound(
@@ -2807,7 +2863,7 @@ const WebDiscoveryProject = {
                 // since we do not know the origin mark as private
                 privateUrlFound(
                   url,
-                  `rejected by validDoubleFetch(structure_strict=${strict_value})`
+                  `rejected by validDoubleFetch(structure_strict=${structure_strict_value})`
                 );
                 return;
               }
@@ -2841,9 +2897,7 @@ const WebDiscoveryProject = {
                 if (
                   page_doc["x"]["canonical_url"] != null &&
                   page_doc["x"]["canonical_url"] != "" &&
-                  WebDiscoveryProject.dropLongURL(
-                    page_doc["x"]["canonical_url"]
-                  ) == false
+                  (allowlisted || WebDiscoveryProject.dropLongURL(page_doc["x"]["canonical_url"]) == false)
                 ) {
                   page_doc["url"] = page_doc["x"]["canonical_url"];
                   page_doc["x"] = data;
@@ -2851,7 +2905,7 @@ const WebDiscoveryProject = {
                 } else {
                   // there was no canonical either on page_doc['x'] or in data or it was droppable
 
-                  if (WebDiscoveryProject.dropLongURL(url) == false) {
+                  if (allowlisted || WebDiscoveryProject.dropLongURL(url) == false) {
                     page_doc["url"] = url;
                     page_doc["x"] = data;
 
@@ -3352,6 +3406,9 @@ const WebDiscoveryProject = {
                 WebDiscoveryProject.queryCache[redURL];
             }
           }
+
+          const allowlisted = WebDiscoveryProject.allowlist.some(allowlist_regex => allowlist_regex.test(activeURL));
+
           // Page details to be saved.
           WebDiscoveryProject.state["v"][activeURL] = {
             url: activeURL,
@@ -3369,6 +3426,7 @@ const WebDiscoveryProject = {
             c: [],
             ref: referral,
             red: red,
+            alw: allowlisted,
           };
 
           if (referral) {

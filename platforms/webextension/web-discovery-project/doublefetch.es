@@ -2,7 +2,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
-import { equals as urlEquals } from "../../core/url";
+import { parse, equals as urlEquals } from "../../core/url";
 import { clearTimeout, setTimeout } from "../../core/timers";
 import { fetch, AbortController, Headers } from "../fetch";
 
@@ -38,6 +38,10 @@ export function getRequest(url, headers) {
         !urlEquals(
           decodeURI(decodeURI(response.url)),
           decodeURI(decodeURI(url))
+        ) &&
+        !urlEquals(
+          url.replace(parse(url).hash, ""),
+          response.url
         )
       ) {
         // there has been a redirect, we cannot guarantee that cookies were
