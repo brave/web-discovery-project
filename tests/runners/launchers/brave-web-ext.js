@@ -1,4 +1,3 @@
-const webExt = require("web-ext");
 const path = require("path");
 const getOptionsUrl = require("./test-options");
 
@@ -38,7 +37,8 @@ exports.Browser = class BraveBrowser {
       target: "chromium",
     };
 
-    const runner = await webExt.cmd.run(options, {
+    const webExt = await import("web-ext");
+    const runner = await webExt.default.cmd.run(options, {
       getValidatedManifest() {
         return {
           name: "",
