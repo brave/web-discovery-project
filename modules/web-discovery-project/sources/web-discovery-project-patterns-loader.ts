@@ -78,7 +78,7 @@ export default class SignedPatternsLoader {
       publicKeyName,
       algorithm,
       publicKeyPem: pem,
-      insecure: insecure,
+      insecure,
     });
 
     this.resourceWatcher = new RemoteResourceWatcher({
@@ -96,7 +96,7 @@ export default class SignedPatternsLoader {
       },
       onUpdate,
       uncompressWith: "gzip",
-      insecure: insecure,
+      insecure,
     });
   }
 

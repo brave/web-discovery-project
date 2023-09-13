@@ -186,14 +186,15 @@ export class RemoteResourceWatcher {
     this.moduleName = nonEmpty(options.moduleName, "moduleName");
     this.resourceUrl = nonEmpty(options.resource.url, "resource.url");
 
-    if (!options.insecure) {
+    this.insecure = options.insecure || false;
+
+    if (!this.insecure) {
       this.signatureUrl = nonEmpty(options.signature.url, "signature.url");
       this.verifier = nonEmpty(options.signature.verifier, "signature.verifier");
     }
 
     this.onUpdate = nonEmpty(options.onUpdate, "onUpdate");
     this.uncompressWith = options.uncompressWith || "none";
-    this.insecure = options.insecure || false;
 
     const maxAge = options.caching.maxAge || 1 * HOUR;
     this.initialized = false;
@@ -217,7 +218,7 @@ export class RemoteResourceWatcher {
       url: this.resourceUrl,
       binary: true,
     });
-    if (!options.insecure) {
+    if (!this.insecure) {
       this.signatureFetcher = new RemoteResourceFetcher({
         url: this.signatureUrl,
         binary: false,
@@ -234,7 +235,7 @@ export class RemoteResourceWatcher {
     };
 
     this.contentCache = new CacheInfo({ type: "content", ...cacheOptions });
-    if (!options.insecure) {
+    if (!this.insecure) {
       this.signatureCache = new CacheInfo({ type: "signature", ...cacheOptions });
     }
 
@@ -463,7 +464,7 @@ export class RemoteResourceWatcher {
       if (this.signatureOutdated) {
         cooldown = Math.max(
           cooldown || 0,
-          this.signatureFetcher?.getCooldownDuration()
+          this.signatureFetcher?.getCooldownDuration() || 0
         );
       }
 
