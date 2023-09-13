@@ -66,7 +66,7 @@ export default class SignedPatternsLoader {
   verifier: SignatureVerifier;
   resourceWatcher: RemoteResourceWatcher;
 
-  constructor(url: string, onUpdate: ResourceUpdatedCallback) {
+  constructor(url: string, onUpdate: ResourceUpdatedCallback, insecure: boolean) {
     const publicKeyName =
       config.settings.WDP_ENV === "sandbox"
         ? "2021-09-10-wdp-sandbox.pub"
@@ -78,7 +78,7 @@ export default class SignedPatternsLoader {
       publicKeyName,
       algorithm,
       publicKeyPem: pem,
-      insecure: !config.settings.WDP_PATTERNS_SIGNING,
+      insecure,
     });
 
     this.resourceWatcher = new RemoteResourceWatcher({
@@ -96,6 +96,7 @@ export default class SignedPatternsLoader {
       },
       onUpdate,
       uncompressWith: "gzip",
+      insecure,
     });
   }
 

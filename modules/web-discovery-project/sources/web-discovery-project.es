@@ -1603,7 +1603,8 @@ const WebDiscoveryProject = {
         } catch (e) {
           logger.warn("Failed to apply new WebDiscoveryProject patterns", e);
         }
-      }
+      },
+      !config.settings.WDP_PATTERNS_SIGNING,
     );
   })(),
 

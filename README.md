@@ -5,16 +5,23 @@ which runs in the Brave browser.
 
 # Setup
 
+## Linux
+
 ```sh
 $ ./update-brave.sh # only works for Linux for now
 $ yarn install --frozen-lock # or npm install
-$ ./update-brave.sh # Only works on Linux (downloads latest Brave release)
+$ ./update-brave.sh # only works on Linux (downloads latest Brave release)
 $ yarn start # or npm run start
 ```
 
-The last command will build the extension and start Brave with the extension
-loaded. Everything should work locally with this setup. By default it will rely
-on the `sandbox` environment deployed on AWS.
+`./update-brave.sh` also sets `BRAVE_PATH` environment variable to the downloaded binary, but you can develop with any brave binary by changing the variable. The last command will build the extension and start Brave with the extension loaded. Everything should work locally with this setup. By default it will rely on the `sandbox` environment deployed on AWS.
+
+## Mac
+
+```sh
+$ export BRAVE_PATH="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser" # path to a brave binary
+$ yarn start # or npm run start
+```
 
 ## Documentation
 
@@ -39,15 +46,13 @@ $ npm run start:build # build extension
 $ npm run start:brave # start Brave with extension loaded
 ```
 
-### Caveats for MacOS
+### Patterns
 
-Run `npm run start-brave-env` intead of `:brave`
-
-Which takes the brave binary from the ENV variable `BRAVE_PATH`
-
-```
-export BRAVE_PATH="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
-```
+There are prod and test versions of the patterns file. Test patterns are used for tests only. Prod patterns are fetched from 
+CDN (https://patterns.hpn.brave.com/patterns.gz). If you have to change patterns during development you need to:
+1. Serve a gzipped patterns file locally using an HTTP server.
+2. Update patterns URL for your environment in [the config file](./configs/common/urls.js) to point to your locally served file.
+3. Disable the signature verification of a patterns file by setting `WDP_PATTERNS_SIGNING` option to `true` in the config file for your environment. For `sandbox` environment such file is [/configs/sandbox.js](./configs/sandbox.js).
 
 ## Useful commands
 

@@ -139,6 +139,8 @@ export class RemoteResourceWatcher {
   onUpdate: ResourceUpdatedCallback;
   uncompressWith: string;
 
+  insecure: boolean;
+
   initialized: boolean;
   initInProgress: Promise<void> | null;
   pendingUpdate: Promise<void> | null;
@@ -168,6 +170,7 @@ export class RemoteResourceWatcher {
     onUpdate: ResourceUpdatedCallback;
     caching?: { maxAge?: number };
     uncompressWith?: string;
+    insecure?: boolean;
   }) {
     const options = options_;
     options.caching = options.caching || {};
@@ -183,8 +186,12 @@ export class RemoteResourceWatcher {
     this.moduleName = nonEmpty(options.moduleName, "moduleName");
     this.resourceUrl = nonEmpty(options.resource.url, "resource.url");
 
-    this.signatureUrl = nonEmpty(options.signature.url, "signature.url");
-    this.verifier = nonEmpty(options.signature.verifier, "signature.verifier");
+    this.insecure = options.insecure || false;
+
+    if (!this.insecure) {
+      this.signatureUrl = nonEmpty(options.signature.url, "signature.url");
+      this.verifier = nonEmpty(options.signature.verifier, "signature.verifier");
+    }
 
     this.onUpdate = nonEmpty(options.onUpdate, "onUpdate");
     this.uncompressWith = options.uncompressWith || "none";
@@ -211,10 +218,12 @@ export class RemoteResourceWatcher {
       url: this.resourceUrl,
       binary: true,
     });
-    this.signatureFetcher = new RemoteResourceFetcher({
-      url: this.signatureUrl,
-      binary: false,
-    });
+    if (!this.insecure) {
+      this.signatureFetcher = new RemoteResourceFetcher({
+        url: this.signatureUrl,
+        binary: false,
+      });
+    }
 
     // to avoid repeating the same check
     this.knownFailingSignature = null;
@@ -226,7 +235,9 @@ export class RemoteResourceWatcher {
     };
 
     this.contentCache = new CacheInfo({ type: "content", ...cacheOptions });
-    this.signatureCache = new CacheInfo({ type: "signature", ...cacheOptions });
+    if (!this.insecure) {
+      this.signatureCache = new CacheInfo({ type: "signature", ...cacheOptions });
+    }
 
     this.defaultRefreshTimer = null;
     this.earlyRetryTimer = null;
@@ -247,7 +258,7 @@ export class RemoteResourceWatcher {
       }
 
       this.contentCache.loadLastUpdatedFromDisk();
-      this.signatureCache.loadLastUpdatedFromDisk();
+      this.signatureCache?.loadLastUpdatedFromDisk();
 
       try {
         this.verifiedContent = await this._loadFromDisk();
@@ -294,7 +305,7 @@ export class RemoteResourceWatcher {
   forceUpdate() {
     logger.info("Forced update for resource:", this.resourceUrl);
     this.contentFetcher.resetRateLimits();
-    this.signatureFetcher.resetRateLimits();
+    this.signatureFetcher?.resetRateLimits();
     this.resourceOutdated = true;
     this.signatureOutdated = true;
     this.knownFailingSignature = null;
@@ -321,7 +332,7 @@ export class RemoteResourceWatcher {
     this.verifiedContent = null;
     this.knownFailingSignature = null;
     this.contentCache.flush();
-    this.signatureCache.flush();
+    this.signatureCache?.flush();
   }
 
   async _checkUpdates() {
@@ -357,10 +368,10 @@ export class RemoteResourceWatcher {
         this.resourceOutdated = false;
       }
 
-      if (this.signatureOutdated && !this.signatureFetcher.tooManyRequests()) {
+      if (this.signatureOutdated && !this.signatureFetcher?.tooManyRequests()) {
         logger.info("Fetching new signature from", this.signatureUrl);
-        const content = await this.signatureFetcher.fetch();
-        const modified = this.signatureCache.updateAndCheckIfModified(content);
+        const content = await this.signatureFetcher?.fetch();
+        const modified = this.signatureCache?.updateAndCheckIfModified(content);
 
         // Content has changed, but we still got the same, old signature.
         // It is unlikely that it will pass the verification, but as it can
@@ -371,44 +382,51 @@ export class RemoteResourceWatcher {
         }
 
         const message = this.contentCache.lastContent as Uint8Array | null;
-        const signature = this.signatureCache.lastContent as string | null;
-        if (message && signature && signature !== this.knownFailingSignature) {
-          const isValid = await this.verifier.checkSignature(
-            message,
-            signature
-          );
-          if (isValid) {
-            logger.info("Good signature from", this.signatureUrl);
-            this.knownFailingSignature = null;
-            this.signatureOutdated = false;
-            if (!isContentEqual(message, this.verifiedContent)) {
-              this.verifiedContent = message;
-              this.verifiedContentNeedsToBePersisted = true;
+        const signature = this.signatureCache?.lastContent as string | null;
+        if (message) {
+          if (this.insecure) {
+            this.verifiedContent = message;
+            this.verifiedContentNeedsToBePersisted = true;
 
-              this._notifyObservers(this.verifiedContent);
+            this._notifyObservers(this.verifiedContent);
+          } else if (signature && signature !== this.knownFailingSignature) {
+            const isValid = await this.verifier?.checkSignature(
+              message,
+              signature
+            );
+            if (isValid) {
+              logger.info("Good signature from", this.signatureUrl);
+              this.knownFailingSignature = null;
+              this.signatureOutdated = false;
+              if (!isContentEqual(message, this.verifiedContent)) {
+                this.verifiedContent = message;
+                this.verifiedContentNeedsToBePersisted = true;
+
+                this._notifyObservers(this.verifiedContent);
+              } else {
+                // Edge case: it should be difficult to reach this point
+                // except in test setups. It is not in itself a harmful case,
+                // but newer signatures should normally not match older content.
+                logger.warn(
+                  "Got new matching signature but the content did not change"
+                );
+              }
             } else {
-              // Edge case: it should be difficult to reach this point
-              // except in test setups. It is not in itself a harmful case,
-              // but newer signatures should normally not match older content.
-              logger.warn(
-                "Got new matching signature but the content did not change"
-              );
+              if (modified) {
+                logger.warn(
+                  "Signature did not match for",
+                  this.resourceUrl,
+                  ". Will retry later..."
+                );
+              } else {
+                logger.info(
+                  "Signature has not changed for",
+                  this.resourceUrl,
+                  "Most likely we got an outdated version from the cached. Will retry later..."
+                );
+              }
+              this.knownFailingSignature = signature;
             }
-          } else {
-            if (modified) {
-              logger.warn(
-                "Signature did not match for",
-                this.resourceUrl,
-                ". Will retry later..."
-              );
-            } else {
-              logger.info(
-                "Signature has not changed for",
-                this.resourceUrl,
-                "Most likely we got an outdated version from the cached. Will retry later..."
-              );
-            }
-            this.knownFailingSignature = signature;
           }
         }
       }
@@ -446,7 +464,7 @@ export class RemoteResourceWatcher {
       if (this.signatureOutdated) {
         cooldown = Math.max(
           cooldown || 0,
-          this.signatureFetcher.getCooldownDuration()
+          this.signatureFetcher?.getCooldownDuration() || 0
         );
       }
 
