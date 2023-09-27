@@ -430,6 +430,14 @@
             ["splitF", "@", 1]
           ]
         }
+      },
+      "div.EfDVh.viOShc": {
+        "widgetTitle": {
+          "item": "div.ofy7ae, table.torspo_view__table span.tsp-ht",
+          "type": "widgetTitle",
+          "etype": "textContent",
+          "keyName": "wt"
+        }
       }
     },
     "2": {
@@ -902,6 +910,14 @@
           ["qurl", "qurl"],
           ["#main div.MGqjK div.QmUzgb", "r", "join"],
           ["ctry", "ctry"]
+        ]
+      },
+      "div.EfDVh.viOShc": {
+        "type": "single",
+        "results": "single",
+        "action": "widgetTitle",
+        "fields": [
+          ["div.ofy7ae, table.torspo_view__table span.tsp-ht", "widgetTitle"]
         ]
       }
     },

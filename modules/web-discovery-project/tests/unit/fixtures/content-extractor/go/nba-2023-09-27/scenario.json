@@ -1,0 +1,13 @@
+{
+  "url": "https://www.google.com/search?hl=en&q=nba",
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "widgetTitle",
+      "payload": {
+        "widgetTitle": "NBA",
+        "ctry": "de"
+      }
+    }
+  ]
+}
