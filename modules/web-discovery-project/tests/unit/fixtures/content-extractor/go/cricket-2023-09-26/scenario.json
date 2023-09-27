@@ -1,0 +1,13 @@
+{
+  "url": "https://www.google.com/search?hl=en&q=cricket",
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "widgetTitle",
+      "payload": {
+        "widgetTitle": "ICC",
+        "ctry": "de"
+      }
+    }
+  ]
+}
