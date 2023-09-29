@@ -1,6 +1,6 @@
 {
   "extends": [
-    "config:base"
+    "local>brave/renovate-config"
   ],
   "ignoreDeps": ["ansi-regex", "systemjs", "eslint"],
   "prHourlyLimit": 50,
