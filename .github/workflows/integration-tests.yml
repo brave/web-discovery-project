@@ -10,5 +10,5 @@ jobs:
   test:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
       - run: ./run_tests_in_docker.sh "configs/ci/integration-tests.js -l brave-web-ext --grep UtilityRegression -i --brave /opt/brave.com/brave/brave-browser"
