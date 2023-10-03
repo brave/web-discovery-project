@@ -112,6 +112,17 @@ $ ./fern.js test configs/ci/unit-tests.js
 You should now get live feedback about the running tests. If you change the
 code, a rebuild will be triggered and tests will restart.
 
+#### Fixtures
+
+Some unit tests rely on fixtures which are directories containing page HTML
+and expected extracted data. Fixture names contain a search query and a date
+it was created on. For example if you want to add a new google fixture for
+the query `george washington` run the following commands:
+``` sh
+mkdir ./fixtures/content-extractor/go/george-washington-2023-10-04
+./generate-fixtures.sh
+```
+
 ### Integration tests
 
 Integration tests (in Brave):
