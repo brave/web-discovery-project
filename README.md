@@ -119,6 +119,7 @@ and expected extracted data. Fixture names contain a search query and a date
 it was created on. For example if you want to add a new google fixture for
 the query `george washington` run the following commands:
 ``` sh
+cd ./modules/web-discovery-project/tests/unit
 mkdir ./fixtures/content-extractor/go/george-washington-2023-10-04
 ./generate-fixtures.sh
 ```
