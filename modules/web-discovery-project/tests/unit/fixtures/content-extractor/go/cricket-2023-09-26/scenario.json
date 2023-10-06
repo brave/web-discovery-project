@@ -1,10 +1,11 @@
 {
-  "url": "https://www.google.com/search?hl=en&q=cricket",
+  "url": "https://www.google.com/search?q=cricket&gl=us&hl=en",
   "mustContain": [
     {
       "type": "wdp",
       "action": "widgetTitle",
       "payload": {
+        "q": "cricket",
         "widgetTitle": "ICC",
         "ctry": "de"
       }
