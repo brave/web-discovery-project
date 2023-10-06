@@ -10,7 +10,15 @@
     "\\.amazon\\..*(/dp/|/gp/product/)",
     "^https:[/][/]duckduckgo.com[/](?:html$|.*[?&]q=[^&]+.*&ia=web|[?]q=[^&]+$)"
   ],
-  "searchEngines": ["0", "1", "2", "4", "5", "6", "8"],
+  "searchEngines": [
+    "0",
+    "1",
+    "2",
+    "4",
+    "5",
+    "6",
+    "8"
+  ],
   "scrape": {
     "0": {
       "form[role=\"search\"]": {
@@ -131,12 +139,18 @@
       }
     },
     "7": {
+      ".nav-search-field > input": {
+        "q": {
+          "type": "searchQuery",
+          "etype": "value",
+          "keyName": "query"
+        }
+      },
       "#wayfinding-breadcrumbs_container": {
         "c": {
           "item": "div",
-          "type": "searchQuery",
           "etype": "textContent",
-          "keyName": "query"
+          "keyName": "c"
         }
       },
       "ctry": {
@@ -146,9 +160,8 @@
           "keyName": "ctry"
         }
       },
-      "head": {
+      "link[rel='canonical']": {
         "curl": {
-          "item": "link[rel='canonical']",
           "etype": "href",
           "keyName": "curl"
         }
@@ -189,9 +202,18 @@
         "results": "clustered",
         "action": "category-am",
         "fields": [
-          ["#wayfinding-breadcrumbs_container", "c"],
-          ["head", "curl"],
-          ["ctry", "ctry"]
+          [
+            "#wayfinding-breadcrumbs_container",
+            "c"
+          ],
+          [
+            "link[rel='canonical']",
+            "curl"
+          ],
+          [
+            "ctry",
+            "ctry"
+          ]
         ]
       }
     }

@@ -1,0 +1,29 @@
+{
+  "url": "https://www.google.com/search?hl=en&q=versicherung%20rentenversicherung",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "places",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "Deutsche Rentenversicherung Bayern Süd",
+            "addr": "Thomas-Dehler-Straße 3 · 0800 100048015"
+          },
+          "1": {
+            "t": "Landesversicherungsanstalt",
+            "addr": "Holbeinstraße 9"
+          },
+          "2": {
+            "t": "R+V Versicherung",
+            "addr": "Frauenplatz 2 · 089 21286630"
+          }
+        },
+        "ctry": "de"
+      }
+    }
+  ],
+
+  "mustNotContain": []
+}

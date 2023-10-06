@@ -1,0 +1,79 @@
+{
+  "url": "https://www.google.com/search?hl=en&ei=7OV_W-SnIYe0sAfUsKOoBg&q=ungeheuer+von+loch+ness&oq=ungeheuer+von+loch+nss",
+
+  "mustContain": [{
+    "type": "wdp",
+    "action": "query",
+    "payload": {
+      "r": {
+        "0": {
+          "t": "Ungeheuer von Loch Ness - Wikipedia",
+          "u": "https://de.wikipedia.org/wiki/Ungeheuer_von_Loch_Ness",
+          "age": null,
+          "m": null
+        },
+        "1": {
+          "t": "Das Ungeheuer von Loch Ness (Film) - Wikipedia",
+          "u": "https://de.wikipedia.org/wiki/Das_Ungeheuer_von_Loch_Ness_(Film)",
+          "age": null,
+          "m": null
+        },
+        "2": {
+          "t": "Nessie – das Ungeheuer von Loch Ness - Fabelwesen ...",
+          "u": "https://www.planet-wissen.de/kultur/fabelwesen/britische_schauergestalten/pwienessiedasungeheuervonlochness100.html",
+          "age": null,
+          "m": null
+        },
+        "3": {
+          "t": "Ungeheuer von Loch Ness – Klexikon – das Kinderlexikon",
+          "u": "https://klexikon.zum.de/wiki/Ungeheuer_von_Loch_Ness",
+          "age": "18.03.2022",
+          "m": null
+        },
+        "4": {
+          "t": "Das Monster von Loch Ness - England.de",
+          "u": "https://www.england.de/schottland/monster-von-loch-ness",
+          "age": null,
+          "m": null
+        },
+        "5": {
+          "t": "Loch Ness: Urlauber knipst spektakuläres Foto - Nessie ...",
+          "u": "https://www.merkur.de/reise/loch-ness-urlauber-knipst-spektakulaeres-foto-nessie-endlich-identifiziert-13809400.html",
+          "age": "30.12.2020",
+          "m": null
+        },
+        "6": {
+          "t": "Kuriose Fakten über das Ungeheuer von Loch Ness",
+          "u": "https://www.nordisch.info/schottland/fakten-ungeheuer-von-loch-ness/",
+          "age": "20.02.2022",
+            "m": null
+        },
+        "7": {
+          "t": "Loch Ness: Monster in schottischem See ist kein ...",
+          "u": "https://www.spiegel.de/wissenschaft/natur/loch-ness-monster-in-schottischem-see-ist-kein-ungeheuer-sondern-ein-aal-a-1285432.html",
+          "age": "05.09.2019",
+          "m": null
+        },
+        "8": {
+          "t": "Loch Ness in Schottland: Findet man Nessie wirklich in ...",
+          "u": "https://www.t-online.de/leben/reisen/europa/id_74748924/loch-ness-in-schottland-findet-man-nessie-wirklich-in-den-highlands-.html",
+          "age": "20.07.2021",
+          "m": null
+        }
+      },
+      "q": "ungeheuer von loch ness",
+      "qurl": "https://www.google.com/search?hl=en&ei=7OV_W-SnIYe0sAfUsKOoBg&q=ungeheuer+von+loch+ness&oq=ungeheuer+von+loch+nss",
+      "ctry": "de"
+    }
+  }, {
+    "type": "wdp",
+    "action": "sq",
+    "payload": {
+      "oq": "ungeheuer von loch nss",
+      "sq": "ungeheuer von loch ness",
+      "ctry": "de"
+    }
+  }],
+
+  "mustNotContain": [{ "action": "ads_*" }, { "action": "top-stories" }]
+}

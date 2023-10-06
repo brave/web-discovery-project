@@ -1,0 +1,33 @@
+{
+  "url": "https://www.google.com/search?hl=en&q=iphone%20repair%20nyc",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "places",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "iPhone Repair NYC",
+            "addr": "Seit über 5 Jahren aktiv · 10 E 39th St 9th Floor Suite 903 · +1 646-698-2228"
+          },
+          "1": {
+            "t": "Manhattan iPhone Repair",
+            "addr": "Seit über 7 Jahren aktiv · 224 W 35th St #312 · +1 646-658-3126"
+          },
+          "2": {
+            "t": "GEEK Repair and Upgrade MacBook, iPhone, iPad – Cell phone & Computer Shop *Svarga 21 inc",
+            "addr": "314 W 36th St · +1 718-915-5887"
+          }
+        },
+        "ctry": "de"
+      }
+    }
+  ],
+
+  "mustNotContain": [
+    { "action": "ads_A" },
+    { "action": "ads_C" },
+    { "action": "ads_D" }
+  ]
+}

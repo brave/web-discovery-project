@@ -1,0 +1,89 @@
+{
+  "url": "https://www.google.com/search?hl=en&q=angela%20merkel",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "query",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "Google Übersetzer",
+            "u": "https://translate.google.com/?hl=de",
+            "age": null,
+            "m": null
+          },
+          "1": {
+            "t": "Google Übersetzer",
+            "u": "https://translate.google.com/?hl=de",
+            "age": null,
+            "m": null
+          },
+          "2": {
+            "t": "Der präziseste Übersetzer der Welt - DeepL Translate",
+            "u": "https://www.deepl.com/de/translator-mobile",
+            "age": null,
+            "m": null
+          },
+          "3": {
+            "t": "Google Translate – So funktionieren mündliche ... - YouTube",
+            "u": "https://www.youtube.com/watch?v=yxIk3hcN3LY",
+            "age": "16.05.2022",
+            "m": null
+          },
+          "4": {
+            "t": "translate - LEO: Übersetzung im Englisch ⇔ Deutsch ...",
+            "u": "https://dict.leo.org/englisch-deutsch/translate",
+            "age": null,
+            "m": null
+          },
+          "5": {
+            "t": "Google Übersetzer – Apps bei Google Play",
+            "u": "https://play.google.com/store/apps/details?id=com.google.android.apps.translate&hl=de&gl=US",
+            "age": null,
+            "m": null
+          },
+          "6": {
+            "t": "translate - Deutsch-Übersetzung – Linguee Wörterbuch",
+            "u": "https://www.linguee.de/englisch-deutsch/uebersetzung/translate.html",
+            "age": null,
+            "m": null
+          },
+          "7": {
+            "t": "Amazon Translate – Neurale maschinelle Übersetzung - AWS",
+            "u": "https://aws.amazon.com/de/translate/",
+            "age": null,
+            "m": null
+          },
+          "8": {
+            "t": "Google Translate Kosten, Erfahrungen & Bewertungen",
+            "u": "https://www.capterra.com.de/software/1013631/google-translate",
+            "age": null,
+            "m": null
+          },
+          "9": {
+            "t": "translate - Englisch-Deutsch Übersetzung | PONS",
+            "u": "https://de.pons.com/übersetzung/englisch-deutsch/translate",
+            "age": null,
+            "m": null
+          }
+        },
+        "q": "translate",
+        "qurl": "https://www.google.com/search?hl=en&q=angela%20merkel",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "translate-intent",
+      "payload": {
+        "q": "translate",
+        "sl": "en",
+        "tl": "de",
+
+        "ctry": "de"
+      }
+    }
+  ],
+  "mustNotContain": [{ "action": "ads_*" }]
+}

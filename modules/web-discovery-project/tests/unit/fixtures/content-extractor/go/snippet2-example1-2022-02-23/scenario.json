@@ -1,0 +1,54 @@
+{
+  "url": "https://www.google.com/search?q=unused+supplies+adjusting+entry",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "snippet2",
+      "payload": {
+        "r": {
+          "0": {
+            "u": "https://smallbusiness.chron.com/adjusting-entry-unused-supplies-80453.html"
+          }
+        },
+        "q": "unused supplies adjusting entry",
+        "qurl": "https://www.google.com/search?q=unused+supplies+adjusting+entry",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "snippet4",
+      "payload": {
+        "r": {
+          "0": {
+            "k": "credit \"supplies"
+          }
+        },
+        "t": "For example, if the beginning balance is $5,000 and you have $4,000 of supplies on hand, you used $1,000 of supplies during the month. The adjusting entry is to debit \"supplies expense\" for $1,000 and credit \"supplies\" for $1,000. The ending balance in the supplies account should be $4,000.",
+        "u": "https://smallbusiness.chron.com/adjusting-entry-unused-supplies-80453.html",
+        "q": "unused supplies adjusting entry",
+        "qurl": "https://www.google.com/search?q=unused+supplies+adjusting+entry",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "faq",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "What are unused supplies accounting?"
+          },
+          "1": {
+            "t": "Are supplies adjusting entries?"
+          }
+        },
+        "q": "unused supplies adjusting entry",
+        "qurl": "https://www.google.com/search?q=unused+supplies+adjusting+entry",
+        "ctry": "de"
+      }
+    }
+  ],
+  "mustNotContain": [{ "action": "snippet" }, { "action": "snippet3" }]
+}

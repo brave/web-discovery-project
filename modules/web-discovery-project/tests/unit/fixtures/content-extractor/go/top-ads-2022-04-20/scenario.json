@@ -1,0 +1,219 @@
+{
+  "url": "https://www.google.de/search?q=alibaba",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "query",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "Alibaba - die größte B2B-Handelsplattform der Welt",
+            "u": "https://german.alibaba.com/",
+            "age": null,
+            "m": null
+          },
+          "1": {
+            "t": "Alibaba - die größte B2B-Handelsplattform der Welt",
+            "u": "https://german.alibaba.com/",
+            "age": null,
+            "m": null
+          },
+          "2": {
+            "t": "Alibaba Group - Wikipedia",
+            "u": "https://de.wikipedia.org/wiki/Alibaba_Group",
+            "age": null,
+            "m": null
+          },
+          "3": {
+            "t": "ALIBABA AKTIE | News | Aktienkurs | A117ME | finanzen.net",
+            "u": "https://www.finanzen.net/aktien/alibaba-aktie",
+            "age": null,
+            "m": null
+          },
+          "4": {
+            "t": "Alibaba.com - B2B-Marktplatz – Apps bei Google Play",
+            "u": "https://play.google.com/store/apps/details?id=com.alibaba.intl.android.apps.poseidon&hl=de&gl=US",
+            "age": null,
+            "m": null
+          },
+          "5": {
+            "t": "Die Alibaba-Story - StartingUp: Das Gründermagazin",
+            "u": "https://www.starting-up.de/geschaeftsideen/unternehmer-typen/die-alibaba-story.html",
+            "age": null,
+            "m": null
+          },
+          "6": {
+            "t": "Alibaba Aktie: Aktienkurs, Chart & News (A117ME - OnVista",
+            "u": "https://www.onvista.de/aktien/Alibaba-Aktie-US01609W1027",
+            "age": null,
+            "m": null
+          },
+          "7": {
+            "t": "Was ist Alibaba? – Ryte Wiki",
+            "u": "https://de.ryte.com/wiki/Alibaba",
+            "age": null,
+            "m": null
+          }
+        },
+        "q": "alibaba",
+        "qurl": "https://www.google.de/search?q=alibaba",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "bolded",
+      "payload": {
+        "r": {
+          "0": {
+            "k": "Alibaba"
+          },
+          "1": {
+            "k": "Alibaba"
+          },
+          "2": {
+            "k": "Alibaba"
+          },
+          "3": {
+            "k": "Alibaba"
+          }
+        },
+        "q": "alibaba",
+        "qurl": "https://www.google.de/search?q=alibaba",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "rel-query",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "alibaba-aktie"
+          },
+          "1": {
+            "t": "alibaba onlineshop"
+          },
+          "2": {
+            "t": "alibaba deutsch"
+          },
+          "3": {
+            "t": "alibaba express"
+          },
+          "4": {
+            "t": "alibaba erfahrungen"
+          },
+          "5": {
+            "t": "alibaba china"
+          },
+          "6": {
+            "t": "alibaba stock"
+          },
+          "7": {
+            "t": "alibaba döner"
+          }
+        },
+        "q": "alibaba",
+        "qurl": "https://www.google.de/search?q=alibaba",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "ads_A",
+      "payload": {
+        "r": {
+          "0": {
+            "u": "https://www.alibaba.com/",
+            "t": "Alibaba: Global Products - Alibaba.com Official Website"
+          },
+          "1": {
+            "u": "https://www.alibaba.com/",
+            "t": "Alibaba.com Official Site - Online Wholesale Suppliers"
+          }
+        },
+        "q": "alibaba",
+        "qurl": "https://www.google.de/search?q=alibaba",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "top-stories",
+      "payload": {
+        "r": {
+          "0": {
+            "u": "https://www.finanzen.net/nachricht/aktien/alibaba-in-der-krise-verliert-jetzt-auch-charlie-munger-die-hoffnung-daily-journal-corporation-verkauft-die-haelfte-seiner-alibaba-aktien-11237908",
+            "lu": "vor 18 Stunden",
+            "h": "Verliert jetzt auch Charlie Munger die Hoffnung? - Daily Journal \nCorporation verkauft die Hälfte seiner Alibaba-Aktien"
+          },
+          "1": {
+            "u": "https://www.deraktionaer.de/artikel/medien-ittk-technologie/-alibaba-tencent-byd-und-co-rueckschlaege-statt-entspannung-20248989.html",
+            "lu": "vor 22 Stunden",
+            "h": "Alibaba, Tencent, BYD und Co: Rückschläge statt Entspannung"
+          },
+          "2": {
+            "u": "https://www.onvista.de/news/alibaba-aktie-427-gewinn-chance-oder-rotes-tuch-535598381",
+            "lu": "vor 1 Tag",
+            "h": "Alibaba-Aktie: 427-%-Gewinn-Chance oder rotes Tuch?"
+          }
+        },
+        "q": "alibaba",
+        "qurl": "https://www.google.de/search?q=alibaba",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "faq",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "Kann man aus Deutschland bei Alibaba bestellen?"
+          },
+          "1": {
+            "t": "Was ist German Alibaba?"
+          },
+          "2": {
+            "t": "Wie seriös ist Alibaba?"
+          },
+          "3": {
+            "t": "Ist Alibaba illegal?"
+          }
+        },
+        "q": "alibaba",
+        "qurl": "https://www.google.de/search?q=alibaba",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "videos-p",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "US-Aktien im Fokus - Alibaba",
+            "u": "https://www.youtube.com/watch?v=iH4w_s1y1GA"
+          },
+          "1": {
+            "t": "Bayer / Alibaba / PayPal / Deutsche Bank",
+            "u": "https://www.youtube.com/watch?v=PwZP40c5_Co"
+          },
+          "2": {
+            "t": "Wie du vertrauenswürdige Lieferanten in China auf Alibaba ...",
+            "u": "https://www.youtube.com/watch?v=1cTU4tXVzf4"
+          }
+        },
+        "q": "alibaba",
+        "qurl": "https://www.google.de/search?q=alibaba",
+        "ctry": "de"
+      }
+    }
+  ],
+  "mustNotContain": [
+    { "action": "ads_B" },
+    { "action": "ads_C" },
+    { "action": "ads_D" }
+  ]
+}

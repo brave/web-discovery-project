@@ -1,0 +1,26 @@
+{
+  "url": "https://www.google.com/search?q=how+to+add+chat+to+obs",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "snippet2",
+      "payload": {
+        "r": {
+          "0": {
+            "u": "https://www.windowscentral.com/how-add-stream-chat-obs-studio"
+          }
+        },
+        "q": "how to add chat to obs",
+        "qurl": "https://www.google.com/search?q=how+to+add+chat+to+obs",
+        "ctry": "de"
+      }
+    }
+  ],
+  "mustNotContain": [
+    { "action": "snippet" },
+    { "action": "snippet3" },
+    { "action": "snippet4" },
+    { "action": "faq" }
+  ]
+}

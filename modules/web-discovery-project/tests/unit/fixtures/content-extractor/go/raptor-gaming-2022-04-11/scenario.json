@@ -1,0 +1,64 @@
+{
+  "url": "https://www.google.com/search?q=raptor+gaming",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "query",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "Raptor Gaming - Zubehör für Konsole - PS5 - Xbox Series X",
+            "u": "https://raptorzone.de/",
+            "age": null,
+            "m": null
+          },
+          "1": {
+            "t": "Raptor Gaming - Zubehör für Konsole - PS5 - Xbox Series X",
+            "u": "https://raptorzone.de/",
+            "age": null,
+            "m": null
+          },
+          "2": {
+            // (Alternative)
+            // "t": "Raptor Gaming Headset Playstation 5 H200 weiß 3,5 Klinke",
+            // "u": "https://www.amazon.de/Raptor-Gaming-Headset-Playstation-Klinke-Weiß/dp/B08MCCDSSW",
+            "t": "Suchergebnis auf Amazon.de für: RAPTOR-GAMING",
+            "u": "https://www.amazon.de/RAPTOR-GAMING/s?k=RAPTOR-GAMING",
+            "age": null,
+            "m": null
+          },
+          "3": {
+            "t": "RAPTOR Gaming (@RAPTOR_zone) / Twitter",
+            "u": "https://twitter.com/raptor_zone",
+            "age": null,
+            "m": null
+          },
+          "4": {
+            "t": "RAPTOR GAMING is back | Hardware-Inside Forum",
+            "u": "https://www.hardwareinside.de/raptor-gaming-is-back-54270/",
+            "age": "12.11.2020",
+            "m": null
+          },
+          "5": {
+            "t": "Raptor Gaming Produkte günstig kaufen | shopwelt.de",
+            "u": "https://www.shopwelt.de/hersteller-shop/raptor-gaming.html",
+            "age": null,
+            "m": null
+          },
+          "6": {
+            "t": "Gaming-Tastatur Raptor LK1 von CORSAIR (DE)",
+            "u": "https://www.corsair.com/de/de/Kategorien/Produkte/Gaming-Tastaturen/Gaming-Tastatur-Raptor-LK1-von-CORSAIR-(DE)/p/CH-9000035-DE",
+            "age": null,
+            "m": null
+          }
+        },
+        "q": "raptor gaming",
+        "qurl": "https://www.google.com/search?q=raptor+gaming",
+        "ctry": "de"
+      }
+    }
+  ],
+
+  "mustNotContain": [{ "action": "ads_*" }]
+}

@@ -1,0 +1,23 @@
+{
+  "url": "https://www.google.com/search?hl=en&q=how%20tall%20is%20mount%20everest",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "snippet",
+      "payload": {
+        "r": {
+          "0": {
+            "ent": "Mount Everest",
+            "pred": "Höhe",
+            "ans": "8.849 m"
+          }
+        },
+        "q": "how tall is mount everest",
+        "qurl": "https://www.google.com/search?hl=en&q=how%20tall%20is%20mount%20everest",
+        "ctry": "de"
+      }
+    }
+  ],
+  "mustNotContain": []
+}

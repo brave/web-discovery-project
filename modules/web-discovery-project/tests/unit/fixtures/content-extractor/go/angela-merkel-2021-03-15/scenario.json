@@ -4,48 +4,91 @@
   "mustContain": [
     {
       "type": "wdp",
+      "action": "rel-query",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "ulrich merkel"
+          },
+          "1": {
+            "t": "joachim sauer"
+          },
+          "2": {
+            "t": "horst kasner"
+          },
+          "3": {
+            "t": "angela merkel kinder"
+          },
+          "4": {
+            "t": "angela merkel trennung"
+          },
+          "5": {
+            "t": "angela merkel wiki"
+          },
+          "6": {
+            "t": "angela merkel gehalt"
+          },
+          "7": {
+            "t": "angela merkel wohnung"
+          }
+        },
+        "q": "angela merkel",
+        "qurl": "https://www.google.com/search?hl=en&q=angela%20merkel",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
       "action": "query",
       "payload": {
         "r": {
           "0": {
             "t": "Angela Merkel – Wikipedia",
             "u": "https://de.wikipedia.org/wiki/Angela_Merkel",
-            "age": null
+            "age": null,
+            "m": null
           },
           "1": {
             "t": "Angela Merkel",
             "u": "https://www.angela-merkel.de/",
-            "age": null
+            "age": null,
+            "m": null
           },
           "2": {
             "t": "Bundeskanzlerin |",
             "u": "https://www.bundeskanzlerin.de/",
-            "age": null
+            "age": null,
+            "m": null
           },
           "3": {
             "t": "Angela Merkel (@bundeskanzlerin) • Instagram photos and ...",
             "u": "https://www.instagram.com/bundeskanzlerin/?hl=de",
-            "age": null
+            "age": null,
+            "m": null
           },
           "4": {
             "t": "LeMO Biografie Angela Merkel",
             "u": "https://www.hdg.de/lemo/biografie/angela-merkel.html",
-            "age": null
+            "age": null,
+            "m": null
           },
           "5": {
             "t": "Dr. Angela Merkel | Christlich Demokratische Union ...",
             "u": "https://www.cdu.de/vorstand/dr-angela-merkel",
-            "age": null
+            "age": null,
+            "m": null
           },
           "6": {
             "t": "Angela Merkel - DER SPIEGEL",
             "u": "https://www.spiegel.de/thema/angela_merkel/",
-            "age": null
+            "age": null,
+            "m": null
           },
           "7": {
             "t": "Angela Merkel aktuell: News von heute zur Bundeskanzlerin",
             "u": "https://www.faz.net/aktuell/politik/thema/angela-merkel",
-            "age": null
+            "age": null,
+            "m": null
           }
         },
         "q": "angela merkel",

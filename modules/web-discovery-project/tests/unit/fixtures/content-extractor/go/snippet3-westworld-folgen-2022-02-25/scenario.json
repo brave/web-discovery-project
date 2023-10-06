@@ -1,0 +1,22 @@
+{
+  "url": "https://www.google.com/search?q=westworld+folgen",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "snippet3",
+      "payload": {
+        "r": {
+          "0": {
+            "ent": "Westworld",
+            "pred": "Folgen"
+          }
+        },
+        "q": "westworld folgen",
+        "qurl": "https://www.google.com/search?q=westworld+folgen",
+        "ctry": "de"
+      }
+    }
+  ],
+  "mustNotContain": [{ "action": "snippet" }, { "action": "snippet2" }]
+}

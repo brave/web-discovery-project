@@ -34,25 +34,26 @@
           "keyName": "ctry"
         }
       },
-      "table.GpQGbf tbody > tr > td.e3goi > div.svla5d": {
+      ".IkMU6e": {
         "u": {
-          "item": "a",
+          "item": "tr > td > a",
           "type": "arr",
           "etype": "href",
           "keyName": "u",
           "functionsApplied": [
             ["splitF", "/url?q=", 1],
+            ["splitF", "&amp;sa=U&amp;ved", 0],
             ["splitF", "&sa=", 0]
           ]
         },
         "ru": {
-          "item": "a > div > span.F9iS2e",
+          "item": ".F9iS2e .fYyStc",
           "type": "arr",
           "etype": "textContent",
           "keyName": "ru"
         },
         "t": {
-          "item": "a > div > span.x3G5ab",
+          "item": ".x3G5ab .fYyStc",
           "type": "arr",
           "etype": "textContent",
           "keyName": "t"
@@ -60,6 +61,46 @@
       }
     },
     "1": {
+      "#tw-main": {
+        "sl": {
+          "item": "#tw-sl",
+          "type": "arr",
+          "etype": "data-lang",
+          "keyName": "sl"
+        },
+        "tl": {
+          "item": "#tw-tl",
+          "type": "arr",
+          "etype": "data-lang",
+          "keyName": "sl"
+        },
+        "st": {
+          "item": "#tw-source-text-ta",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "st"
+        },
+        "tt": {
+          "item": "#tw-target-text",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "tt"
+        }
+      },
+      "#tw-container": {
+        "sl": {
+          "item": "#tw-sl",
+          "type": "arr",
+          "etype": "data-lang",
+          "keyName": "sl"
+        },
+        "tl": {
+          "item": "#tw-tl",
+          "type": "arr",
+          "etype": "data-lang",
+          "keyName": "sl"
+        }
+      },
       "#mobile-search #sfcnt": {
         "q": {
           "item": "input",
@@ -68,24 +109,45 @@
           "keyName": "q"
         }
       },
-      "#main div.g": {
+      "div#rso div.g": {
         "t": {
-          "item": "div.yuRUbf > a > h3, div.DOqJne > g-link > a > h3",
+          "item": "div.yuRUbf > a > h3, div.ct3b9e > a > h3, g-section-with-header g-link > a > h3.haz7je",
           "type": "arr",
           "etype": "textContent",
           "keyName": "t"
         },
         "u": {
-          "item": "div.yuRUbf > a, div.DOqJne > g-link > a",
+          "item": "div.yuRUbf > a, div.ct3b9e > a, g-section-with-header g-link > a.a-no-hover-decoration",
           "type": "arr",
           "etype": "href",
-          "keyName": "u"
+          "keyName": "u",
+          "functionsApplied": [["splitF", "?ref_src=twsrc", 0]]
         },
         "age": {
-          "item": "div.IsZvec > div > span > span.f",
+          "item": "div > span.MUxGbd > span, div.mSA5Bd > div.P7xzyf > span > span",
           "type": "arr",
           "etype": "textContent",
           "keyName": "age"
+        },
+        "m": {
+          "item": ".TXwUJf a.fl",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "m"
+        }
+      },
+      "div.IsZvec > div > span > em": {
+        "k": {
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "k"
+        }
+      },
+      "a.k8XOCe": {
+        "t": {
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "t"
         }
       },
       ".g .r": {
@@ -116,12 +178,18 @@
           "functionsApplied": [["splitF", "query:", 1]]
         }
       },
-      "#tads .ads-ad": {
+      "#tads div[data-text-ad]": {
         "u": {
-          "item": ".ads-visurl cite",
+          "item": "a.sVXRqc > div.d8lRkd > span[role='text']",
           "type": "multiple",
           "etype": "textContent",
-          "keyName": "u"
+          "keyName": "u",
+          "functionsApplied": [["maskU", false, false]]
+        },
+        "t": {
+          "item": "a.sVXRqc > div.CCgQ5[role='heading'] > span",
+          "etype": "textContent",
+          "keyName": "t"
         }
       },
       "#search .rSr7Wd .So9e7d": {
@@ -170,16 +238,15 @@
           "functionsApplied": []
         }
       },
-      "#search g-scrolling-carousel div.fhQnRd g-inner-card": {
+      "#rso a.WlydOe": {
         "u": {
-          "item": "a",
           "type": "arr",
           "etype": "href",
           "keyName": "u",
           "functionsApplied": [["maskU", false, false]]
         },
         "lu": {
-          "item": "p.S1FAPd > span",
+          "item": "div.OSrXXb.ZE0LJd > span",
           "type": "arr",
           "etype": "textContent",
           "keyName": "lu",
@@ -193,21 +260,23 @@
           "functionsApplied": []
         }
       },
-      "#mbEnd .ads-ad": {
+      "#rhs .cu-container .commercial-unit-desktop-rhs div.tN8Uqf": {
         "u": {
-          "item": "a[id^=s1p]",
-          "type": "multiple",
+          "item": "a[id^=vjpm]",
           "etype": "href",
           "keyName": "u",
-          "functionsApplied": [
-            ["parseU", "qs", "adurl"],
-            ["maskU", false, false]
-          ]
+          "functionsApplied": [["maskU", false, false]]
+        },
+        "t": {
+          "item": "span[title]",
+          "etype": "textContent",
+          "keyName": "t",
+          "functionsApplied": [["maskU", false, false]]
         }
       },
       ".pla-unit-title": {
         "u": {
-          "item": ".pla-unit-title-link",
+          "item": "a.pla-unit-title-link",
           "type": "multiple",
           "etype": "href",
           "keyName": "u",
@@ -215,15 +284,27 @@
             ["parseU", "qs", "adurl"],
             ["maskU", false, false]
           ]
+        },
+        "t": {
+          "item": "a.pla-unit-title-link span.hCK2Zc > span, a.pla-unit-title-link > span.pymv4e",
+          "type": "multiple",
+          "etype": "textContent",
+          "keyName": "t"
         }
       },
       "#bottomads div.cUezCb": {
         "u": {
-          "item": "a.Krnil",
+          "item": "a.sVXRqc > div.d8lRkd > span[role='text']",
           "type": "arr",
-          "etype": "href",
+          "etype": "textContent",
           "keyName": "u",
           "functionsApplied": [["maskU", false, false]]
+        },
+        "t": {
+          "item": "a.sVXRqc > div.CCgQ5[role='heading'] > span",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "t"
         }
       },
       "qurl": {
@@ -261,7 +342,7 @@
           "keyName": "mu"
         }
       },
-      ".kp-blk.fm06If.Wnoohf.OJXvsb": {
+      "#search #rso div > block-component > div.JnwWd > div.EyBRub div.ifM9O > div": {
         "ent": {
           "item": "div[role=\"heading\"] > :nth-child(1)",
           "type": "arr",
@@ -275,32 +356,67 @@
           "keyName": "pred"
         },
         "ans": {
-          "item": "div.kno-fb-ctx[role=\"heading\"] > div",
+          "item": "div.kno-fb-ctx.KBXm4e, .kp-header div[data-attrid] > div",
           "type": "arr",
           "etype": "textContent",
           "keyName": "ans"
         }
       },
-      "._OKe .g": {
+      "div#rcnt.GyAeWb div#rso > div.ULSxyf, div#rcnt.GyAeWb > div.M8OgIe": {
         "u": {
-          "item": ".s",
+          "item": "div.yuRUbf a",
           "type": "arr",
-          "etype": "textContent",
-          "keyName": "u"
+          "etype": "href",
+          "keyName": "u",
+          "functionsApplied": [
+            ["splitF", "#", 0],
+            ["maskU", false, false]
+          ]
         }
       },
-      "._IK": {
+      "#extabar div.EyBRub > div.LXqMce": {
         "ent": {
-          "item": ".kxbccp span",
+          "item": "a.TXBhSe.z4P7Tc > span.Wkr6U.z4P7Tc",
           "type": "arr",
           "etype": "textContent",
           "keyName": "ent"
         },
         "pred": {
-          "item": ".kxbccm .kxbc",
+          "item": "a.TXBhSe.z4P7Tc + span + span.Wkr6U.z4P7Tc, a.TXBhSe.z4P7Tc + span + a.z4P7Tc + span + span.Wkr6U.z4P7Tc",
           "type": "arr",
           "etype": "textContent",
           "keyName": "pred"
+        }
+      },
+      "#cnt div.ifM9O div[data-attrid=\"wa:/description\"][role=\"heading\"] > span.ILfuVd > span.hgKElc": {
+        "t": {
+          "etype": "textContent",
+          "keyName": "t"
+        }
+      },
+      "#cnt div.ifM9O div[data-attrid=\"wa:/description\"][role=\"heading\"] > span.ILfuVd > span.hgKElc > b": {
+        "k": {
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "k"
+        }
+      },
+      "#cnt div.ifM9O div.V3FYCf div.g a": {
+        "u": {
+          "type": "arr",
+          "etype": "href",
+          "keyName": "u",
+          "functionsApplied": [
+            ["splitF", "#", 0],
+            ["maskU", false, false]
+          ]
+        }
+      },
+      "div.ULSxyf div.AuVD.cUnQKe[data-initq] div.Wt5Tfe div div[jsname] > span": {
+        "t": {
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "t"
         }
       },
       "#main": {
@@ -332,7 +448,7 @@
           "keyName": "t"
         },
         "addr": {
-          "item": "div span.rllt__details.lqhpac > div:nth-child(2) > span:not(.BTtC6e):nth-child(1)",
+          "item": "div.cXedhc.uQ4NLd > div + div.rllt__details > [role=\"heading\"] + div + div, a.rllt__link > div.cXedhc > div.rllt__tile-label + div.rllt__details > [role=\"heading\"] + div, a.rllt__link > div.cXedhc > div.rllt__details > [role=\"heading\"] + div + div",
           "type": "arr",
           "etype": "textContent",
           "keyName": "addr"
@@ -345,10 +461,10 @@
           "keyName": "u"
         }
       },
-      "div.bkWMgd g-section-with-header #iur img[id^='dimg_']": {
+      "div.EyBRub div[data-lpage]": {
         "u": {
           "type": "arr",
-          "etype": "title",
+          "etype": "data-lpage",
           "keyName": "u"
         }
       },
@@ -387,9 +503,9 @@
           "keyName": "u"
         }
       },
-      "#main div.MGqjK div.QmUzgb": {
+      "#main div.o0igqc div.mLmaBd": {
         "t": {
-          "item": "div.fJiQld",
+          "item": "div.fc9yUc",
           "type": "arr",
           "etype": "textContent",
           "keyName": "t"
@@ -445,7 +561,7 @@
         "t": {
           "item": "h3 [href]",
           "type": "arr",
-          "etype": "text",
+          "etype": "textContent",
           "keyName": "t"
         },
         "u": {
@@ -454,6 +570,7 @@
           "etype": "href",
           "keyName": "u",
           "functionsApplied": [
+            ["splitF", "RK=2/", 0],
             ["splitF", "RU=", 1],
             ["splitF", "RK=0/", 0],
             ["maskU", false, false]
@@ -535,7 +652,7 @@
         "t": {
           "item": "h2 [href]",
           "type": "arr",
-          "etype": "text",
+          "etype": "textContent",
           "keyName": "t"
         },
         "u": {
@@ -578,21 +695,27 @@
           "keyName": "query"
         }
       },
-      "#search div.s-result-item[data-component-type='s-search-result'] div.sg-col-inner div > div > div > h2 > a": {
+      "#search div.s-result-item[data-component-type='s-search-result']": {
         "t": {
-          "item": "span",
+          "item": "div.sg-col-inner div > div > div > h2 > a span",
           "type": "arr",
           "etype": "textContent",
           "keyName": "t"
         },
+        "a": {
+          "item": ".a-declarative .s-label-popover-default span",
+          "type": "arr",
+          "etype": "textContent",
+          "keyName": "a"
+        },
         "u": {
+          "item": "div.sg-col-inner div > div > div > h2 > a",
           "type": "arr",
           "etype": "href",
           "keyName": "u",
           "functionsApplied": [
             ["splitF", "&url=", 1],
-            ["splitF", "/ref=", 0],
-            ["maskU", false, false]
+            ["splitF", "/ref=", 0]
           ]
         }
       },
@@ -665,40 +788,75 @@
         "fields": [
           ["form[action=\"/search\"] input:first-child[name=\"q\"]", "q"],
           ["qurl", "qurl"],
-          ["table.GpQGbf tbody > tr > td.e3goi > div.svla5d", "r", "join"],
+          [".IkMU6e", "r", "join"],
           ["ctry", "ctry"]
         ]
       }
     },
     "1": {
-      "#main div.g": {
+      "#tw-main": {
+        "type": "query",
+        "results": "clustered",
+        "action": "translate-full",
+        "fields": [
+          ["#search", "q"],
+          ["#tw-main", "sl"],
+          ["#tw-main", "tl"],
+          ["#tw-main", "st"],
+          ["#tw-main", "tt"],
+          ["ctry", "ctry"]
+        ]
+      },
+      "#tw-container": {
+        "type": "query",
+        "results": "clustered",
+        "action": "translate-intent",
+        "fields": [
+          ["#search", "q"],
+          ["#tw-container", "sl"],
+          ["#tw-container", "tl"],
+          ["ctry", "ctry"]
+        ]
+      },
+      "div#rso div.g": {
         "type": "query",
         "results": "clustered",
         "action": "query",
         "fields": [
-          ["#main div.g", "r", "join"],
+          ["div#rso div.g", "r", "join"],
           ["#search", "q"],
           ["qurl", "qurl"],
           ["ctry", "ctry"]
         ]
       },
-      "#tads .ads-ad": {
+      "div.IsZvec > div > span > em": {
+        "type": "query",
+        "results": "clustered",
+        "action": "bolded",
+        "fields": [
+          ["div.IsZvec > div > span > em", "r", "join"],
+          ["#search", "q"],
+          ["qurl", "qurl"],
+          ["ctry", "ctry"]
+        ]
+      },
+      "a.k8XOCe": {
+        "type": "query",
+        "results": "clustered",
+        "action": "rel-query",
+        "fields": [
+          ["a.k8XOCe", "r", "join"],
+          ["#search", "q"],
+          ["qurl", "qurl"],
+          ["ctry", "ctry"]
+        ]
+      },
+      "#tads div[data-text-ad]": {
         "type": "query",
         "results": "clustered",
         "action": "ads_A",
         "fields": [
-          ["#tads .ads-ad", "r", "join"],
-          ["#search", "q"],
-          ["qurl", "qurl"],
-          ["ctry", "ctry"]
-        ]
-      },
-      "#mbEnd .ads-ad": {
-        "type": "query",
-        "results": "clustered",
-        "action": "ads_B",
-        "fields": [
-          ["#mbEnd .ads-ad", "r", "join"],
+          ["#tads div[data-text-ad]", "r", "join"],
           ["#search", "q"],
           ["qurl", "qurl"],
           ["ctry", "ctry"]
@@ -726,12 +884,27 @@
           ["ctry", "ctry"]
         ]
       },
-      "#search g-scrolling-carousel div.fhQnRd g-inner-card": {
+      "#rso a.WlydOe": {
         "type": "query",
         "results": "clustered",
         "action": "top-stories",
         "fields": [
-          ["#search g-scrolling-carousel div.fhQnRd g-inner-card", "r", "join"],
+          ["#rso a.WlydOe", "r", "join"],
+          ["#search", "q"],
+          ["qurl", "qurl"],
+          ["ctry", "ctry"]
+        ]
+      },
+      "#rhs .cu-container .commercial-unit-desktop-rhs div.tN8Uqf": {
+        "type": "query",
+        "results": "clustered",
+        "action": "ads_B",
+        "fields": [
+          [
+            "#rhs .cu-container .commercial-unit-desktop-rhs div.tN8Uqf",
+            "r",
+            "join"
+          ],
           ["#search", "q"],
           ["qurl", "qurl"],
           ["ctry", "ctry"]
@@ -769,35 +942,80 @@
           ["qurl", "qurl"]
         ]
       },
-      ".kp-blk.fm06If.Wnoohf.OJXvsb": {
+      "#search #rso div > block-component > div.JnwWd > div.EyBRub div.ifM9O > div": {
         "type": "query",
         "results": "clustered",
         "action": "snippet",
         "fields": [
-          [".kp-blk.fm06If.Wnoohf.OJXvsb", "r", "join"],
+          [
+            "#search #rso div > block-component > div.JnwWd > div.EyBRub div.ifM9O > div",
+            "r",
+            "join"
+          ],
           ["#search", "q"],
           ["qurl", "qurl"],
           ["ctry", "ctry"]
         ]
       },
-      "._OKe .g": {
+      "div#rcnt.GyAeWb div#rso > div.ULSxyf, div#rcnt.GyAeWb > div.M8OgIe": {
         "type": "query",
         "results": "clustered",
         "action": "snippet2",
         "fields": [
-          ["._OKe .g", "r", "join"],
+          [
+            "div#rcnt.GyAeWb div#rso > div.ULSxyf, div#rcnt.GyAeWb > div.M8OgIe",
+            "r",
+            "join"
+          ],
           ["#search", "q"],
-          ["qurl", "qurl"]
+          ["qurl", "qurl"],
+          ["ctry", "ctry"]
         ]
       },
-      "._IK": {
+      "#extabar div.EyBRub > div.LXqMce": {
         "type": "query",
         "results": "clustered",
         "action": "snippet3",
         "fields": [
-          ["._IK", "r", "join"],
+          ["#extabar div.EyBRub > div.LXqMce", "r", "join"],
           ["#search", "q"],
-          ["qurl", "qurl"]
+          ["qurl", "qurl"],
+          ["ctry", "ctry"]
+        ]
+      },
+      "#cnt div.ifM9O div[data-attrid=\"wa:/description\"][role=\"heading\"] > span.ILfuVd > span.hgKElc > b": {
+        "type": "query",
+        "results": "clustered",
+        "action": "snippet4",
+        "fields": [
+          [
+            "#cnt div.ifM9O div[data-attrid=\"wa:/description\"][role=\"heading\"] > span.ILfuVd > span.hgKElc > b",
+            "r",
+            "join"
+          ],
+          [
+            "#cnt div.ifM9O div[data-attrid=\"wa:/description\"][role=\"heading\"] > span.ILfuVd > span.hgKElc",
+            "t"
+          ],
+          ["#cnt div.ifM9O div.V3FYCf div.g a", "u"],
+          ["#search", "q"],
+          ["qurl", "qurl"],
+          ["ctry", "ctry"]
+        ]
+      },
+      "div.ULSxyf div.AuVD.cUnQKe[data-initq] div.Wt5Tfe div div[jsname] > span": {
+        "type": "query",
+        "results": "clustered",
+        "action": "faq",
+        "fields": [
+          [
+            "div.ULSxyf div.AuVD.cUnQKe[data-initq] div.Wt5Tfe div div[jsname] > span",
+            "r",
+            "join"
+          ],
+          ["#search", "q"],
+          ["qurl", "qurl"],
+          ["ctry", "ctry"]
         ]
       },
       "#searchform": {
@@ -864,18 +1082,14 @@
           ["ctry", "ctry"]
         ]
       },
-      "div.bkWMgd g-section-with-header #iur img[id^='dimg_']": {
+      "div.EyBRub div[data-lpage]": {
         "type": "query",
         "results": "clustered",
         "action": "img-p",
         "fields": [
           ["#search", "q"],
           ["qurl", "qurl"],
-          [
-            "div.bkWMgd g-section-with-header #iur img[id^='dimg_']",
-            "r",
-            "join"
-          ],
+          ["div.EyBRub div[data-lpage]", "r", "join"],
           ["ctry", "ctry"]
         ]
       },
@@ -901,14 +1115,14 @@
           ["ctry", "ctry"]
         ]
       },
-      "#main div.MGqjK div.QmUzgb": {
+      "#main div.o0igqc div.mLmaBd": {
         "type": "query",
         "results": "clustered",
         "action": "videos-p",
         "fields": [
           ["#search", "q"],
           ["qurl", "qurl"],
-          ["#main div.MGqjK div.QmUzgb", "r", "join"],
+          ["#main div.o0igqc div.mLmaBd", "r", "join"],
           ["ctry", "ctry"]
         ]
       },
@@ -962,13 +1176,13 @@
       }
     },
     "6": {
-      "#search div.s-result-item[data-component-type='s-search-result'] div.sg-col-inner div > div > div > h2 > a": {
+      "#search div.s-result-item[data-component-type='s-search-result']": {
         "type": "query",
         "results": "clustered",
         "action": "query-am",
         "fields": [
           [
-            "#search div.s-result-item[data-component-type='s-search-result'] div.sg-col-inner div > div > div > h2 > a",
+            "#search div.s-result-item[data-component-type='s-search-result']",
             "r",
             "join"
           ],
