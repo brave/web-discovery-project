@@ -114,6 +114,12 @@
           "etype": "data-async-context",
           "keyName": "q",
           "functionsApplied": [["splitF", "query:", 1]]
+        },
+        "widgetTitle": {
+          "item": "div.EfDVh.viOShc div.ofy7ae, div.EfDVh.viOShc table.torspo_view__table span.tsp-ht",
+          "type": "widgetTitle",
+          "etype": "textContent",
+          "keyName": "wt"
         }
       },
       "#tads .ads-ad": {
@@ -429,20 +435,6 @@
             ["splitF", "/", 4],
             ["splitF", "@", 1]
           ]
-        }
-      },
-      "#gsr": {
-        "q": {
-          "item": "form[role=\"search\"] textarea[name=\"q\"]",
-          "type": "searchQuery",
-          "etype": "value",
-          "keyname": "q"
-        },
-        "widgetTitle": {
-          "item": "div.EfDVh.viOShc div.ofy7ae, div.EfDVh.viOShc table.torspo_view__table span.tsp-ht",
-          "type": "widgetTitle",
-          "etype": "textContent",
-          "keyName": "wt"
         }
       }
     },
@@ -918,13 +910,13 @@
           ["ctry", "ctry"]
         ]
       },
-      "#gsr": {
+      "#search": {
         "type": "single",
         "results": "single",
         "action": "widgetTitle",
         "fields": [
-          ["form[role=\"search\"] textarea[name=\"q\"]", "q"],
-          ["#main div.EfDVh.viOShc div.ofy7ae, div.EfDVh.viOShc table.torspo_view__table span.tsp-ht", "widgetTitle"]
+          ["#search", "q"],
+          ["#search", "widgetTitle"]
         ]
       }
     },

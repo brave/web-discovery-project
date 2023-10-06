@@ -39,12 +39,13 @@
           "keyName": "q"
         }
       },
-      "#gsr": {
+      "#search": {
         "q": {
-          "item": "form[role=\"search\"] textarea[name=\"q\"]",
+          "item": "#rso",
           "type": "searchQuery",
-          "etype": "value",
-          "keyname": "q"
+          "etype": "data-async-context",
+          "keyName": "q",
+          "functionsApplied": [["splitF", "query:", 1]]
         },
         "widgetTitle": {
           "item": "div.EfDVh.viOShc div.ofy7ae, div.EfDVh.viOShc table.torspo_view__table span.tsp-ht",
@@ -173,13 +174,13 @@
   },
   "payloads": {
     "1": {
-      "#gsr": {
+      "#search": {
         "type": "single",
         "results": "single",
         "action": "widgetTitle",
         "fields": [
-          ["form[role=\"search\"] textarea[name=\"q\"]", "q"],
-          ["#main div.EfDVh.viOShc div.ofy7ae, div.EfDVh.viOShc table.torspo_view__table span.tsp-ht", "widgetTitle"]
+          ["#search", "q"],
+          ["#search", "widgetTitle"]
         ]
       }
     },
