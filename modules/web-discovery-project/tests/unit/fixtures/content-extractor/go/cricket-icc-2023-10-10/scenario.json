@@ -1,0 +1,14 @@
+{
+  "url": "https://www.google.com/search?q=cricket%20icc&gl=us&hl=en",
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "widgetTitle",
+      "payload": {
+        "q": "cricket icc",
+        "widgetTitle": "ICC Cricket World Cup",
+        "ctry": "de"
+      }
+    }
+  ]
+}

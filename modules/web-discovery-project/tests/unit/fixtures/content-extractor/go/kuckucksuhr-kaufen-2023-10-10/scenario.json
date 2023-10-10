@@ -1,0 +1,76 @@
+{
+  "url": "https://www.google.com/search?q=kuckucksuhr%20kaufen&gl=us&hl=en",
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "query",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "Kuckucksuhren » jetzt online kaufen | uhren-park.de",
+            "u": null,
+            "age": null,
+            "m": null
+          },
+          "1": {
+            "t": "Original Kuckucksuhren aus dem Schwarzwald",
+            "u": null,
+            "age": null,
+            "m": null
+          },
+          "2": {
+            "t": "Kuckucksuhren aus dem Schwarzwald",
+            "u": null,
+            "age": null,
+            "m": null
+          },
+          "3": {
+            "t": "Original Kuckucksuhren aus dem Schwarzwald",
+            "u": null,
+            "age": null,
+            "m": null
+          },
+          "4": {
+            "t": "Kuckucksuhren / Spezialuhren: Küche, Haushalt & Wohnen",
+            "u": null,
+            "age": null,
+            "m": null
+          },
+          "5": {
+            "t": "Kuckucksuhren bestellen | Große Auswahl an ...",
+            "u": null,
+            "age": null,
+            "m": null
+          },
+          "6": {
+            "t": "Kuckucksuhren online kaufen",
+            "u": null,
+            "age": null,
+            "m": null
+          },
+          "7": {
+            "t": "Exklusive Kuckucksuhren Unikate",
+            "u": null,
+            "age": null,
+            "m": null
+          },
+          "8": {
+            "t": "Kuckucksuhren günstig online kaufen",
+            "u": null,
+            "age": null,
+            "m": null
+          },
+          "9": {
+            "t": "Kuckucksuhren aus dem Schwarzwald",
+            "u": null,
+            "age": null,
+            "m": null
+          }
+        },
+        "q": "kuckucksuhr kaufen",
+        "qurl": "https://www.google.com/search?q=kuckucksuhr%20kaufen&gl=us&hl=en",
+        "ctry": "de"
+      }
+    }
+  ]
+}

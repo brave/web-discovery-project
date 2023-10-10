@@ -1,16 +1,16 @@
 {
   "urlPatterns": [
     "\\.google\\..*?[#?&;]((q=[^&]+&([^&]+&)*tbm=isch)|(tbm=isch&([^&]+&)*q=[^&]+))",
-    "\\.google\\..*?[#?&;]q=[^$&]+",
+    "^https:[/][/][^/]*[.]google[.].*?[#?&;]((q=[^&]+&([^&]+&)*tbm=vid)|(tbm=vid&([^&]+&)*q=[^&]+))",
+    "^https:[/][/][^/]+[.]google[.][^/]+/search[?](.+[&])?q=[^$&]+",
     ".search.yahoo\\..*?[#?&;]p=[^$&]+",
     ".linkedin.*?\\/pub\\/dir+",
     "\\.bing\\.[^/]+\\/images/search[?]q=[^$&]+",
     "\\.bing\\..*?[#?&;]q=[^$&]+",
     "\\.amazon\\.[^/]+\\/(s[?]k=[^$&]+|.*[?&]field-keywords=[^$&]+)",
-    "\\.amazon\\..*(/dp/|/gp/product/)",
-    "^https:[/][/]duckduckgo.com[/](?:html$|.*[?&]q=[^&]+.*&ia=web|[?]q=[^&]+$)"
+    "\\.amazon\\..*(/dp/|/gp/product/)"
   ],
-  "searchEngines": ["0", "1", "2", "4", "5", "6", "8"],
+  "searchEngines": ["0", "1", "2", "3", "5", "6", "7"],
   "scrape": {
     "0": {
       "form[role=\"search\"]": {
@@ -23,6 +23,32 @@
       }
     },
     "1": {
+      "dont>match>body>head>html": {
+        "q": {
+          "type": "searchQuery",
+          "etype": "url",
+          "keyName": "q",
+          "functionsApplied": [["parseU", "qs", "q"]]
+        }
+      },
+      "form[role=\"search\"]": {
+        "q": {
+          "item": "form .gLFyf[name=\"q\"]",
+          "type": "searchQuery",
+          "etype": "value",
+          "keyName": "q"
+        }
+      }
+    },
+    "2": {
+      "dont>match>body>head>html": {
+        "q": {
+          "type": "searchQuery",
+          "etype": "url",
+          "keyName": "q",
+          "functionsApplied": [["parseU", "qs", "q"]]
+        }
+      },
       "#mobile-search #sfcnt": {
         "q": {
           "item": "input",
@@ -33,7 +59,7 @@
       },
       "form[role=\"search\"]": {
         "q": {
-          "item": "form input[name=\"q\"]",
+          "item": "form .gLFyf[name=\"q\"]",
           "type": "searchQuery",
           "etype": "value",
           "keyName": "q"
@@ -55,7 +81,7 @@
         }
       }
     },
-    "2": {
+    "3": {
       ".sbq-w": {
         "q": {
           "item": "#yschsp",
@@ -65,7 +91,7 @@
         }
       }
     },
-    "3": {
+    "4": {
       ".profile-card": {
         "img": {
           "item": ".image",
@@ -100,16 +126,6 @@
         }
       }
     },
-    "4": {
-      "#sb_form": {
-        "q": {
-          "item": "#sb_form_q",
-          "type": "searchQuery",
-          "etype": "value",
-          "keyName": "query"
-        }
-      }
-    },
     "5": {
       "#sb_form": {
         "q": {
@@ -121,6 +137,16 @@
       }
     },
     "6": {
+      "#sb_form": {
+        "q": {
+          "item": "#sb_form_q",
+          "type": "searchQuery",
+          "etype": "value",
+          "keyName": "query"
+        }
+      }
+    },
+    "7": {
       "#twotabsearchtextbox": {
         "q": {
           "type": "searchQuery",
@@ -137,13 +163,19 @@
         }
       }
     },
-    "7": {
+    "8": {
+      ".nav-search-field > input": {
+        "q": {
+          "type": "searchQuery",
+          "etype": "value",
+          "keyName": "query"
+        }
+      },
       "#wayfinding-breadcrumbs_container": {
         "c": {
           "item": "div",
-          "type": "searchQuery",
           "etype": "textContent",
-          "keyName": "query"
+          "keyName": "c"
         }
       },
       "ctry": {
@@ -153,27 +185,16 @@
           "keyName": "ctry"
         }
       },
-      "head": {
+      "link[rel='canonical']": {
         "curl": {
-          "item": "link[rel='canonical']",
           "etype": "href",
           "keyName": "curl"
-        }
-      }
-    },
-    "8": {
-      "#header": {
-        "q": {
-          "item": "#search_form_input[name=\"q\"]",
-          "type": "searchQuery",
-          "etype": "value",
-          "keyName": "query"
         }
       }
     }
   },
   "payloads": {
-    "1": {
+    "2": {
       "#search": {
         "type": "single",
         "results": "single",
@@ -184,21 +205,21 @@
         ]
       }
     },
-    "3": {
+    "4": {
       ".profile-card": {
         "type": "single",
         "results": "single",
         "action": "linkedin"
       }
     },
-    "7": {
+    "8": {
       "q": {
         "type": "query",
         "results": "clustered",
         "action": "category-am",
         "fields": [
           ["#wayfinding-breadcrumbs_container", "c"],
-          ["head", "curl"],
+          ["link[rel='canonical']", "curl"],
           ["ctry", "ctry"]
         ]
       }
@@ -206,13 +227,13 @@
   },
   "idMapping": {
     "0": "goi",
-    "1": "go",
-    "2": "ya",
-    "3": "lnkd",
-    "4": "bingi",
-    "5": "bing",
-    "6": "am",
-    "7": "amc",
-    "8": "ddg"
+    "1": "gov",
+    "2": "go",
+    "3": "ya",
+    "4": "lnkd",
+    "5": "bingi",
+    "6": "bing",
+    "7": "am",
+    "8": "amc"
   }
 }

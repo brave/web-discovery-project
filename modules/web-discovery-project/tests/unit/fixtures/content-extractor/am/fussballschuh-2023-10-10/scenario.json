@@ -1,0 +1,320 @@
+{
+  "url": "https://www.amazon.de/s/ref=nb_sb_noss_2?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&url=search-alias%3Daps&field-keywords=fussballschuh&rh=i%3Aaps%2Ck%3Afussballschuh",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "query-am",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "sudorun Football Boots Children's Artificial Grass Football Boots For Boys Girls FG AG Training Shoes",
+            "a": null,
+            "u": "/sudorun-Football-Childrens-Artificial-Training/dp/B0CKBH7S3L"
+          },
+          "1": {
+            "t": "AMLCWZ Football Boots Spike Shoes for Men High Top Football Boots Sporty Competition Training Shoes for Outdoor Indoor Football Shoes Boys Youth Sporty Shoes Unisex",
+            "a": null,
+            "u": "/Football-Competition-Training-Outdoor-2celadon/dp/B0CBXM9X33"
+          },
+          "2": {
+            "t": "Xinghuanhua Men's Outdoor Turf Trainer High Top Lightweight Football Boots Slip Resistant",
+            "a": null,
+            "u": "/dp/B0CKNM2WQF"
+          },
+          "3": {
+            "t": "BINBINNIAO Men's Football Boots for Boys Children Football Shoes Stud Shoes Outdoor Professional Training Shoes Trainers Lightweight and Non-Slip",
+            "a": null,
+            "u": "/BINBINNIAO-Football-Children-Professional-Lightweight/dp/B0CJ7DRDZG"
+          },
+          "4": {
+            "t": "PUMA Men's Future Play Fg/AG Football Boots",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/Future-Football-Boots-Black-Silver/dp/B0BLHTW5YJ"
+          },
+          "5": {
+            "t": "Puma Men's Future Match FG/AG Football Boots",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/Puma-Future-Match-Football-Boots/dp/B0BLHTW3BJ"
+          },
+          "6": {
+            "t": "adidas Unisex Predator Accuracy.3 Laceless Firm Ground Football Boots (Firm Surface)",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/Predator-Accuracy-3-Laceless-Football-Surface/dp/B0C5PQF4SN"
+          },
+          "7": {
+            "t": "Nike Men's Vapor Jersey",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/Vapor-Jersey-Black-Chrome-Hyper/dp/B0C4LL7J4R"
+          },
+          "8": {
+            "t": "adidas Unisex X Crazyfast.3 Firm Ground Fußballschuhe (Fester Untergrund)",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/adidas-Unisex-Crazyfast-3-Football-Ground/dp/B0C3WJP1L2"
+          },
+          "9": {
+            "t": "adidas Copa Pure.3 Men's Football Boots Multiground Football Boots (Multi Ground)",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/adidas-Unisex-Pure-3-Football-Ground/dp/B0BZ7WKM45"
+          },
+          "10": {
+            "t": "PUMA Men's Ultra Play Fg/AG Football Boots",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/Ultra-Football-Boots-Black-Asphalt/dp/B0BLHSMFX9"
+          },
+          "11": {
+            "t": "adidas Unisex Copa Pure.3 Firm Ground Sneaker",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/adidas-Unisex-Pure-3-Ground-Trainers/dp/B0BPF79ZCT"
+          },
+          "12": {
+            "t": "Football Shoes Unisex Professional Football Shoes Men Outdoor Boys High Band for Artificial Grass Suitable AG Competition Training Shoes Children",
+            "a": null,
+            "u": "/Football-Professional-Suitable-Artificial-Competition/dp/B0C7D34BJP"
+          },
+          "13": {
+            "t": "WEJIESS Men's Football Boots, High Top Spikes Youth Outdoor Training Football Shoes, Professional Sporty Sports Shoes, Turf Trainer",
+            "a": null,
+            "u": "/Wejiess-Football-Outdoor-Training-Professional/dp/B0BP13RGPD"
+          },
+          "14": {
+            "t": "WEJIESS Football Boots, Men's Non-Slip Spikes, Professional Spikes, Football Game Shoes, Boys Football Trainers, Laces",
+            "a": null,
+            "u": "/WEJIESS-Football-Non-Slip-Professional-Training/dp/B0BLH53HDP"
+          },
+          "15": {
+            "t": "BLBK Fußballschuhe Unisex Professionelle fußballschuhe Herren Outdoor Jungen hohe Bande für Kunstrasen geeignet AG Wettkampf- Trainingsschuhe Kinder",
+            "a": null,
+            "u": "/Football-Professional-Suitable-Artificial-Competition/dp/B0C6NGF1MJ"
+          },
+          "16": {
+            "t": "adidas Herren Predator Accuracy.3 Fg Sneaker",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/adidas-Predator-Accuracy-3-Football-Surface/dp/B0BPF4ZBQS"
+          },
+          "17": {
+            "t": "Nike Herren Phantom Gx Academy Fg/Mg Sneaker",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/Phantom-Academy-Trainers-Bright-Crimson/dp/B0C4LPVL1N"
+          },
+          "18": {
+            "t": "PUMA Men's Future Play IT Football Boots",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/Future-Football-Boots-White-Orchid/dp/B0BLHVD167"
+          },
+          "19": {
+            "t": "PUMA Unisex Ultra Ultimate Fg/Ag Football Boots",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/Unisex-Ultimate-Football-Orange-Glimmer/dp/B0BSLGSB5M"
+          },
+          "20": {
+            "t": "BLBK Fußballschuhe Unisex Professionelle fußballschuhe Herren Outdoor Jungen hohe Bande für Kunstrasen geeignet AG Wettkampf- Trainingsschuhe Kinder",
+            "a": null,
+            "u": "/Football-Professional-Suitable-Artificial-Competition/dp/B0C6NJJSV8"
+          },
+          "21": {
+            "t": "Xinghuanhua Boys' Football Boots with Gold Soles, Studs, Football Boots for Students, Grass Training Boots, Outdoor Football Boots",
+            "a": null,
+            "u": "/Xinghuanhua-Football-Students-Training-Outdoor/dp/B09NJDQH5P"
+          },
+          "22": {
+            "t": "BINBINNIAO Football Boots Men's Sports High Top Non-Slip Men's Football Boots Football Team Turf Shoes Unisex Football Shoes for Men",
+            "a": null,
+            "u": "/BINBINNIAO-Football-Sports-Non-Slip-Moonlight/dp/B0CJ9PJLHC"
+          },
+          "23": {
+            "t": "BLBK Football shoes, men's training, sports shoes, children's football boots, studs, men's and boys' football shoes",
+            "a": null,
+            "u": "/Football-Training-Sports-Childrens-platinum/dp/B0BHF79VD9"
+          },
+          "24": {
+            "t": "Nike Men's Legend 10 Football Boots",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/Legend-Football-Boots-Bright-Crimson/dp/B0C4LTQB9F"
+          },
+          "25": {
+            "t": "PUMA Unisex Children's Future Ultimate Fg/Ag Football Boots",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/Future-Ultimate-Football-Boots-Orchid/dp/B0C92T18M2"
+          },
+          "26": {
+            "t": "adidas Unisex X Crazyfast.3 Soft Ground Fußballschuhe (weicher Boden)",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/adidas-Unisex-Crazyfast-3-Ground-Football/dp/B0C5QHZH3D"
+          },
+          "27": {
+            "t": "PUMA Men's Future Pro Fg/Ag Football Boots, Puma Black Puma White",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/Future-Football-Boots-White-Orchid/dp/B0BLHRHPMM"
+          },
+          "28": {
+            "t": "PUMA Kids Ultra Play FG/AG JR Football Boots",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/Ultra-Football-Boots-White-Orchid/dp/B0BLHR7L3P"
+          },
+          "29": {
+            "t": "adidas Unisex X Crazyfast.3 Fußballschuhe (Multi Ground)",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/adidas-Unisex-Crazyfast-3-Football-Ground/dp/B0BZ7T2WM8"
+          },
+          "30": {
+            "t": "adidas Unisex Copa Pure Ii.3 Firm Ground Fußballschuhe (Fester Untergrund)",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/adidas-Unisex-Ground-Football-Surface/dp/B0C5Q1V3QB"
+          },
+          "31": {
+            "t": "adidas X CRAZYFAST.3 FG J",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/adidas-Unisex-Childrens-Crazyfast-3-Football/dp/B0C5QH5BD9"
+          },
+          "32": {
+            "t": "PUMA Men's Ultra Pro Fg/Ag Football Boots",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/Ultra-Football-Boots-White-Orchid/dp/B0BLHT9ZHX"
+          },
+          "33": {
+            "t": "PUMA Men's Future Pro Mxsg Football Boots",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/Future-Football-Boots-White-Orchid/dp/B0BLHTL1P7"
+          },
+          "34": {
+            "t": "PUMA Herren Zukünftiges Spiel+ Ll Fg/Ag Fussballschuh",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/Future-Match-Football-Boots-Orchid/dp/B0BLHVH2XV"
+          },
+          "35": {
+            "t": "PUMA Men's Future Game MG Football Boots",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/Future-Match-Football-Boots-Orchid/dp/B0BLHS1WJR"
+          },
+          "36": {
+            "t": "adidas Men's Predator Accuracy.3 Firm Ground Football Boots (Firm Surface)",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/adidas-Predator-Accuracy-3-Football-Surface/dp/B0C5Q2WGG6"
+          },
+          "37": {
+            "t": "PUMA Men's Ultra Play MG Football Boots",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/Ultra-Football-Boots-White-Orchid/dp/B0BLHTGHTS"
+          },
+          "38": {
+            "t": "PUMA Men's Future Match+ Ll Fg/Ag Football Boots",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/Future-Match-Football-Boots-Orchid/dp/B0BLHW4F5M"
+          },
+          "39": {
+            "t": "Nike Herren Academy Fussballschuh",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/Academy-Football-Boots-Bright-Crimson/dp/B0C4LJ8J39"
+          },
+          "40": {
+            "t": "PUMA Unisex King Top FG Football Boots, black",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/Unisex-Football-Boots-Black-White/dp/B07KFZQWQK"
+          },
+          "41": {
+            "t": "adidas - Kaiser 5, Herren Fußballschuhe",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/adidas-Performance-Mundial-Football-Boots/dp/B000OWL7CO"
+          },
+          "42": {
+            "t": "PUMA Men's King Top Tt Botas de Fútbol",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/PUMA-Botas-fútbol-Black-White/dp/B07KG4G136"
+          },
+          "43": {
+            "t": "PUMA Unisex Children's Ultra Match Ll Fg/Ag Jr Football Boots",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/Unisex-Childrens-Ultra-Football-Asphalt/dp/B0BLHRQXTD"
+          },
+          "44": {
+            "t": "Nike Men's Superfly 9 Football Boots, Bright Crimson White Black",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/Superfly-Football-Boots-Bright-Crimson/dp/B0C4LJZ8L5"
+          },
+          "45": {
+            "t": "PUMA Herren Future Match Mxsg Fussballschuh",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/Future-Match-Football-Boots-Orchid/dp/B0BLHRTXNV"
+          },
+          "46": {
+            "t": "PUMA Herren Attacanto It Fussballschuh",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/Attacanto-Football-Boots-Black-Orchid/dp/B0BLHVYLN6"
+          },
+          "47": {
+            "t": "PUMA Men's Ultra Pro Fg/Ag Football Boots",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/Ultra-Football-Boots-Black-White/dp/B09YHYFB48"
+          },
+          "48": {
+            "t": "PUMA Unisex King Match Fg/Ag Football Boots",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/Unisex-Match-Football-Boots-Black/dp/B0C2VBVSGM"
+          },
+          "49": {
+            "t": "PUMA Unisex King Pro Fg/Ag Football Boots",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/Unisex-Football-Boots-Black-White/dp/B0C2VCKZ6W"
+          },
+          "50": {
+            "t": "adidas Unisex Copa Pure.3 Turf Football Boots (Turf)",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/adidas-Unisex-Pure-3-Football-Boots/dp/B0BZ7WT9P5"
+          },
+          "51": {
+            "t": "PUMA Men's Ultra Match+ Ll Fg/Ag Football Boots",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/Ultra-Match-Football-Boots-Asphalt/dp/B0BLHT351V"
+          },
+          "52": {
+            "t": "Nike Mercurial Lite Shinguard",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/Unisex-Shinguard-Mercurial-White-DN3611-100/dp/B0BKJYPZWG"
+          },
+          "53": {
+            "t": "PUMA Unisex Children's Future Play Fg/Ag Jr Football Boots",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/Unisex-Childrens-Future-Football-Orchid/dp/B0BLPC385C"
+          },
+          "54": {
+            "t": "PUMA Herren Future Match It Fussballschuh",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/Future-Match-Football-Boots-Orchid/dp/B0BLHTQ4B4"
+          },
+          "55": {
+            "t": "Nike Men's Zoom Vapor Football Boots",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/Nike-Mens-Vapor-Football-Boots/dp/B0B51YLXXT"
+          },
+          "56": {
+            "t": "PUMA Unisex Children's Ultra Pro Fg/Ag Jr Football Boots",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/Unisex-Childrens-Ultra-Football-Orchid/dp/B0BLHW24W8"
+          },
+          "57": {
+            "t": "PUMA Herren Future Play Tt Fussballschuh",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/Future-Football-Boots-White-Orchid/dp/B0BLHTVTSQ"
+          },
+          "58": {
+            "t": "PUMA Men's Future Match Fg/AG Football Boots",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/Future-Match-Football-Persian-White-PRO/dp/B0BLHXTPPH"
+          },
+          "59": {
+            "t": "PUMA Unisex King Pro 21 Tt Fussballschuh",
+            "a": null,
+            "u": "https://www.amazon.de/-/en/Unisex-Football-Boots-Black-White/dp/B08MV3JPGD"
+          }
+        },
+        "q": "fussballschuh",
+        "ctry": "de",
+
+        // this is a limitation of the current test setup:
+        // in production, it should be the doublefetch URL, which would be: "https://www.amazon.de/s/?field-keywords=fussballschuh"
+        "qurl": "https://www.amazon.de/s/ref=nb_sb_noss_2?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&url=search-alias%3Daps&field-keywords=fussballschuh&rh=i%3Aaps%2Ck%3Afussballschuh"
+      }
+    }
+  ]
+}

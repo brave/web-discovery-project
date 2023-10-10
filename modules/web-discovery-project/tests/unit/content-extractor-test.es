@@ -226,7 +226,7 @@ export default describeModule(
 
         describe('when searching in Google for "Angela Merkel"', function () {
           beforeEach(function () {
-            initFixture("go/angela-merkel-2021-03-15");
+            initFixture("go/angela-merkel-2023-10-10");
           });
 
           it('should not find any data (ruleset: "normal")', function () {
@@ -280,7 +280,7 @@ export default describeModule(
 
         describe('when searching in Google for "Angela Merkel"', function () {
           beforeEach(function () {
-            initFixture("go/angela-merkel-2021-03-15");
+            initFixture("go/angela-merkel-2023-10-10");
           });
 
           it('should find search results (ruleset: "normal")', function () {

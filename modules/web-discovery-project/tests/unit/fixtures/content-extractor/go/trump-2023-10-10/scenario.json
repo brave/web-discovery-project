@@ -1,0 +1,190 @@
+{
+  "url": "https://www.google.com/search?q=trump&gl=us&hl=en",
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "query",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "Donald Trump",
+            "u": null,
+            "age": null,
+            "m": null
+          },
+          "1": {
+            "t": "Donald Trump - Breaking News, Photos and Videos",
+            "u": null,
+            "age": null,
+            "m": null
+          },
+          "2": {
+            "t": "Donald Trump | Breaking News & Latest Updates",
+            "u": null,
+            "age": null,
+            "m": null
+          },
+          "3": {
+            "t": "Trump News, Commentary and Analysis",
+            "u": null,
+            "age": null,
+            "m": null
+          },
+          "4": {
+            "t": "Donald J. Trump – The White House - National Archives |",
+            "u": null,
+            "age": null,
+            "m": null
+          },
+          "5": {
+            "t": "Donald Trump",
+            "u": null,
+            "age": null,
+            "m": null
+          },
+          "6": {
+            "t": "Donald Trump | US news",
+            "u": null,
+            "age": null,
+            "m": null
+          },
+          "7": {
+            "t": "Donald Trump",
+            "u": null,
+            "age": null,
+            "m": null
+          },
+          "8": {
+            "t": "Donald Trump | Today's latest from Al Jazeera",
+            "u": null,
+            "age": null,
+            "m": null
+          }
+        },
+        "q": "trump",
+        "qurl": "https://www.google.com/search?q=trump&gl=us&hl=en",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "top-stories",
+      "payload": {
+        "r": {
+          "0": {
+            "u": "https://apnews.com/article/israel-hamas-republican-2024-candidates-trump-4fc0bf20c40acdcf49a579db79bec035",
+            "lu": "2 days ago",
+            "h": "The Republican field is blaming Joe Biden for dealing with Iran after \nHamas' attack on Israel"
+          },
+          "1": {
+            "u": "https://news.yahoo.com/donald-trump-unleashes-macho-bluster-102613712.html",
+            "lu": "1 day ago",
+            "h": "Donald Trump Unleashes His Macho Bluster In All-Caps Response To Hamas \nAttack On Israel"
+          },
+          "2": {
+            "u": "https://www.politico.com/news/2023/10/09/trump-new-hampshire-rally-israel-00120622",
+            "lu": "17 hours ago",
+            "h": "What war? Trump is busy talking about whales, weightlifting and the Patriots"
+          },
+          "3": {
+            "u": "https://thehill.com/homenews/campaign/4247244-trump-hurd-drop-out-2024-gop-race/",
+            "lu": "53 mins ago",
+            "h": "Trump rips Hurd after former congressman pulls out of White House race: \n‘It’s about time!’"
+          },
+          "4": {
+            "u": "https://www.wsj.com/articles/i-am-dropping-out-and-endorsing-nikki-haley-to-beat-donald-trump-fafd472",
+            "lu": "15 hours ago",
+            "h": "Nikki Haley Can Beat Donald Trump - WSJ"
+          },
+          "5": {
+            "u": "https://www.npr.org/2023/10/10/1204241558/trump-biden-election-2024-age-voters",
+            "lu": "4 hours ago",
+            "h": "We spoke to older voters about Trump and Biden's age. We saw 3 recurring \nthemes"
+          },
+          "6": {
+            "u": "https://www.foxnews.com/politics/mystery-solved-iran-backed-judge-seek-trump-arrest-visit-invite-washington-dc-confirmed",
+            "lu": "5 hours ago",
+            "h": "Mystery solved as Iran-backed judge, who seeks Trump's arrest, confirms \ninvite to Washington, DC"
+          }
+        },
+        "q": "trump",
+        "qurl": "https://www.google.com/search?q=trump&gl=us&hl=en",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "snippet2",
+      "payload": {
+        "r": {
+          "0": {
+            "u": "https://en.wikipedia.org/wiki/Donald_Trump"
+          }
+        },
+        "q": "trump",
+        "qurl": "https://www.google.com/search?q=trump&gl=us&hl=en",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "img-p",
+      "payload": {
+        "q": "trump",
+        "qurl": "https://www.google.com/search?q=trump&gl=us&hl=en",
+        "r": {
+          "0": {
+            "u": "http://t1.gstatic.com/images?q=tbn:ANd9GcQQn6_Hz9zTckXYuOa1biiMhulnHv6pKtadAFcdg79yocrL3Y29"
+          },
+          "1": {
+            "u": "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcS6WPx1cusEMTsW-zACLSwzz9Ri4LkxQpjF17J5XcyYCAoZu0omktIqhzXt-L_neVgjg4E2dRgSJYBhAaY"
+          },
+          "2": {
+            "u": "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcTpetW6Pwu0hZWsY5cMUL3B8FOEc9PEW1-3Ru6mJtl9bjhTMjHq1hu6tkU7jWSgqLbI1AYr6cKtZ9Ed4Mo"
+          },
+          "3": {
+            "u": "https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcTLMriMOL4MY5OQw1O657AvcSiBbYom3OW2BT-bLGxD-HEZmcW9AFFQX25xs114lZuTzEmxn_jn2QXOggs"
+          },
+          "4": {
+            "u": "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcSxE9wxi30Xzg-PPmyB3ne1hIn-3O_unBBYHvhL-9K1c-oQQ1u7Y6fUH8jI6-EnbqVsXZAmsRU7G-YfEF0"
+          }
+        },
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "infobox",
+      "payload": {
+        "q": "trump",
+        "qurl": "https://www.google.com/search?q=trump&gl=us&hl=en",
+        "ctry": "de",
+        "t": "About",
+        "desc": "Donald John Trump is an American politician, media personality, and businessman who served as the 45th president of the United States from 2017 to 2021.\nTrump received a BS in economics from the University of Pennsylvania in 1968, and his father named him president of his real-estate business in 1971.",
+        "u": "https://en.wikipedia.org/wiki/Donald_Trump",
+        "st": {
+          "0": {
+            "prop": "Born",
+            "val": "June 14, 1946 (age 77 years), Jamaica Hospital Medical Center, New York, NY"
+          },
+          "1": {
+            "prop": "Party",
+            "val": "Republican Party"
+          },
+          "2": {
+            "prop": "Net worth",
+            "val": "2.5 billion USD (2023) Forbes"
+          },
+          "3": {
+            "prop": "Spouse",
+            "val": "Melania Trump (m. 2005), Marla Maples (m. 1993–1999), Ivana Trump (m. 1977–1990)"
+          },
+          "4": {
+            "prop": "Height",
+            "val": "6′ 3″"
+          }
+        }
+      }
+    }
+  ]
+}
