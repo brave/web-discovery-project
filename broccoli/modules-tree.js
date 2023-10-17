@@ -50,6 +50,7 @@ const babelOptions = {
   filterExtensions: ["es", "jsx", "ts", "tsx"],
   plugins: [
     "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-transform-optional-chaining",
     ...(buildConfig.babelPlugins || []),
     ...(buildConfig.format === "common"
       ? ["@babel/plugin-transform-modules-commonjs"]
