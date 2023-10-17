@@ -135,7 +135,8 @@
     "jsonwebtoken": "9.0.0",
     "xml2js": "0.5.0",
     "cacheable-request": "10.2.7",
-    "socket.io": "4.6.1"
+    "socket.io": "4.6.1",
+    "@babel/traverse": "7.23.2"
   },
   "auto": {
     "name": "Brave",
