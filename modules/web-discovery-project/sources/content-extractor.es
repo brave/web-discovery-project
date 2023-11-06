@@ -385,7 +385,7 @@ export class ContentExtractor {
           if (rules[key][eachKey].etype === "ctry") {
             innerDict[eachKey] = [this._WebDiscoveryProject.getCountryCode()];
           }
-        } else if (rules[key][eachKey].type === "searchQuery") {
+        } else if (rules[key][eachKey].type === "searchQuery" || rules[key][eachKey].type === "widgetTitle") {
           urlArray = this._getAttribute(
             cd,
             key,
