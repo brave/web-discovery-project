@@ -32,13 +32,13 @@
           },
           "4": {
             "t": "Sneezing Baby Panda",
-            "u": null,
+            "u": "https://knowyourmeme.com/memes/sneezing-baby-panda",
             "age": null,
             "m": null
           },
           "5": {
             "t": "Sneezing Baby Panda: The Movie (2015)",
-            "u": null,
+            "u": "https://www.imdb.com/title/tt1986164/",
             "age": null,
             "m": null
           },
@@ -50,7 +50,7 @@
           },
           "7": {
             "t": "Baby Pandas in Minecraft have a chance of sneezing ...",
-            "u": null,
+            "u": "https://www.reddit.com/r/GamingDetails/comments/cokc75/baby_pandas_in_minecraft_have_a_chance_of/",
             "age": null,
             "m": null
           },
@@ -69,6 +69,38 @@
         },
         "q": "sneezing panda",
         "qurl": "https://www.google.com/search?q=sneezing%20panda&gl=us&hl=en",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "img-p",
+      "payload": {
+        "q": "sneezing panda",
+        "qurl": "https://www.google.com/search?q=sneezing%20panda&gl=us&hl=en",
+        "r": {
+          "0": {
+            "u": "http://google.com/search?tbm=isch&q=Sneezing+Baby+Panda+-+The+Movie"
+          },
+          "1": {
+            "u": "https://www.youtube.com/watch?v=93hq0YU3Gqk"
+          },
+          "2": {
+            "u": "https://www.youtube.com/watch?v=YOdQ88rQ464"
+          },
+          "3": {
+            "u": "https://www.amazon.com/Sneezing-Baby-Panda-Jane-Ubrien/dp/B082FNHBWR"
+          },
+          "4": {
+            "u": "https://www.dailymotion.com/video/x2hmpls"
+          },
+          "5": {
+            "u": "https://www.imdb.com/title/tt1986164/"
+          },
+          "6": {
+            "u": "https://mashable.com/video/claymation-panda-sneeze"
+          }
+        },
         "ctry": "de"
       }
     }

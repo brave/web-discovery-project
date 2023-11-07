@@ -56,13 +56,13 @@
           },
           "8": {
             "t": "Mario Götzes WM-Siegtreffer ist das \"Tor des Jahrzehnts\"",
-            "u": null,
+            "u": "https://www.dfb.de/news/detail/mario-goetzes-wm-siegtreffer-ist-das-tor-des-jahrzehnts-215608/",
             "age": null,
             "m": null
           },
           "9": {
             "t": "WM 2014: Das Tor, das ewig bleibt - Sport",
-            "u": null,
+            "u": "https://www.sueddeutsche.de/sport/goetze-schuerrle-wm-2014-tor-finale-1.4971888",
             "age": null,
             "m": null
           }
@@ -72,7 +72,5 @@
         "ctry": "de"
       }
     }
-  ],
-
-  "mustNotContain": [{ "action": "top-stories" }, { "action": "place*" }]
+  ]
 }

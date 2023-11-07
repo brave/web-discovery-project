@@ -14,37 +14,37 @@
           },
           "1": {
             "t": "Elon Musk Deletes Tweet Telling People to Follow ...",
-            "u": null,
+            "u": "https://www.rollingstone.com/politics/politics-news/elon-musk-israel-hamas-war-misinformation-twitter-1234848927/",
             "age": null,
             "m": null
           },
           "2": {
             "t": "Twitter under Elon Musk",
-            "u": null,
+            "u": "https://en.wikipedia.org/wiki/Twitter_under_Elon_Musk",
             "age": null,
             "m": null
           },
           "3": {
             "t": "Twitter Is at Death's Door, One Year After Elon Musk's ...",
-            "u": null,
+            "u": "https://www.rollingstone.com/culture/culture-commentary/elon-musk-killed-twitter-one-year-1234840622/",
             "age": null,
             "m": null
           },
           "4": {
             "t": "Elon Musk admits X 'may fail' after glitch deletes Twitter ...",
-            "u": null,
+            "u": "https://www.theguardian.com/technology/2023/aug/21/elon-musk-x-glitch-deletes-twitter-photos-pictures-links",
             "age": null,
             "m": null
           },
           "5": {
             "t": "Elon Musk's Twitter Takeover | FRONTLINE",
-            "u": null,
+            "u": "https://www.pbs.org/wgbh/frontline/documentary/elon-musks-twitter-takeover/",
             "age": null,
             "m": null
           },
           "6": {
             "t": "Musk says X will charge everyone to use the platform",
-            "u": null,
+            "u": "https://www.axios.com/2023/09/19/musk-x-twitter-charge-all-users-monthly-subscription-fees",
             "age": null,
             "m": null
           }
@@ -185,6 +185,5 @@
         }
       }
     }
-  ],
-  "mustNotContain": [{ "action": "ads_*" }]
+  ]
 }

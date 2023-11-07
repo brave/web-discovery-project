@@ -8,55 +8,55 @@
         "r": {
           "0": {
             "t": "Donald Trump",
-            "u": null,
+            "u": "https://en.wikipedia.org/wiki/Donald_Trump",
             "age": null,
             "m": null
           },
           "1": {
             "t": "Donald Trump - Breaking News, Photos and Videos",
-            "u": null,
+            "u": "https://thehill.com/people/donald-trump/",
             "age": null,
             "m": null
           },
           "2": {
             "t": "Donald Trump | Breaking News & Latest Updates",
-            "u": null,
+            "u": "https://apnews.com/hub/donald-trump",
             "age": null,
             "m": null
           },
           "3": {
             "t": "Trump News, Commentary and Analysis",
-            "u": null,
+            "u": "https://www.cnn.com/specials/politics/president-donald-trump-45",
             "age": null,
             "m": null
           },
           "4": {
             "t": "Donald J. Trump – The White House - National Archives |",
-            "u": null,
+            "u": "https://trumpwhitehouse.archives.gov/people/donald-j-trump/",
             "age": null,
             "m": null
           },
           "5": {
             "t": "Donald Trump",
-            "u": null,
+            "u": "https://www.cnbc.com/donald-trump/",
             "age": null,
             "m": null
           },
           "6": {
             "t": "Donald Trump | US news",
-            "u": null,
+            "u": "https://www.theguardian.com/us-news/donaldtrump",
             "age": null,
             "m": null
           },
           "7": {
             "t": "Donald Trump",
-            "u": null,
+            "u": "https://www.nytimes.com/spotlight/donald-trump",
             "age": null,
             "m": null
           },
           "8": {
             "t": "Donald Trump | Today's latest from Al Jazeera",
-            "u": null,
+            "u": "https://www.aljazeera.com/tag/donald-trump/",
             "age": null,
             "m": null
           }

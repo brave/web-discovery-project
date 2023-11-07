@@ -169,7 +169,7 @@
           "keyName": "t"
         },
         "u": {
-          "item": "div.yuRUbf > div > span[role=link] > a[jsname], div.yuRUbf > div > a[jsname], div.nhaZ2c > div > span > a, div.DhN8Cf > div > a[jsname], g-section-with-header g-link > a.a-no-hover-decoration",
+          "item": "div.yuRUbf > div > span[role=link] > a[jsname], div.yuRUbf > div > span > a, div.yuRUbf > div > a[jsname], div.nhaZ2c > div > span > a, div.DhN8Cf > div > a[jsname], g-section-with-header g-link > a.a-no-hover-decoration",
           "type": "arr",
           "etype": "href",
           "keyName": "u",

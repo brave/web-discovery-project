@@ -33,10 +33,15 @@ export function parseQueryString(query) {
 // (part of the DSL used in the patterns description)
 function refineSplitFunc(splitString, splitON, arrPos) {
   const result = splitString.split(splitON)[arrPos];
-  if (result) {
-    return decodeURIComponent(result);
+  try {
+    if (result) {
+      return decodeURIComponent(result);
+    }
+    return decodeURIComponent(splitString);
+  } catch (e) {
+    logger.warn("Unable to decode URI", result || splitString);
+    return null;
   }
-  return decodeURIComponent(splitString);
 }
 
 // helper function to implement the "parseU" function
