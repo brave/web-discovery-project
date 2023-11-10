@@ -8,8 +8,7 @@
     "build-module": "node fern.js build configs/module.js --environment prod",
     "start:brave": "web-ext run --source-dir='./build' --target chromium --chromium-binary \"$BRAVE_PATH\"",
     "start:build": "node --unhandled-rejections=strict fern.js serve configs/sandbox.js --no-launch",
-    "start": "npm run build && concurrently npm:start:*",
-    "release": "auto shipit"
+    "start": "npm run build && concurrently npm:start:*"
   },
   "repository": {
     "type": "git",
@@ -44,11 +43,12 @@
   "homepage": "https://github.com/brave/web-discovery-project#readme",
   "devDependencies": {
     "@babel/core": "7.23.3",
+    "@babel/eslint-parser": "7.23.3",
     "@babel/plugin-proposal-class-properties": "7.18.6",
     "@babel/plugin-proposal-dynamic-import": "7.18.6",
     "@babel/plugin-transform-modules-commonjs": "7.23.3",
     "@babel/plugin-transform-modules-systemjs": "7.23.3",
-    "@babel/plugin-transform-optional-chaining": "^7.23.0",
+    "@babel/plugin-transform-optional-chaining": "7.23.0",
     "@babel/plugin-transform-regenerator": "7.23.3",
     "@babel/plugin-transform-template-literals": "7.23.3",
     "@babel/preset-env": "7.23.3",
@@ -57,11 +57,9 @@
     "@types/mocha": "9.1.1",
     "@types/node": "17.0.8",
     "@types/punycode": "2.1.0",
-    "@typescript-eslint/eslint-plugin": "5.62.0",
-    "@typescript-eslint/parser": "5.62.0",
+    "@typescript-eslint/eslint-plugin": "6.10.0",
+    "@typescript-eslint/parser": "6.10.0",
     "@xmldom/xmldom": "0.8.10",
-    "auto": "10.46.0",
-    "babel-eslint": "10.1.0",
     "body-parser": "1.20.2",
     "broccoli": "3.5.2",
     "broccoli-babel-transpiler": "7.8.1",
@@ -69,7 +67,6 @@
     "broccoli-file-creator": "2.1.1",
     "broccoli-funnel": "3.0.8",
     "broccoli-imagemin": "2.0.1",
-    "broccoli-lint-eslint": "6.0.0",
     "broccoli-merge-trees": "4.2.0",
     "broccoli-plugin": "4.0.7",
     "broccoli-source": "3.0.1",
@@ -83,9 +80,9 @@
     "console-ui": "3.1.2",
     "cookie-parser": "1.4.6",
     "eslint": "7.32.0",
-    "eslint_d": "13.0.0",
     "eslint-config-prettier": "8.10.0",
     "eslint-plugin-compat": "4.0.2",
+    "eslint_d": "13.0.0",
     "express": "4.18.1",
     "fake-indexeddb": "4.0.2",
     "filehound": "1.17.6",
@@ -136,85 +133,5 @@
     "xml2js": "0.6.2",
     "cacheable-request": "10.2.7",
     "socket.io": "4.7.2"
-  },
-  "auto": {
-    "name": "Brave",
-    "email": "remi@brave.com",
-    "plugins": [
-      "git-tag"
-    ],
-    "labels": [
-      {
-        "name": "PR: Breaking Change :boom:",
-        "description": "Increment major version when merged",
-        "changelogTitle": ":boom: Breaking Change",
-        "releaseType": "major",
-        "overwrite": true,
-        "color": "#e2372b"
-      },
-      {
-        "name": "PR: New Feature :rocket:",
-        "description": "Increment minor version when merged",
-        "changelogTitle": ":rocket: New Feature",
-        "releaseType": "minor",
-        "overwrite": true,
-        "color": "#2e449b"
-      },
-      {
-        "name": "PR: Performance :running_woman:",
-        "description": "Increment minor version when merged",
-        "changelogTitle": ":running_woman: Performance",
-        "releaseType": "minor",
-        "overwrite": true,
-        "color": "#ead99f"
-      },
-      {
-        "name": "PR: Bug Fix :bug:",
-        "description": "Increment patch version when merged",
-        "changelogTitle": ":bug: Bug Fix",
-        "releaseType": "patch",
-        "overwrite": true,
-        "color": "#56dd97"
-      },
-      {
-        "name": "PR: Polish :nail_care:",
-        "description": "Increment patch version when merged",
-        "changelogTitle": ":nail_care: Polish",
-        "releaseType": "patch",
-        "overwrite": true,
-        "color": "#a9bbe8"
-      },
-      {
-        "name": "PR: Internal :house:",
-        "description": "Changes only affect internals",
-        "changelogTitle": ":house: Internal",
-        "releaseType": "none",
-        "overwrite": true,
-        "color": "#5b1482"
-      },
-      {
-        "name": "PR: Docs :memo:",
-        "description": "Changes only affect documentation",
-        "changelogTitle": ":memo: Documentation",
-        "releaseType": "none",
-        "overwrite": true,
-        "color": "#d2f28a"
-      },
-      {
-        "name": "skip-release",
-        "description": "Preserve the current version when merged",
-        "releaseType": "skip",
-        "overwrite": true,
-        "color": "#e069cf"
-      },
-      {
-        "name": "PR: Dependencies :nut_and_bolt:",
-        "description": "Changes only update dependencies",
-        "changelogTitle": ":nut_and_bolt: Dependencies",
-        "releaseType": "none",
-        "overwrite": true,
-        "color": "#5dbdcc"
-      }
-    ]
   }
 }

@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-22.04
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [20]
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
@@ -27,8 +27,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - run: |
-          npm install
+      - run: npm install
+
+      - run: ./node_modules/.bin/eslint .
 
       - run: node --unhandled-rejections=strict fern.js build configs/ci/unit-tests.js --include-tests
 

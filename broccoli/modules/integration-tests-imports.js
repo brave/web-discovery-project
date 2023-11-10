@@ -11,7 +11,7 @@ function createDefaultExportName(parts) {
   return camelCase(
     parts
       .map((part) => part[0].toUpperCase() + part.substr(1).toLowerCase())
-      .join("")
+      .join(""),
   );
 }
 
@@ -29,7 +29,7 @@ if (config.modules && config.modules.indexOf("integration-tests") !== -1) {
       ]);
       defaults.push(`${defaultExport}();`);
       imports.push(
-        `import ${defaultExport} from './tests/${moduleName}/integration/${filename}';`
+        `import ${defaultExport} from './tests/${moduleName}/integration/${filename}';`,
       );
     });
   });
@@ -45,5 +45,5 @@ TESTS.IntegrationTests = function () {
     ${defaults.join("\n    ")}
   });
 };
-`
+`,
 );

@@ -248,7 +248,7 @@ export class RemoteResourceWatcher {
       return;
     }
     let initFinished: any;
-    this.initInProgress = new Promise((resolve, _) => {
+    this.initInProgress = new Promise((resolve) => {
       initFinished = resolve;
     });
 
@@ -350,7 +350,7 @@ export class RemoteResourceWatcher {
     }
 
     let updateFinished: any;
-    this.pendingUpdate = new Promise((resolve, _) => {
+    this.pendingUpdate = new Promise((resolve) => {
       updateFinished = resolve;
     });
     try {
@@ -495,7 +495,7 @@ export class RemoteResourceWatcher {
     }
   }
 
-  async _writeToDisk() {
+  _writeToDisk() {
     // edge case: prevent races during shutdown where
     // verifiedContent has been already unloaded
     if (!this.initialized) {

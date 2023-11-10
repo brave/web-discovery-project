@@ -110,7 +110,7 @@ export default class SignedPatternsLoader {
     await this.resourceWatcher.init();
   }
 
-  async unload() {
+  unload() {
     this.resourceWatcher.unload();
   }
 }

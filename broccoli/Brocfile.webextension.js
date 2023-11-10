@@ -9,12 +9,9 @@ const specificTree = require("./specific-tree");
 const modules = require("./modules-tree");
 
 const modulesTree = new MergeTrees([
-  new Funnel(
-    new MergeTrees([modules.static, modules.bundles, modules.styleTests]),
-    {
-      destDir: "modules",
-    }
-  ),
+  new Funnel(new MergeTrees([modules.static, modules.bundles]), {
+    destDir: "modules",
+  }),
   new Funnel(modules.wasm),
 ]);
 

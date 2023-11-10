@@ -14,7 +14,7 @@ if (!buildConfig.modules) {
   buildConfig.modules = fs
     .readdirSync(path.join(".", "modules"))
     .filter((dir) =>
-      fs.lstatSync(path.join(".", "modules", dir)).isDirectory()
+      fs.lstatSync(path.join(".", "modules", dir)).isDirectory(),
     );
 }
 
