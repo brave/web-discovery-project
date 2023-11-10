@@ -1,0 +1,189 @@
+{
+  "url": "https://www.google.com/search?q=elon%20musk%20twitter&gl=us&hl=en",
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "query",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "Elon Musk (@elonmusk) · Twitter",
+            "u": "https://twitter.com/elonmusk",
+            "age": null,
+            "m": null
+          },
+          "1": {
+            "t": "Elon Musk Deletes Tweet Telling People to Follow ...",
+            "u": "https://www.rollingstone.com/politics/politics-news/elon-musk-israel-hamas-war-misinformation-twitter-1234848927/",
+            "age": null,
+            "m": null
+          },
+          "2": {
+            "t": "Twitter under Elon Musk",
+            "u": "https://en.wikipedia.org/wiki/Twitter_under_Elon_Musk",
+            "age": null,
+            "m": null
+          },
+          "3": {
+            "t": "Twitter Is at Death's Door, One Year After Elon Musk's ...",
+            "u": "https://www.rollingstone.com/culture/culture-commentary/elon-musk-killed-twitter-one-year-1234840622/",
+            "age": null,
+            "m": null
+          },
+          "4": {
+            "t": "Elon Musk admits X 'may fail' after glitch deletes Twitter ...",
+            "u": "https://www.theguardian.com/technology/2023/aug/21/elon-musk-x-glitch-deletes-twitter-photos-pictures-links",
+            "age": null,
+            "m": null
+          },
+          "5": {
+            "t": "Elon Musk's Twitter Takeover | FRONTLINE",
+            "u": "https://www.pbs.org/wgbh/frontline/documentary/elon-musks-twitter-takeover/",
+            "age": null,
+            "m": null
+          },
+          "6": {
+            "t": "Musk says X will charge everyone to use the platform",
+            "u": "https://www.axios.com/2023/09/19/musk-x-twitter-charge-all-users-monthly-subscription-fees",
+            "age": null,
+            "m": null
+          }
+        },
+        "q": "elon musk twitter",
+        "qurl": "https://www.google.com/search?q=elon%20musk%20twitter&gl=us&hl=en",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "top-stories",
+      "payload": {
+        "r": {
+          "0": {
+            "u": "https://www.washingtonpost.com/technology/2023/10/08/israel-hamas-disinfo-musk-twitter-x/",
+            "lu": "1 day ago",
+            "h": "Elon Musk told X users to follow accounts known for lies for Israel updates"
+          },
+          "1": {
+            "u": "https://www.theguardian.com/technology/2023/oct/09/x-twitter-elon-musk-disinformation-israel-hamas",
+            "lu": "19 hours ago",
+            "h": "X criticised for enabling spread of Israel-Hamas disinformation"
+          },
+          "2": {
+            "u": "https://www.businessinsider.com/fake-news-israel-gaza-x-twitter-result-elon-musk-policies-2023-10",
+            "lu": "1 hour ago",
+            "h": "Fake X posts about Israel-Gaza conflict are a result of Musk's policies: \nexpert"
+          },
+          "3": {
+            "u": "https://www.reuters.com/business/why-sec-might-win-its-latest-battle-with-elon-musk-2023-10-09/",
+            "lu": "20 hours ago",
+            "h": "Analysis: Why Elon Musk might lose his latest battle with the SEC over \nTwitter probe"
+          },
+          "4": {
+            "u": "https://www.hexham-courant.co.uk/news/national/23837598.us-regulators-seek-force-elon-musk-testify-twitter-acquisition-probe/",
+            "lu": "4 days ago",
+            "h": "US regulators seek to force Elon Musk to testify in Twitter acquisition \nprobe"
+          },
+          "5": {
+            "u": "https://www.independent.co.uk/tech/x-verified-replies-elon-musk-b2427043.html",
+            "lu": "2 hours ago",
+            "h": "X introduces limits to prevent non-paying users from replying to posts"
+          },
+          "6": {
+            "u": "https://fortune.com/2023/10/09/x-twitter-elon-musk-bluesky-mastodon-afd-germany-migrants/",
+            "lu": "21 hours ago",
+            "h": "Leaving X can be a rewarding experience—but nobody’s matching Twitter’s \nideological diversity"
+          },
+          "7": {
+            "u": "https://www.bloomberg.com/opinion/articles/2023-10-05/the-moral-case-for-no-longer-engaging-with-elon-musk-s-x",
+            "lu": "5 days ago",
+            "h": "The Moral Case for No Longer Engaging With Elon Musk's X"
+          },
+          "8": {
+            "u": "https://www.scmp.com/comment/opinion/article/3236665/why-elon-musks-rebrand-twitter-x-brilliant-idea-poorly-executed",
+            "lu": "5 days ago",
+            "h": "For future of X, Musk must learn it’s not enough to move fast and break \nthings"
+          },
+          "9": {
+            "u": "https://www.moneycontrol.com/news/opinion/the-moral-case-for-no-longer-engaging-with-elon-musks-x-11488291.html",
+            "lu": "4 days ago",
+            "h": "The moral case for no longer engaging with Elon Musk’s X"
+          }
+        },
+        "q": "elon musk twitter",
+        "qurl": "https://www.google.com/search?q=elon%20musk%20twitter&gl=us&hl=en",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "img-p",
+      "payload": {
+        "q": "elon musk twitter",
+        "qurl": "https://www.google.com/search?q=elon%20musk%20twitter&gl=us&hl=en",
+        "r": {
+          "0": {
+            "u": "http://google.com/search?tbm=isch&q=Elon+Musk"
+          },
+          "1": {
+            "u": "https://www.analyticsinsight.net/elon-musk-twitter-to-embrace-dark-mode-only/"
+          },
+          "2": {
+            "u": "https://people.com/twitter-bird-logo-will-change-soon-elon-musk-says-7564408"
+          },
+          "3": {
+            "u": "https://www.cnbc.com/2023/07/27/harvard-expert-elon-musk-is-out-of-his-element-at-twitter-x.html"
+          },
+          "4": {
+            "u": "https://www.salon.com/2022/10/27/elon-musk-has-officially-dubbed-himself-chief-twit/"
+          },
+          "5": {
+            "u": "https://slate.com/technology/2022/09/elon-musk-twitter-gotta-pick-one.html"
+          },
+          "6": {
+            "u": "https://www.npr.org/2022/06/16/1105608659/elon-musk-twitter-employees"
+          }
+        },
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "infobox",
+      "payload": {
+        "q": "elon musk twitter",
+        "qurl": "https://www.google.com/search?q=elon%20musk%20twitter&gl=us&hl=en",
+        "ctry": "de",
+        "t": "Choose what you’re giving feedback on",
+        "desc": "Elon Reeve Musk is a business magnate and investor. Musk is the founder, chairman, CEO and chief technology officer of SpaceX; angel investor, CEO, product architect and former chairman of Tesla, Inc.; ...",
+        "u": "https://en.wikipedia.org/wiki/Elon_Musk",
+        "st": {
+          "0": {
+            "prop": "Born",
+            "val": "June 28, 1971 (age 52 years), Pretoria, South Africa"
+          },
+          "1": {
+            "prop": "Children",
+            "val": "Vivian Jenna Wilson, Nevada Alexander Musk, MORE"
+          },
+          "2": {
+            "prop": "Net worth",
+            "val": "252.6 billion USD (2023) Forbes"
+          },
+          "3": {
+            "prop": "Spouse",
+            "val": "Talulah Riley (m. 2013–2016), Talulah Riley (m. 2010–2012), Justine Musk (m. 2000–2008)"
+          },
+          "4": {
+            "prop": "Parents",
+            "val": "Errol Musk, Maye Musk"
+          },
+          "5": {
+            "prop": "Siblings",
+            "val": "Kimbal Musk, Tosca Musk"
+          }
+        }
+      }
+    }
+  ]
+}

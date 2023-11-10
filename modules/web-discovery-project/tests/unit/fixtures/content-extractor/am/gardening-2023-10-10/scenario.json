@@ -1,0 +1,320 @@
+{
+  "url": "https://www.amazon.com/s?k=gardening&ref=nb_sb_noss_1",
+
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "query-am",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "Lazy Lawn Care: Proven Lawn Care Tips for Saving Time and Effort on Landscaping, Weed Control, Lawn Watering and Gardening",
+            "a": null,
+            "u": "/Lazy-Lawn-Care-Landscaping-Gardening-ebook/dp/B0CCJYYVFG"
+          },
+          "1": {
+            "t": "Gorilla Carts GOR400-COM Steel Garden Cart, Steel Mesh Removable Sides, 3 cu ft, 400 lb Capacity, Green",
+            "a": null,
+            "u": "https://www.amazon.com/Gorilla-Carts-GOR400-COM-Removable-400-lbs/dp/B01BECQBZ0"
+          },
+          "2": {
+            "t": "The 2024 Old Farmer’s Almanac Gardening Calendar",
+            "a": null,
+            "u": "https://www.amazon.com/2024-Farmers-Almanac-Gardening-Calendar/dp/1571989617"
+          },
+          "3": {
+            "t": "Fiskars Multi-purpose Garden Shears",
+            "a": null,
+            "u": "https://www.amazon.com/Fiskars-356922-1009-Multi-Purpose-Scissor-Titanium/dp/B07QDMMNBJ"
+          },
+          "4": {
+            "t": "Gardening Log Book and Planner: Monthly Garden Planting Journal and Organizer for Gardeners",
+            "a": null,
+            "u": "https://www.amazon.com/Gardening-Log-Book-Planner-Organizer/dp/B0CDFS5YSZ"
+          },
+          "5": {
+            "t": "TORCHSTAR LED Indoor Herb Garden, CRI 95+, Herb Grower Light with Timer, Indoor Gardening System, Full Spectrum Light, 24V Garden Kit for Plant Grow Novice, White, 4000K, Pots & Plants Not Included",
+            "a": null,
+            "u": "https://www.amazon.com/TORCHSTAR-Spectrum-Sun-Like-Succulent-Vegetable/dp/B075GJ93PP"
+          },
+          "6": {
+            "t": "Gardening Log Book: Plant Organizer for Avid Gardeners | Gardening Notebook to Better Track Plants, Details and Care System | Perfect for Garden Lovers | 8.5 x 11",
+            "a": null,
+            "u": "https://www.amazon.com/Gardening-Log-Book-Organizer-Gardeners/dp/B09X2M5DBP"
+          },
+          "7": {
+            "t": "Xtreme Gardening 4401, 1-Pound Mykos Granular Nutrient, 1 lb",
+            "a": null,
+            "u": "https://www.amazon.com/Xtreme-Gardening-4401-Granular-Nutrient/dp/B004KPKAWO"
+          },
+          "8": {
+            "t": "Gardening: Perennial Vegetables - Plant Once and Harvest Year After Year (3rd Edition) (botanical, home garden, horticulture, garden, landscape, plants, gardening)",
+            "a": null,
+            "u": "https://www.amazon.com/Gardening-Perennial-Vegetables-botanical-horticulture-ebook/dp/B00SZ0SI1U"
+          },
+          "9": {
+            "t": "Fiskars 4-Claw Stand Up Weeder - Gardening Hand Weeding Tool with 39\" Long Ergonomic Handle - Black",
+            "a": null,
+            "u": "https://www.amazon.com/Fiskars-Deluxe-Stand-up-Weeder-4-claw/dp/B0030MIHAU"
+          },
+          "10": {
+            "t": "Homegrown Vegetables, Fruits, and Herbs: A Bountiful, Healthful Garden for Lean Times (Creative Homeowner) Expert Gardening Advice: Reduce Costs, Save Time, & Grow Safe, Delicious Food for Your Family",
+            "a": null,
+            "u": "https://www.amazon.com/Homegrown-Vegetables-Fruits-Herbs-Bountiful/dp/1580114717"
+          },
+          "11": {
+            "t": "Radius Garden 10211, Ergonomic Aluminum Hand Weeder, Red",
+            "a": null,
+            "u": "https://www.amazon.com/Radius-Garden-10211-Ergonomic-Aluminum/dp/B0711JH63Z"
+          },
+          "12": {
+            "t": "Womens Youre Never Too Old to Play in The Dirt Tshirt Funny Gardening Tee",
+            "a": null,
+            "u": "https://www.amazon.com/Gardening-Crazy-Dog-T-Shirts-Comfortable/dp/B087HN38FW"
+          },
+          "13": {
+            "t": "Gardening (Merit Badge Series)",
+            "a": null,
+            "u": "https://www.amazon.com/Gardening-Merit-Badge-Series/dp/B00NC9XFQ2"
+          },
+          "14": {
+            "t": "Garden Planner & Journal: Gardening Gifts / Calendar / Diary [ Paperback Notebook * 1 Year - Start any time * Large - 8.5 x 11 inch * Decorative Black ... * van Gogh ] (Gifts & Presents for Gardeners)",
+            "a": null,
+            "u": "https://www.amazon.com/Garden-Planner-Journal-Gardening-Decorative/dp/1545290555"
+          },
+          "15": {
+            "t": "A.M. Leonard Complete Aluminum Gardening Tool Set (5 Tools)",
+            "a": null,
+            "u": "https://www.amazon.com/M-Leonard-Complete-Aluminum-Gardening/dp/B0034035A0"
+          },
+          "16": {
+            "t": "OUHO Multi-Functional Outdoor Garden Cleaning Shovel Steel Flat Shovel ice Shovel Weeding Planting Farm Weeding",
+            "a": null,
+            "u": "https://www.amazon.com/OUHO-Multi-Functional-Outdoor-Cleaning-Planting/dp/B09V7PKQLW"
+          },
+          "17": {
+            "t": "Happyyami 1Pc Garden Tool Bag Garden Bucket Bag Storage Tote Foldable Tote Storage Bag Adjustable Gardening Carrier Storage Basket Household Barrel Bucket Rack Toolbox Tote Bag",
+            "a": null,
+            "u": "https://www.amazon.com/Happyyami-Foldable-Adjustable-Gardening-Household/dp/B0CJ8C9WD9"
+          },
+          "18": {
+            "t": "HANTOP Shovel Round Digging Shovel Garden Shovel Heavy Duty Shovel for Digging Trenching Gardening Camping, 43 inches",
+            "a": null,
+            "u": "https://www.amazon.com/HANTOP-Digging-Trenching-Gardening-Camping/dp/B0C3VDDB5F"
+          },
+          "19": {
+            "t": "HANTOP Garden Fork 4-Tine Digging Fork Heavy Duty Spading Fork Pitch Fork for Gardening, 43 inches",
+            "a": null,
+            "u": "https://www.amazon.com/HANTOP-Garden-Digging-Spading-Gardening/dp/B0C1BMMD7Y"
+          },
+          "20": {
+            "t": "Corona Tools | ClassicCUT ClassicCUT® Branch & Stem Pruning Shears for Gardening | Cuts Branches and Stems up to 1-inch in Diameter | BP 15180",
+            "a": null,
+            "u": "https://www.amazon.com/Corona-BP15180-Forged-ClassicCUTBypass-Branch/dp/B083XCYMM4"
+          },
+          "21": {
+            "t": "Nisaku NJP650 The Original Hori Hori Namibagata Japanese Stainless Steel Weeding Knife & Fiskars Ergo Gardening Hand Trowel - Ergonomic Handle Design with Hang Hole Heavy Duty Garden Tool for Digging",
+            "a": null,
+            "u": "https://www.amazon.com/Nisaku-Original-Namibagata-Stainless-Gardening/dp/B0C98W3PPL"
+          },
+          "22": {
+            "t": "Strongway Steel Yard Cart Jumbo Garden Wagon with Removable Sides 1400-Lb. Capacity, 50in.L x 24.1in.W x 26.75in.H",
+            "a": null,
+            "u": "https://www.amazon.com/Strongway-Removable-1400-Lb-Capacity-26-75in-H/dp/B0C5Y5K3P5"
+          },
+          "23": {
+            "t": "Gigglebug",
+            "a": null,
+            "u": "https://www.amazon.com/Gardening/dp/B09DM87PDT"
+          },
+          "24": {
+            "t": "The Vegetable Garden Problem Solver Handbook: Identify and manage diseases and other common problems on edible plants",
+            "a": null,
+            "u": "/Vegetable-Garden-Problem-Solver-Handbook-ebook/dp/B0BLZP3R5Q"
+          },
+          "25": {
+            "t": "Senkichi SGKN-6 Double Edged Hatchet for Gardening, For Wood Splitting and Pruning Branches, 6.5 inches (165 mm)",
+            "a": null,
+            "u": "https://www.amazon.com/Gardening-Double-Beveled-Blade-SGKN-6/dp/B003UYTDEW"
+          },
+          "26": {
+            "t": "Gorilla Carts GCR-4 Poly Dump Cart, 2-Wheel Garden Wagon with Foldable Handle, 4 cu ft, 300 lb. Capacity, Black/Yellow",
+            "a": null,
+            "u": "https://www.amazon.com/Gorilla-Carts-GCR-4-300-pound-Capacity/dp/B08B43QY61"
+          },
+          "27": {
+            "t": "A.M. Leonard Garden Scoooter with Flat-Free Tires",
+            "a": null,
+            "u": "https://www.amazon.com/M-Leonard-Garden-Scoooter-Flat-Free/dp/B0CFB4L2W6"
+          },
+          "28": {
+            "t": "Onebttl Gardening Gifts for Plant Lovers, Women, Cool Gifts for Gardeners, Wife, Mom- 20oz/590ml Double Wall Vacuum Insulated Stainless Steel Tumblers Cups - Wet Rosegold",
+            "a": null,
+            "u": "https://www.amazon.com/Onebttl-Gardening-Gardeners-Insulated-Stainless/dp/B0C6R2FG54"
+          },
+          "29": {
+            "t": "The Spiritual Gardener: Insights from the Jewish Tradition to Help your Garden Grow (Second Edition) (The Spiritual Garden Series)",
+            "a": null,
+            "u": "/Spiritual-Gardener-Insights-Jewish-Tradition-ebook/dp/B0BNJTFKQ3"
+          },
+          "30": {
+            "t": "Gardening with Sacred Geometry: We use water for our crops that has been enriched with Sacred Geometry to increase its life force energy by 2.5. Our crops are larger, healthier, and more nutritous.",
+            "a": null,
+            "u": "/Gardening-Sacred-Geometry-healthier-nutritous-ebook/dp/B096L5CZPF"
+          },
+          "31": {
+            "t": "Tomato Tales: A Garderner's Journey From Soil To Sauce",
+            "a": null,
+            "u": "/Tomato-Tales-Garderners-Journey-Sauce-ebook/dp/B0CJ772ZCW"
+          },
+          "32": {
+            "t": "Garden Clubbed!: From Mums to Mayhem",
+            "a": null,
+            "u": "/Garden-Clubbed-Mayhem-Josh-Langston-ebook/dp/B08JYVBB9M"
+          },
+          "33": {
+            "t": "Fiskars Bypass Pruning Shears 5/8” Garden Clippers - Plant Cutting Scissors with Sharp Precision-Ground Steel Blade",
+            "a": null,
+            "u": "https://www.amazon.com/Fiskars-91095935J-Bypass-Pruning-Shears/dp/B00002N66H"
+          },
+          "34": {
+            "t": "Womanswork Stretch Gardening Glove with Micro Suede Palm, Hot Pink, Small",
+            "a": null,
+            "u": "https://www.amazon.com/Womanswork-Stretch-Gardening-Glove-Micro/dp/B001KWFGO2"
+          },
+          "35": {
+            "t": "Garden Planner and Log Book: Monthly Gardening Journal and Notebook for Gardening Enthusiasts, Detailed Organizer to Help You Grow and Maintain Your Garden - An Ideal Gardening Gift",
+            "a": null,
+            "u": "https://www.amazon.com/Garden-Planner-Log-Book-Enthusiasts/dp/B0C12JW9Z5"
+          },
+          "36": {
+            "t": "Gorilla Carts 7GCG-NF Heavy-Duty Poly Dump Cart with No-Flat Tires, 7 cu ft, 1200 lb Capacity, Black",
+            "a": null,
+            "u": "https://www.amazon.com/Gorilla-Carts-Heavy-Duty-No-Flat-Tires/dp/B084NY9PTB"
+          },
+          "37": {
+            "t": "Greenhouse Setup Manual",
+            "a": null,
+            "u": "/Greenhouse-Setup-Manual-Barry-Nadel-ebook/dp/B0BV7K2HBQ"
+          },
+          "38": {
+            "t": "Indoor Succulent Care: A Beginner's Guide on How Succulent Plants Can Keep You Out of Trouble and Make You a Better Person",
+            "a": null,
+            "u": "/Indoor-Succulent-Care-Beginners-Trouble-ebook/dp/B089KKHQ3Y"
+          },
+          "39": {
+            "t": "Backyard Herb Gardening: How To Grow Herbs From Your Backyard and Use It For Everyday Life",
+            "a": null,
+            "u": "/Backyard-Herb-Gardening-Herbs-Everyday-ebook/dp/B01N788EJU"
+          },
+          "40": {
+            "t": "Hydroponics: The Definitive Beginner’s Guide to Quickly Start Growing Vegetables, Fruits, & Herbs for Self-Sufficiency! (Gardening, Organic Gardening, Homesteading, Horticulture, Aquaculture)",
+            "a": null,
+            "u": "/Hydroponics-Self-Sufficiency-Homesteading-Horticulture-Aquaculture-ebook/dp/B01BRQ06IG"
+          },
+          "41": {
+            "t": "Radius Garden 30511 Ergonomic Garden Hand Tool Set, Red",
+            "a": null,
+            "u": "https://www.amazon.com/Radius-Garden-30511-Ergonomic-Gardening/dp/B0785NCG16"
+          },
+          "42": {
+            "t": "BIRASIL Outdoor Galvanized Raised Beds, Steel Garden Boxes for Flower Vegetables, Metal Planter Box for Gardening (8x4x1FT, Silver)",
+            "a": null,
+            "u": "https://www.amazon.com/BIRASIL-Outdoor-Galvanized-Vegetables-Gardening/dp/B0B4D8V87N"
+          },
+          "43": {
+            "t": "Gardening Log Book and Journal: Complete Garden Planner and Organizer, Plant Logs for Vegetables, Fruits, Flowers - Monthly Calendars (Garden Organizer for All Ages)",
+            "a": null,
+            "u": "https://www.amazon.com/Gardening-Log-Book-Journal-Vegetables/dp/B0B9QTH68Q"
+          },
+          "44": {
+            "t": "Amyove Garage Tool Storage Rack, Garden Tool Organizer,Utility Rack,Holds Yard Tools, Wheeled for Garage, Shed, Outdoor, Garden Tool Stand",
+            "a": null,
+            "u": "https://www.amazon.com/Amyove-Storage-Organizer-Utility-Wheeled/dp/B0BX46TVN5"
+          },
+          "45": {
+            "t": "Womens I Love Gardening So Much I Wet My Plants Tshirt Cute Summer Tee",
+            "a": null,
+            "u": "https://www.amazon.com/Gardening-Crazy-Dog-T-Shirts-Comfortable/dp/B07RT1VP3Y"
+          },
+          "46": {
+            "t": "Ironton Steel Garden Cart - 400-Lb. Capacity, 38in.L x 18 1/2in.W x 21in.H",
+            "a": null,
+            "u": "https://www.amazon.com/Ironton-Steel-Garden-Cart-Capacity/dp/B0BVGN1MFW"
+          },
+          "47": {
+            "t": "Miracle Gro Women's High-Dexterity Gardening Work Gloves, Touchscreen Technologies, Abrasion Resistant, Comfort, Blue/Tan, Medium, (MG86207/WML)",
+            "a": null,
+            "u": "https://www.amazon.com/Miracle-Gro-High-Dexterity-Technologies-MG86207-WML/dp/B09SV9L6M3"
+          },
+          "48": {
+            "t": "Florida Gardening Planner 2023: Florida month by month edible garden planner and reference guide for abundant harvests and self-sufficiency. (Southern Garden Regional Gardening Planners)",
+            "a": null,
+            "u": "https://www.amazon.com/Florida-Gardening-Planner-2023-self-sufficiency/dp/1946050245"
+          },
+          "49": {
+            "t": "Kate Spade New York Make It Pop Floral Box, 0.85 LB, Green/Navy",
+            "a": null,
+            "u": "https://www.amazon.com/Kate-Spade-Make-Floral-Green/dp/B0B88T3GBH"
+          },
+          "50": {
+            "t": "Baby Baby",
+            "a": null,
+            "u": "https://www.amazon.com/Gardening/dp/B0CBD86VPX"
+          },
+          "51": {
+            "t": "The Martha Stewart Gardening Collection - Martha's Spring Garden [DVD]",
+            "a": null,
+            "u": "https://www.amazon.com/Martha-Stewart-Gardening-Collection-Marthas/dp/B000E8M0WY"
+          },
+          "52": {
+            "t": "Mykos RT4401 Mycorrhizae, Granular, 1-Lb. - Quantity 1",
+            "a": null,
+            "u": "https://www.amazon.com/Mykos-RT4401-Mycorrhizae-Granular-1-Lb/dp/B08QV8M84N"
+          },
+          "53": {
+            "t": "Fiskars 384490-1001 Ergo Garden Tool Set, Regular Package, Black/Orange",
+            "a": null,
+            "u": "https://www.amazon.com/Fiskars-384490-1001-Garden-Piece-Orange/dp/B07DLQNBS9"
+          },
+          "54": {
+            "t": "Gardener's Log Book:2019 A 5-Year Planner (New York Botanical Garden)",
+            "a": null,
+            "u": "https://www.amazon.com/Gardeners-Log-Book-Planner-Botanical/dp/1524759074"
+          },
+          "55": {
+            "t": "New Stens OEM Replacement Belt 266-124 Compatible with/Replacement for John Deere M48444",
+            "a": null,
+            "u": "https://www.amazon.com/Stens-266-124-Replacement-Belt-Black/dp/B07G7KT5FK"
+          },
+          "56": {
+            "t": "Burgon & Ball KPADPLUM Plum Kneelo GKN Ultra-Cushion Kneeler/Gardening Knee Pad",
+            "a": null,
+            "u": "https://www.amazon.com/Burgon-Ball-GKN-KPADPLUM-Kneelo/dp/B06WGLDGWC"
+          },
+          "57": {
+            "t": "Outdoor Garden Cleaning Shovel Multi-Functional Steel Flat Shovel Ice Shovel Weeding Planting Farm Weeding Tool (S: 21X25.5X3.4CM)",
+            "a": null,
+            "u": "https://www.amazon.com/Outdoor-Cleaning-Multi-Functional-Weeding-Planting/dp/B0BH4L53PK"
+          },
+          "58": {
+            "t": "Garden Jewels: The Comprehensive Guide to Ornamental Planting. (The A-Z of Gardening Plants)",
+            "a": null,
+            "u": "/Garden-Jewels-Comprehensive-Ornamental-Planting-ebook/dp/B0CH4TYY7R"
+          },
+          "59": {
+            "t": "RAISED BED GARDENING: A DIY GUIDE TO RAISED BED GARDENING",
+            "a": null,
+            "u": "/RAISED-BED-GARDENING-DIY-GUIDE-ebook/dp/B0797MYX5C"
+          }
+        },
+        "q": "gardening",
+        "ctry": "de",
+
+        // this is a limitation of the current test setup:
+        // in production, it should be the doublefetch URL, which would be: "https://www.amazon.de/s/?field-keywords=gardening"
+        "qurl": "https://www.amazon.com/s?k=gardening&ref=nb_sb_noss_1"
+      }
+    }
+  ]
+}
