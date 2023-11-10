@@ -89,7 +89,7 @@
     "express": "4.18.1",
     "fake-indexeddb": "4.0.0",
     "filehound": "1.17.6",
-    "full-icu": "1.4.0",
+    "full-icu": "1.5.0",
     "git-describe": "4.1.1",
     "git-rev": "0.2.1",
     "glob": "8.0.3",
