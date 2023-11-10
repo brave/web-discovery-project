@@ -132,7 +132,7 @@
     "glob-parent": "6.0.2",
     "file-type": "17.1.6",
     "fast-json-patch": "3.1.1",
-    "jsonwebtoken": "9.0.0",
+    "jsonwebtoken": "9.0.2",
     "xml2js": "0.5.0",
     "cacheable-request": "10.2.7",
     "socket.io": "4.7.2"
