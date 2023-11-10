@@ -24,10 +24,10 @@ const srcTree = new MergeTrees(
     modules.bundles,
     new Funnel(assets, { destDir: "assets" }),
   ],
-  { overwrite: true }
+  { overwrite: true },
 );
 
-const outputTree = new MergeTrees([srcTree, modules.styleTests], {
+const outputTree = new MergeTrees([srcTree], {
   overwrite: true,
 });
 

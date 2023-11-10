@@ -7,9 +7,6 @@ const Funnel = require("broccoli-funnel");
 const buildConfig = require("../config");
 const env = require("../env");
 const SystemBuilder = require("./broccoli-webpack");
-const MergeTrees = require("broccoli-merge-trees");
-
-var BroccoliDebug = require('broccoli-debug');
 
 const bundleFiles = buildConfig.bundles;
 const prefix = "modules";
@@ -45,19 +42,17 @@ function getBundlesTree(modulesTree) {
   };
 
   const bundles = new SystemBuilder(input, {
-      builderConfig: buildConfig.builderDefault || builderConfig,
-      bundleConfigs: buildConfig.bundleConfigs || {},
-    });
+    builderConfig: buildConfig.builderDefault || builderConfig,
+    bundleConfigs: buildConfig.bundleConfigs || {},
+  });
 
-  const bundlesTree = new Funnel(bundles,
-    {
-      srcDir: prefix,
-      allowEmpty: true,
-    }
-  );
+  const bundlesTree = new Funnel(bundles, {
+    srcDir: prefix,
+    allowEmpty: true,
+  });
 
   const wasmTree = new Funnel(bundles, {
-    exclude: ['modules/**/*'],
+    exclude: ["modules/**/*"],
   });
 
   return { bundlesTree, wasmTree };

@@ -1,10 +1,14 @@
 {
+    "root": true,
     "extends": [
         "eslint:recommended",
         "plugin:compat/recommended",
         "prettier"
     ],
-    "parser": "babel-eslint",
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+      "requireConfigFile": false
+    },
     "env": {
         "browser": true,
         "commonjs": false,
@@ -25,20 +29,27 @@
     },
     "overrides": [
         {
-            files: ["**/*.ts"],
+            "files": ["**/*.ts"],
             "extends": [
                 "eslint:recommended",
                 "plugin:compat/recommended",
                 "plugin:@typescript-eslint/recommended",
                 "plugin:@typescript-eslint/recommended-requiring-type-checking"
             ],
-            parser: "@typescript-eslint/parser",
-            parserOptions: {
+            "parser": "@typescript-eslint/parser",
+            "parserOptions": {
                 "project": "./tsconfig.json"
             },
-            plugins: ["@typescript-eslint"],
-            rules: {
-                "lines-between-class-members": "off"
+            "plugins": ["@typescript-eslint"],
+            "rules": {
+                "lines-between-class-members": "off",
+                "@typescript-eslint/no-unsafe-call": "off",
+                "@typescript-eslint/no-unsafe-member-access": "off",
+                "@typescript-eslint/no-unsafe-assignment": "off",
+                "@typescript-eslint/no-unsafe-return": "off",
+                "@typescript-eslint/restrict-template-expressions": "off",
+                "@typescript-eslint/no-unsafe-argument": "off",
+                "@typescript-eslint/no-explicit-any": "off"
             }
         }
     ]

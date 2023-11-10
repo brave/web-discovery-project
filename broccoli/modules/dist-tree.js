@@ -10,10 +10,9 @@ const broccoliSource = require("broccoli-source");
 const buildConfig = require("../config");
 const env = require("../env");
 
-const subprojects = require(path.resolve(
-  __dirname,
-  "../../configs/common/subprojects/bundles"
-));
+const subprojects = require(
+  path.resolve(__dirname, "../../configs/common/subprojects/bundles"),
+);
 
 const UnwatchedDir = broccoliSource.UnwatchedDir;
 
@@ -37,10 +36,9 @@ module.exports = function getDistTree(modulesTree) {
   const suprojectsSet = new Set();
   const getSubprojects = (moduleName) => {
     try {
-      const { subprojects = [] } = require(path.resolve(
-        __dirname,
-        `../../modules/${moduleName}/build-config`
-      ));
+      const { subprojects = [] } = require(
+        path.resolve(__dirname, `../../modules/${moduleName}/build-config`),
+      );
       subprojects.forEach((project) => {
         suprojectsSet.add(project);
       });
@@ -66,8 +64,8 @@ module.exports = function getDistTree(modulesTree) {
               .replace(".development", "")
               .replace(".production.min", "");
           },
-        })
-    )
+        }),
+    ),
   );
 
   const distTree = new MergeTrees(distTrees);

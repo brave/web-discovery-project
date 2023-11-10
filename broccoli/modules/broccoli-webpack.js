@@ -25,7 +25,7 @@ module.exports = class BroccoliWebpack extends Plugin {
     const outputPath = this.outputPath;
 
     console.log(
-      "*********************** Bundling Process Started *******************************"
+      "*********************** Bundling Process Started *******************************",
     );
     const bundles = glob.sync("**/*.bundle.js", {
       cwd: inputPath,
@@ -52,7 +52,7 @@ module.exports = class BroccoliWebpack extends Plugin {
         output: {
           filename: "[name]",
           path: outputPath,
-          webassemblyModuleFilename: "star.wasm"
+          webassemblyModuleFilename: "star.wasm",
         },
         experiments: {
           syncWebAssembly: true,
@@ -88,10 +88,10 @@ module.exports = class BroccoliWebpack extends Plugin {
             `${bundleBuildCounter} bundle(s) has(have) been created`,
             {
               colors: true,
-            }
+            },
           );
           console.log(
-            "*********************** Bundling Process Finished *******************************"
+            "*********************** Bundling Process Finished *******************************",
           );
           return resolve();
         } finally {

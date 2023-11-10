@@ -10,5 +10,5 @@ module.exports = new Funnel(
   new Source.WatchedDir(`specific/${buildConfig.specific}`),
   {
     exclude: ["**/locale"],
-  }
+  },
 );
