@@ -79,7 +79,7 @@
     "chai-dom": "1.11.0",
     "colors": "1.4.0",
     "commander": "9.4.0",
-    "concurrently": "7.3.0",
+    "concurrently": "7.6.0",
     "console-ui": "3.1.2",
     "cookie-parser": "1.4.6",
     "eslint": "7.32.0",
