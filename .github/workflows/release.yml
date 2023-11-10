@@ -7,7 +7,7 @@ on:
 jobs:
   release:
     name: Trigger release
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     if: "!contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci')"
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
