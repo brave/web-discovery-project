@@ -87,7 +87,7 @@
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-compat": "4.0.2",
     "express": "4.18.1",
-    "fake-indexeddb": "4.0.0",
+    "fake-indexeddb": "4.0.2",
     "filehound": "1.17.6",
     "full-icu": "1.5.0",
     "git-describe": "4.1.1",
