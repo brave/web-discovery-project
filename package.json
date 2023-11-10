@@ -1,6 +1,6 @@
 {
   "name": "web-discovery-project",
-  "version": "1.1.64",
+  "version": "1.1.65",
   "description": "Standalone Web Discovery Project package and extension",
   "scripts": {
     "lint": "node fern.js lint",
@@ -117,7 +117,7 @@
     "@cliqz/url-parser": "1.1.4",
     "abortcontroller-polyfill": "1.7.5",
     "anonymous-credentials": "https://github.com/human-web/anonymous-credentials/releases/download/1.0.0/anonymous-credentials-1.0.0.tgz",
-    "dexie": "3.2.2",
+    "dexie": "3.2.4",
     "linkedom": "0.16.1",
     "pako": "2.0.4",
     "punycode": "2.1.1",
