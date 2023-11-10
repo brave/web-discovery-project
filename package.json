@@ -62,7 +62,7 @@
     "@xmldom/xmldom": "0.8.5",
     "auto": "10.46.0",
     "babel-eslint": "10.1.0",
-    "body-parser": "1.20.0",
+    "body-parser": "1.20.2",
     "broccoli": "3.5.2",
     "broccoli-babel-transpiler": "7.8.1",
     "broccoli-concat": "4.2.5",
