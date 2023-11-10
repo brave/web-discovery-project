@@ -98,7 +98,7 @@
     "mockdate": "3.0.5",
     "node-notifier": "10.0.1",
     "path-browserify": "1.0.1",
-    "ramda": "0.28.0",
+    "ramda": "0.29.1",
     "sinon": "14.0.2",
     "sinon-chai": "3.7.0",
     "strip-json-comments": "3.1.1",
