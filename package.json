@@ -106,7 +106,7 @@
     "typescript": "5.2.2",
     "untildify": "4.0.0",
     "watch-detector": "1.0.2",
-    "web-ext": "7.5.0",
+    "web-ext": "7.8.0",
     "webpack": "5.89.0",
     "ws": "8.14.2"
   },
