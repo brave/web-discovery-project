@@ -4,7 +4,6 @@
 
 const path = require("path");
 
-const untildify = require("untildify");
 const Testem = require("testem");
 const notifier = require("node-notifier");
 
@@ -72,11 +71,11 @@ module.exports = (program) => {
       }
 
       if (options.firefox) {
-        process.env.FIREFOX_PATH = untildify(options.firefox);
+        process.env.FIREFOX_PATH = options.firefox;
       }
 
       if (options.brave) {
-        process.env.BRAVE_PATH = untildify(options.brave);
+        process.env.BRAVE_PATH = options.brave;
       }
 
       if (options.keepOpen) {
@@ -87,7 +86,7 @@ module.exports = (program) => {
         process.env.EXTENSION_LOG = options.extensionLog;
       }
 
-      process.env.OUTPUT_PATH = untildify(OUTPUT_PATH);
+      process.env.OUTPUT_PATH = OUTPUT_PATH;
 
       process.env.AUTOSTART = "true";
 
