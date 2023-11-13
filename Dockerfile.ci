@@ -1,4 +1,4 @@
-FROM node:lts-bullseye
+FROM node:lts-bookworm
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -16,11 +16,11 @@ RUN mkdir /tmp/.X11-unix \
 EXPOSE 5900
 
 # Install Brave
-RUN wget 'https://github.com/brave/brave-browser/releases/download/v1.44.108/brave-browser_1.44.108_amd64.deb' -O /home/node/brave.deb \
+RUN wget 'https://github.com/brave/brave-browser/releases/download/v1.60.114/brave-browser_1.60.114_amd64.deb' -O /home/node/brave.deb \
  && wget 'https://brave-browser-apt-release.s3.brave.com/pool/main/b/brave-keyring/brave-keyring_1.13-1.deb' -O /home/node/brave-keyring.deb \
  && apt-get update --no-install-recommends \
  && dpkg --install /home/node/brave-keyring.deb \
- && apt-get install -y libnss3 openbox xvfb x11vnc libgbm1 libasound2 fonts-liberation xdg-utils menu \
+ && apt-get install -y libnss3 openbox xvfb x11vnc libgbm1 libasound2 fonts-liberation xdg-utils menu libvulkan1 libu2f-udev \
  && dpkg --install /home/node/brave.deb \
  && rm -f /home/node/brave.deb /home/node/brave-keyring.deb
 
