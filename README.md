@@ -7,20 +7,22 @@ which runs in the Brave browser.
 
 ## Linux
 
+If you don't have Brave browser installed on your system: ``.
+
 ```sh
-$ ./update-brave.sh # only works for Linux for now
-$ yarn install --frozen-lock # or npm install
-$ ./update-brave.sh # only works on Linux (downloads latest Brave release)
-$ yarn start # or npm run start
+$ npm install
+$ ./update-brave.sh
+$ BRAVE_PATH=./brave/brave npm run start
 ```
 
-`./update-brave.sh` also sets `BRAVE_PATH` environment variable to the downloaded binary, but you can develop with any brave binary by changing the variable. The last command will build the extension and start Brave with the extension loaded. Everything should work locally with this setup. By default it will rely on the `sandbox` environment deployed on AWS.
+You can also set the `BRAVE_PATH` environment variable to your global Brave binary `$(which brave)`.
+The last command will build the extension and start Brave with the extension loaded.
+Everything should work locally with this setup. By default it will rely on the `sandbox` environment deployed on AWS.
 
 ## Mac
 
 ```sh
-$ export BRAVE_PATH="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser" # path to a brave binary
-$ yarn start # or npm run start
+$ BRAVE_PATH="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser" npm run start
 ```
 
 ## Documentation
