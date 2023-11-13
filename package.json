@@ -110,7 +110,7 @@
     "ws": "8.14.2"
   },
   "dependencies": {
-    "@cliqz/url-parser": "1.1.4",
+    "@cliqz/url-parser": "1.1.5",
     "abortcontroller-polyfill": "1.7.5",
     "anonymous-credentials": "https://github.com/human-web/anonymous-credentials/releases/download/1.0.0/anonymous-credentials-1.0.0.tgz",
     "dexie": "3.2.4",
