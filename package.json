@@ -6,7 +6,7 @@
     "lint": "node fern.js lint",
     "build": "node fern.js build configs/sandbox.js --environment prod",
     "build-module": "node fern.js build configs/module.js --environment prod",
-    "start:brave": "npx web-ext run --source-dir='./build' --target chromium --chromium-binary \"$BRAVE_PATH\"",
+    "start:brave": "web-ext run --source-dir='./build' --target chromium --chromium-binary \"$BRAVE_PATH\"",
     "start:build": "node --unhandled-rejections=strict fern.js serve configs/sandbox.js --no-launch",
     "start": "npm run build && concurrently npm:start:*"
   },
@@ -80,9 +80,9 @@
     "console-ui": "3.1.2",
     "cookie-parser": "1.4.6",
     "eslint": "7.32.0",
+    "eslint_d": "13.0.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-plugin-compat": "4.2.0",
-    "eslint_d": "13.0.0",
     "express": "4.18.1",
     "fake-indexeddb": "5.0.1",
     "filehound": "1.17.6",
@@ -105,6 +105,7 @@
     "tree-sync": "2.1.0",
     "typescript": "5.2.2",
     "watch-detector": "1.0.2",
+    "web-ext": "7.8.0",
     "webpack": "5.89.0",
     "ws": "8.14.2"
   },
