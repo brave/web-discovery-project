@@ -1,6 +1,6 @@
 {
   "name": "web-discovery-project",
-  "version": "1.1.67",
+  "version": "1.1.68",
   "description": "Standalone Web Discovery Project package and extension",
   "scripts": {
     "lint": "node fern.js lint",
@@ -48,7 +48,7 @@
     "@babel/plugin-proposal-dynamic-import": "7.18.6",
     "@babel/plugin-transform-modules-commonjs": "7.23.3",
     "@babel/plugin-transform-modules-systemjs": "7.23.3",
-    "@babel/plugin-transform-optional-chaining": "7.23.0",
+    "@babel/plugin-transform-optional-chaining": "7.23.3",
     "@babel/plugin-transform-regenerator": "7.23.3",
     "@babel/plugin-transform-template-literals": "7.23.3",
     "@babel/preset-env": "7.23.3",
