@@ -29,39 +29,41 @@ const targets = buildConfig.buildTargets || {
 };
 
 const babelOptions = {
-  babelrc: false,
-  presets: [
-    [
-      "@babel/env",
-      {
-        targets,
-        modules: false,
-        exclude: [
-          "@babel/plugin-transform-template-literals",
-          "@babel/plugin-transform-regenerator",
-        ],
-      },
+  babel: {
+    babelrc: false,
+    presets: [
+      [
+        "@babel/env",
+        {
+          targets,
+          modules: false,
+          exclude: [
+            "@babel/plugin-transform-template-literals",
+            "@babel/plugin-transform-regenerator",
+          ],
+        },
+      ],
+      ["@babel/typescript"],
     ],
-    ["@babel/typescript"],
-  ],
-  compact: false,
-  sourceMaps: false,
-  filterExtensions: ["es", "jsx", "ts", "tsx"],
-  plugins: [
-    "@babel/plugin-proposal-class-properties",
-    "@babel/plugin-transform-optional-chaining",
-    ...(buildConfig.babelPlugins || []),
-    ...(buildConfig.format === "common"
-      ? ["@babel/plugin-transform-modules-commonjs"]
-      : []),
-    ...(buildConfig.format === "system"
-      ? [
-          "@babel/plugin-transform-modules-systemjs",
-          "@babel/plugin-proposal-dynamic-import",
-        ]
-      : []),
-  ],
+    compact: false,
+    sourceMaps: false,
+    plugins: [
+      "@babel/plugin-proposal-class-properties",
+      "@babel/plugin-transform-optional-chaining",
+      ...(buildConfig.babelPlugins || []),
+      ...(buildConfig.format === "common"
+        ? ["@babel/plugin-transform-modules-commonjs"]
+        : []),
+      ...(buildConfig.format === "system"
+        ? [
+            "@babel/plugin-transform-modules-systemjs",
+            "@babel/plugin-proposal-dynamic-import",
+          ]
+        : []),
+    ],
+  },
   throwUnlessParallelizable: true,
+  filterExtensions: ["es", "ts", "js"],
 };
 
 function getPlatformFunnel() {
@@ -77,7 +79,7 @@ function getPlatformTree() {
   const platformName = buildConfig.platform;
   let platform = getPlatformFunnel();
 
-  platform = Babel(platform, { ...babelOptions });
+  platform = new Babel(platform, { ...babelOptions });
   const platforms = dirs("./platforms");
 
   return new MergeTrees([
@@ -98,7 +100,7 @@ function getPlatformTree() {
 function getSourceFunnel() {
   return new Funnel(modulesTree, {
     include: buildConfig.modules.map(
-      (name) => `${name}/sources/**/*.{es,ts,tsx,jsx}`,
+      (name) => `${name}/sources/**/*.{es,ts,js}`,
     ),
     getDestinationPath(_path) {
       return _path.replace("/sources", "");
@@ -131,10 +133,10 @@ function getSourceTree() {
     },
   });
 
-  const transpiledSources = Babel(sources, babelOptions);
-  const transpiledModuleTestsTree = Babel(
+  const transpiledSources = new Babel(sources, { ...babelOptions });
+  const transpiledModuleTestsTree = new Babel(
     new Funnel(moduleTestsTree, { destDir: "tests" }),
-    babelOptions,
+    { ...babelOptions },
   );
 
   const sourceTrees = [transpiledSources];
