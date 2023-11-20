@@ -1,6 +1,6 @@
 {
   "name": "web-discovery-project",
-  "version": "1.1.70",
+  "version": "1.1.71",
   "description": "Standalone Web Discovery Project package and extension",
   "scripts": {
     "lint": "node fern.js lint",
@@ -62,7 +62,7 @@
     "@xmldom/xmldom": "0.8.10",
     "body-parser": "1.20.2",
     "broccoli": "3.5.2",
-    "broccoli-babel-transpiler": "7.8.1",
+    "broccoli-babel-transpiler": "8.0.0",
     "broccoli-concat": "4.2.5",
     "broccoli-file-creator": "2.1.1",
     "broccoli-funnel": "3.0.8",
