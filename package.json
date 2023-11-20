@@ -62,7 +62,7 @@
     "@xmldom/xmldom": "0.8.10",
     "body-parser": "1.20.2",
     "broccoli": "3.5.2",
-    "broccoli-babel-transpiler": "7.8.1",
+    "broccoli-babel-transpiler": "8.0.0",
     "broccoli-concat": "4.2.5",
     "broccoli-file-creator": "2.1.1",
     "broccoli-funnel": "3.0.8",
@@ -119,7 +119,7 @@
     "punycode": "2.3.1",
     "star-wasm": "https://github.com/brave/web-discovery-project/releases/download/star-wasm-0.1.3.tgz/star-wasm-0.1.3.tgz",
     "tldts-experimental": "6.0.19",
-    "webextension-polyfill": "0.10.0"
+    "webextension-polyfill": "0.9.0"
   },
   "overrides": {
     "ansi-html": "0.0.9"
