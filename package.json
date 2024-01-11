@@ -1,6 +1,6 @@
 {
   "name": "web-discovery-project",
-  "version": "1.1.70",
+  "version": "1.1.71",
   "description": "Standalone Web Discovery Project package and extension",
   "scripts": {
     "lint": "node fern.js lint",
@@ -103,7 +103,7 @@
     "systemjs-plugin-json": "0.3.0",
     "testem": "3.10.1",
     "tree-sync": "2.1.0",
-    "typescript": "5.2.2",
+    "typescript": "5.3.3",
     "watch-detector": "1.0.2",
     "web-ext": "7.9.0",
     "webpack": "5.89.0",
