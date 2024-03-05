@@ -105,7 +105,7 @@
     "tree-sync": "2.1.0",
     "typescript": "5.2.2",
     "watch-detector": "1.0.2",
-    "web-ext": "7.10.0",
+    "web-ext": "7.11.0",
     "webpack": "5.89.0",
     "ws": "8.14.2"
   },
@@ -122,6 +122,7 @@
     "webextension-polyfill": "0.9.0"
   },
   "overrides": {
-    "ansi-html": "0.0.9"
+    "ansi-html": "0.0.9",
+    "tough-cookie": "4.1.3"
   }
 }
