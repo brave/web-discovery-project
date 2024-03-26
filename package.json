@@ -83,7 +83,7 @@
     "eslint_d": "13.1.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-plugin-compat": "4.2.0",
-    "express": "4.18.2",
+    "express": "4.19.2",
     "fake-indexeddb": "5.0.1",
     "filehound": "1.17.6",
     "full-icu": "1.5.0",
@@ -123,6 +123,7 @@
   },
   "overrides": {
     "ansi-html": "0.0.9",
+    "express": "4.19.2",
     "tough-cookie": "4.1.3"
   }
 }
