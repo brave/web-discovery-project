@@ -106,7 +106,7 @@
     "typescript": "5.2.2",
     "watch-detector": "1.0.2",
     "web-ext": "7.11.0",
-    "webpack": "5.89.0",
+    "webpack": "5.94.0",
     "ws": "8.14.2"
   },
   "dependencies": {
