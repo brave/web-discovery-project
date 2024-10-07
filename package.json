@@ -123,6 +123,7 @@
   },
   "overrides": {
     "ansi-html": "0.0.9",
+    "cookie": "0.7.0",
     "body-parser": "1.20.3",
     "express": "4.20.0",
     "send": "0.19.0",
