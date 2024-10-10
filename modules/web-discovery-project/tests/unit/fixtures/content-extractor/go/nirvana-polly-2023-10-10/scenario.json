@@ -3,43 +3,83 @@
   "mustContain": [
     {
       "type": "wdp",
-      "action": "video-p",
+      "action": "query",
       "payload": {
+        "r": {
+          "0": {
+            "t": "Polly (Nirvana song)",
+            "u": "https://en.wikipedia.org/wiki/Polly_(Nirvana_song)",
+            "age": null,
+            "m": null
+          },
+          "1": {
+            "t": "Nirvana – Polly Lyrics",
+            "u": "https://genius.com/Nirvana-polly-lyrics",
+            "age": null,
+            "m": null
+          },
+          "2": {
+            "t": "The brutally tragic events that led to Nirvana song 'Polly'",
+            "u": "https://faroutmagazine.co.uk/tragic-events-led-to-nirvana-song-polly/",
+            "age": null,
+            "m": null
+          },
+          "3": {
+            "t": "Polly",
+            "u": "https://www.youtube.com/watch?v=J8XzaK43KbE",
+            "age": null,
+            "m": null
+          },
+          "4": {
+            "t": "Polly Lyrics - Nirvana",
+            "u": "https://songmeanings.com/songs/view/379/",
+            "age": null,
+            "m": null
+          },
+          "5": {
+            "t": "Polly | Nirvana Wiki - Fandom",
+            "u": "https://nirvana.fandom.com/wiki/Polly",
+            "age": null,
+            "m": null
+          },
+          "6": {
+            "t": "Polly - song and lyrics by Nirvana",
+            "u": "https://open.spotify.com/track/3tlXDvaNrrOmdvG0XVUOcv",
+            "age": null,
+            "m": null
+          }
+        },
         "q": "nirvana polly",
         "qurl": "https://www.google.com/search?q=nirvana%20polly&gl=us&hl=en",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "snippet2",
+      "payload": {
+        "r": {
+          "0": {
+            "u": "https://en.wikipedia.org/wiki/Polly_(Nirvana_song)"
+          }
+        },
+        "q": "nirvana polly",
+        "qurl": "https://www.google.com/search?q=nirvana%20polly&gl=us&hl=en",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "video-p",
+      "payload": {
         "r": {
           "0": {
             "t": "Nirvana - Polly (Audio)",
             "u": "https://www.youtube.com/watch?v=DrlaVYKWeLU"
           }
         },
-        "ctry": "de"
-      }
-    },
-    {
-      "type": "wdp",
-      "action": "videos-p",
-      "payload": {
         "q": "nirvana polly",
         "qurl": "https://www.google.com/search?q=nirvana%20polly&gl=us&hl=en",
-        "r": {
-          "0": {
-            "t": "Nirvana - Polly (Live On MTV Unplugged, 1993 / Unedited)",
-            "u": "https://www.youtube.com/watch?v=3H0NHHKBemg"
-          },
-          "1": {
-            "t": "Nirvana - Polly (Live On MTV Unplugged, 1993 / Rehearsal)",
-            "u": "https://www.youtube.com/watch?v=ZSEoYDA2txw"
-          },
-          "2": {
-            "t": "Nirvana - Polly (Live At The Paramount, Seattle / 1991)",
-            "u": "https://www.youtube.com/watch?v=abBgsNx85mI"
-          },
-          "3": {
-            "t": "Polly",
-            "u": "https://www.google.com/#"
-          }
-        },
         "ctry": "de"
       }
     }

@@ -117,44 +117,9 @@
     },
     {
       "type": "wdp",
-      "action": "img-p",
-      "payload": {
-        "q": "elon musk twitter",
-        "qurl": "https://www.google.com/search?q=elon%20musk%20twitter&gl=us&hl=en",
-        "r": {
-          "0": {
-            "u": "http://google.com/search?tbm=isch&q=Elon+Musk"
-          },
-          "1": {
-            "u": "https://www.analyticsinsight.net/elon-musk-twitter-to-embrace-dark-mode-only/"
-          },
-          "2": {
-            "u": "https://people.com/twitter-bird-logo-will-change-soon-elon-musk-says-7564408"
-          },
-          "3": {
-            "u": "https://www.cnbc.com/2023/07/27/harvard-expert-elon-musk-is-out-of-his-element-at-twitter-x.html"
-          },
-          "4": {
-            "u": "https://www.salon.com/2022/10/27/elon-musk-has-officially-dubbed-himself-chief-twit/"
-          },
-          "5": {
-            "u": "https://slate.com/technology/2022/09/elon-musk-twitter-gotta-pick-one.html"
-          },
-          "6": {
-            "u": "https://www.npr.org/2022/06/16/1105608659/elon-musk-twitter-employees"
-          }
-        },
-        "ctry": "de"
-      }
-    },
-    {
-      "type": "wdp",
       "action": "infobox",
       "payload": {
-        "q": "elon musk twitter",
-        "qurl": "https://www.google.com/search?q=elon%20musk%20twitter&gl=us&hl=en",
-        "ctry": "de",
-        "t": "Choose what you’re giving feedback on",
+        "t": "Elon Musk",
         "desc": "Elon Reeve Musk is a business magnate and investor. Musk is the founder, chairman, CEO and chief technology officer of SpaceX; angel investor, CEO, product architect and former chairman of Tesla, Inc.; ...",
         "u": "https://en.wikipedia.org/wiki/Elon_Musk",
         "st": {
@@ -182,7 +147,42 @@
             "prop": "Siblings",
             "val": "Kimbal Musk, Tosca Musk"
           }
-        }
+        },
+        "q": "elon musk twitter",
+        "qurl": "https://www.google.com/search?q=elon%20musk%20twitter&gl=us&hl=en",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "img-p",
+      "payload": {
+        "r": {
+          "0": {
+            "u": "http://google.com/search?tbm=isch&q=Elon+Musk"
+          },
+          "1": {
+            "u": "https://www.analyticsinsight.net/elon-musk-twitter-to-embrace-dark-mode-only/"
+          },
+          "2": {
+            "u": "https://people.com/twitter-bird-logo-will-change-soon-elon-musk-says-7564408"
+          },
+          "3": {
+            "u": "https://www.cnbc.com/2023/07/27/harvard-expert-elon-musk-is-out-of-his-element-at-twitter-x.html"
+          },
+          "4": {
+            "u": "https://www.salon.com/2022/10/27/elon-musk-has-officially-dubbed-himself-chief-twit/"
+          },
+          "5": {
+            "u": "https://slate.com/technology/2022/09/elon-musk-twitter-gotta-pick-one.html"
+          },
+          "6": {
+            "u": "https://www.npr.org/2022/06/16/1105608659/elon-musk-twitter-employees"
+          }
+        },
+        "q": "elon musk twitter",
+        "qurl": "https://www.google.com/search?q=elon%20musk%20twitter&gl=us&hl=en",
+        "ctry": "de"
       }
     }
   ]

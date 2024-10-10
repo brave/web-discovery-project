@@ -129,6 +129,9 @@ const MOCK = {
       flushExpiredCacheEntries() {}
     },
   },
+  "webextension-polyfill": {
+    default: {},
+  },
 };
 
 export default describeModule(
