@@ -1,0 +1,1089 @@
+{
+  "search-google": {
+    "input": {
+      "#search": {
+        "first": {
+          "q": {
+            "select": "#rso",
+            "attr": "data-async-context",
+            "transform": [
+              [
+                "trySplit",
+                "query:",
+                1
+              ],
+              [
+                "decodeURIComponent"
+              ]
+            ]
+          },
+          "wt": {
+            "select": "div.EfDVh.viOShc div.ofy7ae, div.EfDVh.viOShc table.torspo_view__table span.tsp-ht",
+            "attr": "textContent"
+          }
+        }
+      },
+      "div#rso div.g": {
+        "all": {
+          "t": {
+            "select": "a > br + h3, g-section-with-header g-link > a > h3",
+            "attr": "textContent"
+          },
+          "u": {
+            "select": "div.yuRUbf > div > span > a[jsname], div.yuRUbf > div > a[jsname], div.nhaZ2c > div > span > a, div.DhN8Cf > div > a[jsname], g-section-with-header g-link > a.a-no-hover-decoration",
+            "attr": "href",
+            "transform": [
+              [
+                "trySplit",
+                "?ref_src=twsrc",
+                0
+              ],
+              [
+                "tryDecodeURIComponent"
+              ]
+            ]
+          },
+          "age": {
+            "select": "div > span.MUxGbd > span, div.mSA5Bd > div.P7xzyf > span > span",
+            "attr": "textContent"
+          },
+          "m": {
+            "select": ".TXwUJf a.fl",
+            "attr": "textContent"
+          }
+        }
+      },
+      "#rso a.WlydOe": {
+        "all": {
+          "u": {
+            "attr": "href",
+            "transform": [
+              [
+                "maskU"
+              ]
+            ]
+          },
+          "lu": {
+            "select": "div.OSrXXb > span",
+            "attr": "textContent"
+          },
+          "h": {
+            "select": "div.ynAwRc[role='heading']",
+            "attr": "textContent"
+          }
+        }
+      },
+      "#main": {
+        "first": {
+          "sq": {
+            "select": "#taw #fprsl.gL9Hy",
+            "attr": "textContent"
+          },
+          "oq": {
+            "select": "#fprs a.spell_orig",
+            "attr": "textContent"
+          },
+          "type": {
+            "select": "#lu_map,div[jsmodel=dUoxZc][aria-label][alt],div[jscontroller] a > g-img > img[alt],img[data-bsrc^=\"/maps/\"][alt]",
+            "attr": "alt",
+            "transform": [
+              [
+                "trySplit",
+                " ",
+                0
+              ]
+            ]
+          }
+        }
+      },
+      "#tads div[data-text-ad]": {
+        "all": {
+          "u": {
+            "select": "a.sVXRqc",
+            "attr": "href",
+            "transform": [
+              [
+                "trySplit",
+                "?",
+                0
+              ],
+              [
+                "maskU"
+              ]
+            ]
+          },
+          "t": {
+            "select": "a.sVXRqc > div.CCgQ5[role='heading'] > span",
+            "attr": "textContent"
+          },
+          "text": {
+            "select": "div > div.MUxGbd",
+            "attr": "textContent"
+          }
+        }
+      },
+      "[id^='vplap']": {
+        "all": {
+          "u": {
+            "attr": "href",
+            "transform": [
+              [
+                "maskU"
+              ]
+            ]
+          },
+          "t": {
+            "attr": "aria-label"
+          }
+        }
+      },
+      "#bottomads div[data-text-ad]": {
+        "all": {
+          "u": {
+            "select": "a[data-pcu]",
+            "attr": "href",
+            "transform": [
+              [
+                "maskU"
+              ]
+            ]
+          },
+          "t": {
+            "select": "div[role='heading']",
+            "attr": "textContent"
+          },
+          "text": {
+            "select": "div > div.MUxGbd",
+            "attr": "textContent"
+          }
+        }
+      },
+      "#rcnt div.ifM9O > div": {
+        "all": {
+          "ent": {
+            "select": "div[role=\"heading\"] > :nth-child(1)",
+            "attr": "textContent"
+          },
+          "pred": {
+            "select": "div[role=\"heading\"] > :nth-child(3)",
+            "attr": "textContent"
+          },
+          "ans": {
+            "select": "div.kno-fb-ctx.KBXm4e, .kp-header div[data-attrid] > div",
+            "attr": "textContent"
+          }
+        }
+      },
+      "div#rcnt.GyAeWb div#rso > div.ULSxyf, div#rcnt.GyAeWb > div.M8OgIe": {
+        "all": {
+          "u": {
+            "select": "div.yuRUbf a",
+            "attr": "href",
+            "transform": [
+              [
+                "trySplit",
+                "#",
+                0
+              ],
+              [
+                "maskU"
+              ]
+            ]
+          }
+        }
+      },
+      "#extabar div.EyBRub > div.LXqMce": {
+        "all": {
+          "ent": {
+            "select": "a.TXBhSe.z4P7Tc > span.Wkr6U.z4P7Tc",
+            "attr": "textContent"
+          },
+          "pred": {
+            "select": "a.TXBhSe.z4P7Tc + span + span.Wkr6U.z4P7Tc, a.TXBhSe.z4P7Tc + span + a.z4P7Tc + span + span.Wkr6U.z4P7Tc",
+            "attr": "textContent"
+          }
+        }
+      },
+      "#rhs[role=\"complementary\"]": {
+        "first": {
+          "t": {
+            "firstMatch": [
+              {
+                "select": "[data-attrid=\"title\"]",
+                "attr": "textContent"
+              },
+              {
+                "select": "div[role=heading]",
+                "attr": "textContent"
+              }
+            ]
+          }
+        }
+      },
+      "#rhs[role=\"complementary\"] div[data-attrid=\"description\"]": {
+        "first": {
+          "desc": {
+            "firstMatch": [
+              {
+                "select": "div.V4pKmd div.kno-rdesc > h3 + span",
+                "attr": "textContent"
+              },
+              {
+                "select": "div.kno-rdesc > h3 + span",
+                "attr": "textContent"
+              }
+            ]
+          },
+          "u": {
+            "select": "div.kno-rdesc > h3 + span + span > a",
+            "attr": "href"
+          }
+        }
+      },
+      "#rhs[role=\"complementary\"] div.wDYxhc[data-attrid^=\"kc:/\"], #rhs[role=\"complementary\"] div.wDYxhc[data-attrid^=\"ss:/\"]": {
+        "all": {
+          "prop": {
+            "select": "div.rVusze > span.w8qArf:nth-child(1)",
+            "attr": "textContent",
+            "transform": [
+              [
+                "split",
+                ": ",
+                0
+              ]
+            ]
+          },
+          "val": {
+            "select": "div.rVusze > span:nth-child(2)",
+            "attr": "textContent"
+          }
+        }
+      },
+      "#rso #rhs div.kp-wholepage.kp-wholepage-osrp": {
+        "first": {
+          "t": {
+            "select": "h2[data-attrid=\"title\"] > span",
+            "attr": "textContent"
+          },
+          "u": {
+            "select": "h2[data-attrid=\"title\"] + div > div > a[href^=\"http\"]",
+            "attr": "href",
+            "transform": [
+              [
+                "maskU"
+              ]
+            ]
+          },
+          "sum": {
+            "select": "div[data-attrid=\"kc:/local:one line summary\"] > div > span.YhemCb:not([data-ved])",
+            "attr": "textContent"
+          },
+          "desc": {
+            "select": "div[data-attrid=\"kc:/local:scalable attributes\"] > c-wiz > div > div > div > span",
+            "attr": "textContent"
+          },
+          "addr": {
+            "select": "div[data-attrid=\"kc:/location/location:address\"] > div > div > span.LrzXr",
+            "attr": "textContent"
+          },
+          "opt": {
+            "select": "div[data-attrid=\"kc:/local:business_availability_modes\"] > c-wiz > div",
+            "attr": "textContent"
+          },
+          "p": {
+            "select": "div[data-attrid=\"kc:/collection/knowledge_panels/has_phone:phone\"] [data-dtype=\"d3ph\"]",
+            "attr": "textContent"
+          }
+        }
+      },
+      "#rso #rhs div.kp-wholepage.kp-wholepage-osrp div[data-attrid=\"kc:/location/location:hours\"] table tr > td": {
+        "all": {
+          "item": {
+            "attr": "textContent"
+          }
+        }
+      },
+      "div.EyBRub div[data-lpage]": {
+        "all": {
+          "u": {
+            "attr": "data-lpage"
+          }
+        }
+      },
+      "#main div.PhiYYd.QBl4oe": {
+        "all": {
+          "t": {
+            "select": "img",
+            "attr": "alt"
+          },
+          "u": {
+            "select": "div.twQ0Be > a",
+            "attr": "href"
+          }
+        }
+      },
+      "#main a[href^=http].xMqpbd": {
+        "all": {
+          "t": {
+            "select": "div.KYaZsb div.ZxS7Db",
+            "attr": "textContent"
+          },
+          "u": {
+            "attr": "href"
+          }
+        }
+      },
+      "div.kp-wholepage-osrp": {
+        "first": {
+          "t": {
+            "select": "div.kp-header div.SPZz6b h2[data-attrid=\"title\"]",
+            "attr": "textContent"
+          },
+          "u": {
+            "select": "div.kp-header div.SPZz6b h2[data-attrid=\"title\"] + div.IzNS7c > div.QqG1Sd > a.ab_button:not([data-url])",
+            "attr": "href"
+          },
+          "addr": {
+            "select": "div[data-attrid=\"kc:/location/location:address\"] span.w8qArf + span.LrzXr",
+            "attr": "textContent"
+          },
+          "loc": {
+            "select": "a[data-url^='/maps/place/']",
+            "attr": "data-url",
+            "transform": [
+              [
+                "trySplit",
+                "/",
+                4
+              ],
+              [
+                "trySplit",
+                "@",
+                1
+              ]
+            ]
+          }
+        }
+      },
+      "#main .VkpGBb": {
+        "all": {
+          "t": {
+            "select": ".cXedhc div.dbg0pd",
+            "attr": "textContent"
+          },
+          "addr": {
+            "select": "div.CNIbvd > div.rllt__details > [role='heading'] + div, div:not(.CNIbvd) > div.rllt__details > [role='heading'] + div + div",
+            "attr": "textContent"
+          }
+        }
+      }
+    },
+    "output": {
+      "query": {
+        "fields": [
+          {
+            "key": "r",
+            "source": "div#rso div.g",
+            "requiredKeys": [
+              "t",
+              "u"
+            ]
+          },
+          {
+            "key": "q",
+            "source": "#search"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      },
+      "top-stories": {
+        "fields": [
+          {
+            "key": "r",
+            "source": "#rso a.WlydOe",
+            "requiredKeys": [
+              "u",
+              "h"
+            ]
+          },
+          {
+            "key": "q",
+            "source": "#search"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      },
+      "sq": {
+        "fields": [
+          {
+            "key": "sq",
+            "source": "#main"
+          },
+          {
+            "key": "oq",
+            "source": "#main"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      },
+      "ads_A": {
+        "fields": [
+          {
+            "key": "r",
+            "source": "#tads div[data-text-ad]",
+            "requiredKeys": [
+              "t",
+              "u"
+            ]
+          },
+          {
+            "key": "q",
+            "source": "#search"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      },
+      "ads_C": {
+        "fields": [
+          {
+            "key": "r",
+            "source": "[id^='vplap']"
+          },
+          {
+            "key": "q",
+            "source": "#search"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      },
+      "ads_D": {
+        "fields": [
+          {
+            "key": "r",
+            "source": "#bottomads div[data-text-ad]",
+            "requiredKeys": [
+              "t",
+              "u"
+            ]
+          },
+          {
+            "key": "q",
+            "source": "#search"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      },
+      "snippet": {
+        "fields": [
+          {
+            "key": "r",
+            "source": "#rcnt div.ifM9O > div"
+          },
+          {
+            "key": "q",
+            "source": "#search"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      },
+      "snippet2": {
+        "fields": [
+          {
+            "key": "r",
+            "source": "div#rcnt.GyAeWb div#rso > div.ULSxyf, div#rcnt.GyAeWb > div.M8OgIe"
+          },
+          {
+            "key": "q",
+            "source": "#search"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      },
+      "snippet3": {
+        "fields": [
+          {
+            "key": "q",
+            "source": "#search"
+          },
+          {
+            "key": "r",
+            "source": "#extabar div.EyBRub > div.LXqMce"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      },
+      "infobox": {
+        "fields": [
+          {
+            "key": "t",
+            "source": "#rhs[role=\"complementary\"]"
+          },
+          {
+            "key": "desc",
+            "source": "#rhs[role=\"complementary\"] div[data-attrid=\"description\"]",
+            "optional": true
+          },
+          {
+            "key": "u",
+            "source": "#rhs[role=\"complementary\"] div[data-attrid=\"description\"]"
+          },
+          {
+            "key": "st",
+            "source": "#rhs[role=\"complementary\"] div.wDYxhc[data-attrid^=\"kc:/\"], #rhs[role=\"complementary\"] div.wDYxhc[data-attrid^=\"ss:/\"]",
+            "requiredKeys": [
+              "prop",
+              "val"
+            ],
+            "optional": true
+          },
+          {
+            "key": "q",
+            "source": "#search"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      },
+      "placeinfo": {
+        "fields": [
+          {
+            "key": "addr",
+            "source": "#rso #rhs div.kp-wholepage.kp-wholepage-osrp"
+          },
+          {
+            "key": "t",
+            "source": "#rso #rhs div.kp-wholepage.kp-wholepage-osrp",
+            "optional": true
+          },
+          {
+            "key": "u",
+            "source": "#rso #rhs div.kp-wholepage.kp-wholepage-osrp",
+            "optional": true
+          },
+          {
+            "key": "sum",
+            "source": "#rso #rhs div.kp-wholepage.kp-wholepage-osrp",
+            "optional": true
+          },
+          {
+            "key": "desc",
+            "source": "#rso #rhs div.kp-wholepage.kp-wholepage-osrp",
+            "optional": true
+          },
+          {
+            "key": "p",
+            "source": "#rso #rhs div.kp-wholepage.kp-wholepage-osrp",
+            "optional": true
+          },
+          {
+            "key": "opt",
+            "source": "#rso #rhs div.kp-wholepage.kp-wholepage-osrp",
+            "optional": true
+          },
+          {
+            "key": "open",
+            "source": "#rso #rhs div.kp-wholepage.kp-wholepage-osrp div[data-attrid=\"kc:/location/location:hours\"] table tr > td",
+            "optional": true
+          },
+          {
+            "key": "q",
+            "source": "#search"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      },
+      "img-p": {
+        "fields": [
+          {
+            "key": "r",
+            "source": "div.EyBRub div[data-lpage]"
+          },
+          {
+            "key": "q",
+            "source": "#search"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      },
+      "video-p": {
+        "fields": [
+          {
+            "key": "r",
+            "source": "#main div.PhiYYd.QBl4oe"
+          },
+          {
+            "key": "q",
+            "source": "#search"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      },
+      "videos-p": {
+        "fields": [
+          {
+            "key": "r",
+            "source": "#main a[href^=http].xMqpbd"
+          },
+          {
+            "key": "q",
+            "source": "#search"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      },
+      "place": {
+        "fields": [
+          {
+            "key": "t",
+            "source": "div.kp-wholepage-osrp"
+          },
+          {
+            "key": "u",
+            "source": "div.kp-wholepage-osrp",
+            "optional": true
+          },
+          {
+            "key": "addr",
+            "source": "div.kp-wholepage-osrp"
+          },
+          {
+            "key": "loc",
+            "source": "div.kp-wholepage-osrp"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      },
+      "places": {
+        "fields": [
+          {
+            "key": "r",
+            "source": "#main .VkpGBb"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      },
+      "places2": {
+        "fields": [
+          {
+            "key": "q",
+            "source": "#search"
+          },
+          {
+            "key": "type",
+            "source": "#main"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      },
+      "widget-title": {
+        "fields": [
+          {
+            "key": "q",
+            "source": "#search"
+          },
+          {
+            "key": "wt",
+            "source": "#search"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      }
+    }
+  },
+  "search-goi": {
+    "input": {
+      "form[action=\"/search\"] input:first-child[name=\"q\"]": {
+        "first": {
+          "q": {
+            "attr": "value"
+          }
+        }
+      },
+      ".RntSmf": {
+        "all": {
+          "u": {
+            "select": "tr > td > a",
+            "attr": "href",
+            "transform": [
+              [
+                "trySplit",
+                "/url?q=",
+                1
+              ],
+              [
+                "trySplit",
+                "&amp;sa=U&amp;ved",
+                0
+              ],
+              [
+                "trySplit",
+                "&sa=",
+                0
+              ]
+            ]
+          },
+          "ru": {
+            "select": ".F9iS2e .fYyStc",
+            "attr": "textContent"
+          },
+          "t": {
+            "select": ".x3G5ab .fYyStc",
+            "attr": "textContent"
+          }
+        }
+      }
+    },
+    "output": {
+      "img": {
+        "fields": [
+          {
+            "key": "r",
+            "source": ".RntSmf",
+            "requiredKeys": [
+              "u",
+              "ru",
+              "t"
+            ]
+          },
+          {
+            "key": "q",
+            "source": "form[action=\"/search\"] input:first-child[name=\"q\"]"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      }
+    }
+  },
+  "search-google-videos": {
+    "input": {
+      "#search": {
+        "first": {
+          "q": {
+            "select": "#rso",
+            "attr": "data-async-context",
+            "transform": [
+              [
+                "trySplit",
+                "query:",
+                1
+              ],
+              [
+                "decodeURIComponent"
+              ]
+            ]
+          }
+        }
+      },
+      "#rso .g": {
+        "all": {
+          "u": {
+            "select": "div.nhaZ2c a",
+            "attr": "href"
+          },
+          "t": {
+            "select": "div.nhaZ2c h3",
+            "attr": "textContent"
+          },
+          "len": {
+            "select": "div[role=\"presentation\"]",
+            "attr": "aria-label"
+          },
+          "age": {
+            "select": "div.fzUZNc div.gqF9jc > span > span",
+            "attr": "textContent"
+          }
+        }
+      }
+    },
+    "output": {
+      "videos": {
+        "fields": [
+          {
+            "key": "r",
+            "source": "#rso .g",
+            "requiredKeys": [
+              "t",
+              "u"
+            ]
+          },
+          {
+            "key": "q",
+            "source": "#search"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      }
+    }
+  },
+  "search-amazon": {
+    "input": {
+      "#twotabsearchtextbox": {
+        "first": {
+          "q": {
+            "attr": "value"
+          }
+        }
+      },
+      "#search div.s-result-item[data-component-type=\"s-search-result\"]": {
+        "all": {
+          "t": {
+            "select": "div.sg-col-inner div > div > div > h2 > a span",
+            "attr": "textContent"
+          },
+          "a": {
+            "select": ".a-declarative .s-label-popover-default span",
+            "attr": "textContent"
+          },
+          "u": {
+            "select": "div.sg-col-inner div > div > div > h2 > a",
+            "attr": "href",
+            "transform": [
+              [
+                "decodeURIComponent"
+              ],
+              [
+                "decodeURIComponent"
+              ],
+              [
+                "trySplit",
+                "&url=",
+                1
+              ],
+              [
+                "trySplit",
+                "/ref=",
+                0
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "output": {
+      "query-am": {
+        "fields": [
+          {
+            "key": "r",
+            "source": "#search div.s-result-item[data-component-type=\"s-search-result\"]",
+            "requiredKeys": [
+              "t",
+              "u"
+            ]
+          },
+          {
+            "key": "q",
+            "source": "#twotabsearchtextbox"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      }
+    }
+  },
+  "search-bing": {
+    "input": {
+      ".b_algo": {
+        "all": {
+          "t": {
+            "select": "h2 [href]",
+            "attr": "textContent"
+          },
+          "u": {
+            "select": "h2 [href]",
+            "attr": "href"
+          }
+        }
+      },
+      "#sb_form": {
+        "first": {
+          "q": {
+            "select": "#sb_form_q",
+            "attr": "value"
+          }
+        }
+      }
+    },
+    "output": {
+      "query": {
+        "fields": [
+          {
+            "key": "r",
+            "source": ".b_algo",
+            "requiredKeys": [
+              "t",
+              "u"
+            ]
+          },
+          {
+            "key": "q",
+            "source": "#sb_form"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      }
+    }
+  },
+  "search-bing-images": {
+    "input": {
+      "div[role=\"main\"] div.imgpt > a": {
+        "all": {
+          "t": {
+            "attr": "m",
+            "transform": [
+              [
+                "json",
+                "t"
+              ]
+            ]
+          },
+          "u": {
+            "attr": "m",
+            "transform": [
+              [
+                "json",
+                "murl"
+              ]
+            ]
+          },
+          "ru": {
+            "attr": "m",
+            "transform": [
+              [
+                "json",
+                "purl"
+              ]
+            ]
+          }
+        }
+      },
+      "#sb_form_q": {
+        "first": {
+          "q": {
+            "attr": "value"
+          }
+        }
+      }
+    },
+    "output": {
+      "img": {
+        "fields": [
+          {
+            "key": "r",
+            "source": "div[role=\"main\"] div.imgpt > a",
+            "requiredKeys": [
+              "u",
+              "ru",
+              "t"
+            ]
+          },
+          {
+            "key": "q",
+            "source": "#sb_form_q"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      }
+    }
+  }
+}
