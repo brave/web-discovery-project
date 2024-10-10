@@ -61,14 +61,9 @@ function findAllFixtures() {
  * If they deviate too much from production, the tests will have less
  * value in catching bugs.
  */
-const DEFAULT_PATTERNS = {
-  normal: jsonParse(
-    fs.readFileSync(`${FIXTURES_BASE_PATH}/patterns.json`, "utf8"),
-  ),
-  strict: jsonParse(
-    fs.readFileSync(`${FIXTURES_BASE_PATH}/patterns-anon.json`, "utf8"),
-  ),
-};
+const DEFAULT_PATTERNS = jsonParse(
+  fs.readFileSync(`${FIXTURES_BASE_PATH}/rules.json`, "utf8")
+);
 
 const enableLogging = true;
 
@@ -101,8 +96,7 @@ export default describeModule(
       this.timeout(20000);
 
       let ContentExtractor;
-      let WebDiscoveryProject;
-      let uut;
+      let WDP;
       let mockWindow;
       let document;
       let fixture;
@@ -136,9 +130,7 @@ export default describeModule(
           )(sinonSpy.args);
         }
 
-        const messages = groupTelemetryCallsByAction(
-          WebDiscoveryProject.telemetry,
-        );
+        const messages = groupTelemetryCallsByAction(WDP.telemetry);
         // uncomment to export expectations:
         // fs.writeFileSync('/tmp/failing-test-expected-messages.json', JSON.stringify(messages));
         if (fixture.mustContain) {
@@ -176,31 +168,37 @@ export default describeModule(
       };
 
       const oldURL = global.URL;
-      beforeEach(function () {
+      beforeEach(async function () {
         /* eslint-disable-next-line global-require */
         global.URL = global.URL || require("url").URL;
 
+        const Patterns = (await this.system.import("web-discovery-project/patterns")).default;
+
         ContentExtractor = this.module().ContentExtractor;
-        WebDiscoveryProject = {
+        WDP = {
           debug: enableLogging,
           msgType: "wdp",
           getCountryCode() {
             return "de";
           },
-
           maskURL(url) {
             return url;
           },
-
           // args: msg, instantPush
           telemetry: sinon.fake(),
-
-          // args: url, query
-          addStrictQueries: sinon.fake(),
-
           queryCache: {},
+          patterns: new Patterns(),
+          checkURL: (doc, url) => {
+            const { messages } = WDP.contentExtractor.run(doc, url);
+            for (const message of messages)
+              WDP.telemetry({
+                type: WDP.msgType,
+                action: message.action,
+                payload: message.payload,
+              });
+          },
         };
-        uut = new ContentExtractor(WebDiscoveryProject);
+        WDP.contentExtractor = new ContentExtractor(WDP.patterns, WDP);
       });
 
       afterEach(function () {
@@ -216,11 +214,19 @@ export default describeModule(
       describe("with an empty ruleset", function () {
         describe("#isSearchEngineUrl", function () {
           it("should not match any URL", function () {
-            expect(uut.isSearchEngineUrl("about:blank")).to.be.false;
-            expect(uut.isSearchEngineUrl("http://www.example.com/")).to.be
-              .false;
-            expect(uut.isSearchEngineUrl("https://www.google.de/search?q=test"))
-              .to.be.false;
+            expect(
+              WDP.contentExtractor.urlAnalyzer.isSearchEngineUrl("about:blank")
+            ).to.be.false;
+            expect(
+              WDP.contentExtractor.urlAnalyzer.isSearchEngineUrl(
+                "http://www.example.com/"
+              )
+            ).to.be.false;
+            expect(
+              WDP.contentExtractor.urlAnalyzer.isSearchEngineUrl(
+                "https://www.google.de/search?q=test"
+              )
+            ).to.be.false;
           });
         });
 
@@ -230,37 +236,39 @@ export default describeModule(
           });
 
           it('should not find any data (ruleset: "normal")', function () {
-            uut.checkURL(document, fixture.url, "normal");
-            expect(WebDiscoveryProject.addStrictQueries.notCalled);
-            expect(WebDiscoveryProject.telemetry.notCalled);
+            WDP.checkURL(document, fixture.url);
+            expect(WDP.telemetry.notCalled);
           });
 
           it('should not find any data (ruleset: "strict")', function () {
-            uut.checkURL(document, fixture.url, "strict");
-            expect(WebDiscoveryProject.addStrictQueries.notCalled);
-            expect(WebDiscoveryProject.telemetry.notCalled);
+            WDP.checkURL(document, fixture.url);
+            expect(WDP.telemetry.notCalled);
           });
         });
       });
 
       describe("with a realistic ruleset", function () {
         beforeEach(function () {
-          uut.updatePatterns(DEFAULT_PATTERNS.normal, "normal");
-          uut.updatePatterns(DEFAULT_PATTERNS.strict, "strict");
+          WDP.patterns.update(DEFAULT_PATTERNS);
         });
 
         describe("#isSearchEngineUrl", function () {
           it("matches the configured search engines", function () {
             // no match:
-            expect(uut.isSearchEngineUrl("about:blank")).to.be.false;
-            expect(uut.isSearchEngineUrl("http://www.example.com/")).to.be
-              .false;
+            expect(
+              WDP.contentExtractor.urlAnalyzer.isSearchEngineUrl("about:blank")
+            ).to.be.false;
+            expect(
+              WDP.contentExtractor.urlAnalyzer.isSearchEngineUrl(
+                "http://www.example.com/"
+              )
+            ).to.be.false;
 
             // should match:
-            expect(uut.isSearchEngineUrl("https://www.google.de/search?q=test"))
-              .to.be.true;
             expect(
-              uut.isSearchEngineUrl("https://www.google.com/search?q=test"),
+              WDP.contentExtractor.urlAnalyzer.isSearchEngineUrl(
+                "https://www.google.de/search?q=test"
+              )
             ).to.be.true;
           });
         });
@@ -271,10 +279,8 @@ export default describeModule(
           });
 
           it("should not find any data", function () {
-            uut.checkURL(document, fixture.url, "normal");
-            uut.checkURL(document, fixture.url, "strict");
-            expect(WebDiscoveryProject.addStrictQueries.notCalled);
-            expect(WebDiscoveryProject.telemetry.notCalled);
+            WDP.checkURL(document, fixture.url);
+            expect(WDP.telemetry.notCalled);
           });
         });
 
@@ -284,15 +290,13 @@ export default describeModule(
           });
 
           it('should find search results (ruleset: "normal")', function () {
-            uut.checkURL(document, fixture.url, "normal");
-            expect(WebDiscoveryProject.addStrictQueries.called);
-            expect(WebDiscoveryProject.telemetry.notCalled);
+            WDP.checkURL(document, fixture.url);
+            expect(WDP.telemetry.notCalled);
           });
 
           it('should find search results (ruleset: "strict")', function () {
-            uut.checkURL(document, fixture.url, "strict");
-            expect(WebDiscoveryProject.addStrictQueries.notCalled);
-            expect(WebDiscoveryProject.telemetry.called);
+            WDP.checkURL(document, fixture.url);
+            expect(WDP.telemetry.called);
           });
         });
       });
@@ -300,17 +304,16 @@ export default describeModule(
       findAllFixtures().forEach((fixtureDir) => {
         describe(`in scenario: ${fixtureDir}`, function () {
           beforeEach(function () {
-            uut.updatePatterns(DEFAULT_PATTERNS.normal, "normal");
-            uut.updatePatterns(DEFAULT_PATTERNS.strict, "strict");
+            WDP.patterns.update(DEFAULT_PATTERNS);
           });
 
           it("should pass the fixture's expections", function () {
             // Given
             initFixture(fixtureDir);
-            WebDiscoveryProject.telemetry = sinon.spy();
+            WDP.telemetry = sinon.spy();
 
             // When
-            uut.checkURL(document, fixture.url, "strict");
+            WDP.checkURL(document, fixture.url);
 
             // Then
             verifyFixtureExpectations();
@@ -320,36 +323,36 @@ export default describeModule(
 
       describe("#tryExtractBraveSerpQuery", function () {
         const expectNotFound = (url) => {
-          if (uut.tryExtractBraveSerpQuery(url)) {
+          if (WDP.contentExtractor.urlAnalyzer.tryExtractBraveSerpQuery(url)) {
             chai.assert.fail(`Expected not to find a query on url=${url}`);
           }
         };
 
         it("should find search terms on search.brave.software", function () {
           expect(
-            uut.tryExtractBraveSerpQuery(
-              "https://search.brave.software/search?lang=en&country=us&safe_search=on&q=harzer%20k%C3%A4se",
-            ),
+            WDP.contentExtractor.urlAnalyzer.tryExtractBraveSerpQuery(
+              "https://search.brave.software/search?lang=en&country=us&safe_search=on&q=harzer%20k%C3%A4se"
+            )
           ).to.equal("harzer käse");
 
           expect(
-            uut.tryExtractBraveSerpQuery(
-              "https://search.brave.software/search?q=m%C3%BCnchen&lang=en&country=de",
-            ),
+            WDP.contentExtractor.urlAnalyzer.tryExtractBraveSerpQuery(
+              "https://search.brave.software/search?q=m%C3%BCnchen&lang=en&country=de"
+            )
           ).to.equal("münchen");
         });
 
         it("should find search terms on search.brave.com", function () {
           expect(
-            uut.tryExtractBraveSerpQuery(
-              "https://search.brave.com/search?lang=en&country=us&safe_search=on&q=harzer%20k%C3%A4se",
-            ),
+            WDP.contentExtractor.urlAnalyzer.tryExtractBraveSerpQuery(
+              "https://search.brave.com/search?lang=en&country=us&safe_search=on&q=harzer%20k%C3%A4se"
+            )
           ).to.equal("harzer käse");
 
           expect(
-            uut.tryExtractBraveSerpQuery(
-              "https://search.brave.com/search?q=m%C3%BCnchen&lang=en&country=de",
-            ),
+            WDP.contentExtractor.urlAnalyzer.tryExtractBraveSerpQuery(
+              "https://search.brave.com/search?q=m%C3%BCnchen&lang=en&country=de"
+            )
           ).to.equal("münchen");
         });
 
@@ -406,177 +409,5 @@ export default describeModule(
         });
       });
     });
-
-    describe("#_jsonPath", function () {
-      let _jsonPath;
-
-      beforeEach(function () {
-        _jsonPath = this.module()._jsonPath;
-      });
-
-      it("should extract fields from JSON", function () {
-        expect(_jsonPath('{"a":1}', "a")).to.equal("1");
-        expect(_jsonPath('{"a":1, "b":"2"}', "b")).to.equal("2");
-      });
-
-      it("should extract nested fields from JSON", function () {
-        expect(_jsonPath('{ "a": { "nested": true } }', "a.nested")).to.equal(
-          "true",
-        );
-        expect(_jsonPath('{ "a": { "b": { "c": "3" } } }', "a.b.c")).to.equal(
-          "3",
-        );
-      });
-
-      it("should reject unexpected normal text", function () {
-        expect(_jsonPath("Some example text", "")).to.equal("");
-        expect(_jsonPath("Some example text", "key")).to.equal("");
-        expect(_jsonPath('Some example text {"key":"1"}', "key")).to.equal("");
-      });
-
-      it("should by default not extract non-trivial objects", function () {
-        expect(_jsonPath('{"a":[1,2,3]}', "a")).to.equal("");
-        expect(_jsonPath('{"a":{"b":1}"}', "a")).to.equal("");
-      });
-
-      it("should extract non-trivial objects when enabled", function () {
-        expect(JSON.parse(_jsonPath('{"a":[1,2,3]}', "a", true))).to.deep.equal(
-          [1, 2, 3],
-        );
-        expect(JSON.parse(_jsonPath('{"a":[1,2,3]}', "a", true))).to.deep.equal(
-          [1, 2, 3],
-        );
-        expect(JSON.parse(_jsonPath('{"a":{"b":1}}', "a", true))).to.deep.equal(
-          { b: 1 },
-        );
-      });
-
-      it("should ignore incorrect JSON", function () {
-        expect(_jsonPath("", "a")).to.equal("");
-        expect(_jsonPath("][", "a")).to.equal("");
-        expect(_jsonPath("a:3", "a")).to.equal("");
-        expect(_jsonPath("a:3}", "a")).to.equal("");
-      });
-    });
-
-    describe("#_mergeArr", function () {
-      let _mergeArr;
-
-      beforeEach(function () {
-        _mergeArr = this.module()._mergeArr;
-      });
-
-      it("should pass regression tests", function () {
-        expect(
-          _mergeArr({ x: [1, 2, 3], y: [4, 5, 6], z: [7, 8, 9] }),
-        ).to.deep.equal([
-          { x: 1, y: 4, z: 7 },
-          { x: 2, y: 5, z: 8 },
-          { x: 3, y: 6, z: 9 },
-        ]);
-      });
-    });
-
-    describe("#_allMandatoryFieldsSet", function () {
-      let _allMandatoryFieldsSet;
-
-      beforeEach(function () {
-        _allMandatoryFieldsSet = this.module()._allMandatoryFieldsSet;
-      });
-
-      it("should accept a message where all mandatory fields are set", function () {
-        // this is similar in structure to a search query
-        const payload = {
-          r: {
-            0: {
-              t: "title: foo",
-              u: "https://example.test/foo",
-            },
-          },
-          q: "some query",
-          qurl: "https://example.test/some/query",
-          ctry: "de",
-        };
-        const expectedFields = [
-          { key: "r", type: "array" },
-          { key: "q", type: "object" },
-          { key: "qurl", type: "object" },
-          { key: "ctry", type: "object" },
-        ];
-
-        expect(_allMandatoryFieldsSet(payload, expectedFields)).to.be.true;
-      });
-
-      it("should accept an array where all inner entries are filled", function () {
-        const payload = {
-          r: {
-            0: {
-              t: "title: foo",
-              u: "https://example.test/foo",
-            },
-            1: {
-              t: "title: bar",
-              u: "https://example.test/bar",
-            },
-          },
-        };
-        const expectedFields = [{ key: "r", type: "array" }];
-
-        expect(_allMandatoryFieldsSet(payload, expectedFields)).to.be.true;
-      });
-
-      it("should accept an array where at least one inner entry is filled", function () {
-        const payload = {
-          r: {
-            0: {
-              t: null,
-              u: "https://example.test/foo",
-            },
-            1: {
-              t: null,
-              u: null,
-            },
-          },
-        };
-        const expectedFields = [{ key: "r", type: "array" }];
-
-        expect(_allMandatoryFieldsSet(payload, expectedFields)).to.be.true;
-      });
-
-      describe("should reject an array where all inner entries are missing:", function () {
-        it("when not found by css selectors", function () {
-          const payload = {
-            r: {
-              0: { t: null, u: null },
-              1: { t: null, u: null },
-            },
-          };
-          const expectedFields = [{ key: "r", type: "array" }];
-
-          expect(_allMandatoryFieldsSet(payload, expectedFields)).to.be.false;
-        });
-
-        it("when all values are falsy", function () {
-          const payload = {
-            r: {
-              0: { t: null, u: undefined },
-              1: { t: "" },
-            },
-          };
-          const expectedFields = [{ key: "r", type: "array" }];
-
-          expect(_allMandatoryFieldsSet(payload, expectedFields)).to.be.false;
-        });
-
-        it("when the array itself is empty", function () {
-          const payload = {
-            r: {},
-          };
-          const expectedFields = [{ key: "r", type: "array" }];
-
-          expect(_allMandatoryFieldsSet(payload, expectedFields)).to.be.false;
-        });
-      });
-    });
-  },
+  }
 );

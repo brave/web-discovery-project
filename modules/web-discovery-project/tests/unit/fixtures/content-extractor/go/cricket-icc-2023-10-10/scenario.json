@@ -3,10 +3,10 @@
   "mustContain": [
     {
       "type": "wdp",
-      "action": "widgetTitle",
+      "action": "widget-title",
       "payload": {
         "q": "cricket icc",
-        "widgetTitle": "ICC Cricket World Cup",
+        "wt": "ICC Cricket World Cup",
         "ctry": "de"
       }
     }
