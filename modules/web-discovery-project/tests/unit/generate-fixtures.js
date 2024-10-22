@@ -7,7 +7,6 @@ const { expect } = require("chai");
 const sinon = require("sinon");
 const FileHound = require("filehound");
 const { gunzipSync, gzipSync } = require("zlib");
-const { JSDOM } = require("jsdom");
 const stripJsonComments = require("strip-json-comments");
 const { ContentExtractor } = require("../../../../build/web-discovery-project/content-extractor.js");
 const Patterns = require("../../../../build/web-discovery-project/patterns.js").default;
@@ -73,16 +72,6 @@ const groupTelemetryCallsByAction = (sinonSpy) => {
     }),
     ramda.groupBy((msg) => msg.action)
   )(sinonSpy.args);
-};
-
-const setupDocument = function (html) {
-  const mockWindow = new JSDOM(`<!DOCTYPE html><p>Test DOM</p>`).window;
-
-  const document = mockWindow.document;
-  document.open();
-  document.write(html);
-  document.close();
-  return document;
 };
 
 const generateScenario = (url, html) => {
