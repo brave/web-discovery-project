@@ -7,24 +7,24 @@ import logger from "./logger";
 
 const URL_PATTERNS = [
   {
-    type: "search-google-images",
+    type: "search-goi",
     regexp:
       /^https:[/][/][^/]*[.]google[.].*?[#?&;]((q=[^&]+&([^&]+&)*tbm=isch)|(tbm=isch&([^&]+&)*q=[^&]+))/,
     prefix: "search?tbm=isch&gbv=1&q=",
   },
   {
-    type: "search-gooogle-videos",
+    type: "search-gov",
     regexp:
       /^https:[/][/][^/]*[.]google[.].*?[#?&;]((q=[^&]+&([^&]+&)*tbm=vid)|(tbm=vid&([^&]+&)*q=[^&]+))/,
     prefix: "search?tbm=vid&gbv=1&q=",
   },
   {
-    type: "search-google",
+    type: "search-go",
     regexp: /^https:[/][/][^/]*[.]google[.].*?[#?&;]/,
     prefix: "search?q=",
   },
   {
-    type: "search-yahoo",
+    type: "search-ya",
     regexp: /^https:[/][/][^/]*[.]search[.]yahoo[.].*?[#?&;][pq]=[^$&]+/,
     prefix: "search?q=",
     queryFinder(parsedUrl) {
@@ -32,17 +32,17 @@ const URL_PATTERNS = [
     },
   },
   {
-    type: "search-bing-images",
+    type: "search-bii",
     regexp: /^https:[/][/][^/]*[.]bing[.][^/]+[/]images[/]search[?]q=[^$&]+/,
     prefix: "images/search?q=",
   },
   {
-    type: "search-bing",
+    type: "search-bi",
     regexp: /^https:[/][/][^/]*[.]bing[.].*?[#?&;]q=[^$&]+/,
     prefix: "search?q=",
   },
   {
-    type: "search-amazon",
+    type: "search-am",
     regexp:
       /^https:[/][/][^/]*[.]amazon[.][^/]+[/](s[?]k=[^$&]+|.*[?&]field-keywords=[^$&]+)/,
     prefix: "s/?field-keywords=",
@@ -54,7 +54,7 @@ const URL_PATTERNS = [
     },
   },
   {
-    type: "amazon-product",
+    type: "amp",
     regexp:
       /^https:[/][/][^/]*[.]amazon[.][^/]+[/]([/]dp[/]|[/]gp[/]product[/])/,
     queryFinder(parsedUrl) {
@@ -62,24 +62,24 @@ const URL_PATTERNS = [
     },
   },
   {
-    type: "search-duckduckgo",
+    type: "search-dd",
     regexp:
       /^https:[/][/]duckduckgo.com[/](?:html$|.*[?&]q=[^&]+.*&ia=web|[?]q=[^&]+$)/,
     prefix: "?q=",
   },
   {
-    type: "linkedin",
+    type: "li",
     regexp: /^https:[/][/][^/]*linkedin[.][^/]+[/]pub[/]dir+/,
   },
 ];
 const SEARCH_ENGINE_TYPES = new Set([
-  "search-google-images",
-  "search-google-videos",
-  "search-google",
-  "search-yahoo",
-  "search-bing-images",
-  "search-bing",
-  "search-duckduckgo",
+  "search-goi",
+  "search-gov",
+  "search-go",
+  "search-ya",
+  "search-bii",
+  "search-bi",
+  "search-dd",
 ]);
 
 export default class UrlAnalyzer {
