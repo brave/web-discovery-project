@@ -1,5 +1,5 @@
 {
-  "search-google": {
+  "search-go": {
     "input": {
       "#search": {
         "first": {
@@ -836,7 +836,7 @@
       }
     }
   },
-  "search-google-videos": {
+  "search-gov": {
     "input": {
       "#search": {
         "first": {
@@ -902,7 +902,7 @@
       }
     }
   },
-  "search-amazon": {
+  "search-am": {
     "input": {
       "#twotabsearchtextbox": {
         "first": {
@@ -971,7 +971,7 @@
       }
     }
   },
-  "search-bing": {
+  "search-bi": {
     "input": {
       ".b_algo": {
         "all": {
@@ -1019,7 +1019,7 @@
       }
     }
   },
-  "search-bing-images": {
+  "search-bii": {
     "input": {
       "div[role=\"main\"] div.imgpt > a": {
         "all": {
