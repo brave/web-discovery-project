@@ -51,10 +51,10 @@ $ npm run start:brave # start Brave with extension loaded
 ### Patterns
 
 There are prod and test versions of the patterns file. Test patterns are used for tests only. Prod patterns are fetched from 
-CDN (https://patterns.hpn.brave.com/patterns.gz). If you have to change patterns during development you need to:
+CDN (https://patterns.wdp.brave.com/patterns.gz). If you have to change patterns during development you need to:
 1. Serve a gzipped patterns file locally using an HTTP server.
 2. Update patterns URL for your environment in [the config file](./configs/common/urls.js) to point to your locally served file.
-3. Disable the signature verification of a patterns file by setting `WDP_PATTERNS_SIGNING` option to `true` in the config file for your environment. For `sandbox` environment such file is [/configs/sandbox.js](./configs/sandbox.js).
+3. Disable the signature verification of a patterns file by setting `WDP_PATTERNS_SIGNING` option to `false` in the config file for your environment. For `sandbox` environment such file is [/configs/sandbox.js](./configs/sandbox.js).
 
 ## Useful commands
 
