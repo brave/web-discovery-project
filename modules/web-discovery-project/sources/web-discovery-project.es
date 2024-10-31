@@ -39,12 +39,6 @@ function _log(...msg) {
   }
 }
 
-function getRandomIntInclusive(min, max) {
-  const _min = Math.ceil(min);
-  const _max = Math.floor(max);
-  return Math.floor(random() * (_max - _min + 1)) + min;
-}
-
 function cleanFinalUrl(domain, href) {
   /*
     We need to get the final domain, there are 2 elements that we try to capture.
@@ -3367,8 +3361,8 @@ const WebDiscoveryProject = {
       if (activeURL.indexOf("about:") != 0) {
         if (WebDiscoveryProject.state["v"][activeURL] == null) {
           const braveQuery =
-            WebDiscoveryProject.contentExtractor.tryExtractBraveSerpQuery(
-              activeURL,
+            WebDiscoveryProject.contentExtractor.urlAnalyzer.tryExtractBraveSerpQuery(
+              activeURL
             );
           logger.debug("[onLocationChange] isBraveQuery", braveQuery);
           if (braveQuery) {
@@ -3390,7 +3384,7 @@ const WebDiscoveryProject = {
                 }
                 getContentDocument(originalURL)
                   .then((doc) => {
-                    WebDiscoveryProject.checkURL(doc, url, "normal");
+                    WebDiscoveryProject.checkURL(doc, url);
                   })
                   .catch((e) => {
                     logger.info(
@@ -3526,7 +3520,7 @@ const WebDiscoveryProject = {
                       )
                     ) {
                       try {
-                        WebDiscoveryProject.checkURL(cd, currURL, "normal");
+                        WebDiscoveryProject.checkURL(cd, currURL);
                       } catch (e) {}
                       //Check active usage...
                       // WebDiscoveryProject.activeUsage += 1;
@@ -5051,7 +5045,7 @@ const WebDiscoveryProject = {
           e.qurl,
           function (url, page_data, ourl, x) {
             let cd = WebDiscoveryProject.docCache[url]["doc"];
-            WebDiscoveryProject.checkURL(cd, url, "strict");
+            WebDiscoveryProject.checkURL(cd, url);
           },
           function (a, b, c, d) {
             _log("Error aux>>>> " + d);
