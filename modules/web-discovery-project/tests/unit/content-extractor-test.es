@@ -235,12 +235,12 @@ export default describeModule(
             initFixture("go/angela-merkel-2023-10-10");
           });
 
-          it('should not find any data (ruleset: "normal")', function () {
+          it('should not find any data', function () {
             WDP.checkURL(document, fixture.url);
             expect(WDP.telemetry.notCalled);
           });
 
-          it('should not find any data (ruleset: "strict")', function () {
+          it('should not find any data', function () {
             WDP.checkURL(document, fixture.url);
             expect(WDP.telemetry.notCalled);
           });
@@ -289,12 +289,12 @@ export default describeModule(
             initFixture("go/angela-merkel-2023-10-10");
           });
 
-          it('should find search results (ruleset: "normal")', function () {
+          it('should find search results', function () {
             WDP.checkURL(document, fixture.url);
             expect(WDP.telemetry.notCalled);
           });
 
-          it('should find search results (ruleset: "strict")', function () {
+          it('should find search results', function () {
             WDP.checkURL(document, fixture.url);
             expect(WDP.telemetry.called);
           });
