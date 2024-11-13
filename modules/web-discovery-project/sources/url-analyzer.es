@@ -2,6 +2,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
+import { extractHostname } from "../core/tlds";
 import { parse } from "../core/url";
 import logger from "./logger";
 
@@ -134,5 +135,23 @@ export default class UrlAnalyzer {
       url.startsWith("https://search.brave.software/search?");
     const parsedUrl = parse(url);
     return isBraveSearch && parsedUrl.searchParams.get("q");
+  }
+
+  checkAnonSearchURL(url, query) {
+    const { found, type } = this.parseLinks(url);
+    if (!found) return { isSearchEngineUrl: false, queryUrl: null };
+    const isSearchEngineUrl = SEARCH_ENGINE_TYPES.has(type);
+    const urlPattern = URL_PATTERNS.find((p) => p.type == type);
+    const queryPrefix = urlPattern.prefix;
+    if (!queryPrefix) {
+      logger.debug(
+        `URL pattern with type '${urlPattern.type}' has no query prefix`
+      );
+      return { isSearchEngineUrl: false, queryUrl: null };
+    }
+    const encodedQuery = encodeURIComponent(query).replace(/%20/g, "+");
+    const hostname = extractHostname(url);
+    const queryUrl = `https://${hostname}/${queryPrefix}${encodedQuery}`;
+    return { isSearchEngineUrl, queryUrl };
   }
 }

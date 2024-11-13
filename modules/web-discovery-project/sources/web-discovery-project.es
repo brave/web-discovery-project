@@ -39,6 +39,12 @@ function _log(...msg) {
   }
 }
 
+function getRandomIntInclusive(min, max) {
+  const _min = Math.ceil(min);
+  const _max = Math.floor(max);
+  return Math.floor(random() * (_max - _min + 1)) + min;
+}
+
 function cleanFinalUrl(domain, href) {
   /*
     We need to get the final domain, there are 2 elements that we try to capture.
@@ -1597,7 +1603,7 @@ const WebDiscoveryProject = {
           WebDiscoveryProject.patterns.update(rules);
           WebDiscoveryProject._patternsLastUpdated = new Date();
           logger.info(
-            "WebDiscoveryProject patterns successfully updated at ${this._patternsLastUpdated}"
+            `WebDiscoveryProject patterns successfully updated at ${WebDiscoveryProject._patternsLastUpdated}`
           );
         } catch (e) {
           logger.warn("Failed to apply new WebDiscoveryProject patterns", e);
@@ -3384,7 +3390,7 @@ const WebDiscoveryProject = {
                 }
                 getContentDocument(originalURL)
                   .then((doc) => {
-                    WebDiscoveryProject.checkURL(doc, url);
+                    WebDiscoveryProject.checkURL(doc, url, true);
                   })
                   .catch((e) => {
                     logger.info(
@@ -3520,7 +3526,7 @@ const WebDiscoveryProject = {
                       )
                     ) {
                       try {
-                        WebDiscoveryProject.checkURL(cd, currURL);
+                        WebDiscoveryProject.checkURL(cd, currURL, false);
                       } catch (e) {}
                       //Check active usage...
                       // WebDiscoveryProject.activeUsage += 1;
@@ -3621,7 +3627,7 @@ const WebDiscoveryProject = {
               }
             })
             .catch((e) => {
-              _log("Error fetching fetching the currentURL: " + e);
+              _log("Error fetching the currentURL: " + e);
             });
 
           WebDiscoveryProject.counter += 4;
@@ -4703,10 +4709,11 @@ const WebDiscoveryProject = {
     else return null;
   },
 
-  checkURL(pageContent, url) {
+  checkURL(pageContent, url, addStrictQuery) {
     const { messages } = WebDiscoveryProject.contentExtractor.run(
       pageContent,
-      url
+      url,
+      addStrictQuery
     );
     for (const message of messages)
       WebDiscoveryProject.telemetry({
@@ -5045,7 +5052,7 @@ const WebDiscoveryProject = {
           e.qurl,
           function (url, page_data, ourl, x) {
             let cd = WebDiscoveryProject.docCache[url]["doc"];
-            WebDiscoveryProject.checkURL(cd, url);
+            WebDiscoveryProject.checkURL(cd, url, false);
           },
           function (a, b, c, d) {
             _log("Error aux>>>> " + d);
@@ -5715,6 +5722,38 @@ const WebDiscoveryProject = {
         delete WebDiscoveryProject.adDetails[item];
       }
     });
+  },
+  addStrictQueries(url, query) {
+    // In some cases, we get query undefined.
+    if (!query) {
+      _log(">> Got an undefined query >>> " + url);
+      return;
+    }
+
+    if (WebDiscoveryProject.isSuspiciousQuery(query)) {
+      _log("Dropping suspicious query before double-fetch:", query);
+      return;
+    }
+
+    const { isSearchEngineUrl, queryUrl } =
+      WebDiscoveryProject.contentExtractor.urlAnalyzer.checkAnonSearchURL(
+        url,
+        query
+      );
+    if (isSearchEngineUrl) {
+      try {
+        const qObj = {
+          qurl: queryUrl,
+          ts: Date.now(),
+          tDiff: getRandomIntInclusive(1, 20),
+        };
+        logger.debug("PCN: pushed to strictQueries:", queryUrl);
+        WebDiscoveryProject.strictQueries.push(qObj);
+        WebDiscoveryProject.saveStrictQueries();
+      } catch (ee) {
+        logger.error("Failed to add query:", ee);
+      }
+    }
   },
 };
 WebDiscoveryProject.contentExtractor = new ContentExtractor(
