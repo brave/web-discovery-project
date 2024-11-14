@@ -3,10 +3,10 @@
   "mustContain": [
     {
       "type": "wdp",
-      "action": "widgetTitle",
+      "action": "widget-title",
       "payload": {
         "q": "nba",
-        "widgetTitle": "NBA",
+        "wt": "NBA",
         "ctry": "de"
       }
     }

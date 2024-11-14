@@ -32,7 +32,7 @@
           },
           "4": {
             "t": "Großformat-Kopierer MFP ab 1.190,00",
-            "u": null,
+            "u": "https://www.stoffel.de/cat/100215/gro%DFformat-kopierer-mfp.html",
             "age": null,
             "m": null
           },
@@ -70,8 +70,6 @@
       "type": "wdp",
       "action": "img-p",
       "payload": {
-        "q": "grossformat laserdrucker",
-        "qurl": "https://www.google.com/search?q=grossformat%20laserdrucker&gl=us&hl=en",
         "r": {
           "0": {
             "u": "https://www.hp.com/de-de/shop/product.aspx?id=f9a29d&opt=b19&sel=prn"
@@ -104,6 +102,8 @@
             "u": "https://m.youtube.com/watch?v=CCiee5hfXyU"
           }
         },
+        "q": "grossformat laserdrucker",
+        "qurl": "https://www.google.com/search?q=grossformat%20laserdrucker&gl=us&hl=en",
         "ctry": "de"
       }
     }
