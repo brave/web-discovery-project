@@ -186,6 +186,8 @@ export default describeModule(
           },
           // args: msg, instantPush
           telemetry: sinon.fake(),
+          // args: url, query
+          addStrictQueries: sinon.fake(),
           queryCache: {},
           patterns: new Patterns(),
           checkURL: (doc, url) => {
@@ -237,11 +239,7 @@ export default describeModule(
 
           it('should not find any data', function () {
             WDP.checkURL(document, fixture.url);
-            expect(WDP.telemetry.notCalled);
-          });
-
-          it('should not find any data', function () {
-            WDP.checkURL(document, fixture.url);
+            expect(WDP.addStrictQueries.notCalled);
             expect(WDP.telemetry.notCalled);
           });
         });
@@ -280,6 +278,7 @@ export default describeModule(
 
           it("should not find any data", function () {
             WDP.checkURL(document, fixture.url);
+            expect(WDP.addStrictQueries.notCalled);
             expect(WDP.telemetry.notCalled);
           });
         });
@@ -291,11 +290,7 @@ export default describeModule(
 
           it('should find search results', function () {
             WDP.checkURL(document, fixture.url);
-            expect(WDP.telemetry.notCalled);
-          });
-
-          it('should find search results', function () {
-            WDP.checkURL(document, fixture.url);
+            expect(WDP.addStrictQueries.called);
             expect(WDP.telemetry.called);
           });
         });
