@@ -8,7 +8,7 @@ module.exports = (env = "sandbox") => {
     return {
       ENDPOINT_HPNV2_ANONYMOUS: "https://collector.wdp.brave.software", // hpnv2/sources/endpoints.es
       ENDPOINT_HPNV2_DIRECT: "https://collector.wdp.brave.software", // hpnv2/sources/endpoints.es
-      ENDPOINT_PATTERNS: "https://patterns.hpn.brave.software/patterns.gz",
+      ENDPOINT_PATTERNS: "https://patterns.wdp.brave.software/patterns.gz",
       ENDPOINT_SAFE_QUORUM_PROVIDER: "https://safe-browsing-quorum.hpn.brave.software/config",
       ENDPOINT_STAR: "https://star.wdp.brave.software/",
       FETCHER_GATEWAY: "https://fg.search.brave.com",

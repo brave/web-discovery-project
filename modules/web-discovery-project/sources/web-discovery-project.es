@@ -23,6 +23,7 @@ import { parseURL, Network } from "./network";
 import prefs from "../core/prefs";
 import pacemaker from "../core/services/pacemaker";
 import SafebrowsingEndpoint from "./safebrowsing-endpoint";
+import Patterns from "./patterns";
 
 /*
 Configuration for Bloomfilter
@@ -96,6 +97,8 @@ const WebDiscoveryProject = {
   deadFiveMts: 5,
   deadTwentyMts: 20,
   msgType: "wdp",
+  patterns: new Patterns(),
+  _patternsLastUpdated: null,
   probHashLogM: [
     [
       -1.839225984234144, -1.8009413231413045, -2.5864601561900273,
@@ -1595,16 +1598,18 @@ const WebDiscoveryProject = {
       config.settings.ENDPOINT_PATTERNS,
       (content) => {
         try {
-          const { normal, strict } = JSON.parse(content);
-          logger.debug("Got new patterns", { normal, strict });
-          WebDiscoveryProject.contentExtractor.updatePatterns(normal, "normal");
-          WebDiscoveryProject.contentExtractor.updatePatterns(strict, "strict");
-          logger.info("WebDiscoveryProject patterns successfully updated");
+          const rules = JSON.parse(content);
+          logger.debug("Got new patterns", rules);
+          WebDiscoveryProject.patterns.update(rules);
+          WebDiscoveryProject._patternsLastUpdated = new Date();
+          logger.info(
+            `WebDiscoveryProject patterns successfully updated at ${WebDiscoveryProject._patternsLastUpdated}`
+          );
         } catch (e) {
           logger.warn("Failed to apply new WebDiscoveryProject patterns", e);
         }
       },
-      !config.settings.WDP_PATTERNS_SIGNING,
+      !config.settings.WDP_PATTERNS_SIGNING
     );
   })(),
 
@@ -1798,7 +1803,7 @@ const WebDiscoveryProject = {
       }
 
       if (
-        (!WebDiscoveryProject.utility_regression_tests) &
+        !WebDiscoveryProject.utility_regression_tests &
         (url_parts.port != "") &
         (url_parts.port != "80" && url_parts.port != "443")
       ) {
@@ -1817,7 +1822,9 @@ const WebDiscoveryProject = {
 
       if (pos_hash_char > -1) {
         if (
-          !WebDiscoveryProject.contentExtractor.isSearchEngineUrl(aURI) &&
+          !WebDiscoveryProject.contentExtractor.urlAnalyzer.isSearchEngineUrl(
+            aURI
+          ) &&
           aURI.length - pos_hash_char >= 10
         ) {
           _log("Dropped because of # in url: " + decodeURIComponent(aURI));
@@ -1826,8 +1833,8 @@ const WebDiscoveryProject = {
       }
 
       if (
-        (!WebDiscoveryProject.utility_regression_tests) &
-        url_parts.hostname.indexOf("localhost") > -1 ||
+        !WebDiscoveryProject.utility_regression_tests &
+          (url_parts.hostname.indexOf("localhost") > -1) ||
         url_parts.hostname.endsWith(".local")
       ) {
         return true;
@@ -1884,10 +1891,11 @@ const WebDiscoveryProject = {
   dropLongURL: function (url, options) {
     _log("DLU called with arguments:", url, options);
     try {
-      if (options == null) options = {
-        strict: false,
-        allowlisted: false,
-      };
+      if (options == null)
+        options = {
+          strict: false,
+          allowlisted: false,
+        };
 
       if (WebDiscoveryProject.checkForEmail(url)) return true;
 
@@ -1929,7 +1937,7 @@ const WebDiscoveryProject = {
           url_parts.query_string &&
           url_parts.query_string.length > WebDiscoveryProject.qs_len
         ) {
-          _log('DLU failed: length of query string is longer than qs_len');
+          _log("DLU failed: length of query string is longer than qs_len");
           return true;
         }
 
@@ -1937,7 +1945,7 @@ const WebDiscoveryProject = {
           var v = url_parts.query_string.split(/[&;]/);
           if (v.length > 4) {
             // that means that there is a least one &; hence 5 params
-            _log('DLU failed: there are more than 4 parameters');
+            _log("DLU failed: there are more than 4 parameters");
             return true;
           }
           if (
@@ -1947,13 +1955,19 @@ const WebDiscoveryProject = {
               12
             ) != null
           ) {
-            _log('DLU failed: long number in the query string: ', url_parts.query_string);
+            _log(
+              "DLU failed: long number in the query string: ",
+              url_parts.query_string
+            );
             return true;
           }
         }
 
-        if (!options.allowlisted && WebDiscoveryProject.checkForLongNumber(url_parts.path, 12) != null) {
-          _log('DLU failed: long number in path: ', url_parts.path);
+        if (
+          !options.allowlisted &&
+          WebDiscoveryProject.checkForLongNumber(url_parts.path, 12) != null
+        ) {
+          _log("DLU failed: long number in path: ", url_parts.path);
           return true;
         }
       }
@@ -1970,7 +1984,7 @@ const WebDiscoveryProject = {
             return true;
         } else {
           if (vpath[i].length > 12 && WebDiscoveryProject.isHash(vpath[i])) {
-            _log('DLU failed: hash in the URL ', vpath[i]);
+            _log("DLU failed: hash in the URL ", vpath[i]);
             return true;
           }
         }
@@ -1983,7 +1997,7 @@ const WebDiscoveryProject = {
         if (options.strict == true) mult = 0.5;
         if (cstr.length > WebDiscoveryProject.rel_segment_len * mult) {
           if (WebDiscoveryProject.isHash(cstr)) {
-            _log('DLU failed: hash in the path ', cstr);
+            _log("DLU failed: hash in the path ", cstr);
             return true;
           }
         }
@@ -2649,7 +2663,7 @@ const WebDiscoveryProject = {
       return discard("URL failed the isSuspiciousURL check");
     }
 
-    let allowlisted = page_doc["alw"]
+    let allowlisted = page_doc["alw"];
 
     if (WebDiscoveryProject.dropLongURL(url)) {
       // The URL itself is considered unsafe, but it has a canonical URL, so it should be public
@@ -2779,11 +2793,8 @@ const WebDiscoveryProject = {
                 page_doc
               );
 
-              var structure_strict_value = WebDiscoveryProject.calculateStrictness(
-                url,
-                page_doc,
-                true
-              );
+              var structure_strict_value =
+                WebDiscoveryProject.calculateStrictness(url, page_doc, true);
 
               var allowlisted = page_doc["alw"];
               url_strict_value = url_strict_value && !allowlisted;
@@ -2804,7 +2815,11 @@ const WebDiscoveryProject = {
                 );
 
                 // overwrite strict value because the link exists on a public fetchable page
-                _log("Strictness values:", url_strict_value, structure_strict_value);
+                _log(
+                  "Strictness values:",
+                  url_strict_value,
+                  structure_strict_value
+                );
                 if (hasurl) {
                   url_strict_value = false;
                   structure_strict_value = false;
@@ -2817,7 +2832,14 @@ const WebDiscoveryProject = {
                 // there is no canonical or if there is canonical and is the same as the url,
               }
 
-              _log("strict URL:", url, "> struct:", structure_strict_value, " url:", url_strict_value);
+              _log(
+                "strict URL:",
+                url,
+                "> struct:",
+                structure_strict_value,
+                " url:",
+                url_strict_value
+              );
 
               if (
                 WebDiscoveryProject.validDoubleFetch(page_doc["x"], data, {
@@ -2898,7 +2920,10 @@ const WebDiscoveryProject = {
                 if (
                   page_doc["x"]["canonical_url"] != null &&
                   page_doc["x"]["canonical_url"] != "" &&
-                  (allowlisted || WebDiscoveryProject.dropLongURL(page_doc["x"]["canonical_url"]) == false)
+                  (allowlisted ||
+                    WebDiscoveryProject.dropLongURL(
+                      page_doc["x"]["canonical_url"]
+                    ) == false)
                 ) {
                   page_doc["url"] = page_doc["x"]["canonical_url"];
                   page_doc["x"] = data;
@@ -2906,7 +2931,10 @@ const WebDiscoveryProject = {
                 } else {
                   // there was no canonical either on page_doc['x'] or in data or it was droppable
 
-                  if (allowlisted || WebDiscoveryProject.dropLongURL(url) == false) {
+                  if (
+                    allowlisted ||
+                    WebDiscoveryProject.dropLongURL(url) == false
+                  ) {
                     page_doc["url"] = url;
                     page_doc["x"] = data;
 
@@ -3337,7 +3365,7 @@ const WebDiscoveryProject = {
       if (activeURL.indexOf("about:") != 0) {
         if (WebDiscoveryProject.state["v"][activeURL] == null) {
           const braveQuery =
-            WebDiscoveryProject.contentExtractor.tryExtractBraveSerpQuery(
+            WebDiscoveryProject.contentExtractor.urlAnalyzer.tryExtractBraveSerpQuery(
               activeURL
             );
           logger.debug("[onLocationChange] isBraveQuery", braveQuery);
@@ -3348,7 +3376,9 @@ const WebDiscoveryProject = {
               t: "br",
             };
           } else if (
-            WebDiscoveryProject.contentExtractor.isSearchEngineUrl(activeURL)
+            WebDiscoveryProject.contentExtractor.urlAnalyzer.isSearchEngineUrl(
+              activeURL
+            )
           ) {
             logger.debug("[onLocationChange] isSearchEngineUrl", activeURL);
             pacemaker.setTimeout(
@@ -3358,7 +3388,7 @@ const WebDiscoveryProject = {
                 }
                 getContentDocument(originalURL)
                   .then((doc) => {
-                    WebDiscoveryProject.checkURL(doc, url, "normal");
+                    WebDiscoveryProject.checkURL(doc, url, true);
                   })
                   .catch((e) => {
                     logger.info(
@@ -3408,7 +3438,9 @@ const WebDiscoveryProject = {
             }
           }
 
-          const allowlisted = WebDiscoveryProject.allowlist.some(allowlist_regex => allowlist_regex.test(activeURL));
+          const allowlisted = WebDiscoveryProject.allowlist.some(
+            (allowlist_regex) => allowlist_regex.test(activeURL)
+          );
 
           // Page details to be saved.
           WebDiscoveryProject.state["v"][activeURL] = {
@@ -3487,12 +3519,12 @@ const WebDiscoveryProject = {
                 .then(
                   function (cd) {
                     if (
-                      !WebDiscoveryProject.contentExtractor.isSearchEngineUrl(
+                      !WebDiscoveryProject.contentExtractor.urlAnalyzer.isSearchEngineUrl(
                         currURL
                       )
                     ) {
                       try {
-                        WebDiscoveryProject.checkURL(cd, currURL, "normal");
+                        WebDiscoveryProject.checkURL(cd, currURL, false);
                       } catch (e) {}
                       //Check active usage...
                       // WebDiscoveryProject.activeUsage += 1;
@@ -3593,7 +3625,7 @@ const WebDiscoveryProject = {
               }
             })
             .catch((e) => {
-              _log("Error fetching fetching the currentURL: " + e);
+              _log("Error fetching the currentURL: " + e);
             });
 
           WebDiscoveryProject.counter += 4;
@@ -4336,7 +4368,11 @@ const WebDiscoveryProject = {
 
     //Remove the msg if the query is too long,
 
-    if (msg.action == "query" || msg.action == "anon-query" || msg.action == "widgetTitle") {
+    if (
+      msg.action == "query" ||
+      msg.action == "anon-query" ||
+      msg.action == "widgetTitle"
+    ) {
       //Remove the msg if the query is too long,
       if (msg.payload.q == null || msg.payload.q == "") {
         return null;
@@ -4602,7 +4638,11 @@ const WebDiscoveryProject = {
           let state;
           let comment;
           if (isPrivate) {
-            if (WebDiscoveryProject.contentExtractor.isSearchEngineUrl(url)) {
+            if (
+              WebDiscoveryProject.contentExtractor.urlAnalyzer.isSearchEngineUrl(
+                url
+              )
+            ) {
               state = "search";
               comment = 'search pages never generate "page" messages';
             } else {
@@ -4667,23 +4707,27 @@ const WebDiscoveryProject = {
     else return null;
   },
 
-  checkURL(pageContent, url, ruleset) {
-    return WebDiscoveryProject.contentExtractor.checkURL(
+  checkURL(pageContent, url, addStrictQuery) {
+    const { messages } = WebDiscoveryProject.contentExtractor.run(
       pageContent,
       url,
-      ruleset
+      addStrictQuery
     );
+    for (const message of messages)
+      WebDiscoveryProject.telemetry({
+        type: WebDiscoveryProject.msgType,
+        action: message.action,
+        payload: message.payload,
+      });
   },
 
   /**
    * Used in context-search module
-   *
-   * TODO: A safer option would be to hard-code the list of
-   * search engines. Otherwise, updating the patterns can potentially
-   * change the search results that we show.
    */
   isSearchEngineUrl(url) {
-    return WebDiscoveryProject.contentExtractor.isSearchEngineUrl(url);
+    return WebDiscoveryProject.contentExtractor.urlAnalyzer.isSearchEngineUrl(
+      url
+    );
   },
 
   aggregateMetrics: function (metricsBefore, metricsAfter) {
@@ -5006,7 +5050,7 @@ const WebDiscoveryProject = {
           e.qurl,
           function (url, page_data, ourl, x) {
             let cd = WebDiscoveryProject.docCache[url]["doc"];
-            WebDiscoveryProject.checkURL(cd, url, "strict");
+            WebDiscoveryProject.checkURL(cd, url, false);
           },
           function (a, b, c, d) {
             _log("Error aux>>>> " + d);
@@ -5129,7 +5173,11 @@ const WebDiscoveryProject = {
       // Check URL is dangerous, with strict DROPLONGURL.
       if (WebDiscoveryProject.dropLongURL(url, { strict: true })) {
         // If it's Google / Yahoo / Bing. Then mask and send them.
-        if (WebDiscoveryProject.contentExtractor.isSearchEngineUrl(url)) {
+        if (
+          WebDiscoveryProject.contentExtractor.urlAnalyzer.isSearchEngineUrl(
+            url
+          )
+        ) {
           url = WebDiscoveryProject.maskURL(url);
         } else {
           url = "(PROTECTED)";
@@ -5421,7 +5469,9 @@ const WebDiscoveryProject = {
       */
 
     var tt = new Date().getTime();
-    if (WebDiscoveryProject.contentExtractor.isSearchEngineUrl(url)) {
+    if (
+      WebDiscoveryProject.contentExtractor.urlAnalyzer.isSearchEngineUrl(url)
+    ) {
       return;
     }
 
@@ -5684,7 +5734,10 @@ const WebDiscoveryProject = {
     }
 
     const { isSearchEngineUrl, queryUrl } =
-      WebDiscoveryProject.contentExtractor.checkAnonSearchURL(url, query);
+      WebDiscoveryProject.contentExtractor.urlAnalyzer.checkAnonSearchURL(
+        url,
+        query
+      );
     if (isSearchEngineUrl) {
       try {
         const qObj = {
@@ -5702,6 +5755,7 @@ const WebDiscoveryProject = {
   },
 };
 WebDiscoveryProject.contentExtractor = new ContentExtractor(
+  WebDiscoveryProject.patterns,
   WebDiscoveryProject
 );
 

@@ -3,10 +3,10 @@
   "mustContain": [
     {
       "type": "wdp",
-      "action": "widgetTitle",
+      "action": "widget-title",
       "payload": {
         "q": "f1",
-        "widgetTitle": "Formula 1",
+        "wt": "Formula 1",
         "ctry": "de"
       }
     }
