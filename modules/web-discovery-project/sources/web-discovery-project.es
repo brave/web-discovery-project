@@ -2295,7 +2295,6 @@ const WebDiscoveryProject = {
     WebDiscoveryProject.doublefetchHandler
       .anonymousHttpGet(url)
       .then(({ body }) => {
-        console.error("GOT BODY:", body);
         return parseHtml(body);
       })
       .then((doc) => {
