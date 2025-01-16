@@ -4,6 +4,7 @@
 
 import { getRequest } from "../platform/web-discovery-project/doublefetch";
 import { equals as urlEquals } from "../core/url";
+import { getDomainWithoutSuffix } from "../core/tlds";
 import inject, { ifModuleEnabled } from "../core/kord/inject";
 import logger from "./logger";
 import { parseURL } from "./network";
@@ -292,7 +293,10 @@ export default class DoublefetchHandler {
             this._stats.strippedHeaders += 1;
           }
 
-          if (request.url.startsWith("https://www.google.com/search?")) {
+          if (
+            getDomainWithoutSuffix(request.url) == "google" &&
+            request.url.includes("/search?")
+          ) {
             response.requestHeaders.push({ name: "Cookie", value: "SG_SS=1;" });
           }
         }
@@ -487,7 +491,7 @@ export default class DoublefetchHandler {
     return getRequest(
       url,
       overrideHeaders,
-      url.startsWith("https://www.google.com/search?")
+      getDomainWithoutSuffix(url) == "google" && url.includes("/search?")
         ? { redirect: "follow" }
         : undefined,
     ).then((response) => {
