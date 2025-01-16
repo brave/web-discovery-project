@@ -113,7 +113,7 @@ export class Network {
       if (msg.payload.url && (await this.isHostNamePrivate(msg.payload.url))) {
         logger.debug(
           "sanitizeUrlsWithPrivateDomains: dropped because of private URL:",
-          msg.payload.url
+          msg.payload.url,
         );
         return null;
       }
@@ -126,14 +126,14 @@ export class Network {
       ) {
         logger.debug(
           'sanitizeUrlsWithPrivateDomains: private "canonical_url" URL nulled out:',
-          msg.payload.url
+          msg.payload.url,
         );
         msg.payload.x.canonical_url = null;
       }
       if (msg.payload.ref && (await this.isHostNamePrivate(msg.payload.ref))) {
         logger.debug(
           'sanitizeUrlsWithPrivateDomains: private "ref" URL nulled out:',
-          msg.payload.ref
+          msg.payload.ref,
         );
         msg.payload.ref = null;
       }
@@ -146,7 +146,7 @@ export class Network {
           ) {
             logger.debug(
               'sanitizeUrlsWithPrivateDomains: private "red" URL nulled out:',
-              msg.payload.red[i]
+              msg.payload.red[i],
             );
             msg.payload.red[i] = null;
           }
@@ -180,7 +180,7 @@ export class Network {
         "Could not resolve domain",
         host,
         ". Be conservative and assume that the domain is private.",
-        e
+        e,
       );
       return true;
     }

@@ -94,12 +94,12 @@ export default class MessageThrottler {
           `To mitigate the situation, the server recommends to wait up to ${
             delay / 1000
           } seconds if possible. ` +
-          `Choosing a random delay of ${randomDelay / 1000} seconds...`
+          `Choosing a random delay of ${randomDelay / 1000} seconds...`,
       );
       await this.delay(randomDelay);
       logger.log(
         "Waking up from random delay. Ready to send message of type:",
-        msg.action
+        msg.action,
       );
     }
   }
@@ -159,7 +159,7 @@ export default class MessageThrottler {
       const _settings = {
         minUptimeForThrottle: withDefault(
           settings.minUptimeForThrottle,
-          20 * MINUTE
+          20 * MINUTE,
         ),
         safeDelayAbsolute: withDefault(settings.safeDelayAbsolute, 30 * SECOND),
         safeDelayFraction: withDefault(settings.safeDelayFraction, 0.01),
@@ -182,7 +182,7 @@ export default class MessageThrottler {
     } catch (e) {
       logger.warn(
         "Failed to update throttling config. Keep using the old recommendations.",
-        e
+        e,
       );
     }
   }
@@ -284,7 +284,7 @@ export default class MessageThrottler {
 
     const maxSafeDelay = Math.min(
       maxDelayBasedOnUptime,
-      maxDelayBasedOnTimestamps
+      maxDelayBasedOnTimestamps,
     );
     return Math.min(delay, maxSafeDelay);
   }

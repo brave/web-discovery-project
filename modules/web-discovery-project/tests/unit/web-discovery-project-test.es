@@ -201,7 +201,7 @@ export default describeModule(
           redirects = WebDiscoveryProject.getRedirects(
             "https://d.test/",
             redirects,
-            maxLength
+            maxLength,
           );
           expect(redirects).to.deep.equals([
             "https://a.test/",
@@ -234,7 +234,7 @@ export default describeModule(
           redirects = WebDiscoveryProject.getRedirects(
             "https://d.test/",
             redirects,
-            maxLength
+            maxLength,
           );
           expect(redirects).to.deep.equals(["https://c.test/"]);
         });
@@ -255,7 +255,7 @@ export default describeModule(
           let redirects = [];
           redirects = WebDiscoveryProject.getRedirects(
             "https://example.test/redirected",
-            redirects
+            redirects,
           );
           expect(redirects).to.deep.equals(["https://example.test/"]);
         });
@@ -276,7 +276,7 @@ export default describeModule(
           let redirects = [];
           redirects = WebDiscoveryProject.getRedirects(
             "https://example.test/",
-            redirects
+            redirects,
           );
           expect(redirects).to.deep.equals([]);
         });
@@ -304,7 +304,7 @@ export default describeModule(
           let redirects = [];
           redirects = WebDiscoveryProject.getRedirects(
             "https://example.test/redirected",
-            redirects
+            redirects,
           );
           expect(redirects).to.deep.equals(["https://example.test/"]);
         });
@@ -330,7 +330,7 @@ export default describeModule(
           redirects1 = WebDiscoveryProject.getRedirects(
             "https://foo.test/",
             redirects1,
-            maxLength
+            maxLength,
           );
           expect(redirects1).to.deep.equals([
             "https://foo.test/",
@@ -341,7 +341,7 @@ export default describeModule(
           redirects2 = WebDiscoveryProject.getRedirects(
             "https://bar.test/",
             redirects2,
-            maxLength
+            maxLength,
           );
           expect(redirects2).to.deep.equals([
             "https://bar.test/",
@@ -368,7 +368,7 @@ export default describeModule(
         it("overwrites suspicious query", function () {
           data.q = "wdp@brave.com";
           return sanitizeResultTelemetry(data).then(({ query }) =>
-            chai.expect(query).to.equal("(PROTECTED)")
+            chai.expect(query).to.equal("(PROTECTED)"),
           );
         });
 
@@ -376,7 +376,7 @@ export default describeModule(
         it("overwrites dangerous query", function () {
           data.q = "http://www.abc.de?0123456789";
           return sanitizeResultTelemetry(data).then(({ query }) =>
-            chai.expect(query).to.equal("(PROTECTED)")
+            chai.expect(query).to.equal("(PROTECTED)"),
           );
         });
 
@@ -386,7 +386,7 @@ export default describeModule(
         it("overwrites suspicious URL", function () {
           data.msg.u = "http://www.abc.de?0123456789";
           return sanitizeResultTelemetry(data).then(({ url }) =>
-            chai.expect(url).to.equal("(PROTECTED)")
+            chai.expect(url).to.equal("(PROTECTED)"),
           );
         });
 
@@ -394,7 +394,7 @@ export default describeModule(
         it("overwrites dangerous URL", function () {
           data.msg.u = "wdp@brave.com";
           return sanitizeResultTelemetry(data).then(({ url }) =>
-            chai.expect(url).to.equal("(PROTECTED)")
+            chai.expect(url).to.equal("(PROTECTED)"),
           );
         });
 
@@ -405,7 +405,7 @@ export default describeModule(
             chai.expect({ query, url }).to.eql({
               query: "brave",
               url: "https://www.brave.com",
-            })
+            }),
           );
         });
 
@@ -415,11 +415,11 @@ export default describeModule(
             .be.true;
           expect(
             WebDiscoveryProject.checkForEmail(
-              "text with email@dummy.test address"
-            )
+              "text with email@dummy.test address",
+            ),
           ).to.be.true;
           expect(
-            WebDiscoveryProject.checkForEmail("AnotherEmail@domain123.test")
+            WebDiscoveryProject.checkForEmail("AnotherEmail@domain123.test"),
           ).to.be.true;
 
           // counter examples:
@@ -427,8 +427,8 @@ export default describeModule(
           expect(WebDiscoveryProject.checkForEmail("123456")).to.be.false;
           expect(
             WebDiscoveryProject.checkForEmail(
-              "some text without an email address"
-            )
+              "some text without an email address",
+            ),
           ).to.be.false;
         });
       });
@@ -475,14 +475,14 @@ export default describeModule(
           assumeFailsUrlChecks = (url) => {
             if (!failsDropLongURL(url)) {
               expect.fail(
-                `Assumption in the tests are outdated: It assumes ${url} is sensitive`
+                `Assumption in the tests are outdated: It assumes ${url} is sensitive`,
               );
             }
           };
           assumePassesUrlChecks = (url) => {
             if (failsDropLongURL(url)) {
               expect.fail(
-                `Assumption in the tests are outdated: It assumes ${url} is non-sensitive`
+                `Assumption in the tests are outdated: It assumes ${url} is non-sensitive`,
               );
             }
           };
@@ -579,5 +579,5 @@ export default describeModule(
         });
       });
     });
-  }
+  },
 );

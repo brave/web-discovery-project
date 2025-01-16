@@ -114,5 +114,5 @@ export default describeModule(
         });
       });
     });
-  }
+  },
 );

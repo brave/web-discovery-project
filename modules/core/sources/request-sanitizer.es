@@ -35,7 +35,7 @@ function safeFilter(req) {
     }
   } else if (
     isTrackableOriginHeaderFromOurExtension(
-      findHeader(requestHeaders, "origin")
+      findHeader(requestHeaders, "origin"),
     )
   ) {
     headersToRemove.push("origin"); // Prevent extension origin leaks
@@ -44,7 +44,7 @@ function safeFilter(req) {
   if (headersToRemove.length > 0) {
     return {
       requestHeaders: requestHeaders.filter(
-        (h) => !headersToRemove.includes(h.name.toLowerCase())
+        (h) => !headersToRemove.includes(h.name.toLowerCase()),
       ),
     };
   }

@@ -27,7 +27,7 @@ const FIXTURES_BASE_PATH =
 
 function readFixtureFromDisk(_path) {
   const fixture = jsonParse(
-    fs.readFileSync(`${FIXTURES_BASE_PATH}/${_path}/scenario.json`, "utf8")
+    fs.readFileSync(`${FIXTURES_BASE_PATH}/${_path}/scenario.json`, "utf8"),
   );
   fixture.html = zlib
     .gunzipSync(fs.readFileSync(`${FIXTURES_BASE_PATH}/${_path}/page.html.gz`))
@@ -63,10 +63,10 @@ function findAllFixtures() {
  */
 const DEFAULT_PATTERNS = {
   normal: jsonParse(
-    fs.readFileSync(`${FIXTURES_BASE_PATH}/patterns.json`, "utf8")
+    fs.readFileSync(`${FIXTURES_BASE_PATH}/patterns.json`, "utf8"),
   ),
   strict: jsonParse(
-    fs.readFileSync(`${FIXTURES_BASE_PATH}/patterns-anon.json`, "utf8")
+    fs.readFileSync(`${FIXTURES_BASE_PATH}/patterns-anon.json`, "utf8"),
   ),
 };
 
@@ -132,12 +132,12 @@ export default describeModule(
               expect(args.length).to.equal(1);
               return args[0];
             }),
-            R.groupBy((msg) => msg.action)
+            R.groupBy((msg) => msg.action),
           )(sinonSpy.args);
         }
 
         const messages = groupTelemetryCallsByAction(
-          WebDiscoveryProject.telemetry
+          WebDiscoveryProject.telemetry,
         );
         // uncomment to export expectations:
         // fs.writeFileSync('/tmp/failing-test-expected-messages.json', JSON.stringify(messages));
@@ -160,15 +160,15 @@ export default describeModule(
         if (fixture.mustNotContain) {
           for (const check of fixture.mustNotContain) {
             const blacklist = new RegExp(
-              `^${check.action.replace("*", ".*")}$`
+              `^${check.action.replace("*", ".*")}$`,
             );
             const matches = Object.keys(messages).filter((x) =>
-              blacklist.test(x)
+              blacklist.test(x),
             );
             if (matches.length > 0) {
               throw new Error(
                 `Expected no messages with action '${check.action}' ` +
-                  `but got messages for the following actions: [${matches}]`
+                  `but got messages for the following actions: [${matches}]`,
               );
             }
           }
@@ -260,7 +260,7 @@ export default describeModule(
             expect(uut.isSearchEngineUrl("https://www.google.de/search?q=test"))
               .to.be.true;
             expect(
-              uut.isSearchEngineUrl("https://www.google.com/search?q=test")
+              uut.isSearchEngineUrl("https://www.google.com/search?q=test"),
             ).to.be.true;
           });
         });
@@ -328,35 +328,36 @@ export default describeModule(
         it("should find search terms on search.brave.software", function () {
           expect(
             uut.tryExtractBraveSerpQuery(
-              "https://search.brave.software/search?lang=en&country=us&safe_search=on&q=harzer%20k%C3%A4se"
-            )
+              "https://search.brave.software/search?lang=en&country=us&safe_search=on&q=harzer%20k%C3%A4se",
+            ),
           ).to.equal("harzer käse");
 
           expect(
             uut.tryExtractBraveSerpQuery(
-              "https://search.brave.software/search?q=m%C3%BCnchen&lang=en&country=de"
-            )
+              "https://search.brave.software/search?q=m%C3%BCnchen&lang=en&country=de",
+            ),
           ).to.equal("münchen");
         });
 
         it("should find search terms on search.brave.com", function () {
           expect(
             uut.tryExtractBraveSerpQuery(
-              "https://search.brave.com/search?lang=en&country=us&safe_search=on&q=harzer%20k%C3%A4se"
-            )
+              "https://search.brave.com/search?lang=en&country=us&safe_search=on&q=harzer%20k%C3%A4se",
+            ),
           ).to.equal("harzer käse");
 
           expect(
             uut.tryExtractBraveSerpQuery(
-              "https://search.brave.com/search?q=m%C3%BCnchen&lang=en&country=de"
-            )
+              "https://search.brave.com/search?q=m%C3%BCnchen&lang=en&country=de",
+            ),
           ).to.equal("münchen");
         });
 
         it("should not find false positives", function () {
-          ["https://search.brave.software/", "https://example.test/?q=test"].forEach(
-            expectNotFound
-          );
+          [
+            "https://search.brave.software/",
+            "https://example.test/?q=test",
+          ].forEach(expectNotFound);
         });
 
         it("should ignore broken URLs", function () {
@@ -420,10 +421,10 @@ export default describeModule(
 
       it("should extract nested fields from JSON", function () {
         expect(_jsonPath('{ "a": { "nested": true } }', "a.nested")).to.equal(
-          "true"
+          "true",
         );
         expect(_jsonPath('{ "a": { "b": { "c": "3" } } }', "a.b.c")).to.equal(
-          "3"
+          "3",
         );
       });
 
@@ -440,13 +441,13 @@ export default describeModule(
 
       it("should extract non-trivial objects when enabled", function () {
         expect(JSON.parse(_jsonPath('{"a":[1,2,3]}', "a", true))).to.deep.equal(
-          [1, 2, 3]
+          [1, 2, 3],
         );
         expect(JSON.parse(_jsonPath('{"a":[1,2,3]}', "a", true))).to.deep.equal(
-          [1, 2, 3]
+          [1, 2, 3],
         );
         expect(JSON.parse(_jsonPath('{"a":{"b":1}}', "a", true))).to.deep.equal(
-          { b: 1 }
+          { b: 1 },
         );
       });
 
@@ -467,7 +468,7 @@ export default describeModule(
 
       it("should pass regression tests", function () {
         expect(
-          _mergeArr({ x: [1, 2, 3], y: [4, 5, 6], z: [7, 8, 9] })
+          _mergeArr({ x: [1, 2, 3], y: [4, 5, 6], z: [7, 8, 9] }),
         ).to.deep.equal([
           { x: 1, y: 4, z: 7 },
           { x: 2, y: 5, z: 8 },
@@ -577,5 +578,5 @@ export default describeModule(
         });
       });
     });
-  }
+  },
 );

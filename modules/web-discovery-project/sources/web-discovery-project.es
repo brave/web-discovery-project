@@ -1694,7 +1694,7 @@ const WebDiscoveryProject = {
           if (query_stringsParts["url"]) {
             masked_url = query_stringsParts["url"][0];
             masked_url = WebDiscoveryProject.maskURL(
-              decodeURIComponent("" + masked_url)
+              decodeURIComponent("" + masked_url),
             );
             return masked_url;
           }
@@ -1798,7 +1798,7 @@ const WebDiscoveryProject = {
       }
 
       if (
-        (!WebDiscoveryProject.utility_regression_tests) &
+        !WebDiscoveryProject.utility_regression_tests &
         (url_parts.port != "") &
         (url_parts.port != "80" && url_parts.port != "443")
       ) {
@@ -1826,8 +1826,8 @@ const WebDiscoveryProject = {
       }
 
       if (
-        (!WebDiscoveryProject.utility_regression_tests) &
-        url_parts.hostname.indexOf("localhost") > -1 ||
+        !WebDiscoveryProject.utility_regression_tests &
+          (url_parts.hostname.indexOf("localhost") > -1) ||
         url_parts.hostname.endsWith(".local")
       ) {
         return true;
@@ -1884,10 +1884,11 @@ const WebDiscoveryProject = {
   dropLongURL: function (url, options) {
     _log("DLU called with arguments:", url, options);
     try {
-      if (options == null) options = {
-        strict: false,
-        allowlisted: false,
-      };
+      if (options == null)
+        options = {
+          strict: false,
+          allowlisted: false,
+        };
 
       if (WebDiscoveryProject.checkForEmail(url)) return true;
 
@@ -1929,7 +1930,7 @@ const WebDiscoveryProject = {
           url_parts.query_string &&
           url_parts.query_string.length > WebDiscoveryProject.qs_len
         ) {
-          _log('DLU failed: length of query string is longer than qs_len');
+          _log("DLU failed: length of query string is longer than qs_len");
           return true;
         }
 
@@ -1937,23 +1938,29 @@ const WebDiscoveryProject = {
           var v = url_parts.query_string.split(/[&;]/);
           if (v.length > 4) {
             // that means that there is a least one &; hence 5 params
-            _log('DLU failed: there are more than 4 parameters');
+            _log("DLU failed: there are more than 4 parameters");
             return true;
           }
           if (
             !options.allowlisted &&
             WebDiscoveryProject.checkForLongNumber(
               url_parts.query_string,
-              12
+              12,
             ) != null
           ) {
-            _log('DLU failed: long number in the query string: ', url_parts.query_string);
+            _log(
+              "DLU failed: long number in the query string: ",
+              url_parts.query_string,
+            );
             return true;
           }
         }
 
-        if (!options.allowlisted && WebDiscoveryProject.checkForLongNumber(url_parts.path, 12) != null) {
-          _log('DLU failed: long number in path: ', url_parts.path);
+        if (
+          !options.allowlisted &&
+          WebDiscoveryProject.checkForLongNumber(url_parts.path, 12) != null
+        ) {
+          _log("DLU failed: long number in path: ", url_parts.path);
           return true;
         }
       }
@@ -1970,7 +1977,7 @@ const WebDiscoveryProject = {
             return true;
         } else {
           if (vpath[i].length > 12 && WebDiscoveryProject.isHash(vpath[i])) {
-            _log('DLU failed: hash in the URL ', vpath[i]);
+            _log("DLU failed: hash in the URL ", vpath[i]);
             return true;
           }
         }
@@ -1983,7 +1990,7 @@ const WebDiscoveryProject = {
         if (options.strict == true) mult = 0.5;
         if (cstr.length > WebDiscoveryProject.rel_segment_len * mult) {
           if (WebDiscoveryProject.isHash(cstr)) {
-            _log('DLU failed: hash in the path ', cstr);
+            _log("DLU failed: hash in the path ", cstr);
             return true;
           }
         }
@@ -2017,7 +2024,7 @@ const WebDiscoveryProject = {
       if (ind_pos != -1)
         path_query_string = url_parts.path.slice(
           ind_pos,
-          url_parts.path.length
+          url_parts.path.length,
         );
 
       if (
@@ -2240,7 +2247,7 @@ const WebDiscoveryProject = {
     //
     try {
       for (const [key, { status, location }] of Object.entries(
-        WebDiscoveryProject.httpCache
+        WebDiscoveryProject.httpCache,
       )) {
         if (
           key !== url &&
@@ -2287,7 +2294,10 @@ const WebDiscoveryProject = {
   auxGetPageData: function (url, page_data, original_url, onsuccess, onerror) {
     WebDiscoveryProject.doublefetchHandler
       .anonymousHttpGet(url)
-      .then(({ body }) => parseHtml(body))
+      .then(({ body }) => {
+        console.error("GOT BODY:", body);
+        return parseHtml(body);
+      })
       .then((doc) => {
         const x = WebDiscoveryProject.getPageData(url, doc);
 
@@ -2482,11 +2492,11 @@ const WebDiscoveryProject = {
 
           var tt1 = t1.replace(
             /[^A-Za-z 0-9 \.,\?""!@#\$%\^&\*\(\)-_=\+;:<>\/\\\|\}\{\[\]`~]*/g,
-            ""
+            "",
           );
           var tt2 = t2.replace(
             /[^A-Za-z 0-9 \.,\?""!@#\$%\^&\*\(\)-_=\+;:<>\/\\\|\}\{\[\]`~]*/g,
-            ""
+            "",
           );
 
           if (tt1.length > t1.length * 0.5 && tt2.length > t2.length * 0.5) {
@@ -2601,16 +2611,16 @@ const WebDiscoveryProject = {
           null,
           function (referral_url) {
             _log(
-              "PPP in fetchReferral success auxGetPageData: " + referral_url
+              "PPP in fetchReferral success auxGetPageData: " + referral_url,
             );
             callback();
           },
           function (referral_url) {
             _log(
-              "PPP in fetchReferral failure auxGetPageData: " + referral_url
+              "PPP in fetchReferral failure auxGetPageData: " + referral_url,
             );
             callback();
-          }
+          },
         );
       } else {
         _log("PPP in fetchReferral already in docCache: " + referral_url);
@@ -2649,7 +2659,7 @@ const WebDiscoveryProject = {
       return discard("URL failed the isSuspiciousURL check");
     }
 
-    let allowlisted = page_doc["alw"]
+    let allowlisted = page_doc["alw"];
 
     if (WebDiscoveryProject.dropLongURL(url)) {
       // The URL itself is considered unsafe, but it has a canonical URL, so it should be public
@@ -2697,7 +2707,7 @@ const WebDiscoveryProject = {
           "The URL",
           url,
           "failed one of the doublefetch heuristics. Details:",
-          explanation
+          explanation,
         );
         resolve({
           url,
@@ -2727,7 +2737,7 @@ const WebDiscoveryProject = {
       if (!allowDoublefetch) {
         privateUrlFound(
           url,
-          `URL rejected by heuristics before doublefetch: ${rejectDetails}`
+          `URL rejected by heuristics before doublefetch: ${rejectDetails}`,
         );
         return;
       }
@@ -2758,11 +2768,11 @@ const WebDiscoveryProject = {
 
             let nifshmatch = WebDiscoveryProject.validFrameCount(
               page_doc["x"],
-              data
+              data,
             );
             let nfshmatch = WebDiscoveryProject.validFrameSetCount(
               page_doc["x"],
-              data
+              data,
             );
 
             data.nifshmatch = nifshmatch;
@@ -2776,14 +2786,11 @@ const WebDiscoveryProject = {
             WebDiscoveryProject.fetchReferral(page_doc["ref"], function () {
               var url_strict_value = WebDiscoveryProject.calculateStrictness(
                 url,
-                page_doc
+                page_doc,
               );
 
-              var structure_strict_value = WebDiscoveryProject.calculateStrictness(
-                url,
-                page_doc,
-                true
-              );
+              var structure_strict_value =
+                WebDiscoveryProject.calculateStrictness(url, page_doc, true);
 
               var allowlisted = page_doc["alw"];
               url_strict_value = url_strict_value && !allowlisted;
@@ -2791,7 +2798,7 @@ const WebDiscoveryProject = {
               if (page_doc["ref"] && page_doc["ref"] != "") {
                 // the page has a referral
                 _log(
-                  "PPP: page has a referral, " + url + " < " + page_doc["ref"]
+                  "PPP: page has a referral, " + url + " < " + page_doc["ref"],
                 );
                 var hasurl = WebDiscoveryProject.hasURL(page_doc["ref"], url);
                 _log(
@@ -2800,11 +2807,15 @@ const WebDiscoveryProject = {
                     " < " +
                     page_doc["ref"] +
                     ">>>> " +
-                    hasurl
+                    hasurl,
                 );
 
                 // overwrite strict value because the link exists on a public fetchable page
-                _log("Strictness values:", url_strict_value, structure_strict_value);
+                _log(
+                  "Strictness values:",
+                  url_strict_value,
+                  structure_strict_value,
+                );
                 if (hasurl) {
                   url_strict_value = false;
                   structure_strict_value = false;
@@ -2817,7 +2828,14 @@ const WebDiscoveryProject = {
                 // there is no canonical or if there is canonical and is the same as the url,
               }
 
-              _log("strict URL:", url, "> struct:", structure_strict_value, " url:", url_strict_value);
+              _log(
+                "strict URL:",
+                url,
+                "> struct:",
+                structure_strict_value,
+                " url:",
+                url_strict_value,
+              );
 
               if (
                 WebDiscoveryProject.validDoubleFetch(page_doc["x"], data, {
@@ -2842,19 +2860,19 @@ const WebDiscoveryProject = {
                         page_doc["x"]["canonical_url"],
                         {
                           strict: url_strict_value,
-                        }
+                        },
                       )
                     ) {
                       privateUrlFound(
                         url,
-                        "rejected by dropLongURL (strict=true) heuristic"
+                        "rejected by dropLongURL (strict=true) heuristic",
                       );
                       return;
                     }
                   } else {
                     privateUrlFound(
                       url,
-                      "rejected by dropLongURL (strict=true) heuristic"
+                      "rejected by dropLongURL (strict=true) heuristic",
                     );
                     return;
                   }
@@ -2864,7 +2882,7 @@ const WebDiscoveryProject = {
                 // since we do not know the origin mark as private
                 privateUrlFound(
                   url,
-                  `rejected by validDoubleFetch(structure_strict=${structure_strict_value})`
+                  `rejected by validDoubleFetch(structure_strict=${structure_strict_value})`,
                 );
                 return;
               }
@@ -2898,7 +2916,10 @@ const WebDiscoveryProject = {
                 if (
                   page_doc["x"]["canonical_url"] != null &&
                   page_doc["x"]["canonical_url"] != "" &&
-                  (allowlisted || WebDiscoveryProject.dropLongURL(page_doc["x"]["canonical_url"]) == false)
+                  (allowlisted ||
+                    WebDiscoveryProject.dropLongURL(
+                      page_doc["x"]["canonical_url"],
+                    ) == false)
                 ) {
                   page_doc["url"] = page_doc["x"]["canonical_url"];
                   page_doc["x"] = data;
@@ -2906,7 +2927,10 @@ const WebDiscoveryProject = {
                 } else {
                   // there was no canonical either on page_doc['x'] or in data or it was droppable
 
-                  if (allowlisted || WebDiscoveryProject.dropLongURL(url) == false) {
+                  if (
+                    allowlisted ||
+                    WebDiscoveryProject.dropLongURL(url) == false
+                  ) {
                     page_doc["url"] = url;
                     page_doc["x"] = data;
 
@@ -2920,7 +2944,7 @@ const WebDiscoveryProject = {
                     // this should not happen since it would be covered by the isok checks, but better safe,
                     privateUrlFound(
                       url,
-                      `rejected by fail-safe branch (dropLongURL(${url} should have been passed)`
+                      `rejected by fail-safe branch (dropLongURL(${url} should have been passed)`,
                     );
                     return;
                   }
@@ -2928,7 +2952,7 @@ const WebDiscoveryProject = {
               }
 
               var clean_url = WebDiscoveryProject.getCleanerURL(
-                page_doc["url"]
+                page_doc["url"],
               );
 
               if (clean_url != page_doc["url"]) {
@@ -2945,7 +2969,7 @@ const WebDiscoveryProject = {
                   first_url_double_fetched,
                   function (url, page_doc, original_url, data) {
                     _log(
-                      "success on clean_url doubleFetch, need further validation"
+                      "success on clean_url doubleFetch, need further validation",
                     );
 
                     if (
@@ -2954,7 +2978,7 @@ const WebDiscoveryProject = {
                         data,
                         {
                           structure_strict: false,
-                        }
+                        },
                       )
                     ) {
                       // if it the second double fetch is valid, that means that the clean_url is (url parameter) is
@@ -2978,7 +3002,7 @@ const WebDiscoveryProject = {
                         // the page with url_clean have more input password fields or more forms, this is dangerous,
                         privateUrlFound(
                           original_url,
-                          "rejected by extra password / form fields (after doublefetch)"
+                          "rejected by extra password / form fields (after doublefetch)",
                         );
                       } else {
                         // safe, here we will send the url before clean_url
@@ -2990,10 +3014,10 @@ const WebDiscoveryProject = {
                     // there was a failure, the clean_url does not go to the same place, therefore it's better
                     // not to replace
                     _log(
-                      "failure on clean_url doubleFetch! structure did not match"
+                      "failure on clean_url doubleFetch! structure did not match",
                     );
                     publicUrlFound(original_url, page_doc);
-                  }
+                  },
                 );
               } else {
                 publicUrlFound(original_url, page_doc);
@@ -3002,7 +3026,7 @@ const WebDiscoveryProject = {
           } else {
             privateUrlFound(
               url,
-              "rejected as the structure of the document changed significantly (after doublefetch)"
+              "rejected as the structure of the document changed significantly (after doublefetch)",
             );
           }
         },
@@ -3010,9 +3034,9 @@ const WebDiscoveryProject = {
           _log("failure on doubleFetch!", error_message);
           privateUrlFound(
             url,
-            `rejected as doublefetch failed with an error ${error_message}`
+            `rejected as doublefetch failed with an error ${error_message}`,
           );
-        }
+        },
       );
     });
   },
@@ -3338,7 +3362,7 @@ const WebDiscoveryProject = {
         if (WebDiscoveryProject.state["v"][activeURL] == null) {
           const braveQuery =
             WebDiscoveryProject.contentExtractor.tryExtractBraveSerpQuery(
-              activeURL
+              activeURL,
             );
           logger.debug("[onLocationChange] isBraveQuery", braveQuery);
           if (braveQuery) {
@@ -3362,13 +3386,13 @@ const WebDiscoveryProject = {
                   })
                   .catch((e) => {
                     logger.info(
-                      `Failed to get content for originalURL=${originalURL} (internalURL=${url}, details=${e})`
+                      `Failed to get content for originalURL=${originalURL} (internalURL=${url}, details=${e})`,
                     );
                   });
               },
               WebDiscoveryProject.WAIT_TIME,
               activeURL,
-              originalURL
+              originalURL,
             );
           }
 
@@ -3408,7 +3432,9 @@ const WebDiscoveryProject = {
             }
           }
 
-          const allowlisted = WebDiscoveryProject.allowlist.some(allowlist_regex => allowlist_regex.test(activeURL));
+          const allowlisted = WebDiscoveryProject.allowlist.some(
+            (allowlist_regex) => allowlist_regex.test(activeURL),
+          );
 
           // Page details to be saved.
           WebDiscoveryProject.state["v"][activeURL] = {
@@ -3488,7 +3514,7 @@ const WebDiscoveryProject = {
                   function (cd) {
                     if (
                       !WebDiscoveryProject.contentExtractor.isSearchEngineUrl(
-                        currURL
+                        currURL,
                       )
                     ) {
                       try {
@@ -3522,7 +3548,7 @@ const WebDiscoveryProject = {
                       WebDiscoveryProject.addURLtoDB(
                         currURL,
                         WebDiscoveryProject.state["v"][currURL]["ref"],
-                        WebDiscoveryProject.state["v"][currURL]
+                        WebDiscoveryProject.state["v"][currURL],
                       );
                     }
                   },
@@ -3530,20 +3556,20 @@ const WebDiscoveryProject = {
                     if (WebDiscoveryProject.debug) {
                       _log("CANNOT GET THE CONTENT OF : " + currURL);
                     }
-                  }
+                  },
                 )
                 .catch((ee) => {
                   _log(
                     "Error fetching title and length of page: " +
                       ee +
                       " : " +
-                      currURL
+                      currURL,
                   );
                 });
             },
             WebDiscoveryProject.PAGE_WAIT_TIME,
             activeURL,
-            originalURL
+            originalURL,
           );
         } else {
           // oops, it exists on the active page, probably it comes from a back button or back
@@ -3562,7 +3588,7 @@ const WebDiscoveryProject = {
       WebDiscoveryProject.addURLtoDB(
         url,
         WebDiscoveryProject.state["v"][url]["ref"],
-        WebDiscoveryProject.state["v"][url]
+        WebDiscoveryProject.state["v"][url],
       );
       delete WebDiscoveryProject.state["v"][url];
       delete WebDiscoveryProject.queryCache[url];
@@ -3598,8 +3624,8 @@ const WebDiscoveryProject = {
 
           WebDiscoveryProject.counter += 4;
         },
-        { timeout: 1000 }
-      )
+        { timeout: 1000 },
+      ),
     ); // 1 second
 
     // TODO - could be replaced by tab events (closed, updated, new)
@@ -3626,12 +3652,12 @@ const WebDiscoveryProject = {
                     ) {
                       // move to "dead pages" after 5 minutes
                       WebDiscoveryProject.state["m"].push(
-                        WebDiscoveryProject.state["v"][url]
+                        WebDiscoveryProject.state["v"][url],
                       );
                       WebDiscoveryProject.addURLtoDB(
                         url,
                         WebDiscoveryProject.state["v"][url]["ref"],
-                        WebDiscoveryProject.state["v"][url]
+                        WebDiscoveryProject.state["v"][url],
                       );
                       delete WebDiscoveryProject.state["v"][url];
                       delete WebDiscoveryProject.queryCache[url];
@@ -3647,12 +3673,12 @@ const WebDiscoveryProject = {
                       WebDiscoveryProject.state["v"][url]["tend"] = null;
                       WebDiscoveryProject.state["v"][url]["too_long"] = true;
                       WebDiscoveryProject.state["m"].push(
-                        WebDiscoveryProject.state["v"][url]
+                        WebDiscoveryProject.state["v"][url],
                       );
                       WebDiscoveryProject.addURLtoDB(
                         url,
                         WebDiscoveryProject.state["v"][url]["ref"],
-                        WebDiscoveryProject.state["v"][url]
+                        WebDiscoveryProject.state["v"][url],
                       );
                       delete WebDiscoveryProject.state["v"][url];
                       delete WebDiscoveryProject.queryCache[url];
@@ -3667,8 +3693,8 @@ const WebDiscoveryProject = {
               _log(ee);
             });
         },
-        { timeout: 5000 }
-      )
+        { timeout: 5000 },
+      ),
     );
 
     // Every 10 seconds
@@ -3686,8 +3712,8 @@ const WebDiscoveryProject = {
             WebDiscoveryProject.loadBloomFilter();
           }
         },
-        { timeout: 10 * 1000 }
-      )
+        { timeout: 10 * 1000 },
+      ),
     ); // 10 seconds
 
     // Clean http cache (when >1 hour)
@@ -3696,8 +3722,8 @@ const WebDiscoveryProject = {
         function cleanHttpCache() {
           WebDiscoveryProject.cleanHttpCache();
         },
-        { timeout: 15 * 1000 }
-      )
+        { timeout: 15 * 1000 },
+      ),
     ); // 15 seconds
 
     // Purge clean link cache (when >1 minute)
@@ -3706,8 +3732,8 @@ const WebDiscoveryProject = {
         function cleanLinkCache() {
           WebDiscoveryProject.cleanLinkCache();
         },
-        { timeout: 15 * 1000 }
-      )
+        { timeout: 15 * 1000 },
+      ),
     ); // 15 seconds
 
     // Purge ad lookup (when >15 minutes)
@@ -3716,8 +3742,8 @@ const WebDiscoveryProject = {
         function purgeAdLookUp() {
           WebDiscoveryProject.purgeAdLookUp();
         },
-        { timeout: 15 * 1000 }
-      )
+        { timeout: 15 * 1000 },
+      ),
     ); // 15 seconds
 
     // Clean doc cache (>1 hour)
@@ -3726,8 +3752,8 @@ const WebDiscoveryProject = {
         function cleanDocCache() {
           WebDiscoveryProject.cleanDocCache();
         },
-        { timeout: 60 * 1000 }
-      )
+        { timeout: 60 * 1000 },
+      ),
     ); // 1 minute
 
     // Every minute
@@ -3738,12 +3764,12 @@ const WebDiscoveryProject = {
             1,
             WebDiscoveryProject.doubleFetchTimeInSec,
             null,
-            WebDiscoveryProject.processUnchecks
+            WebDiscoveryProject.processUnchecks,
           );
           WebDiscoveryProject.auxGetQuery();
         },
-        { timeout: 60 * 1000 }
-      )
+        { timeout: 60 * 1000 },
+      ),
     ); // 1 minute
 
     // Every 5 minutes
@@ -3753,8 +3779,8 @@ const WebDiscoveryProject = {
           logger.debug("web-discovery-project: flush network cache");
           WebDiscoveryProject.network.flushExpiredCacheEntries();
         },
-        { timeout: 5 * 60 * 1000 }
-      )
+        { timeout: 5 * 60 * 1000 },
+      ),
     ); // 5 minutes
 
     // Every 20 minutes
@@ -3766,8 +3792,8 @@ const WebDiscoveryProject = {
           }
           WebDiscoveryProject.checkActiveUsage();
         },
-        { timeout: 20 * 60 * 1000 }
-      )
+        { timeout: 20 * 60 * 1000 },
+      ),
     ); // 20 minutes
 
     // Every 4 hours
@@ -3776,8 +3802,8 @@ const WebDiscoveryProject = {
         function checkAllOpenPages() {
           WebDiscoveryProject.fetchSafeQuorumConfig();
         },
-        { timeout: 4 * 60 * 60 * 1000 }
-      )
+        { timeout: 4 * 60 * 60 * 1000 },
+      ),
     ); // 4 hours
 
     return tasks;
@@ -3805,7 +3831,7 @@ const WebDiscoveryProject = {
   },
   currentURL: function () {
     return getActiveTab().then(({ url }) =>
-      WebDiscoveryProject.cleanCurrentUrl(url)
+      WebDiscoveryProject.cleanCurrentUrl(url),
     );
   },
   cleanCurrentUrl: function (url) {
@@ -3920,7 +3946,7 @@ const WebDiscoveryProject = {
             " :: " +
             ev.target.value +
             " >>" +
-            JSON.stringify(WebDiscoveryProject.lastEv)
+            JSON.stringify(WebDiscoveryProject.lastEv),
         );
       }
 
@@ -4099,7 +4125,7 @@ const WebDiscoveryProject = {
                 } else {
                   WebDiscoveryProject.activeUsage = JSON.parse(data);
                 }
-              }
+              },
             );
           }
 
@@ -4114,7 +4140,7 @@ const WebDiscoveryProject = {
                 _log(`Active usage last sent  from db as ${data}`);
                 WebDiscoveryProject.activeUsageLastSent = parseInt(data);
               }
-            }
+            },
           );
 
           return Promise.all(promises).then(() => {
@@ -4157,7 +4183,7 @@ const WebDiscoveryProject = {
             " : " +
             msg.payload.tin +
             " : " +
-            duration
+            duration,
         );
       } else {
         var duration = null;
@@ -4167,7 +4193,7 @@ const WebDiscoveryProject = {
             " : " +
             msg.payload.tin +
             " : " +
-            duration
+            duration,
         );
       }
 
@@ -4195,7 +4221,7 @@ const WebDiscoveryProject = {
                 msg.payload["ref"] = null;
               }
             }
-          }
+          },
         );
       }
 
@@ -4251,7 +4277,7 @@ const WebDiscoveryProject = {
         msg.payload.x.canonical_url != ""
       ) {
         short_canonical_url = WebDiscoveryProject.isShortenerURL(
-          msg.payload.x.canonical_url
+          msg.payload.x.canonical_url,
         );
       }
 
@@ -4336,7 +4362,11 @@ const WebDiscoveryProject = {
 
     //Remove the msg if the query is too long,
 
-    if (msg.action == "query" || msg.action == "anon-query" || msg.action == "widgetTitle") {
+    if (
+      msg.action == "query" ||
+      msg.action == "anon-query" ||
+      msg.action == "widgetTitle"
+    ) {
       //Remove the msg if the query is too long,
       if (msg.payload.q == null || msg.payload.q == "") {
         return null;
@@ -4369,7 +4399,7 @@ const WebDiscoveryProject = {
         // That it where we currently set the threshold.
         if (cleanR.length < 4) {
           _log(
-            `Dropping message for query ${msg.payload.q}, as there are too few search results.`
+            `Dropping message for query ${msg.payload.q}, as there are too few search results.`,
           );
           return null;
         }
@@ -4413,7 +4443,7 @@ const WebDiscoveryProject = {
     if (accepted) {
       _log(
         "all checks passed: telemetry message added to the send queue:",
-        msg
+        msg,
       );
 
       // do not wait for the promise to complete (keeping the old fire-and-forget API)
@@ -4425,7 +4455,7 @@ const WebDiscoveryProject = {
             "Successfully sent message after",
             (Date.now() - start) / 1000.0,
             "sec",
-            msg
+            msg,
           );
         })
         .catch((e) => {
@@ -4433,7 +4463,7 @@ const WebDiscoveryProject = {
             `Finally giving up on sending message (reason: ${e}, elapsed: ${
               (Date.now() - start) / 1000.0
             } sec)`,
-            msg
+            msg,
           );
         });
     } else {
@@ -4510,7 +4540,7 @@ const WebDiscoveryProject = {
       1000000000000,
       0,
       url,
-      WebDiscoveryProject.processUnchecks
+      WebDiscoveryProject.processUnchecks,
     );
   },
 
@@ -4582,12 +4612,12 @@ const WebDiscoveryProject = {
               resolve(
                 res
                   .map((x) => ({ url: x[0], page_doc: x[1] }))
-                  .filter((x) => isRelevantUrl(x.url))
+                  .filter((x) => isRelevantUrl(x.url)),
               );
             } catch (e) {
               reject(e);
             }
-          }
+          },
         );
       });
     } else {
@@ -4624,7 +4654,7 @@ const WebDiscoveryProject = {
           logger.error(e);
           return { url, state: "error", explanation: `error: ${e}` };
         }
-      })
+      }),
     );
     return results.sort((x, y) => x.url < y.url);
   },
@@ -4671,7 +4701,7 @@ const WebDiscoveryProject = {
     return WebDiscoveryProject.contentExtractor.checkURL(
       pageContent,
       url,
-      ruleset
+      ruleset,
     );
   },
 
@@ -4692,7 +4722,7 @@ const WebDiscoveryProject = {
       _log(
         "aggregates: " +
           JSON.stringify(metricsBefore) +
-          JSON.stringify(metricsAfter)
+          JSON.stringify(metricsAfter),
       );
     }
 
@@ -4865,7 +4895,7 @@ const WebDiscoveryProject = {
       JSON.stringify(WebDiscoveryProject.activeUsage),
       (result) => {
         _log("Active usage stats saved:", result);
-      }
+      },
     );
   },
   checkActiveUsage: function () {
@@ -4892,7 +4922,7 @@ const WebDiscoveryProject = {
         */
 
     const tDiff = parseInt(
-      (new Date().getTime() - WebDiscoveryProject.activeUsageLastSent) / 1000
+      (new Date().getTime() - WebDiscoveryProject.activeUsageLastSent) / 1000,
     );
     if (tDiff > 3600) {
       const activeHours = Object.keys(WebDiscoveryProject.activeUsage);
@@ -4909,7 +4939,7 @@ const WebDiscoveryProject = {
             JSON.stringify(WebDiscoveryProject.activeUsage),
             (result) => {
               _log("Active usage stats saved:", result);
-            }
+            },
           );
           WebDiscoveryProject.saveActiveUsageTime();
         }
@@ -4924,7 +4954,7 @@ const WebDiscoveryProject = {
     };
 
     _log(
-      `Sending alive message for the hour: ${h} , ${JSON.stringify(payload)}`
+      `Sending alive message for the hour: ${h} , ${JSON.stringify(payload)}`,
     );
 
     WebDiscoveryProject.telemetry({
@@ -4941,7 +4971,7 @@ const WebDiscoveryProject = {
       (result) => {
         WebDiscoveryProject.activeUsageLastSent = t;
         _log(`Active usage last sent as ${t}`);
-      }
+      },
     );
   },
   saveStrictQueries: function () {
@@ -4951,7 +4981,7 @@ const WebDiscoveryProject = {
       JSON.stringify(WebDiscoveryProject.strictQueries),
       (result) => {
         _log("localStrictQueries saved:", result);
-      }
+      },
     );
   },
   dumpBloomFilter: function () {
@@ -4962,7 +4992,7 @@ const WebDiscoveryProject = {
         bf.join("|"),
         (result) => {
           _log("bloom filter saved:", result);
-        }
+        },
       );
     }
   },
@@ -4972,13 +5002,13 @@ const WebDiscoveryProject = {
         _log("There was no data on WebDiscoveryProject.bf");
         WebDiscoveryProject.bloomFilter = new BloomFilter(
           Array(bloomFilterSize).join("0"),
-          bloomFilterNHashes
+          bloomFilterNHashes,
         );
       } else {
         var _data = data.split("|").map(Number);
         WebDiscoveryProject.bloomFilter = new BloomFilter(
           _data,
-          bloomFilterNHashes
+          bloomFilterNHashes,
         );
       }
     });
@@ -4993,7 +5023,7 @@ const WebDiscoveryProject = {
         } else {
           WebDiscoveryProject.strictQueries = JSON.parse(data);
         }
-      }
+      },
     );
   },
   auxGetQuery: function () {
@@ -5010,7 +5040,7 @@ const WebDiscoveryProject = {
           },
           function (a, b, c, d) {
             _log("Error aux>>>> " + d);
-          }
+          },
         );
         WebDiscoveryProject.strictQueries.splice(idx, 1);
         WebDiscoveryProject.saveStrictQueries();
@@ -5372,10 +5402,10 @@ const WebDiscoveryProject = {
       for (const original of urls) {
         if (original.t === "canonical") {
           msg.payload.x.canonical_url = WebDiscoveryProject.maskURLStrict(
-            original.url
+            original.url,
           );
           _log(
-            `Sanitized 'canonical': ${original.url} -> ${msg.payload.x.canonical_url}`
+            `Sanitized 'canonical': ${original.url} -> ${msg.payload.x.canonical_url}`,
           );
         }
 
@@ -5387,10 +5417,10 @@ const WebDiscoveryProject = {
         if (original.t.startsWith("red")) {
           let redPos = original.t.split(":")[1];
           msg.payload.red[redPos] = WebDiscoveryProject.maskURLStrict(
-            original.url
+            original.url,
           );
           _log(
-            `Sanitized 'ref++${redPos}': ${original.url} -> ${msg.payload.red[redPos]}`
+            `Sanitized 'ref++${redPos}': ${original.url} -> ${msg.payload.red[redPos]}`,
           );
         }
       }
@@ -5515,7 +5545,7 @@ const WebDiscoveryProject = {
         var metricsAfter = paylobj["e"];
         paylobj["e"] = WebDiscoveryProject.aggregateMetrics(
           metricsBefore,
-          metricsAfter
+          metricsAfter,
         );
 
         var cloneObj = record;
@@ -5561,7 +5591,7 @@ const WebDiscoveryProject = {
       fixed_url,
       (res, res2) => {
         callback(res);
-      }
+      },
     );
   },
   processUnchecks: function (listOfUncheckedUrls) {
@@ -5581,7 +5611,7 @@ const WebDiscoveryProject = {
         page_doc,
         ", page_struct_before:",
         page_struct_before,
-        ")"
+        ")",
       );
 
       // only do doubleFetch for the same url 3 times in a row
@@ -5612,7 +5642,7 @@ const WebDiscoveryProject = {
             JSON.stringify(obj),
             (result) => {
               _log("last-double-fetch saved:", result);
-            }
+            },
           );
 
           if (obj.count > WebDiscoveryProject.MAX_NUMBER_DOUBLEFETCH_ATTEMPS) {
@@ -5620,7 +5650,7 @@ const WebDiscoveryProject = {
           } else {
             WebDiscoveryProject.doubleFetch(url, url_pagedocPair[url]);
           }
-        }
+        },
       );
     }
   },
@@ -5638,7 +5668,7 @@ const WebDiscoveryProject = {
         }
         const domain = cleanFinalUrl(
           WebDiscoveryProject.adDetails[clickedU].furl[0],
-          WebDiscoveryProject.adDetails[clickedU].furl[1]
+          WebDiscoveryProject.adDetails[clickedU].furl[1],
         );
 
         const payload = {
@@ -5702,7 +5732,7 @@ const WebDiscoveryProject = {
   },
 };
 WebDiscoveryProject.contentExtractor = new ContentExtractor(
-  WebDiscoveryProject
+  WebDiscoveryProject,
 );
 
 export default WebDiscoveryProject;

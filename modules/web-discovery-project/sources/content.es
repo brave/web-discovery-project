@@ -109,7 +109,7 @@ export function parseDom(url, window, wdp) {
     // Let's iterate over each possible section of the ads.
     detectAdRules.adSections.forEach((eachAdSection, idx) => {
       const adNodes = Array.prototype.slice.call(
-        doc.querySelectorAll(eachAdSection)
+        doc.querySelectorAll(eachAdSection),
       );
 
       adNodes.forEach((eachAd) => {
@@ -175,7 +175,7 @@ function contentScript(window, chrome, WDP) {
   window.addEventListener("copy", onCopy);
 
   function stop(ev) {
-    if (ev && (ev.target !== window.document)) {
+    if (ev && ev.target !== window.document) {
       return;
     }
 

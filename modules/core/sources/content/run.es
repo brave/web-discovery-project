@@ -99,7 +99,7 @@ export default function () {
     // Inject enabled content-scripts and register content-script actions so that
     // background can request actions from them.
     contentScriptActions.setActionCallbacks(
-      runContentScripts(window, chrome, WDP)
+      runContentScripts(window, chrome, WDP),
     );
 
     // Stop listening for messages on window unload
@@ -108,7 +108,7 @@ export default function () {
       () => {
         contentScriptActions.unload();
       },
-      { once: true }
+      { once: true },
     );
   });
 }

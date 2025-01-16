@@ -45,13 +45,13 @@ class Hpnv2Sender {
           if (shouldRetry) {
             logger.debug(
               "message failed, retry possible --> pushing to DLQ",
-              msg
+              msg,
             );
             this.pushToDlq([{ msg, resolve, reject, attempts, e }]);
           } else {
             logger.debug(
               "message failed, retry will likely fail --> dropping message",
-              msg
+              msg,
             );
             reject(e);
           }
@@ -200,7 +200,7 @@ export default class SafebrowsingEndpoint {
     if (this.dlq.length > this.dlqMaxSize) {
       for (const { msg, reject, e } of this.dlq.splice(
         0,
-        this.dlq.length - this.dlqMaxSize
+        this.dlq.length - this.dlqMaxSize,
       )) {
         logger.warn("DLQ overrun. Dropping message:", msg);
         reject(e);

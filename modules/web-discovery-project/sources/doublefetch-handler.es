@@ -104,7 +104,7 @@ export default class DoublefetchHandler {
       logger.debug(
         "Previous request failed (error: ",
         e || "<missing>",
-        "). Ignore and continue..."
+        "). Ignore and continue...",
       );
     };
 
@@ -133,7 +133,7 @@ export default class DoublefetchHandler {
       url,
       entry,
       3000,
-      overrideHeaders
+      overrideHeaders,
     );
     entry.requestPromise = requestPromise;
 
@@ -147,7 +147,7 @@ export default class DoublefetchHandler {
     logger.debug(
       `doublefetch for ${entry.url} completed after ${
         elapsedMs / 1000
-      } seconds.`
+      } seconds.`,
     );
     this._stats.httpRequests.finished += 1;
 
@@ -156,7 +156,7 @@ export default class DoublefetchHandler {
       this._pendingRequests.splice(index, 1);
     } else if (elapsedMs < this.zombieRequestTimelimitMs) {
       logger.error(
-        `_pendingRequests is in an inconsistent state (url=${entry.url}).`
+        `_pendingRequests is in an inconsistent state (url=${entry.url}).`,
       );
       this._stats.errors.inconsistentStateDetected += 1;
     }
@@ -198,7 +198,7 @@ export default class DoublefetchHandler {
     }
 
     const completeMatch = pendingWithUnknownRequestId.filter((x) =>
-      urlEquals(request.url, x.url)
+      urlEquals(request.url, x.url),
     );
     if (completeMatch.length > 0) {
       // should not be ambiguous, but when in doubt, let the oldest one win
@@ -210,7 +210,7 @@ export default class DoublefetchHandler {
     // Requests like "http://goo.gl/..." may have been modified to "https://goo.gl/...".
     const normalizeSchema = (x) => x.replace(/^https:\/\//, "http://");
     const ignoringSchema = pendingWithUnknownRequestId.filter((x) =>
-      urlEquals(normalizeSchema(request.url), normalizeSchema(x.url))
+      urlEquals(normalizeSchema(request.url), normalizeSchema(x.url)),
     );
     if (ignoringSchema.length > 0) {
       // should not be ambiguous, but when in doubt, let the oldest one win
@@ -235,7 +235,7 @@ export default class DoublefetchHandler {
         this.zombieRequestTimelimitMs
     ) {
       logger.error(
-        `doublefetch for url ${this._pendingRequests[0].url} was not cleaned up after ${this.zombieRequestTimelimitMs} ms.`
+        `doublefetch for url ${this._pendingRequests[0].url} was not cleaned up after ${this.zombieRequestTimelimitMs} ms.`,
       );
       this._stats.errors.danglingEntryFound += 1;
       this._pendingRequests.shift();
@@ -284,12 +284,16 @@ export default class DoublefetchHandler {
         if (matchingPendingEvent) {
           /* eslint-disable no-param-reassign */
           response.requestHeaders = request.requestHeaders.filter(
-            (header) => !isSensitiveHeader(header)
+            (header) => !isSensitiveHeader(header),
           );
           if (
             response.requestHeaders.length !== request.requestHeaders.length
           ) {
             this._stats.strippedHeaders += 1;
+          }
+
+          if (request.url.startsWith("https://www.google.com/search?")) {
+            response.requestHeaders.push({ name: "Cookie", value: "SG_SS=1;" });
           }
         }
       },
@@ -322,7 +326,7 @@ export default class DoublefetchHandler {
         if (contentLength && contentLength > this.maxDoubleFetchSize) {
           this._stats.rejected.exceededSizeLimit += 1;
           logger.debug(
-            `Response of ${request.url} exceeds limit of ${this.maxDoubleFetchSize} bytes. Aborting double fetch request.`
+            `Response of ${request.url} exceeds limit of ${this.maxDoubleFetchSize} bytes. Aborting double fetch request.`,
           );
 
           response.block();
@@ -372,7 +376,7 @@ export default class DoublefetchHandler {
           "Learned new DNS resolution from doublefetch:",
           parsedURL.hostname,
           " -> ",
-          request.ip
+          request.ip,
         );
 
         matchingPendingEvent.onCompletedHandlerFinished();
@@ -385,7 +389,7 @@ export default class DoublefetchHandler {
       if (this._state === State.INITIALIZING) {
         throw new Error(
           "Assertion failed: After all pending operation have finished, " +
-            "we must never end up in the INITIALIZING state"
+            "we must never end up in the INITIALIZING state",
         );
       }
 
@@ -434,8 +438,8 @@ export default class DoublefetchHandler {
         Promise.all(
           this._pendingRequests
             .filter((x) => x.requestPromise)
-            .map((x) => x.requestPromise.catch(() => {}))
-        )
+            .map((x) => x.requestPromise.catch(() => {})),
+        ),
       )
       .then(() => this._unloadPipeline())
       .then(() => this._setState(State.DISABLED));
@@ -455,7 +459,7 @@ export default class DoublefetchHandler {
     url,
     entry,
     onCompletedHandlerTimeoutInMs = 3000,
-    overrideHeaders = {}
+    overrideHeaders = {},
   ) {
     let handlerTimedOut;
     let timeoutTimer;
@@ -480,7 +484,13 @@ export default class DoublefetchHandler {
       };
     });
 
-    return getRequest(url, overrideHeaders).then((response) => {
+    return getRequest(
+      url,
+      overrideHeaders,
+      url.startsWith("https://www.google.com/search?")
+        ? { redirect: "follow" }
+        : undefined,
+    ).then((response) => {
       // Normally, the onCompleted handler should trigger immediately
       // (either before or after the request is resolved).
       // To avoid that we hang forever if we fail to correlated requests,
@@ -489,7 +499,7 @@ export default class DoublefetchHandler {
         timeoutTimer = pacemaker.setTimeout(() => {
           logger.warn(
             'Waiting for the "onCompleted" handler timed out for url',
-            url
+            url,
           );
           handlerTimedOut();
         }, onCompletedHandlerTimeoutInMs);
@@ -519,8 +529,8 @@ export default class DoublefetchHandler {
         this._webRequestPipeline.action(
           "addPipelineStep",
           "onBeforeSendHeaders",
-          beforeSendHeadersHandler
-        )
+          beforeSendHeadersHandler,
+        ),
       )
       .then(() => {
         this._onBeforeSendHeadersHandler = beforeSendHeadersHandler;
@@ -529,8 +539,8 @@ export default class DoublefetchHandler {
         this._webRequestPipeline.action(
           "addPipelineStep",
           "onHeadersReceived",
-          headersReceivedHandler
-        )
+          headersReceivedHandler,
+        ),
       )
       .then(() => {
         this._onHeadersReceivedHandler = headersReceivedHandler;
@@ -539,8 +549,8 @@ export default class DoublefetchHandler {
         this._webRequestPipeline.action(
           "addPipelineStep",
           "onCompleted",
-          completedHandler
-        )
+          completedHandler,
+        ),
       )
       .then(() => {
         this._onCompletedHandler = completedHandler;
@@ -553,7 +563,11 @@ export default class DoublefetchHandler {
     }
 
     return ifModuleEnabled(
-      this._webRequestPipeline.action("removePipelineStep", stage, handler.name)
+      this._webRequestPipeline.action(
+        "removePipelineStep",
+        stage,
+        handler.name,
+      ),
     );
   }
 

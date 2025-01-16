@@ -146,7 +146,7 @@ class Pacemaker {
       // instant timeouts or intervals are executed straight away. Otherwise, we
       // just set a timeout to trigger a _tick in `this.freq` milliseconds.
       const hasInstantTask = added.some(
-        ({ startImmediately }) => startImmediately
+        ({ startImmediately }) => startImmediately,
       );
       this._scheduleNextTick(hasInstantTask ? 0 : this.freq);
     }

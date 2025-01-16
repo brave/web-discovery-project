@@ -19,5 +19,5 @@ export default config.environment === "development"
         get() {
           return noop;
         },
-      }
+      },
     );

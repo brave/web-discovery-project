@@ -23,7 +23,7 @@ export function ifModuleEnabled(promise) {
         "Ignoring disabled module exception while calling action," +
           " the following exception can be safely ignored. This log" +
           ' is only printed in "debug" mode.',
-        err
+        err,
       );
       return Promise.resolve();
     }
@@ -100,13 +100,13 @@ export default {
           }
           if (!api[prop]) {
             throw new Error(
-              `Could not access '${prop}' from service: ${serviceName}.`
+              `Could not access '${prop}' from service: ${serviceName}.`,
             );
           }
           return api[prop](...args);
         },
       }),
-      {}
+      {},
     ),
 };
 

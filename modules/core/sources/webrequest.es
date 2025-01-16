@@ -32,7 +32,7 @@ export const EXTRA_INFO_SPEC = !isEdge
   ? {
       onBeforeRequest: getOptionArray(webrequest.OnBeforeRequestOptions),
       onBeforeSendHeaders: getOptionArray(
-        webrequest.OnBeforeSendHeadersOptions
+        webrequest.OnBeforeSendHeadersOptions,
       ),
       onSendHeaders: getOptionArray(webrequest.OnSendHeadersOptions),
       onHeadersReceived: getOptionArray(webrequest.OnHeadersReceivedOptions),

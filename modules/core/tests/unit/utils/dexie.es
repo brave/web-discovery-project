@@ -21,8 +21,7 @@ async function getInitDexie() {
   initDexie.__proto__.delete = Dexie.delete;
   initDexie.__proto__.exists = Dexie.exists;
 
-
-  return 
+  return;
 }
 module.exports = {
   "platform/lib/dexie": {

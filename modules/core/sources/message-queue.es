@@ -53,7 +53,7 @@ export default function (name, callback) {
   const registerCallbackOnData = () => {
     getNextData()
       .then(([data, resolvePush, rejectPush]) =>
-        Promise.resolve(callback(data)).then(resolvePush).catch(rejectPush)
+        Promise.resolve(callback(data)).then(resolvePush).catch(rejectPush),
       )
       .catch((ex) => console.error(`MessageQueue ${name} :: error: ${ex}`))
       .then(registerCallbackOnData);
@@ -73,7 +73,7 @@ export default function (name, callback) {
       const resolve = globalResolve;
       globalResolve = null;
       return new Promise((resolvePush, rejectPush) =>
-        resolve([data, resolvePush, rejectPush])
+        resolve([data, resolvePush, rejectPush]),
       );
     }
 

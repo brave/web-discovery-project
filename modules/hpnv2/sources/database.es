@@ -40,7 +40,7 @@ export default class Database {
 
   async setGroupPubKey(
     date,
-    { groupPubKey, pubKey, credentials, gsk, joinmsg, banned }
+    { groupPubKey, pubKey, credentials, gsk, joinmsg, banned },
   ) {
     logger.info("DB: setGroupPubKey:", date);
     this.groupPubKeys[date] = {
@@ -206,7 +206,7 @@ export default class Database {
     const expireDate = formatHoursAsYYYYMMDD(currentHours - ttlInHours);
     logger.debug(
       "DB: purgeOldPubKeys: looking for keys older than",
-      expireDate
+      expireDate,
     );
 
     function isSafeToDelete(dateAsYYYYMMDD) {

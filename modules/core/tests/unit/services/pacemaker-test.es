@@ -231,5 +231,5 @@ export default describeModule(
         task.stop();
       });
     });
-  }
+  },
 );

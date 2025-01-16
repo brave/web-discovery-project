@@ -40,7 +40,7 @@ async function deriveKey(serverEcdhPubKey, clientPrivateKey) {
     clientPrivateKey,
     { name: "AES-GCM", length: 256 },
     true,
-    ["encrypt", "decrypt"]
+    ["encrypt", "decrypt"],
   );
 }
 
@@ -58,19 +58,19 @@ async function importAesKey(data) {
     data,
     { name: "AES-GCM", length: 128 },
     false,
-    ["encrypt", "decrypt"]
+    ["encrypt", "decrypt"],
   );
 }
 
 async function encryptAES(iv, key, data) {
   return new Uint8Array(
-    await subtle.encrypt({ name: "AES-GCM", iv, tagLength: 128 }, key, data)
+    await subtle.encrypt({ name: "AES-GCM", iv, tagLength: 128 }, key, data),
   );
 }
 
 async function decryptAES(iv, key, data) {
   return new Uint8Array(
-    await subtle.decrypt({ name: "AES-GCM", iv, tagLength: 128 }, key, data)
+    await subtle.decrypt({ name: "AES-GCM", iv, tagLength: 128 }, key, data),
   );
 }
 
@@ -128,7 +128,7 @@ async function myfetch(
     timeoutInMs,
     cache = "no-store",
     star,
-  } = {}
+  } = {},
 ) {
   // eslint-disable-next-line no-param-reassign
   timeoutInMs = timeoutInMs || 60 * SECOND;
@@ -152,7 +152,7 @@ async function myfetch(
     options.body = toUTF8(JSON.stringify(body));
   }
 
-  logger.debug('myFetch', { url, method, star, options });
+  logger.debug("myFetch", { url, method, star, options });
 
   // When messages are sent through proxies, we cannot rely on TLS alone.
   // Proxies terminate TLS connections, so we have to apply end-to-end encryption
@@ -201,7 +201,7 @@ async function myfetch(
       star.originalMsg.payload.url,
       options.body,
       oc,
-      fetchOptions
+      fetchOptions,
     );
 
     // Override headers and let STAR aggregator forward with original fetch
@@ -210,14 +210,14 @@ async function myfetch(
     options.headers.append("Content-Type", "application/json");
     options.body = toUTF8(JSON.stringify(starMsg));
     url = star.url;
-    logger.debug('Got STAR share', url, starMsg);
+    logger.debug("Got STAR share", url, starMsg);
   }
 
   // eslint-disable-next-line no-async-promise-executor
   return new Promise(async (resolve, reject) => {
     const timer = pacemaker.setTimeout(() => {
       reject(
-        new MsgTimeoutError(`Exceeded timeout of ${timeoutInMs / 1000} sec`)
+        new MsgTimeoutError(`Exceeded timeout of ${timeoutInMs / 1000} sec`),
       );
       abortController.abort();
     }, timeoutInMs);
@@ -265,7 +265,7 @@ export default class Endpoints {
     this.unloaded = false;
 
     oldMessages.forEach((x) =>
-      x.reject(new NotReadyError("Request cancelled because of unload"))
+      x.reject(new NotReadyError("Request cancelled because of unload")),
     );
   }
 
@@ -305,64 +305,67 @@ export default class Endpoints {
     if (this.unloaded || this.sendTimer !== null) {
       return;
     }
-    this.sendTimer = pacemaker.setTimeout(() => {
-      const n = Math.floor(random() * this.messages.length);
-      const {
-        url,
-        msg,
-        originalMsg,
-        cnt,
-        payloadEncryption,
-        resolve,
-        reject,
-        absoluteTimeout,
-      } = this.messages.splice(n, 1)[0];
-
-      myfetch(url, {
-        method: "POST",
-        body: msg,
-        payloadEncryption,
-        star: {
-          url: this.ENDPOINT_STAR,
+    this.sendTimer = pacemaker.setTimeout(
+      () => {
+        const n = Math.floor(random() * this.messages.length);
+        const {
+          url,
+          msg,
           originalMsg,
-          prepareStarMessage: (url, page, oc, fetchOptions) =>
-            this.star.prepareMessage(url, page, oc, fetchOptions),
-        },
-      })
-        .then(resolve, (e) => {
-          if (cnt < this.maxRetries) {
-            logger.log("Will retry sending msg after error", e);
-            this.messages.push({
-              url,
-              msg,
-              cnt: cnt + 1,
-              payloadEncryption,
-              resolve,
-              reject,
-              absoluteTimeout,
-            });
-          } else {
-            logger.warn(
-              "_scheduleSend failed (gave up after",
-              this.maxRetries,
-              "retry attempts)",
-              e
-            );
-            reject(e);
-          }
+          cnt,
+          payloadEncryption,
+          resolve,
+          reject,
+          absoluteTimeout,
+        } = this.messages.splice(n, 1)[0];
+
+        myfetch(url, {
+          method: "POST",
+          body: msg,
+          payloadEncryption,
+          star: {
+            url: this.ENDPOINT_STAR,
+            originalMsg,
+            prepareStarMessage: (url, page, oc, fetchOptions) =>
+              this.star.prepareMessage(url, page, oc, fetchOptions),
+          },
         })
-        .then(() => {
-          this.sendTimer = null;
-          if (this.messages.length > 0) {
-            this._scheduleSend();
-          }
-        });
-    }, 500 + Math.floor(random() * 1500)); // TODO: improve?
+          .then(resolve, (e) => {
+            if (cnt < this.maxRetries) {
+              logger.log("Will retry sending msg after error", e);
+              this.messages.push({
+                url,
+                msg,
+                cnt: cnt + 1,
+                payloadEncryption,
+                resolve,
+                reject,
+                absoluteTimeout,
+              });
+            } else {
+              logger.warn(
+                "_scheduleSend failed (gave up after",
+                this.maxRetries,
+                "retry attempts)",
+                e,
+              );
+              reject(e);
+            }
+          })
+          .then(() => {
+            this.sendTimer = null;
+            if (this.messages.length > 0) {
+              this._scheduleSend();
+            }
+          });
+      },
+      500 + Math.floor(random() * 1500),
+    ); // TODO: improve?
   }
 
   async send(
     msg,
-    { instant, serverEcdhPubKey, absoluteTimeout, originalMsg } = {}
+    { instant, serverEcdhPubKey, absoluteTimeout, originalMsg } = {},
   ) {
     function prepareEndToEndEncryptionIfNeeded() {
       if (!serverEcdhPubKey || serverEcdhPubKey.unsupportedByBrowser) {
@@ -381,7 +384,7 @@ export default class Endpoints {
         const { timeoutInMs, isExpired } = toRelativeTimeout(absoluteTimeout);
         if (isExpired) {
           throw new MsgTimeoutError(
-            "dropping request because the absolute timeout expired"
+            "dropping request because the absolute timeout expired",
           );
         }
 

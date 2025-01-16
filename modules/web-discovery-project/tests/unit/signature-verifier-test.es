@@ -25,10 +25,10 @@ AwIDAQAB
 const CRYPTO_MOCK = {
   message: new Uint8Array(Buffer.from("some test message")),
   goodSignature: Buffer.from("this signature will be accepted").toString(
-    "base64"
+    "base64",
   ),
   badSignature: Buffer.from("this signature will be rejected").toString(
-    "base64"
+    "base64",
   ),
 
   key: {
@@ -127,7 +127,7 @@ export default describeModule(
         // it has to follow the same convention as the server
         expect(uut.resourceUrl).to.equal(resourceUrl);
         expect(uut.signatureUrl).to.equal(
-          "https://domain.test/patterns.gz-signed-with-2019-10-17-test-key.pub"
+          "https://domain.test/patterns.gz-signed-with-2019-10-17-test-key.pub",
         );
       });
 
@@ -136,7 +136,7 @@ export default describeModule(
 
         const isValid = await uut.checkSignature(
           CRYPTO_MOCK.message,
-          CRYPTO_MOCK.goodSignature
+          CRYPTO_MOCK.goodSignature,
         );
 
         expect(isValid).to.equal(true, "Expected signature to be good");
@@ -147,7 +147,7 @@ export default describeModule(
 
         const isValid = await uut.checkSignature(
           CRYPTO_MOCK.message,
-          CRYPTO_MOCK.badSignature
+          CRYPTO_MOCK.badSignature,
         );
 
         expect(isValid).to.equal(false, "Expected signature to be rejected");
@@ -158,21 +158,21 @@ export default describeModule(
         {
           const isValid = await uut.checkSignature(
             CRYPTO_MOCK.message,
-            CRYPTO_MOCK.badSignature
+            CRYPTO_MOCK.badSignature,
           );
           expect(isValid).to.equal(
             true,
-            "Expected verification error to be ignored"
+            "Expected verification error to be ignored",
           );
         }
         {
           const isValid = await uut.checkSignature(
             CRYPTO_MOCK.message,
-            CRYPTO_MOCK.goodSignature
+            CRYPTO_MOCK.goodSignature,
           );
           expect(isValid).to.equal(
             true,
-            "Good signatures should always be accepted"
+            "Good signatures should always be accepted",
           );
         }
       });
@@ -207,9 +207,9 @@ export default describeModule(
         expect(() => parsePublicKeyPem("")).to.throw();
         expect(() => parsePublicKeyPem("dummy text")).to.throw();
         expect(() =>
-          parsePublicKeyPem("-----BEGIN PUBLIC KEY-----")
+          parsePublicKeyPem("-----BEGIN PUBLIC KEY-----"),
         ).to.throw();
       });
     });
-  }
+  },
 );

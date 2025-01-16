@@ -34,9 +34,7 @@ export default describeModule(
             "ws://sockets.somewhere.org/",
             "wss://ws.example.com/stuff/",
           ],
-          nonMatches: [
-            "file:///a/",
-          ],
+          nonMatches: ["file:///a/"],
         },
         {
           pattern: "*://*.mozilla.org/*",
@@ -49,10 +47,7 @@ export default describeModule(
             "ws://ws.mozilla.org/",
             "wss://secure.mozilla.org/something",
           ],
-          nonMatches: [
-            "http://mozilla.com/",
-            "http://firefox.org/",
-          ],
+          nonMatches: ["http://mozilla.com/", "http://firefox.org/"],
         },
         {
           pattern: "*://mozilla.org/",
@@ -62,10 +57,7 @@ export default describeModule(
             "ws://mozilla.org/",
             "wss://mozilla.org/",
           ],
-          nonMatches: [
-            "http://a.mozilla.org/",
-            "http://mozilla.org/a",
-          ],
+          nonMatches: ["http://a.mozilla.org/", "http://mozilla.org/a"],
         },
         {
           pattern: "https://*/path",
@@ -171,5 +163,5 @@ export default describeModule(
         });
       });
     });
-  }
+  },
 );

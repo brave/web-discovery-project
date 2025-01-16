@@ -169,7 +169,7 @@ export default class App {
     this.prefchangeEventListener = subscribe(
       "prefchange",
       this.onPrefChange,
-      this
+      this,
     );
   }
 
@@ -184,8 +184,8 @@ export default class App {
             console.error("App", "cannot load service", serviceName, e);
             throw e;
           }
-        }
-      )
+        },
+      ),
     );
   }
 
@@ -213,8 +213,8 @@ export default class App {
       const services = {};
       const scopedServices = await Promise.all(
         module.requiredServices.map((serviceName) =>
-          this.services[serviceName].moduleFactory(module.name)
-        )
+          this.services[serviceName].moduleFactory(module.name),
+        ),
       );
       module.requiredServices.forEach((serviceName, i) => {
         services[serviceName] = scopedServices[i];
@@ -236,10 +236,10 @@ export default class App {
     const allModules = this.moduleList;
     const core = allModules.find((x) => x.name === "core");
     const modules = allModules.filter(
-      (x) => x.name !== "core" && shouldEnableModule(x.name)
+      (x) => x.name !== "core" && shouldEnableModule(x.name),
     );
     const disabledModules = allModules.filter(
-      (x) => !shouldEnableModule(x.name)
+      (x) => !shouldEnableModule(x.name),
     );
 
     // all modules start in undefined state

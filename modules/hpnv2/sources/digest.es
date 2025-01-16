@@ -100,7 +100,7 @@ function digest(keys, payload) {
     const field = NORM_FUNCTIONS.get(norm)(getField(payload, key));
     if (field === undefined) {
       throw new InvalidMsgError(
-        "Found undefined field when calculating digest"
+        "Found undefined field when calculating digest",
       );
     }
     return field;

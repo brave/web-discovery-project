@@ -133,7 +133,7 @@ export class InitState {
     }
     if (this.state_ === InitState.DESTROYED) {
       throw new Error(
-        `Internal error: already dead (cannot change to ${ppState(state_)})`
+        `Internal error: already dead (cannot change to ${ppState(state_)})`,
       );
     }
 
@@ -141,16 +141,16 @@ export class InitState {
       case InitState.UNINITIALIZED:
         throw new Error(
           `Internal error: Cannot go back to uninitialized state (${ppState(
-            this.state
-          )})`
+            this.state,
+          )})`,
         );
 
       case InitState.INIT_PENDING:
         if (this.state !== InitState.UNINITIALIZED) {
           throw new Error(
             `Internal error: expected INIT_PENDING, but came from state=${ppState(
-              this.state
-            )}`
+              this.state,
+            )}`,
           );
         }
         this.state = state_;
@@ -160,8 +160,8 @@ export class InitState {
         if (this.state !== InitState.INIT_PENDING) {
           throw new Error(
             `Internal error: expected INIT_PENDING (current=${ppState(
-              this.state
-            )})`
+              this.state,
+            )})`,
           );
         }
         this.state = state_;
@@ -175,7 +175,7 @@ export class InitState {
 
       default:
         throw new Error(
-          `Unexpected state: new=${state_} (current=${ppState(this.state)})`
+          `Unexpected state: new=${state_} (current=${ppState(this.state)})`,
         );
     }
 
@@ -192,7 +192,7 @@ export class InitState {
 
     if (this.state === InitState.DESTROYED) {
       logger.warn(
-        "Trying to wait to initialization, but the object is already dead."
+        "Trying to wait to initialization, but the object is already dead.",
       );
       throw new NotReadyError();
     }
@@ -221,7 +221,7 @@ export class InitState {
     if (this.state !== InitState.READY) {
       logger.error(
         "Still not ready after waking up. Unexpected state:",
-        ppState(this.state)
+        ppState(this.state),
       );
       throw new NotReadyError();
     }
@@ -423,7 +423,7 @@ export default class Manager {
       await this.db.init();
     } catch (e) {
       this.logError(
-        "Could not init (indexed)DB, will switch to memory-only DB"
+        "Could not init (indexed)DB, will switch to memory-only DB",
       );
     }
     await this.initUserPK();
@@ -448,7 +448,7 @@ export default class Manager {
       } catch (e) {
         logger.warn(
           "Failed to synchronize clocks with the server. Continue with the initialization. " +
-            "Errors are expected now, but the system should eventually arrive at a consistent state."
+            "Errors are expected now, but the system should eventually arrive at a consistent state.",
         );
         errors = true;
       }
@@ -458,14 +458,14 @@ export default class Manager {
       } catch (e) {
         logger.warn(
           "Failed to fetch the config from the server. " +
-            "Errors are expected now, but the system should eventually arrive at a consistent state."
+            "Errors are expected now, but the system should eventually arrive at a consistent state.",
         );
         errors = true;
       }
       if (errors) {
         logger.warn(
           "Background initialization finished with errors, " +
-            "but the failed operations will be retried automatically."
+            "but the failed operations will be retried automatically.",
         );
       } else {
         logger.info("Background initialization finished without errors.");
@@ -493,7 +493,7 @@ export default class Manager {
       Object.keys(this.groupPubKeys).map((shortDate) => {
         this.groupPubKeys[shortDate].banned = true;
         return this.db.setGroupPubKey(shortDate, this.groupPubKeys[shortDate]);
-      })
+      }),
     );
   }
 
@@ -512,7 +512,7 @@ export default class Manager {
   }) {
     if (VERSION < minVersion) {
       this.logError(
-        `We are running an old version of the protocol, which is no longer supported by the server. All communication will be stopped. Our version: ${VERSION} does not meet the minimum version required by the server: ${minVersion}`
+        `We are running an old version of the protocol, which is no longer supported by the server. All communication will be stopped. Our version: ${VERSION} does not meet the minimum version required by the server: ${minVersion}`,
       );
       this.isOldVersion = true;
       return;
@@ -521,7 +521,7 @@ export default class Manager {
     const ok = Manager.checkGroupPublicKeys(
       groupPubKeys,
       pubKeys,
-      this.groupPubKeys
+      this.groupPubKeys,
     );
     if (!ok) {
       await this.punish();
@@ -549,11 +549,11 @@ export default class Manager {
             latestKey,
             "by",
             randomDelayInMs / MINUTE,
-            "minutes"
+            "minutes",
           );
           this._joinScheduler.cooldowns.set(
             latestKey,
-            Date.now() + randomDelayInMs
+            Date.now() + randomDelayInMs,
           );
         }
       }
@@ -565,7 +565,7 @@ export default class Manager {
           key.groupPubKey = fromBase64(groupPubKeys[shortDate]);
           key.pubKey = pubKeys[shortDate] && fromBase64(pubKeys[shortDate]);
           return this.db.setGroupPubKey(shortDate, key);
-        })
+        }),
       );
     }
 
@@ -632,7 +632,7 @@ export default class Manager {
       logger.warn(
         "Failed to join group. Retrying again in",
         timeoutInMs / MINUTE,
-        "min"
+        "min",
       );
 
       this._joinScheduler.nextJoinTimer = pacemaker.setTimeout(() => {
@@ -669,7 +669,7 @@ export default class Manager {
         this.log(
           "Group",
           date,
-          "exceeded the join cooldown. Ready to join now."
+          "exceeded the join cooldown. Ready to join now.",
         );
         this._joinScheduler.cooldowns.delete(date);
         return true;
@@ -686,7 +686,7 @@ export default class Manager {
 
     // Make sure join promises are resolved via reflectPromise
     const results = await Promise.all(
-      joinDates.map((x) => reflectPromise(this.joinGroup(x)))
+      joinDates.map((x) => reflectPromise(this.joinGroup(x))),
     );
     const error = results.find(({ isError }) => isError);
     if (error) {
@@ -715,7 +715,7 @@ export default class Manager {
     if (!inSync) {
       logger.info(
         "Clock time is out of sync. Loading of today's key might fail:",
-        today
+        today,
       );
     }
     const pk = this.getPublicKey(today);
@@ -732,13 +732,13 @@ export default class Manager {
           pubKey,
           { name: "ECDH", namedCurve: "P-256" },
           false,
-          []
+          [],
         );
         this.ecdhPubKey = { key, date };
       } catch (e) {
         logger.error(
           "ECDH is not supported by the browser. Cannot send unencrypted data through a 3rd proxy proxy.",
-          e
+          e,
         );
         throw e;
       }
@@ -797,10 +797,10 @@ export default class Manager {
       this.userPK64,
       false,
       "SHA-256",
-      "RSASSA-PKCS1-v1_5"
+      "RSASSA-PKCS1-v1_5",
     );
     this.publicKeyB64 = exportPublicKey(
-      await crypto.subtle.exportKey("jwk", this.userPK)
+      await crypto.subtle.exportKey("jwk", this.userPK),
     );
   }
 
@@ -855,7 +855,7 @@ export default class Manager {
     const credentials = await this.signer.finishJoin(
       groupPubKey,
       gsk,
-      fromBase64(joinResponse)
+      fromBase64(joinResponse),
     );
     await this.db.setGroupPubKey(date, { groupPubKey, credentials, pubKey });
     return this.groupPubKeys[date];
@@ -881,10 +881,7 @@ export default class Manager {
   // give up. By default, the timeout is very conservative, but the sender can
   // overwrite the default if needed. If do not want any timeout at all, you can pass 0
   // to wait forever. When sending times out, it will fail with an "NotReadyError".
-  async send(
-    msg,
-    { waitForInitTimeoutInMs = 3 * MINUTE, ttl } = {}
-  ) {
+  async send(msg, { waitForInitTimeoutInMs = 3 * MINUTE, ttl } = {}) {
     if (this.isOldVersion) {
       // Refusing to send messages, as the client runs an old version of the protocol
       // that is not longer supported. Note that even if the changes are backward
@@ -915,17 +912,17 @@ export default class Manager {
         // Although we could wait and speculate that loading will soon be initialized,
         // it is more likely that it will not happen, and it will just block.
         logger.info(
-          "Module is not initialized. Instead of waiting until we hit the timeout, give up immediately."
+          "Module is not initialized. Instead of waiting until we hit the timeout, give up immediately.",
         );
         throw new NotReadyError();
       }
 
       logger.debug(
-        "Initialization is still pending. Waiting for it to complete..."
+        "Initialization is still pending. Waiting for it to complete...",
       );
       await initState.waitUntilReady(waitForInitTimeoutInMs);
       logger.debug(
-        "Initialization is still pending. Waiting for it to complete...DONE"
+        "Initialization is still pending. Waiting for it to complete...DONE",
       );
     }
 
@@ -981,7 +978,7 @@ export default class Manager {
     hours,
     period,
     limit,
-    skipQuotaCheck
+    skipQuotaCheck,
   ) {
     const tag = md5(JSON.stringify(pretag));
     let cnt;
@@ -992,7 +989,7 @@ export default class Manager {
         cnt = 0;
       } else {
         throw new MsgQuotaError(
-          `${e.message} (action: ${action}, tag: ${tag}, limit: ${limit} per ${period} hours)`
+          `${e.message} (action: ${action}, tag: ${tag}, limit: ${limit} per ${period} hours)`,
         );
       }
     }
@@ -1036,26 +1033,18 @@ export default class Manager {
     return Manager.compressAndPad(Manager.encodeMessage(MSG_SIGNED, data));
   }
 
-  async _sendNoVerify({
-    msg,
-    config,
-    serverEcdhPubKey,
-    absoluteTimeout,
-  }) {
+  async _sendNoVerify({ msg, config, serverEcdhPubKey, absoluteTimeout }) {
     const { instant = false } = config;
 
     // Hack: this uses the first '{' as the message code.
     this.log("Sending noverify msg", msg);
     return this.endpoints.send(
       Manager.compressAndPad(toUTF8(JSON.stringify(msg))),
-      { instant, serverEcdhPubKey, absoluteTimeout }
+      { instant, serverEcdhPubKey, absoluteTimeout },
     );
   }
 
-  async _send(
-    { msg: _msg, config, serverEcdhPubKey },
-    skipQuotaCheck = false
-  ) {
+  async _send({ msg: _msg, config, serverEcdhPubKey }, skipQuotaCheck = false) {
     const msg = _msg;
     const { action } = msg;
 
@@ -1072,7 +1061,7 @@ export default class Manager {
     const { inSync, hoursSinceEpoch } = this.trustedClock.checkTime();
     if (!inSync) {
       logger.info(
-        "Sending could fail, as the clock is out of sync with the server."
+        "Sending could fail, as the clock is out of sync with the server.",
       );
     }
     const hours = period * Math.floor(hoursSinceEpoch / period);
@@ -1093,7 +1082,7 @@ export default class Manager {
         hours,
         period,
         limit,
-        skipQuotaCheck
+        skipQuotaCheck,
       );
       this.unsentSignedMessages.set(msg, signedMsg);
     }
@@ -1101,7 +1090,7 @@ export default class Manager {
     this.log("Sending signed msg", msg);
     const result = await this.endpoints.send(
       Manager.encodeSignedMessage(utf8Msg, signedMsg.sig, signedMsg.cnt),
-      { instant, serverEcdhPubKey, originalMsg: msg }
+      { instant, serverEcdhPubKey, originalMsg: msg },
     );
     this.unsentSignedMessages.delete(msg);
 
@@ -1198,14 +1187,14 @@ export default class Manager {
   isHealthy() {
     if (this.isOldVersion) {
       logger.warn(
-        "Client is too old. The protocol is no longer accepted by the server"
+        "Client is too old. The protocol is no longer accepted by the server",
       );
       return false;
     }
 
     if (!this.initState.isReady()) {
       logger.warn(
-        `hpnv2 is not loaded (current state: ${ppState(this.initState.state)})`
+        `hpnv2 is not loaded (current state: ${ppState(this.initState.state)})`,
       );
       return false;
     }
@@ -1221,7 +1210,7 @@ export default class Manager {
     }
 
     const today = formatHoursAsYYYYMMDD(
-      this.trustedClock.checkTime().hoursSinceEpoch
+      this.trustedClock.checkTime().hoursSinceEpoch,
     );
     const pk = this.getPublicKey(today);
     if (!pk) {

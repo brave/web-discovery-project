@@ -75,12 +75,12 @@ export default class TrustedClock {
       if (inSync) {
         logger.debug(
           "Local system clock in sync with the server. Last synched at:",
-          serverTime
+          serverTime,
         );
       } else {
         logger.warn(
           "Local system clock out of sync with the server. Last synched at:",
-          serverTime
+          serverTime,
         );
       }
     }, 60 * 1000);
@@ -103,7 +103,7 @@ export default class TrustedClock {
   checkTime() {
     const minutesLocal = this.minutesLocal;
     const minutesSystem = Math.round(
-      (this.timeDrift + Date.now()) / (1000 * 60)
+      (this.timeDrift + Date.now()) / (1000 * 60),
     );
     const hoursSystem = Math.floor(minutesSystem / 60);
 
@@ -131,14 +131,14 @@ export default class TrustedClock {
           expectedConfigTs,
           ", actual:",
           actualConfigTs,
-          ")"
+          ")",
         );
         prefs.set("config_ts", expectedConfigTs);
       }
     } else {
       // try to update the clock from the server
       logger.log(
-        "Clock is out of sync. It needs a current timestamp from the server to get in sync again."
+        "Clock is out of sync. It needs a current timestamp from the server to get in sync again.",
       );
       this.onClockOutOfSync();
     }

@@ -21,7 +21,7 @@ export default describeModule(
 
       it("should succeed with a resolved Promise", async () => {
         expect(await withTimeout(Promise.resolve("PASSED"), 1)).to.equal(
-          "PASSED"
+          "PASSED",
         );
       });
 
@@ -112,5 +112,5 @@ export default describeModule(
         chai.expect(target.calledOnce).to.be.true;
       });
     });
-  }
+  },
 );

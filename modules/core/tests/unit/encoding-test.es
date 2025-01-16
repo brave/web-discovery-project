@@ -85,5 +85,5 @@ export default describeModule(
         chai.expect(arrayEquals(this.module().toUTF8(s), utf8)).to.equal(true);
       });
     });
-  }
+  },
 );

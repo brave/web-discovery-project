@@ -193,5 +193,5 @@ export default describeModule(
         expect(MOCKED_PREFS.get("config_ts")).equals("20020102");
       });
     });
-  }
+  },
 );

@@ -40,7 +40,7 @@ export default class Star {
     // same `tag` all the time).
     const t0 = Date.now();
     const { tag, key, share } = JSON.parse(
-      this.create_share(measurement, THRESHOLD, EPOCH)
+      this.create_share(measurement, THRESHOLD, EPOCH),
     );
     const t1 = Date.now();
     logger.debug("create_share:", t1 - t0);
@@ -53,7 +53,7 @@ export default class Star {
         name: "AES-GCM",
       },
       false,
-      ["encrypt"]
+      ["encrypt"],
     );
 
     // Generate random `iv`
@@ -66,7 +66,7 @@ export default class Star {
         iv,
       },
       aesKey,
-      hpnMsg
+      hpnMsg,
     );
 
     return {

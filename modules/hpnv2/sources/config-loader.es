@@ -117,13 +117,13 @@ export default class ConfigLoader {
         this.failedTimeSyncAttemptsInARow += 1;
         const cooldown = Math.min(
           5 * 1000 * this.failedTimeSyncAttemptsInARow,
-          60 * 60 * 1000
+          60 * 60 * 1000,
         );
 
         logger.warn(
           `Failed to synchronize clock (reason: ${e}). ` +
             `${this.failedTimeSyncAttemptsInARow} failed attempts in a row. ` +
-            `Try again in ${cooldown / 1000} seconds...`
+            `Try again in ${cooldown / 1000} seconds...`,
         );
         pacemaker.clearTimeout(this.nextClockSyncUpdate);
         this.nextClockSyncUpdate = pacemaker.setTimeout(() => {
@@ -150,7 +150,7 @@ export default class ConfigLoader {
     // time-based attacks to target individual users by serving
     // them different group keys.
     const timeoutInMs = Math.floor(
-      minCooldown + random() * randomExtraCooldown
+      minCooldown + random() * randomExtraCooldown,
     );
 
     pacemaker.clearTimeout(this.nextConfigUpdate);
@@ -167,13 +167,13 @@ export default class ConfigLoader {
     }
     if (this.failedAttemptsInARow > 0) {
       logger.warn(
-        `${this.failedAttemptsInARow} failed config load attempts in a row`
+        `${this.failedAttemptsInARow} failed config load attempts in a row`,
       );
       healthy = false;
     }
     if (this.failedAttemptsInARow > 0) {
       logger.warn(
-        `${this.failedTimeSyncAttemptsInARow} failed time sync attempts in a row`
+        `${this.failedTimeSyncAttemptsInARow} failed time sync attempts in a row`,
       );
       healthy = false;
     }

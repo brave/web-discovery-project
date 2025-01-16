@@ -25,7 +25,7 @@ export default background({
 
     this.onTabSelect = ({ tabId }) => {
       chrome.tabs.get(tabId, (tabInfo) =>
-        events.pub("core:tab_select", { ...tabInfo, tabId })
+        events.pub("core:tab_select", { ...tabInfo, tabId }),
       );
     };
     this.onTabClose = (tabId, removeInfo) =>

@@ -75,7 +75,7 @@ export async function withTimeout(promise, timeoutInMs) {
       setTimeout(
         () =>
           reject(new Error(`Timed out after ${timeoutInMs / 1000} seconds`)),
-        timeoutInMs
+        timeoutInMs,
       );
     });
     return await Promise.race([promise, timer]);

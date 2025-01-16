@@ -9,7 +9,7 @@ import { fetch, AbortController, Headers } from "../fetch";
 // There needs to proper implementation, to avoid cases like:
 // 1. Downloading streams.
 // 2. Origin in web-extension.
-export function getRequest(url, headers) {
+export function getRequest(url, headers, extra) {
   // eslint-disable-next-line no-async-promise-executor
   return new Promise(async (resolve, reject) => {
     let timeout;
@@ -26,6 +26,7 @@ export function getRequest(url, headers) {
         cache: "no-cache",
         signal: abortController.signal,
         headers: new Headers(headers || {}),
+        ...(extra || {}),
       });
 
       if (response.status !== 200 && response.status !== 0 /* local files */) {
@@ -37,12 +38,9 @@ export function getRequest(url, headers) {
         !urlEquals(response.url, url) &&
         !urlEquals(
           decodeURI(decodeURI(response.url)),
-          decodeURI(decodeURI(url))
+          decodeURI(decodeURI(url)),
         ) &&
-        !urlEquals(
-          url.replace(parse(url).hash, ""),
-          response.url
-        )
+        !urlEquals(url.replace(parse(url).hash, ""), response.url)
       ) {
         // there has been a redirect, we cannot guarantee that cookies were
         // not sent, therefore fail and consider as private

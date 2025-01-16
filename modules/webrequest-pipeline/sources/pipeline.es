@@ -68,7 +68,7 @@ export default class Pipeline {
 
     if (name === undefined) {
       throw new Error(
-        `Every step of the pipeline should be given a name in ${this.name}`
+        `Every step of the pipeline should be given a name in ${this.name}`,
       );
     }
 
@@ -83,19 +83,19 @@ export default class Pipeline {
       spec !== "break"
     ) {
       throw new Error(
-        `Every step of the pipeline should be given a valid spec (got ${spec}): ${this.name}.${name}`
+        `Every step of the pipeline should be given a valid spec (got ${spec}): ${this.name}.${name}`,
       );
     }
 
     if (fn === undefined) {
       throw new Error(
-        `Every step of the pipeline should have a function ('fn' argument): ${this.name}.${name}`
+        `Every step of the pipeline should have a function ('fn' argument): ${this.name}.${name}`,
       );
     }
 
     if (spec === "break" && !this.isBreakable) {
       throw new Error(
-        `Cannot add a break step '${name}' to an unbreakable pipeline`
+        `Cannot add a break step '${name}' to an unbreakable pipeline`,
       );
     }
 
@@ -120,8 +120,8 @@ export default class Pipeline {
       if (insertAt === -1) {
         throw new Error(
           `no step from 'after' list found, after=${JSON.stringify(
-            after
-          )}, pipeline=${this.name}`
+            after,
+          )}, pipeline=${this.name}`,
         );
       } else if (insertAt === this.pipeline.length) {
         this.pipeline.push(step);
@@ -225,7 +225,7 @@ export default class Pipeline {
           this.name,
           webRequestContext.url,
           "ignoring attempted break of unbreakable pipeline at",
-          name
+          name,
         );
       }
     }

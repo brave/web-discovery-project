@@ -73,7 +73,7 @@ export function defaultHttpHandler(
   data,
   sync,
   encoding,
-  background
+  background,
 ) {
   const XMLHttpRequest = XMLHttpRequestFactory();
   const req = new XMLHttpRequest();
@@ -204,7 +204,7 @@ export function promiseHttpHandler(method, url, data, timeout, compressedPost) {
         `Compressed request to ${url}, bytes saved = ${
           dataLength - data.length
         } (${((100 * (dataLength - data.length)) / dataLength).toFixed(1)}%)`,
-        "WDP.httpHandler"
+        "WDP.httpHandler",
       );
       httpHandler(
         method,
@@ -214,7 +214,7 @@ export function promiseHttpHandler(method, url, data, timeout, compressedPost) {
         timeout,
         data,
         undefined,
-        "gzip"
+        "gzip",
       );
     } else {
       httpHandler(method, url, resolve, reject, timeout, data);

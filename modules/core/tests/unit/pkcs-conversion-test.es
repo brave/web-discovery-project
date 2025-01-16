@@ -60,5 +60,5 @@ export default describeModule(
         expect(PKCS.exportPublicKey(privateKeyJWK)).to.equal(publicKey);
       });
     });
-  }
+  },
 );

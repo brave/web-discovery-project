@@ -2,11 +2,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
-import {
-  expect,
-  sleep,
-  Events,
-} from "../../../tests/core/integration/helpers";
+import { expect, sleep, Events } from "../../../tests/core/integration/helpers";
 
 export default function () {
   describe.skip("content-script", () => {
@@ -26,7 +22,7 @@ export default function () {
       document.body.dispatchEvent(
         new MouseEvent("mousedown", {
           bubbles: true,
-        })
+        }),
       );
     }
 

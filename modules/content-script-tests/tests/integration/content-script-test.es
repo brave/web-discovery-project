@@ -64,7 +64,7 @@ export default function () {
             "content-script-tests",
             "action1",
             { windowId: tabId },
-            ...args
+            ...args,
           );
 
         // Wait for window to exist

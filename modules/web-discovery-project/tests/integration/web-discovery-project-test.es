@@ -114,7 +114,7 @@ export default function () {
               } else {
                 done("storage test-failed");
               }
-            }
+            },
           );
         });
       });
