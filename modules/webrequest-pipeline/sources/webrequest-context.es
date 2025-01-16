@@ -111,7 +111,7 @@ export default class WebRequestContext {
   getResponseHeader(name) {
     if (this._responseHeadersMap === null) {
       this._responseHeadersMap = createHeadersGetter(
-        this.responseHeaders || []
+        this.responseHeaders || [],
       );
     }
 

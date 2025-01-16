@@ -17,7 +17,7 @@ import logger from "./logger";
 function modifyHeaderByType(headers, name, value) {
   const lowerCaseName = name.toLowerCase();
   const filteredHeaders = headers.filter(
-    (h) => h.name.toLowerCase() !== lowerCaseName
+    (h) => h.name.toLowerCase() !== lowerCaseName,
   );
   if (!isWebExtension || value) {
     filteredHeaders.push({ name, value });
@@ -55,7 +55,7 @@ class BlockingResponse {
     this.requestHeaders = modifyHeaderByType(
       this.requestHeaders || this.details.requestHeaders || [],
       name,
-      value
+      value,
     );
   }
 
@@ -63,7 +63,7 @@ class BlockingResponse {
     this.responseHeaders = modifyHeaderByType(
       this.responseHeaders || this.details.responseHeaders || [],
       name,
-      value
+      value,
     );
   }
 
@@ -149,7 +149,7 @@ export default background({
       const webRequestContext = WebRequestContext.fromDetails(
         details,
         this.pageStore,
-        event
+        event,
       );
 
       // Request is not supported, so do not alter
@@ -205,7 +205,7 @@ export default background({
         if (pipeline === null) {
           logger.error(
             "WebRequest pipeline (remove) does not have stage",
-            stage
+            stage,
           );
         } else {
           pipeline.removePipelineStep(name);

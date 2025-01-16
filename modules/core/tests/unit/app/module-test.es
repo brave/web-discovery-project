@@ -226,5 +226,5 @@ export default describeModule(
         await chai.expect(m.isReady()).to.be.fulfilled;
       });
     });
-  }
+  },
 );

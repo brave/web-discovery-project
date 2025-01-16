@@ -63,7 +63,7 @@ export default background({
           {
             urls: ["*://*/*"],
           },
-          ["responseHeaders"]
+          ["responseHeaders"],
         );
 
         if (history && history.onVisitRemoved) {
@@ -93,7 +93,7 @@ export default background({
 
       if (this.onHeadersReceivedListener) {
         WebRequest.onHeadersReceived.removeListener(
-          this.onHeadersReceivedListener
+          this.onHeadersReceivedListener,
         );
         this.onHeadersReceivedListener = undefined;
       }
@@ -140,7 +140,7 @@ export default background({
     anonymousHttpGet(url, overrideHeaders) {
       return WebDiscoveryProject.doublefetchHandler.anonymousHttpGet(
         url,
-        overrideHeaders
+        overrideHeaders,
       );
     },
 
@@ -170,7 +170,7 @@ export default background({
             acc[val] = data[val];
             return acc;
           },
-          WebDiscoveryProject.state.v[url][key] || {}
+          WebDiscoveryProject.state.v[url][key] || {},
         );
         return Promise.resolve();
       }

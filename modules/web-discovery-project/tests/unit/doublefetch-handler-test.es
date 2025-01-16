@@ -44,11 +44,11 @@ function resetMocks() {
         } else if (method === "removePipelineStep") {
           // here, "arg" is the name of the handler to be removed
           mocks._handlers[event] = mocks._handlers[event].filter(
-            (x) => x.name !== arg
+            (x) => x.name !== arg,
           );
         } else {
           throw new Error(
-            `Unexpected communication with request-pipeline: ${method}, ${event}, ${arg}`
+            `Unexpected communication with request-pipeline: ${method}, ${event}, ${arg}`,
           );
         }
       }),
@@ -77,7 +77,7 @@ function scriptedRequests(scriptRequests, opts = {}) {
   const mkFakeRequestContext = (
     url,
     requestInfo,
-    { includeResponse, requestCompleted }
+    { includeResponse, requestCompleted },
   ) => {
     if (!requestInfo.requestId) {
       uniqueId += 1;
@@ -151,7 +151,7 @@ function scriptedRequests(scriptRequests, opts = {}) {
           mkFakeRequestContext(otherUrl, scriptRequests[otherUrl], {
             includeResponse: false,
           }),
-          otherResponse
+          otherResponse,
         );
 
         const wasCancelled = proceed === false || !!otherResponse.cancel;
@@ -160,7 +160,7 @@ function scriptedRequests(scriptRequests, opts = {}) {
         } else if (scriptRequests[otherUrl].onHeadersSent) {
           scriptRequests[otherUrl].onHeadersSent(
             otherResponse.requestHeaders ||
-              scriptRequests[otherUrl].requestHeaders
+              scriptRequests[otherUrl].requestHeaders,
           );
         }
       }
@@ -177,7 +177,7 @@ function scriptedRequests(scriptRequests, opts = {}) {
       }
       if (requestInfo.onHeadersSent) {
         requestInfo.onHeadersSent(
-          response.requestHeaders || requestInfo.requestHeaders
+          response.requestHeaders || requestInfo.requestHeaders,
         );
       }
     }
@@ -205,7 +205,7 @@ function scriptedRequests(scriptRequests, opts = {}) {
             includeResponse: true,
             requestCompleted: false,
           }),
-          otherResponse
+          otherResponse,
         );
 
         const wasAborted = proceed === false || !!otherResponse.cancel;
@@ -282,7 +282,7 @@ function scriptedRequests(scriptRequests, opts = {}) {
           {
             includeResponse: true,
             requestCompleted: true,
-          }
+          },
         );
         handler(otherFakeContext, otherResponse);
       }
@@ -443,8 +443,10 @@ export default describeModule(
       });
 
       it("should reject requests when state is DISABLED", function () {
-        expect(uut._state, "initial state should be DISABLED").to.equal(State.DISABLED);
-        uut.init = () => { }; // noop for the sake of this test
+        expect(uut._state, "initial state should be DISABLED").to.equal(
+          State.DISABLED,
+        );
+        uut.init = () => {}; // noop for the sake of this test
 
         let sent = false;
         scriptedRequests({
@@ -638,7 +640,7 @@ export default describeModule(
               "https://api.brave.test/foo",
               "https://api.brave.test/bar",
             ],
-          }
+          },
         );
         uut.maxDoubleFetchSize = 10;
 
@@ -685,7 +687,7 @@ export default describeModule(
               "https://api.brave.test/foo",
               "https://api.brave.test/bar",
             ],
-          }
+          },
         );
         uut.maxDoubleFetchSize = 10;
 
@@ -921,7 +923,7 @@ export default describeModule(
               ],
               runOnCompletedHandlersAfterTheRequestIsResolved:
                 runHandlerAfterRequest,
-            }
+            },
           );
 
           return uut
@@ -943,5 +945,5 @@ export default describeModule(
         });
       });
     });
-  }
+  },
 );

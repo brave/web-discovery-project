@@ -24,7 +24,7 @@ export default describeModule(
 
       it("simple digest", () => {
         expect(() => digest(["foo"], {})).to.throw(
-          "Found undefined field when calculating digest"
+          "Found undefined field when calculating digest",
         );
         expect(digest(["foo"], { foo: 5, bar: 6 })).to.deep.equal([5]);
       });
@@ -55,5 +55,5 @@ export default describeModule(
         expect(JSON.stringify(flatten(msg))).to.equal(JSON.stringify(flatMsg));
       });
     });
-  }
+  },
 );

@@ -19,8 +19,8 @@ export default function () {
               name: testCookieName,
               url: testUrl,
             },
-            resolve
-          )
+            resolve,
+          ),
         );
 
       beforeEach(async () => {
@@ -43,9 +43,9 @@ export default function () {
                 name: testCookieName,
                 url: testServer.getBaseUrl(testPath),
               },
-              resolve
-            )
-          )
+              resolve,
+            ),
+          ),
       );
 
       it("does not cause cookies to be set", async () => {

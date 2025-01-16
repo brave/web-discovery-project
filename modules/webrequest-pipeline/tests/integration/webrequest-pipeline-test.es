@@ -32,15 +32,15 @@ export default () => {
             `expect ${tabId} in ${JSON.stringify(
               [...pipeline.pageStore.tabs.entries()],
               null,
-              2
-            )}`
+              2,
+            )}`,
           ).to.eql(true),
-        2000
+        2000,
       );
       await updateTab(tabId, { url });
       await waitFor(
         async () => expect((await getTab(tabId)).url).to.not.eql("about:blank"),
-        2000
+        2000,
       );
       return tabId;
     };
@@ -67,7 +67,7 @@ export default () => {
     });
 
     afterEach(() =>
-      pipeline.actions.removePipelineStep("onBeforeRequest", "test")
+      pipeline.actions.removePipelineStep("onBeforeRequest", "test"),
     );
 
     describe("details", () => {
@@ -160,7 +160,7 @@ export default () => {
         }),
         testServer.registerPathHandler(getSuffix("js"), {
           result: `<html><body><script>window.location="${getUrl(
-            "302"
+            "302",
           )}"</script></body></html>`,
         }),
         testServer.registerPathHandler(getSuffix("302"), {
@@ -283,7 +283,7 @@ export default () => {
           testServer.registerPathHandler(getSuffix("landing"), {
             result: `<html><body><script>
               window.addEventListener('load', () => fetch('${getSuffix(
-                "ready"
+                "ready",
               )}'))
             </script></body></html>`,
           }),
@@ -296,9 +296,9 @@ export default () => {
           () =>
             expect(
               details.filter((r) => r.url.endsWith("ready")),
-              `endsWithReady ${JSON.stringify(details, null, 2)}`
+              `endsWithReady ${JSON.stringify(details, null, 2)}`,
             ).to.have.length(1),
-          2000
+          2000,
         );
         // switch to the test page and wait for the first beacon to trigger
         updateTab(tabId, { url: getUrl() });
@@ -306,9 +306,9 @@ export default () => {
           () =>
             expect(
               details.filter(filterBeacons).length,
-              `beacons ${JSON.stringify(details, null, 2)}`
+              `beacons ${JSON.stringify(details, null, 2)}`,
             ).to.be.at.least(1),
-          2000
+          2000,
         );
         // go back to the other page and wait for the beacons on page unload
         updateTab(tabId, { url: getUrl("landing") });
@@ -316,9 +316,9 @@ export default () => {
           () =>
             expect(
               details.filter(filterBeacons).length,
-              `beacons ${JSON.stringify(details, null, 2)}`
+              `beacons ${JSON.stringify(details, null, 2)}`,
             ).to.be.at.least(3),
-          10000
+          10000,
         );
 
         const beacons = details.filter(filterBeacons);
@@ -339,7 +339,7 @@ export default () => {
       await Promise.all([
         testServer.registerPathHandler(getSuffix(), {
           result: `<html><body><iframe src="${getSuffix(
-            "frame"
+            "frame",
           )}"></iframe></body></html>`,
         }),
         testServer.registerPathHandler(getSuffix("frame"), {
@@ -349,8 +349,8 @@ export default () => {
               navigator.sendBeacon('${getSuffix("beacon")}', 'bar');
               var client = new XMLHttpRequest();
               client.open('GET', '${getSuffix("beacon")}', ${
-            isChromium ? "true" : "false"
-          });
+                isChromium ? "true" : "false"
+              });
               client.send(null);
             }, false);
           </script></body></html>`,
@@ -364,7 +364,7 @@ export default () => {
         testServer.registerPathHandler(getSuffix("landing"), {
           result: `<html><body><script>
             window.addEventListener('load', () => fetch('${getSuffix(
-              "ready"
+              "ready",
             )}'))
           </script></body></html>`,
         }),
@@ -377,9 +377,9 @@ export default () => {
         () =>
           expect(
             details.filter((r) => r.url.endsWith("ready")),
-            `endsWithReady ${JSON.stringify(details, null, 2)}`
+            `endsWithReady ${JSON.stringify(details, null, 2)}`,
           ).to.have.length(1),
-        2000
+        2000,
       );
       // switch to the test page and wait for the first beacon to trigger
       updateTab(tabId, { url: getUrl() });
@@ -387,9 +387,9 @@ export default () => {
         () =>
           expect(
             details.filter(filterBeacons),
-            `beacons ${JSON.stringify(details, null, 2)}`
+            `beacons ${JSON.stringify(details, null, 2)}`,
           ).to.not.be.empty,
-        2000
+        2000,
       );
       // go to a new page on a different origin and wait for the beacons on page unload
       updateTab(tabId, { url: "http://example.com" });
@@ -397,9 +397,9 @@ export default () => {
         () =>
           expect(
             details.filter(filterBeacons).length,
-            `beacons ${JSON.stringify(details, null, 2)}`
+            `beacons ${JSON.stringify(details, null, 2)}`,
           ).to.be.at.least(3),
-        10000
+        10000,
       );
       const beacons = details.filter(filterBeacons);
       expect(beacons).to.have.length(3);
@@ -426,7 +426,7 @@ export default () => {
                   <script src="./index.js"></script>
                 </body>
               </html>`,
-              }
+              },
             ),
             testServer.registerPathHandler(getSuffix(`${testScope}/index.js`), {
               result: `
@@ -461,15 +461,15 @@ export default () => {
           addPipeline(collectRequestDetails);
           // setup: load landing page to trigger SW-install and wait for it to be loaded
           const tabId = await newTab(
-            getUrl(`${testScope}/service-worker-test.html`)
+            getUrl(`${testScope}/service-worker-test.html`),
           );
           await waitFor(
             () =>
               expect(
                 details.filter((d) => d.url.indexOf("sw.js") !== -1),
-                `sw.js ${JSON.stringify(details, null, 2)}`
+                `sw.js ${JSON.stringify(details, null, 2)}`,
               ).to.not.be.empty,
-            10000
+            10000,
           );
           await new Promise((resolve) => setTimeout(resolve, 2000));
           details = [];
@@ -482,14 +482,14 @@ export default () => {
             () =>
               expect(
                 details.filter(filterPings).length,
-                `pings ${JSON.stringify(details, null, 2)}`
+                `pings ${JSON.stringify(details, null, 2)}`,
               ).to.be.at.least(1),
-            10000
+            10000,
           );
           details.filter(filterPings).forEach((r) => {
             expect(r.tabUrl).to.equal(
               getUrl(`${testScope}/service-worker-from-cache.html`),
-              "tabUrl should match SW-served document"
+              "tabUrl should match SW-served document",
             );
           });
         });

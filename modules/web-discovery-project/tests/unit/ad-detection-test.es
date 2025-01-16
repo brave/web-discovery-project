@@ -80,7 +80,7 @@ export default describeModule(
           const newKey = normalizeAclkUrl(url);
           if (keys[newKey]) {
             throw new Error(
-              `Both\n${keys[newKey]}\nand\n${url}\nhave been mapped to the same key:\n${newKey}`
+              `Both\n${keys[newKey]}\nand\n${url}\nhave been mapped to the same key:\n${newKey}`,
             );
           }
           keys[newKey] = url;
@@ -105,5 +105,5 @@ export default describeModule(
         expect(keys).to.have.lengthOf(1);
       });
     });
-  }
+  },
 );

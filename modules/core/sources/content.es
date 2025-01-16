@@ -69,7 +69,7 @@ function recordMouseDown(ev, WDP) {
     "recordMouseDown",
     event,
     getContextHTML(ev),
-    href
+    href,
   );
 }
 
@@ -90,7 +90,7 @@ function click(selector) {
 function queryHTML(
   selector,
   attribute,
-  { shadowRootSelector = null, attributeType = "property" } = {}
+  { shadowRootSelector = null, attributeType = "property" } = {},
 ) {
   const root = shadowRootSelector
     ? window.document.querySelector(shadowRootSelector).shadowRoot
@@ -112,7 +112,7 @@ function queryHTML(
           ...hash,
           [attr]: getAttr(el, attr),
         }),
-        {}
+        {},
       );
     }
     return getAttr(el, attribute);
@@ -130,9 +130,13 @@ registerContentScript({
         recordMouseDown(ev, WDP);
       };
       window.addEventListener("mousedown", throttle(window, onMouseDown, 250));
-      window.addEventListener("pagehide", () => {
-        window.removeEventListener("mousedown", onMouseDown);
-      }, { once: true });
+      window.addEventListener(
+        "pagehide",
+        () => {
+          window.removeEventListener("mousedown", onMouseDown);
+        },
+        { once: true },
+      );
 
       // Expose content actions
       return {

@@ -34,7 +34,7 @@ export default class Service {
         },
         (e) => {
           this._readyDefer.reject(e);
-        }
+        },
       );
 
     return this._readyDefer.promise;

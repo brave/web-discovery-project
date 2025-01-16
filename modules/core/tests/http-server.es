@@ -60,8 +60,8 @@ async function mockPath(mockInfo) {
   } catch (error) {
     throw new Error(
       `Could not register mock in test server: ${JSON.stringify(
-        mockInfo
-      )} ${error}`
+        mockInfo,
+      )} ${error}`,
     );
   }
 }
@@ -71,7 +71,7 @@ async function mockDirectories(path, directories) {
     await mock({ path, directories });
   } catch (error) {
     throw new Error(
-      `Could not register directories mock in test server: ${path} ${directories} ${error}`
+      `Could not register directories mock in test server: ${path} ${directories} ${error}`,
     );
   }
 }
@@ -86,7 +86,7 @@ class TestServer {
 
   registerPathHandler(
     path,
-    { result = "{}", headers = [], status = "200", timeout = 0 } = {}
+    { result = "{}", headers = [], status = "200", timeout = 0 } = {},
   ) {
     this.needsReset = true;
     return mockPath({ path, result, headers, status, timeout });

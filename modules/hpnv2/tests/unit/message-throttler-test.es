@@ -102,7 +102,7 @@ export default describeModule(
               normal: defaultRules,
               midnight: defaultRules,
             },
-            fakeSourceMap()
+            fakeSourceMap(),
           );
         });
 
@@ -122,7 +122,7 @@ export default describeModule(
               uut.startRequest(fakeMessage(), trustedClock).then(() => {
                 const elapsedSec = Date.now() - start;
                 expect(elapsedSec).to.be.at.most(maxDelay);
-              })
+              }),
             );
           }
           clock.runAll();
@@ -144,7 +144,7 @@ export default describeModule(
             try {
               await uut.startRequest(
                 msg,
-                fakeTrustedClock({ uptimeInMin: 30 * DAY })
+                fakeTrustedClock({ uptimeInMin: 30 * DAY }),
               );
             } finally {
               uut.endRequest(msg);
@@ -175,5 +175,5 @@ export default describeModule(
         });
       });
     });
-  }
+  },
 );

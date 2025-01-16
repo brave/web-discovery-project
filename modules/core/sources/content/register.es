@@ -105,7 +105,7 @@ export function registerContentScript(spec) {
   ) {
     console.error(
       '"excludeMatches" should either be undefined or an array of match patterns',
-      spec
+      spec,
     );
     return;
   }

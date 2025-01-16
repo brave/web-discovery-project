@@ -41,7 +41,7 @@ export default background({
         if (rp.startsWith(config.settings.ENDPOINT_SAFE_QUORUM_ENDPOINT)) {
           const path = rp.replace(
             config.settings.ENDPOINT_SAFE_QUORUM_ENDPOINT,
-            ""
+            "",
           );
           const res = await this.manager.send({
             action: "safe-browsing-quorum",
@@ -52,7 +52,7 @@ export default background({
           const { result } = await res.json();
           if (result === undefined) {
             throw new Error(
-              'Could not parse result from quorum server (expected "result" field)'
+              'Could not parse result from quorum server (expected "result" field)',
             );
           }
           return result;

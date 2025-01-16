@@ -142,7 +142,7 @@ export function _allMandatoryFieldsSet(payload, expectedFields) {
     //  { "0": { "t": "foo", "u": ""   } }  // true (partial matches are OK)
     //
     return Object.values(arrayValue).some((innerValue) =>
-      Object.values(innerValue).some(isDefined)
+      Object.values(innerValue).some(isDefined),
     );
   }
 
@@ -258,7 +258,7 @@ export class ContentExtractor {
     };
     this._patternsLastUpdated = new Date();
     logger.debug(
-      `Successfully updated "${ruleset}" patterns at ${this._patternsLastUpdated}`
+      `Successfully updated "${ruleset}" patterns at ${this._patternsLastUpdated}`,
     );
   }
 
@@ -342,7 +342,7 @@ export class ContentExtractor {
 
         if (this._WebDiscoveryProject.debug) {
           logger.debug(
-            `Not search engine >>> url=${url}, i=${i}, searchEngines=${searchEngines}, ruleset=${ruleset}`
+            `Not search engine >>> url=${url}, i=${i}, searchEngines=${searchEngines}, ruleset=${ruleset}`,
           );
         }
         return -1;
@@ -376,7 +376,7 @@ export class ContentExtractor {
                 if (
                   Object.prototype.hasOwnProperty.call(
                     this.refineFuncMappings,
-                    e[0]
+                    e[0],
                   )
                 ) {
                   return this.refineFuncMappings[e[0]](attribVal, e[1], e[2]);
@@ -390,7 +390,10 @@ export class ContentExtractor {
           if (rules[key][eachKey].etype === "ctry") {
             innerDict[eachKey] = [this._WebDiscoveryProject.getCountryCode()];
           }
-        } else if (rules[key][eachKey].type === "searchQuery" || rules[key][eachKey].type === "widgetTitle") {
+        } else if (
+          rules[key][eachKey].type === "searchQuery" ||
+          rules[key][eachKey].type === "widgetTitle"
+        ) {
           urlArray = this._getAttribute(
             cd,
             key,
@@ -398,7 +401,7 @@ export class ContentExtractor {
             rules[key][eachKey].etype,
             rules[key][eachKey].keyName,
             rules[key][eachKey].functionsApplied || null,
-            baseURI
+            baseURI,
           );
           innerDict[eachKey] = urlArray;
           if (ruleset === "normal") {
@@ -408,7 +411,7 @@ export class ContentExtractor {
                 "Populating query Cache <<<< ",
                 url,
                 " >>>> ",
-                query
+                query,
               );
               this._WebDiscoveryProject.addStrictQueries(url, query);
               this._WebDiscoveryProject.queryCache[url] = {
@@ -426,7 +429,7 @@ export class ContentExtractor {
             rules[key][eachKey].etype,
             rules[key][eachKey].keyName,
             rules[key][eachKey].functionsApplied || null,
-            baseURI
+            baseURI,
           );
           innerDict[eachKey] = urlArray;
         }
@@ -458,11 +461,11 @@ export class ContentExtractor {
     attrib,
     keyName,
     functionsApplied,
-    baseURI
+    baseURI,
   ) {
     const arr = [];
     const rootElement = Array.prototype.slice.call(
-      cd.querySelectorAll(parentItem)
+      cd.querySelectorAll(parentItem),
     );
     for (let i = 0; i < rootElement.length; i += 1) {
       const val = item ? rootElement[i].querySelector(item) : rootElement[i];
@@ -486,7 +489,7 @@ export class ContentExtractor {
             if (
               Object.prototype.hasOwnProperty.call(
                 this.refineFuncMappings,
-                e[0]
+                e[0],
               )
             ) {
               return this.refineFuncMappings[e[0]](accum, e[1], e[2]);
@@ -640,7 +643,7 @@ export class ContentExtractor {
           payloadRules,
           ", error:",
           ee,
-          ")"
+          ")",
         );
       } else {
         logger.warn(`_processExtractedData failed: ${ee}`);

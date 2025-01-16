@@ -88,7 +88,7 @@ function createHostMatcher(scheme, host) {
 
     if (host[1] !== ".") {
       throw new Error(
-        '<host> only "*" and "*." followed by hostname parts are valid'
+        '<host> only "*" and "*." followed by hostname parts are valid',
       );
     }
 

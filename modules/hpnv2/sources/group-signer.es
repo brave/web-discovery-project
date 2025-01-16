@@ -50,7 +50,7 @@ export default class GroupSigner {
   constructor() {
     const build = typeof WebAssembly !== "undefined" ? "wasm" : "asmjs";
     this.worker = new Worker(
-      `${config.baseURL}hpnv2/worker.${build}.bundle.js`
+      `${config.baseURL}hpnv2/worker.${build}.bundle.js`,
     );
     this.promises = {};
     this.worker.onmessage = (args) => {

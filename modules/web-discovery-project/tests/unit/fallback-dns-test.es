@@ -42,10 +42,10 @@ export default describeModule(
         uut.cacheDnsResolution("example2.test", "127.0.0.2");
         return Promise.all([
           expect(uut.resolveHost("example1.test")).to.eventually.equal(
-            "127.0.0.1"
+            "127.0.0.1",
           ),
           expect(uut.resolveHost("example2.test")).to.eventually.equal(
-            "127.0.0.2"
+            "127.0.0.2",
           ),
         ]);
       });
@@ -66,5 +66,5 @@ export default describeModule(
         });
       });
     });
-  }
+  },
 );

@@ -119,7 +119,7 @@ export default describeModule(
 
       it("should parse an URL with params", function () {
         expect(
-          parseURL("http://www.example.test/abc/def?param1=1&param2=2")
+          parseURL("http://www.example.test/abc/def?param1=1&param2=2"),
         ).to.eql({
           protocol: "http",
           hostname: "www.example.test",
@@ -209,10 +209,10 @@ export default describeModule(
         setupDns({ publicDomains: ["public.test"] });
 
         await expect(
-          uut.isHostNamePrivate("https://public.test/")
+          uut.isHostNamePrivate("https://public.test/"),
         ).to.eventually.equal(false);
         await expect(
-          uut.isHostNamePrivate("https://public.test/some?dummy=param")
+          uut.isHostNamePrivate("https://public.test/some?dummy=param"),
         ).to.eventually.equal(false);
       });
 
@@ -220,10 +220,10 @@ export default describeModule(
         setupDns({ privateDomains: ["private.test"] });
 
         await expect(
-          uut.isHostNamePrivate("https://private.test/")
+          uut.isHostNamePrivate("https://private.test/"),
         ).to.eventually.equal(true);
         await expect(
-          uut.isHostNamePrivate("https://private.test/some?dummy=param")
+          uut.isHostNamePrivate("https://private.test/some?dummy=param"),
         ).to.eventually.equal(true);
       });
 
@@ -255,7 +255,7 @@ export default describeModule(
         const msg = mkPageMessage(params);
 
         await expect(
-          uut.sanitizeUrlsWithPrivateDomains(msg)
+          uut.sanitizeUrlsWithPrivateDomains(msg),
         ).to.eventually.equal(null);
       });
 
@@ -316,5 +316,5 @@ export default describeModule(
           .and.deep.equal(expectedMessage);
       });
     });
-  }
+  },
 );

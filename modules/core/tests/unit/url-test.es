@@ -536,14 +536,14 @@ export default describeModule(
         chai.expect(
           equals(
             "https://en.wikipedia.org/wiki/Murphy's_law",
-            "https://en.wikipedia.org/wiki/Murphy%27s_law"
-          )
+            "https://en.wikipedia.org/wiki/Murphy%27s_law",
+          ),
         ).to.be.true;
         chai.expect(
           equals(
             "https://de.wikipedia.org/wiki/Stojanka_Novaković",
-            "https://de.wikipedia.org/wiki/Stojanka_Novakovi%C4%87"
-          )
+            "https://de.wikipedia.org/wiki/Stojanka_Novakovi%C4%87",
+          ),
         ).to.be.true;
       });
     });
@@ -615,7 +615,7 @@ export default describeModule(
                 chai
                   .expect(
                     actual.searchParams.params.length,
-                    "detected QS values"
+                    "detected QS values",
                   )
                   .to.equal(expected.searchParams.length);
                 let i = 0;
@@ -629,7 +629,7 @@ export default describeModule(
                 chai
                   .expect(
                     actual.searchParams.params.length,
-                    "detected QS values"
+                    "detected QS values",
                   )
                   .to.equal(Object.keys(expected.query_keys).length);
                 chai
@@ -722,5 +722,5 @@ export default describeModule(
         });
       });
     });
-  }
+  },
 );

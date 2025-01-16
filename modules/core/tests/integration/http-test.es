@@ -10,7 +10,7 @@ export default function () {
   const responseTest = "hello world";
 
   beforeEach(() =>
-    testServer.registerPathHandler("/", { result: responseTest })
+    testServer.registerPathHandler("/", { result: responseTest }),
   );
   describe("fetch", () => {
     it("doesn't send origin header", async () => {
@@ -36,7 +36,7 @@ export default function () {
           () => {
             throw new Error("promise unexpectedly fulfilled");
           },
-          () => {}
+          () => {},
         ));
     });
 

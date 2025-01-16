@@ -78,7 +78,7 @@ function createEndpointStub() {
           // only select the requested fields
           config = Object.assign(
             {},
-            ...fields.split(",").map((field) => ({ [field]: config[field] }))
+            ...fields.split(",").map((field) => ({ [field]: config[field] })),
           );
         }
         return JSON.stringify(config);
@@ -252,7 +252,7 @@ export default describeModule(
               new Date()
                 .toISOString()
                 .replace(/[^0-9]/g, "")
-                .slice(0, 8)
+                .slice(0, 8),
             );
 
             if (
@@ -285,7 +285,7 @@ export default describeModule(
             expect(configs.length).to.be.within(
               minExpectedChanges,
               maxExpectedChanges,
-              "Got an unusual number of different configurations during the simulation"
+              "Got an unusual number of different configurations during the simulation",
             );
 
             // verify whether the number of requests made is realistic:
@@ -299,7 +299,7 @@ export default describeModule(
             expect(endpoints._stats.calls.getConfig).to.be.within(
               minExpectedRequests,
               maxExpectedRequests,
-              "Made an unusual number of requests the simulation"
+              "Made an unusual number of requests the simulation",
             );
           }
         };
@@ -346,5 +346,5 @@ export default describeModule(
         });
       });
     });
-  }
+  },
 );

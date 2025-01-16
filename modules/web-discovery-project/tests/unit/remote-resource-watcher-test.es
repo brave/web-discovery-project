@@ -113,7 +113,7 @@ const MOCKS = {
         let latency = minLatencyInMs;
         if (maxLatencyInMs > minLatencyInMs) {
           latency += Math.round(
-            Math.random() * (maxLatencyInMs - minLatencyInMs)
+            Math.random() * (maxLatencyInMs - minLatencyInMs),
           );
         }
         const timeout = setTimeout(() => {
@@ -160,7 +160,7 @@ class StorageStub {
   async load() {
     if (!this.isDefined) {
       throw new Error(
-        "all initial loads before the first write are expected to fail"
+        "all initial loads before the first write are expected to fail",
       );
     }
     return this.content;
@@ -202,8 +202,8 @@ function expectNoBursts(events, maxEvents, interval) {
           interval / 1000
         } seconds ` +
           `but got ${eventsInInterval} (or more) during ${new Date(
-            events[start]
-          )} and ${new Date(events[end])})`
+            events[start],
+          )} and ${new Date(events[end])})`,
       );
     }
   }
@@ -401,7 +401,7 @@ export default describeModule(
                   }
                   reject(new Error("State was not properly persisted"));
                 };
-              }
+              },
             );
 
             await uut.init();
@@ -466,7 +466,7 @@ export default describeModule(
 
             uut = new RemoteResourceWatcher(options);
             await MOCKS.storage.save(
-              new Uint8Array(Buffer.from(CONTENT_FROM_DISK))
+              new Uint8Array(Buffer.from(CONTENT_FROM_DISK)),
             );
 
             const pendingInit = uut.init();
@@ -656,8 +656,8 @@ export default describeModule(
                     if (tooOld()) {
                       updateCalls.push(
                         `too-old (last: ${new Date(
-                          lastTimestamp
-                        )}, now: ${new Date()})`
+                          lastTimestamp,
+                        )}, now: ${new Date()})`,
                       );
                       done = true;
                     }
@@ -669,7 +669,7 @@ export default describeModule(
                   const update = await updateCalls.get();
                   if (update.startsWith("too-old")) {
                     chai.assert.fail(
-                      `threshold exceeded: failed to see new updates fast enough: ${update}`
+                      `threshold exceeded: failed to see new updates fast enough: ${update}`,
                     );
                   }
 
@@ -806,5 +806,5 @@ export default describeModule(
         });
       });
     });
-  }
+  },
 );

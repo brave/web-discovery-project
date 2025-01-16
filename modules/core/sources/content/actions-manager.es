@@ -89,8 +89,8 @@ class RemoteMessagesBuffer {
 
       return Promise.reject(
         new Error(
-          `content-script actions buffer limit exceeded: ${this.buffer.length} ${this.MAX_BUFFER_LEN}`
-        )
+          `content-script actions buffer limit exceeded: ${this.buffer.length} ${this.MAX_BUFFER_LEN}`,
+        ),
       );
     };
   }

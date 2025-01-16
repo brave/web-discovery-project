@@ -79,7 +79,7 @@ export default describeModule(
             }).then((result) => {
               messages.push(result);
               return result;
-            })
+            }),
           );
 
           // Push 100 messages in the queue and maintain an array with the
@@ -100,14 +100,14 @@ export default describeModule(
             if (expected !== JSON.stringify(messages)) {
               reject(
                 new Error(
-                  `Wrong order in 'messages' ${JSON.stringify(messages)}`
-                )
+                  `Wrong order in 'messages' ${JSON.stringify(messages)}`,
+                ),
               );
             } else if (expected !== JSON.stringify(promiseResults)) {
               reject(
                 new Error(
-                  `Wrong order in 'promises' ${JSON.stringify(promiseResults)}`
-                )
+                  `Wrong order in 'promises' ${JSON.stringify(promiseResults)}`,
+                ),
               );
             } else {
               resolve();
@@ -125,7 +125,7 @@ export default describeModule(
           () => {
             expect(queue.getSize()).to.equal(0);
             expect(processedMessages).to.equal(2);
-          }
+          },
         );
       });
 
@@ -247,7 +247,7 @@ export default describeModule(
             })
             .then(() => {
               events.push(4);
-            })
+            }),
         );
         queue.push(() => {
           events.push(5);
@@ -255,7 +255,7 @@ export default describeModule(
         queue.push(() =>
           Promise.resolve().then(() => {
             events.push(6);
-          })
+          }),
         );
         queue.push(() => {
           events.push(7);
@@ -270,5 +270,5 @@ export default describeModule(
         });
       });
     });
-  }
+  },
 );

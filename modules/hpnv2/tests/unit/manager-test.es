@@ -82,7 +82,7 @@ export default describeModule(
               groupPubKey: Buffer.from(makeFakeGroupPublicKey(date), "base64"),
               pubKey: Buffer.from(
                 makeFakeGroupPublicKey(`${date}${seed}`),
-                "base64"
+                "base64",
               ),
               date,
             };
@@ -320,5 +320,5 @@ export default describeModule(
         });
       });
     });
-  }
+  },
 );

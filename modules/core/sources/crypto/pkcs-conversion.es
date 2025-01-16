@@ -94,7 +94,7 @@ function padIfSigned(array) {
 export function exportPublicKey(key) {
   const origValues = [key.n, key.e];
   const values = origValues.map((x) =>
-    padIfSigned(fromBase64(fromBase64url(x)))
+    padIfSigned(fromBase64(fromBase64url(x))),
   );
   const numBytes = values.reduce((a, x) => a + bytesToEncode(x.length), 0);
 
@@ -107,7 +107,7 @@ export function exportPublicKey(key) {
     new Uint8Array([
       0x30, 0x0d, 0x06, 0x09, 0x2a, 0x86, 0x48, 0x86, 0xf7, 0x0d, 0x01, 0x01,
       0x01, 0x05, 0x00,
-    ])
+    ]),
   );
   buffer.pushByte(0x03); // BIT STRING
   pushLength(buffer, bytesToEncode(numBytes) + 1);

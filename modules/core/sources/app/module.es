@@ -18,7 +18,7 @@ export default class Module extends LifeCycle {
       Logger.get("life-cycle", {
         level: "log",
         prefix: `[lifecycle:${name}]`,
-      })
+      }),
     );
 
     this._init = (...args) => this.background.init(...args);
@@ -36,7 +36,7 @@ export default class Module extends LifeCycle {
       (serviceName) => {
         const initializer = this.background.providesServices[serviceName];
         this._services[serviceName] = new Service(initializer);
-      }
+      },
     );
 
     return this._services;

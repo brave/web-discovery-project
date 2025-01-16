@@ -210,5 +210,5 @@ export default describeModule(
         });
       });
     });
-  }
+  },
 );

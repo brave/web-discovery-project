@@ -11,7 +11,7 @@ export default class Manager {
 
   async _doFetch() {
     const getJobResponse = await fetch(
-      `${config.settings.FETCHER_GATEWAY}/v1/get_job`
+      `${config.settings.FETCHER_GATEWAY}/v1/get_job`,
     );
 
     if (getJobResponse.status !== 200) {
@@ -50,7 +50,7 @@ export default class Manager {
     const fetchResponse = await this.webDiscoveryProject.action(
       "anonymousHttpGet",
       url,
-      headers
+      headers,
     );
     const t1 = Date.now();
     console.error("RESPONSE", fetchResponse);
@@ -74,7 +74,7 @@ export default class Manager {
           fetch_timestamp: Date.now(),
           fetch_duration_ms: t1 - t0,
         }),
-      }
+      },
     );
 
     console.error("Response from gateway", await pushJobResponse.json());

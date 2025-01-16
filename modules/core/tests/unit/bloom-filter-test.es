@@ -32,5 +32,5 @@ export default describeModule(
         expect(uut.testSingle("y")).to.be.true;
       });
     });
-  }
+  },
 );

@@ -114,7 +114,7 @@ export default background({
         { url },
         selector,
         attribute,
-        options
+        options,
       );
     },
 

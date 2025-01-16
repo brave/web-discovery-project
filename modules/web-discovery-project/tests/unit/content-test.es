@@ -19,7 +19,7 @@ function loadFixture(name) {
     .gunzipSync(fs.readFileSync(`${FIXTURES_BASE_PATH}/${name}/page.html.gz`))
     .toString();
   const expectedAds = JSON.parse(
-    fs.readFileSync(`${FIXTURES_BASE_PATH}/${name}/expected-ads.json`, "utf8")
+    fs.readFileSync(`${FIXTURES_BASE_PATH}/${name}/expected-ads.json`, "utf8"),
   );
   return { html, expectedAds };
 }
@@ -59,7 +59,7 @@ export default describeModule(
 
       beforeEach(function () {
         parseDom = this.module().parseDom;
-        mockWindow =  new JSDOM(`<!DOCTYPE html><p>Test DOM</p>`).window;
+        mockWindow = new JSDOM(`<!DOCTYPE html><p>Test DOM</p>`).window;
       });
 
       afterEach(function () {
@@ -125,22 +125,22 @@ export default describeModule(
           if (unexpectedAds.length > 0) {
             const examples = R.take(
               numExamples,
-              R.sortWith([R.prop("key"), R.prop("url")], unexpectedAds)
+              R.sortWith([R.prop("key"), R.prop("url")], unexpectedAds),
             );
             examples.forEach((example) => {
               errorMsg += `\n- This should not have detected: ${JSON.stringify(
-                example
+                example,
               )}`;
             });
           }
           if (missingAds.length > 0) {
             const examples = R.take(
               numExamples,
-              R.sortWith([R.prop("key"), R.prop("url")], missingAds)
+              R.sortWith([R.prop("key"), R.prop("url")], missingAds),
             );
             examples.forEach((example) => {
               errorMsg += `\n- This was overlooked:           ${JSON.stringify(
-                example
+                example,
               )}`;
             });
           }
@@ -196,7 +196,7 @@ export default describeModule(
 
       it("Android user agent: page without ads", function () {
         checkDetectedAds(
-          loadFixture("android-user-agent-page-without-ads-2019-07-24")
+          loadFixture("android-user-agent-page-without-ads-2019-07-24"),
         );
       });
 
@@ -228,9 +228,9 @@ export default describeModule(
       //
       it("(status quo) Android user agent: page with ads", function () {
         checkDetectedAds(
-          loadFixture("android-user-agent-page-with-ads-2019-07-24")
+          loadFixture("android-user-agent-page-with-ads-2019-07-24"),
         );
       });
     });
-  }
+  },
 );

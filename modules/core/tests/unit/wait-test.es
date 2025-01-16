@@ -57,5 +57,5 @@ export default describeModule(
         return waitFor(fn);
       });
     });
-  }
+  },
 );

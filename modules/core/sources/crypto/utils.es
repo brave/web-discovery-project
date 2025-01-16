@@ -3,13 +3,7 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
 import crypto from "../../platform/crypto";
-import {
-  toBase64,
-  fromBase64,
-  toHex,
-  fromHex,
-  toUTF8,
-} from "../encoding";
+import { toBase64, fromBase64, toHex, fromHex, toUTF8 } from "../encoding";
 
 import { exportPublicKey } from "./pkcs-conversion";
 
@@ -57,7 +51,7 @@ async function importAESKey(key) {
     toArrayBuffer(key, "hex"),
     { name: "AES-GCM", length: 256 },
     true,
-    ["encrypt", "decrypt"]
+    ["encrypt", "decrypt"],
   );
 }
 
@@ -71,7 +65,7 @@ async function encryptAES(data, key, iv) {
       .then((encrypted) => [
         fromArrayBuffer(_iv, "b64"),
         fromArrayBuffer(encrypted, "b64"),
-      ])
+      ]),
   );
 }
 
@@ -83,7 +77,7 @@ async function decryptAES(encrypted, key) {
   return Promise.resolve()
     .then(() => (typeof key === "string" ? importAESKey(key) : key))
     .then((importedKey) =>
-      crypto.subtle.decrypt({ name: "AES-GCM", iv }, importedKey, encryptedMsg)
+      crypto.subtle.decrypt({ name: "AES-GCM", iv }, importedKey, encryptedMsg),
     );
 }
 
@@ -91,7 +85,7 @@ async function importRSAKey(
   pk,
   pub = true,
   h = "SHA-256",
-  algorithm = "RSA-OAEP"
+  algorithm = "RSA-OAEP",
 ) {
   let uses;
   if (pub) {
@@ -113,7 +107,7 @@ async function importRSAKey(
       hash: { name: h },
     },
     true,
-    uses
+    uses,
   );
 }
 
@@ -131,13 +125,13 @@ async function generateRSAKeypair(bits = 2048, hashName = "SHA-256") {
         hash: { name: hashName },
       },
       true,
-      ["sign", "verify"]
+      ["sign", "verify"],
     )
     .then((key) =>
       Promise.all([
         crypto.subtle.exportKey("spki", key.publicKey).then(toBase64),
         crypto.subtle.exportKey("pkcs8", key.privateKey).then(toBase64),
-      ])
+      ]),
     );
 }
 
@@ -147,8 +141,8 @@ async function signRSA(privateKey, data) {
     await crypto.subtle.sign(
       { name: "RSASSA-PKCS1-v1_5", hash: { name: "SHA-256" } },
       privateKey,
-      _data
-    )
+      _data,
+    ),
   );
 }
 

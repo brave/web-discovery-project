@@ -10,7 +10,7 @@ import {
   getTab,
   testServer,
   waitFor,
-  testPageSources
+  testPageSources,
 } from "../../../tests/core/integration/helpers";
 
 const test_urls = [
@@ -53,88 +53,108 @@ const test_urls = [
   "https://www.csmonitor.com/Commentary/2022/1031/Inspiring-by-example?icid=rss",
   "https://www.democracynow.org/2022/10/26/pennsylvania_mehmet_oz_john_fetterman_debate",
   "https://www.spiegel.de/international/world/the-divided-village-mistrust-abounds-among-the-liberated-residents-of-ukrainian-village-a-a0c64575-da9d-46b6-ba07-26a72db4a316#ref=rss",
-  "https://www.politico.com/news/2022/10/11/liv-golf-nra-mckenna-associates-00061215"
-]
+  "https://www.politico.com/news/2022/10/11/liv-golf-nra-mckenna-associates-00061215",
+];
 
 export default () => {
-    describe("UtilityRegression tests", () => {
-      const getSuffix = (path = "base") => `/${path}`;
-      const getUrl = (path = "base") => testServer.getBaseUrl(getSuffix(path));
+  describe("UtilityRegression tests", () => {
+    const getSuffix = (path = "base") => `/${path}`;
+    const getUrl = (path = "base") => testServer.getBaseUrl(getSuffix(path));
 
-      const WebDiscoveryProject = app.modules["web-discovery-project"].background.webDiscoveryProject;
-      const pipeline = app.modules["webrequest-pipeline"].background;
+    const WebDiscoveryProject =
+      app.modules["web-discovery-project"].background.webDiscoveryProject;
+    const pipeline = app.modules["webrequest-pipeline"].background;
 
-      const openTab = async (url) => {
-        const tabId = await newTab("about:blank");
+    const openTab = async (url) => {
+      const tabId = await newTab("about:blank");
+      await waitFor(
+        () =>
+          expect(
+            pipeline.pageStore.tabs.has(tabId),
+            `expect ${tabId} in ${JSON.stringify(
+              [...pipeline.pageStore.tabs.entries()],
+              null,
+              2,
+            )}`,
+          ).to.eql(true),
+        2000,
+      );
+      await updateTab(tabId, { url });
+      await waitFor(
+        async () => expect((await getTab(tabId)).url).to.not.eql("about:blank"),
+        2000,
+      );
+      return tabId;
+    };
+
+    beforeEach(async () => {
+      await app.modules["web-discovery-project"].isReady();
+      WebDiscoveryProject.debug = true;
+      WebDiscoveryProject.utility_regression_tests = true;
+
+      // Reload pipeline
+      pipeline.unload();
+      await pipeline.init();
+    });
+
+    describe("utility-regression-test.base", () => {
+      it("mock_url appears in wdp state", async () => {
+        let page = testPageSources["pages"][0];
+        let path = page["url"];
+        await testServer.registerPathHandler(getSuffix(path), {
+          result: page["content"],
+        });
+
+        await openTab(getUrl(path));
         await waitFor(
           () =>
-            expect(
-              pipeline.pageStore.tabs.has(tabId),
-              `expect ${tabId} in ${JSON.stringify(
-                [...pipeline.pageStore.tabs.entries()],
-                null,
-                2
-              )}`
-            ).to.eql(true),
-          2000
+            expect(Object.keys(WebDiscoveryProject.state.v)).to.include(
+              getUrl(path),
+            ),
+          5000,
         );
-        await updateTab(tabId, { url });
-        await waitFor(
-          async () => expect((await getTab(tabId)).url).to.not.eql("about:blank"),
-          2000
-        );
-        return tabId;
-      };
-
-      beforeEach(async () => {
-            await app.modules["web-discovery-project"].isReady();
-            WebDiscoveryProject.debug = true;
-            WebDiscoveryProject.utility_regression_tests = true;
-
-            // Reload pipeline
-            pipeline.unload();
-        await pipeline.init();
       });
-
-      describe("utility-regression-test.base", () => {
-            it("mock_url appears in wdp state", async () => {
-                let page = testPageSources['pages'][0]
-                let path = page['url']
-                await testServer.registerPathHandler(getSuffix(path), {
-                  result: page['content'],
-                });
-
-                await openTab(getUrl(path));
-              await waitFor(() => expect(Object.keys(WebDiscoveryProject.state.v)).to.include(getUrl(path)), 5000);
-              });
-      });
-
-      describe("utility-regression-test.utility-regression", () => {
-        test_urls.forEach((url) => {
-          it(`'${url}' is allowed`, async () => {
-            // addPipeline(addCookiesToRequest);
-            await openTab(url);
-            await waitFor(async () => {
-              // getURL needs to be called on the canonical url
-              let canonical_url = null;
-              Object.values(WebDiscoveryProject.state.v).every((entry) => {
-                if (entry.url == url || (entry.red && entry.red[0] == url)) {
-                  canonical_url = entry.url
-                  return false;
-                }
-                return true;
-              })
-              if (canonical_url != null) {
-                return (await new Promise((resolve) => WebDiscoveryProject.db.getURL(canonical_url, resolve))).length == 1
-              }
-            });
-            await WebDiscoveryProject.forceDoubleFetch(url);
-            await waitFor(async () => (await new Promise((resolve) => WebDiscoveryProject.db.getURL(url, resolve))).length == 0);
-            WebDiscoveryProject.isAlreadyMarkedPrivate(url, (res) => {
-              expect(res.private, "url is marked as private!").equal(0);
-            });
-          });
-            });
-        });
     });
+
+    describe("utility-regression-test.utility-regression", () => {
+      test_urls.forEach((url) => {
+        it(`'${url}' is allowed`, async () => {
+          // addPipeline(addCookiesToRequest);
+          await openTab(url);
+          await waitFor(async () => {
+            // getURL needs to be called on the canonical url
+            let canonical_url = null;
+            Object.values(WebDiscoveryProject.state.v).every((entry) => {
+              if (entry.url == url || (entry.red && entry.red[0] == url)) {
+                canonical_url = entry.url;
+                return false;
+              }
+              return true;
+            });
+            if (canonical_url != null) {
+              return (
+                (
+                  await new Promise((resolve) =>
+                    WebDiscoveryProject.db.getURL(canonical_url, resolve),
+                  )
+                ).length == 1
+              );
+            }
+          });
+          await WebDiscoveryProject.forceDoubleFetch(url);
+          await waitFor(
+            async () =>
+              (
+                await new Promise((resolve) =>
+                  WebDiscoveryProject.db.getURL(url, resolve),
+                )
+              ).length == 0,
+          );
+          WebDiscoveryProject.isAlreadyMarkedPrivate(url, (res) => {
+            expect(res.private, "url is marked as private!").equal(0);
+          });
+        });
+      });
+    });
+  });
 };

@@ -19,7 +19,7 @@ registerContentScript({
         action1: (...args) =>
           WDP.app.modules["content-script-tests"].action(
             "getSomeValue",
-            ...args
+            ...args,
           ),
       };
     },

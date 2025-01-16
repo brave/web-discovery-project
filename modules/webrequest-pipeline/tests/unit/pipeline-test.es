@@ -79,7 +79,7 @@ export default describeModule(
               name: "part1",
               spec: "blocking",
               fn: () => false,
-            })
+            }),
           )
           .to.throw(Error);
       });
@@ -154,7 +154,7 @@ export default describeModule(
                 spec: "blocking",
                 fn: () => true,
                 after: ["part3"],
-              })
+              }),
             )
             .to.throw(Error);
         });
@@ -181,7 +181,7 @@ export default describeModule(
                 fn: () => true,
                 after: ["part1"],
                 before: ["part3"],
-              })
+              }),
             )
             .to.throw(Error);
         });
@@ -276,5 +276,5 @@ export default describeModule(
         chai.expect(response.fn2).to.eql(-4);
       });
     });
-  }
+  },
 );
