@@ -1,0 +1,22 @@
+diff --git a/node_modules/broccoli/dist/load_brocfile.js b/node_modules/broccoli/dist/load_brocfile.js
+index 6af31e5..76bae29 100644
+--- a/node_modules/broccoli/dist/load_brocfile.js
++++ b/node_modules/broccoli/dist/load_brocfile.js
+@@ -4,8 +4,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
+ };
+ const path_1 = __importDefault(require("path"));
+ const findup_sync_1 = __importDefault(require("findup-sync"));
+-const esm_1 = __importDefault(require("esm"));
+-const esmRequire = esm_1.default(module);
+ /**
+  * Require a brocfile via either ESM or TypeScript
+  *
+@@ -34,7 +32,7 @@ function requireBrocfile(brocfilePath) {
+     }
+     else {
+         // Load brocfile via esm shim
+-        brocfile = esmRequire(brocfilePath);
++        brocfile = require(brocfilePath);
+     }
+     // ESM `export default X` is represented as module.exports = { default: X }
+     // eslint-disable-next-line no-prototype-builtins
