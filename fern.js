@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-require("./fern/fixup_esm_for_node22");
-
 const program = require("commander");
 const colors = require("colors");
 
