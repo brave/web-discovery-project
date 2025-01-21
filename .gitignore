@@ -1,4 +1,5 @@
 /.eslintcache
+/.vscode
 /build
 /node_modules
 /brave
