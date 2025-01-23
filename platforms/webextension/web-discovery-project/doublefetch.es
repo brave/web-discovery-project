@@ -30,7 +30,7 @@ export function getRequest(
 
           reject(
             new Error(
-              `err=${chrome.runtime.lastError.message}; response=${response}`,
+              `err=${chrome.runtime.lastError?.message}; response=${response}`,
             ),
           );
         } else {
