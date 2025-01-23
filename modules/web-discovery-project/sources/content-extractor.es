@@ -658,7 +658,6 @@ export class ContentExtractor {
       const type = aggregator === "join" ? "array" : "object";
       return { key, type };
     });
-
     if (_allMandatoryFieldsSet(payload, expectedFields)) {
       logger.debug("PCN: created message:", this.msgType, payload);
       this._WebDiscoveryProject.telemetry({
