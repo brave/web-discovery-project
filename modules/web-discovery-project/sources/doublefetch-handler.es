@@ -4,7 +4,6 @@
 
 import { getRequest } from "../platform/web-discovery-project/doublefetch";
 import { equals as urlEquals } from "../core/url";
-import { getDomainWithoutSuffix } from "../core/tlds";
 import inject, { ifModuleEnabled } from "../core/kord/inject";
 import logger from "./logger";
 import { parseURL } from "./network";
@@ -292,13 +291,6 @@ export default class DoublefetchHandler {
           ) {
             this._stats.strippedHeaders += 1;
           }
-
-          if (
-            getDomainWithoutSuffix(request.url) == "google" &&
-            request.url.includes("/search?")
-          ) {
-            response.requestHeaders.push({ name: "Cookie", value: "SG_SS=1;" });
-          }
         }
       },
     };
@@ -466,11 +458,12 @@ export default class DoublefetchHandler {
     overrideHeaders = {},
   ) {
     let handlerTimedOut;
+    let handlerFinished;
     let timeoutTimer;
     let installTimeout = true;
 
     const waitForHandlersPromise = new Promise((resolve, reject) => {
-      entry.onCompletedHandlerFinished = () => {
+      handlerFinished = () => {
         installTimeout = false;
 
         pacemaker.clearTimeout(timeoutTimer);
@@ -478,6 +471,8 @@ export default class DoublefetchHandler {
 
         resolve();
       };
+      entry.onCompletedHandlerFinished = handlerFinished;
+
       handlerTimedOut = () => {
         const msg =
           `The request for url=${url} completed successfully, ` +
@@ -488,28 +483,24 @@ export default class DoublefetchHandler {
       };
     });
 
-    return getRequest(
-      url,
-      overrideHeaders,
-      getDomainWithoutSuffix(url) == "google" && url.includes("/search?")
-        ? { redirect: "follow" }
-        : undefined,
-    ).then((response) => {
-      // Normally, the onCompleted handler should trigger immediately
-      // (either before or after the request is resolved).
-      // To avoid that we hang forever if we fail to correlated requests,
-      // install a timeout and give up eventually.
-      if (installTimeout) {
-        timeoutTimer = pacemaker.setTimeout(() => {
-          logger.warn(
-            'Waiting for the "onCompleted" handler timed out for url',
-            url,
-          );
-          handlerTimedOut();
-        }, onCompletedHandlerTimeoutInMs);
-      }
-      return waitForHandlersPromise.then(() => response);
-    });
+    return getRequest(url, overrideHeaders, handlerFinished).then(
+      (response) => {
+        // Normally, the onCompleted handler should trigger immediately
+        // (either before or after the request is resolved).
+        // To avoid that we hang forever if we fail to correlated requests,
+        // install a timeout and give up eventually.
+        if (installTimeout) {
+          timeoutTimer = pacemaker.setTimeout(() => {
+            logger.warn(
+              'Waiting for the "onCompleted" handler timed out for url',
+              url,
+            );
+            handlerTimedOut();
+          }, onCompletedHandlerTimeoutInMs);
+        }
+        return waitForHandlersPromise.then(() => response);
+      },
+    );
   }
 
   _setState(newState) {

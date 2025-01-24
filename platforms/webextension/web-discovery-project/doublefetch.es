@@ -4,12 +4,55 @@
 
 import { parse, equals as urlEquals } from "../../core/url";
 import { clearTimeout, setTimeout } from "../../core/timers";
+import { getDomainWithoutSuffix } from "../../core/tlds";
 import { fetch, AbortController, Headers } from "../fetch";
 
 // There needs to proper implementation, to avoid cases like:
 // 1. Downloading streams.
 // 2. Origin in web-extension.
-export function getRequest(url, headers, extra) {
+export function getRequest(
+  url,
+  headers,
+  onCompletedHandlerFinished = undefined,
+) {
+  if (
+    chrome?.webDiscovery?.retrieveBackupResults !== undefined &&
+    getDomainWithoutSuffix(url) == "google" &&
+    url.includes("/search?")
+  ) {
+    return new Promise((resolve, reject) => {
+      chrome.webDiscovery.retrieveBackupResults(url, (response) => {
+        if (chrome.runtime.lastError || response?.responseCode !== 200) {
+          console.error("Error retrieving backup results:", {
+            err: chrome.runtime.lastError,
+            response,
+          });
+
+          reject(
+            new Error(
+              `err=${chrome.runtime.lastError?.message}; response=${response}`,
+            ),
+          );
+        } else {
+          resolve({
+            body: response.html,
+            status: response.responseCode,
+            headers: {},
+            ok: true,
+            redirected: false,
+            url,
+          });
+
+          // Since the native API does not trigger onCompleted WebRequest events
+          // we trigger it manually if we got a valid response.
+          if (onCompletedHandlerFinished) {
+            onCompletedHandlerFinished();
+          }
+        }
+      });
+    });
+  }
+
   // eslint-disable-next-line no-async-promise-executor
   return new Promise(async (resolve, reject) => {
     let timeout;
@@ -26,7 +69,6 @@ export function getRequest(url, headers, extra) {
         cache: "no-cache",
         signal: abortController.signal,
         headers: new Headers(headers || {}),
-        ...(extra || {}),
       });
 
       if (response.status !== 200 && response.status !== 0 /* local files */) {
