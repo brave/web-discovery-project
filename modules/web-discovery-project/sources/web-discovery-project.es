@@ -1603,13 +1603,13 @@ const WebDiscoveryProject = {
           WebDiscoveryProject.patterns.update(rules);
           WebDiscoveryProject._patternsLastUpdated = new Date();
           logger.info(
-            `WebDiscoveryProject patterns successfully updated at ${WebDiscoveryProject._patternsLastUpdated}`
+            `WebDiscoveryProject patterns successfully updated at ${WebDiscoveryProject._patternsLastUpdated}`,
           );
         } catch (e) {
           logger.warn("Failed to apply new WebDiscoveryProject patterns", e);
         }
       },
-      !config.settings.WDP_PATTERNS_SIGNING
+      !config.settings.WDP_PATTERNS_SIGNING,
     );
   })(),
 
@@ -1823,7 +1823,7 @@ const WebDiscoveryProject = {
       if (pos_hash_char > -1) {
         if (
           !WebDiscoveryProject.contentExtractor.urlAnalyzer.isSearchEngineUrl(
-            aURI
+            aURI,
           ) &&
           aURI.length - pos_hash_char >= 10
         ) {
@@ -3368,7 +3368,7 @@ const WebDiscoveryProject = {
         if (WebDiscoveryProject.state["v"][activeURL] == null) {
           const braveQuery =
             WebDiscoveryProject.contentExtractor.urlAnalyzer.tryExtractBraveSerpQuery(
-              activeURL
+              activeURL,
             );
           logger.debug("[onLocationChange] isBraveQuery", braveQuery);
           if (braveQuery) {
@@ -3379,7 +3379,7 @@ const WebDiscoveryProject = {
             };
           } else if (
             WebDiscoveryProject.contentExtractor.urlAnalyzer.isSearchEngineUrl(
-              activeURL
+              activeURL,
             )
           ) {
             logger.debug("[onLocationChange] isSearchEngineUrl", activeURL);
@@ -3522,7 +3522,7 @@ const WebDiscoveryProject = {
                   function (cd) {
                     if (
                       !WebDiscoveryProject.contentExtractor.urlAnalyzer.isSearchEngineUrl(
-                        currURL
+                        currURL,
                       )
                     ) {
                       try {
@@ -4642,7 +4642,7 @@ const WebDiscoveryProject = {
           if (isPrivate) {
             if (
               WebDiscoveryProject.contentExtractor.urlAnalyzer.isSearchEngineUrl(
-                url
+                url,
               )
             ) {
               state = "search";
@@ -4713,7 +4713,7 @@ const WebDiscoveryProject = {
     const { messages } = WebDiscoveryProject.contentExtractor.run(
       pageContent,
       url,
-      addStrictQuery
+      addStrictQuery,
     );
     for (const message of messages)
       WebDiscoveryProject.telemetry({
@@ -4728,7 +4728,7 @@ const WebDiscoveryProject = {
    */
   isSearchEngineUrl(url) {
     return WebDiscoveryProject.contentExtractor.urlAnalyzer.isSearchEngineUrl(
-      url
+      url,
     );
   },
 
@@ -5177,7 +5177,7 @@ const WebDiscoveryProject = {
         // If it's Google / Yahoo / Bing. Then mask and send them.
         if (
           WebDiscoveryProject.contentExtractor.urlAnalyzer.isSearchEngineUrl(
-            url
+            url,
           )
         ) {
           url = WebDiscoveryProject.maskURL(url);
@@ -5738,7 +5738,7 @@ const WebDiscoveryProject = {
     const { isSearchEngineUrl, queryUrl } =
       WebDiscoveryProject.contentExtractor.urlAnalyzer.checkAnonSearchURL(
         url,
-        query
+        query,
       );
     if (isSearchEngineUrl) {
       try {
@@ -5758,7 +5758,7 @@ const WebDiscoveryProject = {
 };
 WebDiscoveryProject.contentExtractor = new ContentExtractor(
   WebDiscoveryProject.patterns,
-  WebDiscoveryProject
+  WebDiscoveryProject,
 );
 
 export default WebDiscoveryProject;

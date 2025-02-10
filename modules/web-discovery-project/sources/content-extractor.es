@@ -109,8 +109,7 @@ export class ContentExtractor {
     const { found, type, query } = this.urlAnalyzer.parseLinks(url);
     if (!found) return discard("No content found.");
 
-    if (addStrictQuery)
-      this.wdp.addStrictQueries(url, query);
+    if (addStrictQuery) this.wdp.addStrictQueries(url, query);
 
     const messages = this.extractMessages(pageContent, type, query, url);
     if (messages.length === 0) {
@@ -155,7 +154,7 @@ export class ContentExtractor {
         }
       } else {
         throw new Error(
-          'Internal error: bad selector (expected "first" or "all")'
+          'Internal error: bad selector (expected "first" or "all")',
         );
       }
     }
@@ -201,7 +200,7 @@ export class ContentExtractor {
         if (source) {
           if (!input[source]) {
             throw new Error(
-              `Output rule for action=${action} references invalid input source=${source}`
+              `Output rule for action=${action} references invalid input source=${source}`,
             );
           }
           if (input[source].first) {
@@ -233,7 +232,7 @@ export class ContentExtractor {
             payload[key] = { ...cleanedResults };
           } else {
             throw new Error(
-              `Output rule for action=${action} does not match input key=${key}`
+              `Output rule for action=${action} does not match input key=${key}`,
             );
           }
         } else {

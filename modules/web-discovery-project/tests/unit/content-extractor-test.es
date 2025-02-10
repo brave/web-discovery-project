@@ -62,7 +62,7 @@ function findAllFixtures() {
  * value in catching bugs.
  */
 const DEFAULT_PATTERNS = jsonParse(
-  fs.readFileSync(`${FIXTURES_BASE_PATH}/rules.json`, "utf8")
+  fs.readFileSync(`${FIXTURES_BASE_PATH}/rules.json`, "utf8"),
 );
 
 const enableLogging = true;
@@ -172,7 +172,9 @@ export default describeModule(
         /* eslint-disable-next-line global-require */
         global.URL = global.URL || require("url").URL;
 
-        const Patterns = (await this.system.import("web-discovery-project/patterns")).default;
+        const Patterns = (
+          await this.system.import("web-discovery-project/patterns")
+        ).default;
 
         ContentExtractor = this.module().ContentExtractor;
         WDP = {
@@ -217,17 +219,17 @@ export default describeModule(
         describe("#isSearchEngineUrl", function () {
           it("should not match any URL", function () {
             expect(
-              WDP.contentExtractor.urlAnalyzer.isSearchEngineUrl("about:blank")
+              WDP.contentExtractor.urlAnalyzer.isSearchEngineUrl("about:blank"),
             ).to.be.false;
             expect(
               WDP.contentExtractor.urlAnalyzer.isSearchEngineUrl(
-                "http://www.example.com/"
-              )
+                "http://www.example.com/",
+              ),
             ).to.be.false;
             expect(
               WDP.contentExtractor.urlAnalyzer.isSearchEngineUrl(
-                "https://www.google.de/search?q=test"
-              )
+                "https://www.google.de/search?q=test",
+              ),
             ).to.be.false;
           });
         });
@@ -237,7 +239,7 @@ export default describeModule(
             initFixture("go/angela-merkel-2023-10-10");
           });
 
-          it('should not find any data', function () {
+          it("should not find any data", function () {
             WDP.checkURL(document, fixture.url);
             expect(WDP.addStrictQueries.notCalled);
             expect(WDP.telemetry.notCalled);
@@ -254,19 +256,19 @@ export default describeModule(
           it("matches the configured search engines", function () {
             // no match:
             expect(
-              WDP.contentExtractor.urlAnalyzer.isSearchEngineUrl("about:blank")
+              WDP.contentExtractor.urlAnalyzer.isSearchEngineUrl("about:blank"),
             ).to.be.false;
             expect(
               WDP.contentExtractor.urlAnalyzer.isSearchEngineUrl(
-                "http://www.example.com/"
-              )
+                "http://www.example.com/",
+              ),
             ).to.be.false;
 
             // should match:
             expect(
               WDP.contentExtractor.urlAnalyzer.isSearchEngineUrl(
-                "https://www.google.de/search?q=test"
-              )
+                "https://www.google.de/search?q=test",
+              ),
             ).to.be.true;
           });
         });
@@ -288,7 +290,7 @@ export default describeModule(
             initFixture("go/angela-merkel-2023-10-10");
           });
 
-          it('should find search results', function () {
+          it("should find search results", function () {
             WDP.checkURL(document, fixture.url);
             expect(WDP.addStrictQueries.called);
             expect(WDP.telemetry.called);
@@ -326,28 +328,28 @@ export default describeModule(
         it("should find search terms on search.brave.software", function () {
           expect(
             WDP.contentExtractor.urlAnalyzer.tryExtractBraveSerpQuery(
-              "https://search.brave.software/search?lang=en&country=us&safe_search=on&q=harzer%20k%C3%A4se"
-            )
+              "https://search.brave.software/search?lang=en&country=us&safe_search=on&q=harzer%20k%C3%A4se",
+            ),
           ).to.equal("harzer käse");
 
           expect(
             WDP.contentExtractor.urlAnalyzer.tryExtractBraveSerpQuery(
-              "https://search.brave.software/search?q=m%C3%BCnchen&lang=en&country=de"
-            )
+              "https://search.brave.software/search?q=m%C3%BCnchen&lang=en&country=de",
+            ),
           ).to.equal("münchen");
         });
 
         it("should find search terms on search.brave.com", function () {
           expect(
             WDP.contentExtractor.urlAnalyzer.tryExtractBraveSerpQuery(
-              "https://search.brave.com/search?lang=en&country=us&safe_search=on&q=harzer%20k%C3%A4se"
-            )
+              "https://search.brave.com/search?lang=en&country=us&safe_search=on&q=harzer%20k%C3%A4se",
+            ),
           ).to.equal("harzer käse");
 
           expect(
             WDP.contentExtractor.urlAnalyzer.tryExtractBraveSerpQuery(
-              "https://search.brave.com/search?q=m%C3%BCnchen&lang=en&country=de"
-            )
+              "https://search.brave.com/search?q=m%C3%BCnchen&lang=en&country=de",
+            ),
           ).to.equal("münchen");
         });
 
@@ -404,5 +406,5 @@ export default describeModule(
         });
       });
     });
-  }
+  },
 );
