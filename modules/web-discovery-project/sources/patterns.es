@@ -201,7 +201,7 @@ const TRANSFORMS = new Map(
         return "";
       }
     },
-  })
+  }),
 );
 
 export function lookupBuiltinTransform(name) {

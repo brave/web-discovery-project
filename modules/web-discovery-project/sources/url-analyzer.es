@@ -111,7 +111,7 @@ export default class UrlAnalyzer {
           logger.debug(
             "Matching rule for",
             url,
-            "skipped (no matching server side rules exist)"
+            "skipped (no matching server side rules exist)",
           );
           return { found: false };
         }
@@ -145,7 +145,7 @@ export default class UrlAnalyzer {
     const queryPrefix = urlPattern.prefix;
     if (!queryPrefix) {
       logger.debug(
-        `URL pattern with type '${urlPattern.type}' has no query prefix`
+        `URL pattern with type '${urlPattern.type}' has no query prefix`,
       );
       return { isSearchEngineUrl: false, queryUrl: null };
     }
