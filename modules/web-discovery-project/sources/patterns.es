@@ -4,6 +4,7 @@
 
 import logger from "./logger";
 import { sanitizeUrl } from "../core/sanitizer";
+import { removeQueryParams } from "../core/url";
 
 function expectString(arg) {
   if (typeof arg !== "string") {
@@ -21,6 +22,20 @@ function expectBoolean(arg) {
   if (arg !== true && arg !== false) {
     throw new Error(`Expected boolean argument but got: ${arg}`);
   }
+}
+
+function expectArrayOfStrings(arg) {
+  if (!Array.isArray(arg)) {
+    throw new Error(`Parameter should be an array of strings, but got: ${arg}`);
+  }
+  arg.forEach((x, idx) => {
+    if (typeof x !== "string") {
+      throw new Error(
+        `Parameter should be an array of string, but got: ${arg} (stopped at pos #${idx}: ${x})`,
+      );
+    }
+  });
+  return arg;
 }
 
 /**
@@ -117,6 +132,57 @@ const TRANSFORMS = new Map(
       } catch (e) {
         return null;
       }
+    },
+
+    /**
+     * Given a URL and a list of query parameters, it returns an equivalent
+     * URL, but with those query parameters removed.
+     *
+     * Notes:
+     * - If the parameter occurs multiple times, all of them will be removed.
+     * - If the URL is invalid, null is returned.
+     *
+     * Example ["removeParams", ["foo"]]:
+     * - "https://example.test/path?foo=remove&bar=keep" -> "https://example.test/path?bar=keep"
+     * - "This is a string but not an URL" -> null
+     * - "/example.test/path" -> null (relative URLs are not supported)
+     *
+     * Example ["removeParams", ["foo", "bar"]]:
+     * - "https://example.test/path?foo=1&bar=2" -> "https://example.test/path"
+     *
+     * @since: 1
+     */
+    removeParams: (url, queryParams) => {
+      expectString(url);
+      expectArrayOfStrings(queryParams);
+      if (URL.canParse(url)) {
+        return removeQueryParams(url, queryParams);
+      } else {
+        return null;
+      }
+    },
+
+    /**
+     * Given text, it will verify that it is a well-formed URL;
+     * otherwise, it will end the processing by "nulling" it out.
+     *
+     * @since: 1
+     */
+    requireURL: (url) => {
+      expectString(url);
+      return URL.canParse(url) ? url : null;
+    },
+
+    /**
+     * Validates if the given value is in a predefined list of allowed
+     * values; otherwise, it will end the processing by "nulling" it out.
+     *
+     * @since: 2
+     */
+    filterExact: (text, allowedStrings) => {
+      expectString(text);
+      expectArrayOfStrings(allowedStrings);
+      return allowedStrings.includes(text) ? text : null;
     },
 
     /**
