@@ -3,6 +3,16 @@
   "mustContain": [
     {
       "type": "wdp",
+      "action": "query0",
+      "payload": {
+        "q": "angela merkel",
+        "qurl": "https://www.google.com/search?q=angela%20merkel&gl=us&hl=en",
+        "ctry": "de",
+        "lang": "en"
+      }
+    },
+    {
+      "type": "wdp",
       "action": "query",
       "payload": {
         "r": {
@@ -10,109 +20,83 @@
             "t": "Angela Merkel",
             "u": "https://en.wikipedia.org/wiki/Angela_Merkel",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "1": {
             "t": "Angela Merkel",
             "u": "https://www.forbes.com/profile/angela-merkel/",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "2": {
             "t": "Angela Merkel | World",
             "u": "https://www.theguardian.com/world/angela-merkel",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "3": {
             "t": "Merkel will end her tenure in office as a leader who ...",
             "u": "https://www.pewresearch.org/short-reads/2021/09/22/merkel-will-end-her-tenure-in-office-as-a-leader-who-was-internationally-popular-during-tumultuous-times/",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "4": {
             "t": "Angela Merkel | Biography, Education, Political Career ...",
             "u": "https://www.britannica.com/biography/Angela-Merkel",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "5": {
             "t": "Angela Merkel",
             "u": "https://www.dw.com/en/angela-merkel/t-17280098",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "6": {
             "t": "Angela Merkel - German Chancellor, Politics, Diplomacy",
             "u": "https://www.britannica.com/biography/Angela-Merkel/Chancellorship",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "7": {
             "t": "Angela Merkel",
             "u": "https://www.nytimes.com/topic/person/angela-merkel",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "8": {
             "t": "Angela Merkel, the scientist who became a world leader",
             "u": "https://news.harvard.edu/gazette/story/2019/05/those-who-have-known-angela-merkel-describe-her-rise-to-prominence/",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "9": {
             "t": "Angela Merkel",
             "u": "https://www.cnbc.com/angela-merkel/",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           }
         },
         "q": "angela merkel",
         "qurl": "https://www.google.com/search?q=angela%20merkel&gl=us&hl=en",
-        "ctry": "de"
-      }
-    },
-    {
-      "type": "wdp",
-      "action": "snippet2",
-      "payload": {
-        "r": {
-          "0": {
-            "u": "https://en.wikipedia.org/wiki/Angela_Merkel"
-          }
-        },
-        "q": "angela merkel",
-        "qurl": "https://www.google.com/search?q=angela%20merkel&gl=us&hl=en",
-        "ctry": "de"
-      }
-    },
-    {
-      "type": "wdp",
-      "action": "img-p",
-      "payload": {
-        "q": "angela merkel",
-        "qurl": "https://www.google.com/search?q=angela%20merkel&gl=us&hl=en",
-        "r": {
-          "0": {
-            "u": "https://www.bbc.com/news/world-europe-58570507"
-          },
-          "1": {
-            "u": "https://www.pewresearch.org/short-reads/2021/09/22/merkel-will-end-her-tenure-in-office-as-a-leader-who-was-internationally-popular-during-tumultuous-times/"
-          },
-          "2": {
-            "u": "https://www.investopedia.com/angela-merkel-7559368"
-          }
-        },
-        "ctry": "de"
+        "ctry": "de",
+        "lang": "en"
       }
     },
     {
       "type": "wdp",
       "action": "infobox",
       "payload": {
-        "q": "angela merkel",
-        "qurl": "https://www.google.com/search?q=angela%20merkel&gl=us&hl=en",
-        "ctry": "de",
         "t": "About",
         "desc": "Angela Dorothea Merkel is a German former politician and scientist who served as chancellor of Germany from 2005 to 2021. A member of the Christian Democratic Union, she previously served as Leader of the Opposition from 2002 to 2005 and as Leader of the Christian Democratic Union from 2000 to 2018.",
         "u": "https://en.wikipedia.org/wiki/Angela_Merkel",
@@ -145,7 +129,30 @@
             "prop": "Parents",
             "val": "Horst Kasner, Herlind Kasner"
           }
-        }
+        },
+        "q": "angela merkel",
+        "qurl": "https://www.google.com/search?q=angela%20merkel&gl=us&hl=en",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "img-p",
+      "payload": {
+        "r": {
+          "0": {
+            "u": "https://www.bbc.com/news/world-europe-58570507"
+          },
+          "1": {
+            "u": "https://www.pewresearch.org/short-reads/2021/09/22/merkel-will-end-her-tenure-in-office-as-a-leader-who-was-internationally-popular-during-tumultuous-times/"
+          },
+          "2": {
+            "u": "https://www.investopedia.com/angela-merkel-7559368"
+          }
+        },
+        "q": "angela merkel",
+        "qurl": "https://www.google.com/search?q=angela%20merkel&gl=us&hl=en",
+        "ctry": "de"
       }
     }
   ]

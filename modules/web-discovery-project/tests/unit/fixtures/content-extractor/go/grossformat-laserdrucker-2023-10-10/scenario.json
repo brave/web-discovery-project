@@ -3,6 +3,16 @@
   "mustContain": [
     {
       "type": "wdp",
+      "action": "query0",
+      "payload": {
+        "q": "grossformat laserdrucker",
+        "qurl": "https://www.google.com/search?q=grossformat%20laserdrucker&gl=us&hl=en",
+        "ctry": "de",
+        "lang": "en"
+      }
+    },
+    {
+      "type": "wdp",
       "action": "query",
       "payload": {
         "r": {
@@ -10,60 +20,70 @@
             "t": "Large Format | Printers | For Work",
             "u": "https://epson.com/For-Work/Printers/Large-Format/c/w140",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "1": {
             "t": "Suchergebnis Auf Amazon.de Für: Großformat-Laserdrucker",
             "u": "https://www.amazon.de/Großformat-Laserdrucker/s?k=Großformat-Laserdrucker",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "de"
           },
           "2": {
             "t": "KIP - Wide Format Printers",
             "u": "https://de.kip.com/",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "3": {
             "t": "SLM®280 2.0",
             "u": "https://www.slm-solutions.com/products-and-solutions/machines/slm-280/",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "4": {
             "t": "Großformat-Kopierer MFP ab 1.190,00",
             "u": "https://www.stoffel.de/cat/100215/gro%DFformat-kopierer-mfp.html",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "de"
           },
           "5": {
             "t": "Großformat-Drucksysteme",
             "u": "https://www.canon.de/business/products/wide-format-printers/",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "de"
           },
           "6": {
             "t": "Plotter und Großformatdrucker bis Din A0",
             "u": "https://www.fido-buerosysteme.de/Plotter",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "de"
           },
           "7": {
             "t": "ZBAITU M81 Laser Assembly In detail - YouTube",
             "u": "https://www.youtube.com/watch?v=sfOKJ6AAHks",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": null
           },
           "8": {
             "t": "Großformat-Drucker - Bei OTTO Office günstig kaufen.",
             "u": "https://www.otto-office.com/de/Drucker-und-Multifunktionsgeraete/Grossformat-Drucker/205011/s",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "de"
           }
         },
         "q": "grossformat laserdrucker",
         "qurl": "https://www.google.com/search?q=grossformat%20laserdrucker&gl=us&hl=en",
-        "ctry": "de"
+        "ctry": "de",
+        "lang": "en"
       }
     },
     {

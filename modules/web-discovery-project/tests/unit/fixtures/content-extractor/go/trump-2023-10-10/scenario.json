@@ -3,6 +3,16 @@
   "mustContain": [
     {
       "type": "wdp",
+      "action": "query0",
+      "payload": {
+        "q": "trump",
+        "qurl": "https://www.google.com/search?q=trump&gl=us&hl=en",
+        "ctry": "de",
+        "lang": "en"
+      }
+    },
+    {
+      "type": "wdp",
       "action": "query",
       "payload": {
         "r": {
@@ -10,60 +20,70 @@
             "t": "Donald Trump",
             "u": "https://en.wikipedia.org/wiki/Donald_Trump",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "1": {
             "t": "Donald Trump - Breaking News, Photos and Videos",
             "u": "https://thehill.com/people/donald-trump/",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "2": {
             "t": "Donald Trump | Breaking News & Latest Updates",
             "u": "https://apnews.com/hub/donald-trump",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "3": {
             "t": "Trump News, Commentary and Analysis",
             "u": "https://www.cnn.com/specials/politics/president-donald-trump-45",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "4": {
             "t": "Donald J. Trump – The White House - National Archives |",
             "u": "https://trumpwhitehouse.archives.gov/people/donald-j-trump/",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "5": {
             "t": "Donald Trump",
             "u": "https://www.cnbc.com/donald-trump/",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "6": {
             "t": "Donald Trump | US news",
             "u": "https://www.theguardian.com/us-news/donaldtrump",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "7": {
             "t": "Donald Trump",
             "u": "https://www.nytimes.com/spotlight/donald-trump",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "8": {
             "t": "Donald Trump | Today's latest from Al Jazeera",
             "u": "https://www.aljazeera.com/tag/donald-trump/",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           }
         },
         "q": "trump",
         "qurl": "https://www.google.com/search?q=trump&gl=us&hl=en",
-        "ctry": "de"
+        "ctry": "de",
+        "lang": "en"
       }
     },
     {
@@ -114,51 +134,8 @@
     },
     {
       "type": "wdp",
-      "action": "snippet2",
-      "payload": {
-        "r": {
-          "0": {
-            "u": "https://en.wikipedia.org/wiki/Donald_Trump"
-          }
-        },
-        "q": "trump",
-        "qurl": "https://www.google.com/search?q=trump&gl=us&hl=en",
-        "ctry": "de"
-      }
-    },
-    {
-      "type": "wdp",
-      "action": "img-p",
-      "payload": {
-        "q": "trump",
-        "qurl": "https://www.google.com/search?q=trump&gl=us&hl=en",
-        "r": {
-          "0": {
-            "u": "http://t1.gstatic.com/images?q=tbn:ANd9GcQQn6_Hz9zTckXYuOa1biiMhulnHv6pKtadAFcdg79yocrL3Y29"
-          },
-          "1": {
-            "u": "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcS6WPx1cusEMTsW-zACLSwzz9Ri4LkxQpjF17J5XcyYCAoZu0omktIqhzXt-L_neVgjg4E2dRgSJYBhAaY"
-          },
-          "2": {
-            "u": "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcTpetW6Pwu0hZWsY5cMUL3B8FOEc9PEW1-3Ru6mJtl9bjhTMjHq1hu6tkU7jWSgqLbI1AYr6cKtZ9Ed4Mo"
-          },
-          "3": {
-            "u": "https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcTLMriMOL4MY5OQw1O657AvcSiBbYom3OW2BT-bLGxD-HEZmcW9AFFQX25xs114lZuTzEmxn_jn2QXOggs"
-          },
-          "4": {
-            "u": "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcSxE9wxi30Xzg-PPmyB3ne1hIn-3O_unBBYHvhL-9K1c-oQQ1u7Y6fUH8jI6-EnbqVsXZAmsRU7G-YfEF0"
-          }
-        },
-        "ctry": "de"
-      }
-    },
-    {
-      "type": "wdp",
       "action": "infobox",
       "payload": {
-        "q": "trump",
-        "qurl": "https://www.google.com/search?q=trump&gl=us&hl=en",
-        "ctry": "de",
         "t": "About",
         "desc": "Donald John Trump is an American politician, media personality, and businessman who served as the 45th president of the United States from 2017 to 2021.\nTrump received a BS in economics from the University of Pennsylvania in 1968, and his father named him president of his real-estate business in 1971.",
         "u": "https://en.wikipedia.org/wiki/Donald_Trump",
@@ -183,7 +160,36 @@
             "prop": "Height",
             "val": "6′ 3″"
           }
-        }
+        },
+        "q": "trump",
+        "qurl": "https://www.google.com/search?q=trump&gl=us&hl=en",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "img-p",
+      "payload": {
+        "r": {
+          "0": {
+            "u": "http://t1.gstatic.com/images?q=tbn:ANd9GcQQn6_Hz9zTckXYuOa1biiMhulnHv6pKtadAFcdg79yocrL3Y29"
+          },
+          "1": {
+            "u": "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcS6WPx1cusEMTsW-zACLSwzz9Ri4LkxQpjF17J5XcyYCAoZu0omktIqhzXt-L_neVgjg4E2dRgSJYBhAaY"
+          },
+          "2": {
+            "u": "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcTpetW6Pwu0hZWsY5cMUL3B8FOEc9PEW1-3Ru6mJtl9bjhTMjHq1hu6tkU7jWSgqLbI1AYr6cKtZ9Ed4Mo"
+          },
+          "3": {
+            "u": "https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcTLMriMOL4MY5OQw1O657AvcSiBbYom3OW2BT-bLGxD-HEZmcW9AFFQX25xs114lZuTzEmxn_jn2QXOggs"
+          },
+          "4": {
+            "u": "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcSxE9wxi30Xzg-PPmyB3ne1hIn-3O_unBBYHvhL-9K1c-oQQ1u7Y6fUH8jI6-EnbqVsXZAmsRU7G-YfEF0"
+          }
+        },
+        "q": "trump",
+        "qurl": "https://www.google.com/search?q=trump&gl=us&hl=en",
+        "ctry": "de"
       }
     }
   ]

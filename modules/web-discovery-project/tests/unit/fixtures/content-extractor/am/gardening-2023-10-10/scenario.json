@@ -1,6 +1,5 @@
 {
-  "url": "https://www.amazon.com/s?k=gardening&ref=nb_sb_noss_1",
-
+  "url": "https://www.amazon.de/s?k=gardening",
   "mustContain": [
     {
       "type": "wdp",
@@ -8,312 +7,309 @@
       "payload": {
         "r": {
           "0": {
-            "t": "Lazy Lawn Care: Proven Lawn Care Tips for Saving Time and Effort on Landscaping, Weed Control, Lawn Watering and Gardening",
-            "a": null,
-            "u": "/Lazy-Lawn-Care-Landscaping-Gardening-ebook/dp/B0CCJYYVFG"
+            "t": "Gartensitzkniebank Kniebank mit weiches Kniekissen für Gartenarbeit - Garten-Kniebank klappbar Gartenhocker bis 170 kg mit 2 Werkzeugtaschen, Gartenstuhl zum Knien & Sitzen | KNEEBENCH",
+            "a": "Gesponsert",
+            "u": "/Gartensitzkniebank-Kniebank-weiches-Kniekissen-Gartenarbeit/dp/B0CLDP9P2H"
           },
           "1": {
-            "t": "Gorilla Carts GOR400-COM Steel Garden Cart, Steel Mesh Removable Sides, 3 cu ft, 400 lb Capacity, Green",
-            "a": null,
-            "u": "https://www.amazon.com/Gorilla-Carts-GOR400-COM-Removable-400-lbs/dp/B01BECQBZ0"
+            "t": "Gefüllte Begonie Rot | 3 Stück | Knolle | Topfpflanze | Geeignet für Kübel | Rot | 100% Blütegarantie | QFB Gardening",
+            "a": "Gesponsert",
+            "u": "/Gefüllte-Topfpflanze-Blütegarantie-QFB-Gardening/dp/B0DSQ4YRJV"
           },
           "2": {
-            "t": "The 2024 Old Farmer’s Almanac Gardening Calendar",
-            "a": null,
-            "u": "https://www.amazon.com/2024-Farmers-Almanac-Gardening-Calendar/dp/1571989617"
+            "t": "Gefüllte Begonie orange | 3 Stück | Topfpflanze | Geeignet für Kübel | Orange | 100% Blütegarantie | QFB Gardening",
+            "a": "Gesponsert",
+            "u": "/Gefüllte-Topfpflanze-Blütegarantie-QFB-Gardening/dp/B0DSQ8Y2B8"
           },
           "3": {
-            "t": "Fiskars Multi-purpose Garden Shears",
-            "a": null,
-            "u": "https://www.amazon.com/Fiskars-356922-1009-Multi-Purpose-Scissor-Titanium/dp/B07QDMMNBJ"
+            "t": "KOMFOTTEU Kniebank, Faltbarer Gartenhocker mit Schaummatte und 2 Werkzeugtasche, Gartenbank für Knieschutz, 58cm x 28cm x 13/49cm, für Gartenarbeit (Mit 2 großen Werkzeugtaschen)",
+            "a": "Gesponsert",
+            "u": "/KOMFOTTEU-Gartenhocker-Werkzeugtasche-Gartenarbeit-Werkzeugtaschen/dp/B0CGZGKR8M"
           },
           "4": {
-            "t": "Gardening Log Book and Planner: Monthly Garden Planting Journal and Organizer for Gardeners",
+            "t": "The Complete Gardener: A Practical, Imaginative Guide to Every Aspect of Gardening",
             "a": null,
-            "u": "https://www.amazon.com/Gardening-Log-Book-Planner-Organizer/dp/B0CDFS5YSZ"
+            "u": "https://www.amazon.de/Complete-Gardener-practical-imaginative-gardening/dp/0241424305"
           },
           "5": {
-            "t": "TORCHSTAR LED Indoor Herb Garden, CRI 95+, Herb Grower Light with Timer, Indoor Gardening System, Full Spectrum Light, 24V Garden Kit for Plant Grow Novice, White, 4000K, Pots & Plants Not Included",
+            "t": "The Healing Garden: Cultivating and Handcrafting Herbal Remedies",
             "a": null,
-            "u": "https://www.amazon.com/TORCHSTAR-Spectrum-Sun-Like-Succulent-Vegetable/dp/B075GJ93PP"
+            "u": "https://www.amazon.de/Healing-Garden-Cultivating-Handcrafting-Remedies/dp/0358313384"
           },
           "6": {
-            "t": "Gardening Log Book: Plant Organizer for Avid Gardeners | Gardening Notebook to Better Track Plants, Details and Care System | Perfect for Garden Lovers | 8.5 x 11",
+            "t": "Die neue Gartenschule: Planen, pflanzen, pflegen, ernten",
             "a": null,
-            "u": "https://www.amazon.com/Gardening-Log-Book-Organizer-Gardeners/dp/B09X2M5DBP"
+            "u": "https://www.amazon.de/Die-neue-Gartenschule-pflanzen-pflegen/dp/3831046204"
           },
           "7": {
-            "t": "Xtreme Gardening 4401, 1-Pound Mykos Granular Nutrient, 1 lb",
+            "t": "The Gardening Year",
             "a": null,
-            "u": "https://www.amazon.com/Xtreme-Gardening-4401-Granular-Nutrient/dp/B004KPKAWO"
+            "u": "https://www.amazon.de/Gardening-Year-Readers-Digest/dp/0276001354"
           },
           "8": {
-            "t": "Gardening: Perennial Vegetables - Plant Once and Harvest Year After Year (3rd Edition) (botanical, home garden, horticulture, garden, landscape, plants, gardening)",
+            "t": "Relaxdays, grün Kniebank, weiches Kniekissen, 2 Taschen, klappbar, Kniehilfe Gartenarbeit, bis 150 kg, HBT 50x60x27,5cm, EVA, Gartenbank",
             "a": null,
-            "u": "https://www.amazon.com/Gardening-Perennial-Vegetables-botanical-horticulture-ebook/dp/B00SZ0SI1U"
+            "u": "https://www.amazon.de/Relaxdays-Kniebank-Kniekissen-Kniehilfe-Gartenarbeit/dp/B07TF9X42H"
           },
           "9": {
-            "t": "Fiskars 4-Claw Stand Up Weeder - Gardening Hand Weeding Tool with 39\" Long Ergonomic Handle - Black",
+            "t": "Homefarming: Selbstversorgung ohne grünen Daumen (GU Selbstversorgung)",
             "a": null,
-            "u": "https://www.amazon.com/Fiskars-Deluxe-Stand-up-Weeder-4-claw/dp/B0030MIHAU"
+            "u": "https://www.amazon.de/Homefarming-Selbstversorgung-grünen-Daumen-Garten/dp/3833877839"
           },
           "10": {
-            "t": "Homegrown Vegetables, Fruits, and Herbs: A Bountiful, Healthful Garden for Lean Times (Creative Homeowner) Expert Gardening Advice: Reduce Costs, Save Time, & Grow Safe, Delicious Food for Your Family",
-            "a": null,
-            "u": "https://www.amazon.com/Homegrown-Vegetables-Fruits-Herbs-Bountiful/dp/1580114717"
+            "t": "NTG Schaumstoff-Knieschutz 40 mm Dick Kniekissen, Knieschoner & Knieunterlage Ideal für Garten, Werkstatt & Haus kniematte kniekissen kniebrett Kneepad 47 * 28 * 4 cm (1 Stück)",
+            "a": "Gesponsert",
+            "u": "/NTG-Schaumstoff-Knieschutz-Kniekissen-Knieschoner-Knieunterlage/dp/B0DWFW25Q4"
           },
           "11": {
-            "t": "Radius Garden 10211, Ergonomic Aluminum Hand Weeder, Red",
-            "a": null,
-            "u": "https://www.amazon.com/Radius-Garden-10211-Ergonomic-Aluminum/dp/B0711JH63Z"
+            "t": "Wiltec Gartenwagen mit Ablagefläche bis 150kg Gartenhocker mit Reifen Gartentrolley für Gartenarbeit Werkstattwagen Rollwagen Arbeitssitz Gartensitz fahrbar",
+            "a": "Gesponsert",
+            "u": "/Werkstattwagen-belastbar-Gartenwagen-Arbeitssitz-Gartensitz/dp/B07NWTXBLP"
           },
           "12": {
-            "t": "Womens Youre Never Too Old to Play in The Dirt Tshirt Funny Gardening Tee",
-            "a": null,
-            "u": "https://www.amazon.com/Gardening-Crazy-Dog-T-Shirts-Comfortable/dp/B087HN38FW"
+            "t": "Gimisgu Garten Kniebank Gartenhocker mit Eva Schaummatte, Tragbare Klappbar Arbeitstasche Gartenbank mit Werkzeugtasche, Garten Hocker für Gartenarbeit bis zu 150 kg",
+            "a": "Gesponsert",
+            "u": "/Gimisgu-Gartenhocker-Arbeitstasche-Werkzeugtasche-Gartenarbeit/dp/B0B4BB22LD"
           },
           "13": {
-            "t": "Gardening (Merit Badge Series)",
-            "a": null,
-            "u": "https://www.amazon.com/Gardening-Merit-Badge-Series/dp/B00NC9XFQ2"
+            "t": "KESSER® Pflanzsack 40 Liter 5 Stück | Pflanzsäcke aus Vlies-Stoff mit Namensschildern | Kartoffel-Pflanztasche mit Fenster & Griffen | Pflanzbeutel für Gemüse Blumen Früchte Schwarz",
+            "a": "Gesponsert",
+            "u": "/Pflanzsäcke-Vlies-Stoff-Namensschildern-Kartoffel-Pflanztasche-Pflanzbeutel/dp/B0CZPF1CVH"
           },
           "14": {
-            "t": "Garden Planner & Journal: Gardening Gifts / Calendar / Diary [ Paperback Notebook * 1 Year - Start any time * Large - 8.5 x 11 inch * Decorative Black ... * van Gogh ] (Gifts & Presents for Gardeners)",
+            "t": "RHS How To Garden When You're New To Gardening: The Basics For Absolute Beginners",
             "a": null,
-            "u": "https://www.amazon.com/Garden-Planner-Journal-Gardening-Decorative/dp/1545290555"
+            "u": "https://www.amazon.de/RHS-Garden-When-Youre-Gardening/dp/0241336651"
           },
           "15": {
-            "t": "A.M. Leonard Complete Aluminum Gardening Tool Set (5 Tools)",
+            "t": "Gartenjahr für Einsteiger: Schritt für Schritt zum grünen Paradies",
             "a": null,
-            "u": "https://www.amazon.com/M-Leonard-Complete-Aluminum-Gardening/dp/B0034035A0"
+            "u": "https://www.amazon.de/Gartenjahr-für-Einsteiger-Schritt-Paradies/dp/3833839465"
           },
           "16": {
-            "t": "OUHO Multi-Functional Outdoor Garden Cleaning Shovel Steel Flat Shovel ice Shovel Weeding Planting Farm Weeding",
+            "t": "Field Guide to Urban Gardening: How to Grow Plants, No Matter Where You Live: Raised Beds - Vertical Gardening - Indoor Edibles - Balconies and ... • Balconies and Rooftops • Hydroponics",
             "a": null,
-            "u": "https://www.amazon.com/OUHO-Multi-Functional-Outdoor-Cleaning-Planting/dp/B09V7PKQLW"
+            "u": "https://www.amazon.de/Field-Guide-Urban-Gardening-Balconies/dp/076036396X"
           },
           "17": {
-            "t": "Happyyami 1Pc Garden Tool Bag Garden Bucket Bag Storage Tote Foldable Tote Storage Bag Adjustable Gardening Carrier Storage Basket Household Barrel Bucket Rack Toolbox Tote Bag",
+            "t": "Anstiftung zum gärtnerischen Ungehorsam: Bekenntnisse einer Guerillagärtnerin: Gebt Insekten ein Zuhause! -",
             "a": null,
-            "u": "https://www.amazon.com/Happyyami-Foldable-Adjustable-Gardening-Household/dp/B0CJ8C9WD9"
+            "u": "https://www.amazon.de/Anstiftung-zum-gärtnerischen-Ungehorsam-Guerillagärtnerin/dp/3453605470"
           },
           "18": {
-            "t": "HANTOP Shovel Round Digging Shovel Garden Shovel Heavy Duty Shovel for Digging Trenching Gardening Camping, 43 inches",
-            "a": null,
-            "u": "https://www.amazon.com/HANTOP-Digging-Trenching-Gardening-Camping/dp/B0C3VDDB5F"
+            "t": "Sekey Höhenverstellbare Kniebank für Gartenarbeit Belastbarkeit 160KG, Gartenhocker Klappbar mit Werkzeugtaschen, Kniehilfe für Gartenarbeiten 60 * 50 * 28 cm, Grün",
+            "a": "Gesponsert",
+            "u": "/Sekey-Gartenarbeit-Gartenhocker-Höhenverstellbar-Werkzeugtasche/dp/B082KHWVTP"
           },
           "19": {
-            "t": "HANTOP Garden Fork 4-Tine Digging Fork Heavy Duty Spading Fork Pitch Fork for Gardening, 43 inches",
-            "a": null,
-            "u": "https://www.amazon.com/HANTOP-Garden-Digging-Spading-Gardening/dp/B0C1BMMD7Y"
+            "t": "GARDEBRUK® Gartenabfallsack 6x280 Liter 50 kg Belastbarkeit doppelte Nähte 3 stabile Griffe robust abwaschbar Garten Rasensack Gartentasche Laubsack",
+            "a": "Gesponsert",
+            "u": "/GARDEBRUK®-Gartenabfallsack-Belastbarkeit-abwaschbar-Gartentasche/dp/B0D41X6RX2"
           },
           "20": {
-            "t": "Corona Tools | ClassicCUT ClassicCUT® Branch & Stem Pruning Shears for Gardening | Cuts Branches and Stems up to 1-inch in Diameter | BP 15180",
-            "a": null,
-            "u": "https://www.amazon.com/Corona-BP15180-Forged-ClassicCUTBypass-Branch/dp/B083XCYMM4"
+            "t": "COSTWAY Rollsitz mit Rollen, 360 ° drehbar | höhenverstellbar, Mobiler Gartensitz Outdoor Gartenhocker, bis 150 kg | breite Reifen, Gartenrollsitz Metall, für Gartenarbeit & Autopflege, Grün",
+            "a": "Gesponsert",
+            "u": "/COSTWAY-höhenverstellbar-Gartenhocker-Gartenrollsitz-Gartenarbeit/dp/B0C6QMTWK1"
           },
           "21": {
-            "t": "Nisaku NJP650 The Original Hori Hori Namibagata Japanese Stainless Steel Weeding Knife & Fiskars Ergo Gardening Hand Trowel - Ergonomic Handle Design with Hang Hole Heavy Duty Garden Tool for Digging",
-            "a": null,
-            "u": "https://www.amazon.com/Nisaku-Original-Namibagata-Stainless-Gardening/dp/B0C98W3PPL"
+            "t": "Ultiness® Balkon Gewächshaus Laura mit Pflanzkasten, Rankgitter & Schutzfolie, Tomatengewächshaus, Foliengewächshaus – Wetterfest, UV-beständig, Platzsparendes Urban Gardening für Balkon & Terrasse",
+            "a": "Gesponsert",
+            "u": "/Gewächshaus-Pflanzkasten-Schutzfolie-Tomatengewächshaus-Foliengewächshaus/dp/B0DGLGD98T"
           },
           "22": {
-            "t": "Strongway Steel Yard Cart Jumbo Garden Wagon with Removable Sides 1400-Lb. Capacity, 50in.L x 24.1in.W x 26.75in.H",
+            "t": "RHS Gardening Through the Year: Month-by-month Planning Instructions and Inspiration",
             "a": null,
-            "u": "https://www.amazon.com/Strongway-Removable-1400-Lb-Capacity-26-75in-H/dp/B0C5Y5K3P5"
+            "u": "https://www.amazon.de/Gardening-Through-Year-Month-month/dp/0241315611"
           },
           "23": {
-            "t": "Gigglebug",
+            "t": "RHS Complete Gardener's Manual: The one-stop guide to plan, sow, plant, and grow your garden",
             "a": null,
-            "u": "https://www.amazon.com/Gardening/dp/B09DM87PDT"
+            "u": "https://www.amazon.de/RHS-Complete-Gardeners-Manual-one-stop/dp/024143243X"
           },
           "24": {
-            "t": "The Vegetable Garden Problem Solver Handbook: Identify and manage diseases and other common problems on edible plants",
+            "t": "Veg in One Bed: How to Grow an Abundance of Food in One Raised Bed, Month by Month",
             "a": null,
-            "u": "/Vegetable-Garden-Problem-Solver-Handbook-ebook/dp/B0BLZP3R5Q"
+            "u": "https://www.amazon.de/Veg-One-Bed-Abundance-Raised/dp/0241376521"
           },
           "25": {
-            "t": "Senkichi SGKN-6 Double Edged Hatchet for Gardening, For Wood Splitting and Pruning Branches, 6.5 inches (165 mm)",
+            "t": "Wildlife Gardening: Die Kunst, im eigenen Garten die Welt zu retten",
             "a": null,
-            "u": "https://www.amazon.com/Gardening-Double-Beveled-Blade-SGKN-6/dp/B003UYTDEW"
+            "u": "https://www.amazon.de/Wildlife-Gardening-eigenen-Garten-retten/dp/3446261885"
           },
           "26": {
-            "t": "Gorilla Carts GCR-4 Poly Dump Cart, 2-Wheel Garden Wagon with Foldable Handle, 4 cu ft, 300 lb. Capacity, Black/Yellow",
+            "t": "Rebel Gardening: A beginner’s handbook to organic urban gardening",
             "a": null,
-            "u": "https://www.amazon.com/Gorilla-Carts-GCR-4-300-pound-Capacity/dp/B08B43QY61"
+            "u": "https://www.amazon.de/Rebel-Gardening-beginners-handbook-gardening/dp/1786786915"
           },
           "27": {
-            "t": "A.M. Leonard Garden Scoooter with Flat-Free Tires",
+            "t": "The Money-Saving Garden Year: A Month-by-month Guide to a Great Garden that Costs Less",
             "a": null,
-            "u": "https://www.amazon.com/M-Leonard-Garden-Scoooter-Flat-Free/dp/B0CFB4L2W6"
+            "u": "https://www.amazon.de/Money-Saving-Garden-Year-Christmas-gardener/dp/0241733065"
           },
           "28": {
-            "t": "Onebttl Gardening Gifts for Plant Lovers, Women, Cool Gifts for Gardeners, Wife, Mom- 20oz/590ml Double Wall Vacuum Insulated Stainless Steel Tumblers Cups - Wet Rosegold",
+            "t": "Gärtnern: kann jede*r!: Ökologisch. Nachhaltig. Urban. Von Social-Media-Star \"Spicy Moustache\". Urban Gardening - cool, inspirierend und unkonventionell",
             "a": null,
-            "u": "https://www.amazon.com/Onebttl-Gardening-Gardeners-Insulated-Stainless/dp/B0C6R2FG54"
+            "u": "https://www.amazon.de/Gärtnern-Ökologisch-Social-Media-Star-inspirierend-unkonventionell/dp/3831048355"
           },
           "29": {
-            "t": "The Spiritual Gardener: Insights from the Jewish Tradition to Help your Garden Grow (Second Edition) (The Spiritual Garden Series)",
+            "t": "Slow Gardening: Unser Weg zum naturnahen Küchengarten. Selbstversorgung mit den @farmmade_sisters: nachhaltig anbauen, bewusst und saisonal genießen",
             "a": null,
-            "u": "/Spiritual-Gardener-Insights-Jewish-Tradition-ebook/dp/B0BNJTFKQ3"
+            "u": "https://www.amazon.de/Slow-Gardening-Küchengarten-Selbstversorgung-farmmade_sisters/dp/3440177807"
           },
           "30": {
-            "t": "Gardening with Sacred Geometry: We use water for our crops that has been enriched with Sacred Geometry to increase its life force energy by 2.5. Our crops are larger, healthier, and more nutritous.",
+            "t": "Gartenwissen Pflanzenschnitt: Genaue Anleitungen für mehr als 200 Pflanzen",
             "a": null,
-            "u": "/Gardening-Sacred-Geometry-healthier-nutritous-ebook/dp/B096L5CZPF"
+            "u": "https://www.amazon.de/Gartenwissen-Pflanzenschnitt-Genaue-Anleitungen-Pflanzen/dp/3831042640"
           },
           "31": {
-            "t": "Tomato Tales: A Garderner's Journey From Soil To Sauce",
+            "t": "Das Gartenjahr: Die richtige Planung Monat für Monat",
             "a": null,
-            "u": "/Tomato-Tales-Garderners-Journey-Sauce-ebook/dp/B0CJ772ZCW"
+            "u": "https://www.amazon.de/Das-Gartenjahr-richtige-Planung-Monat/dp/3831041539"
           },
           "32": {
-            "t": "Garden Clubbed!: From Mums to Mayhem",
+            "t": "RHS Little Book of Small-Space Gardening: Easy-grow Ideas for Balconies, Window Boxes & Other Outdoor Areas (Royal Horticultural Society Handbooks)",
             "a": null,
-            "u": "/Garden-Clubbed-Mayhem-Josh-Langston-ebook/dp/B08JYVBB9M"
+            "u": "https://www.amazon.de/RHS-Little-Book-Small-Space-Gardening/dp/1784724262"
           },
           "33": {
-            "t": "Fiskars Bypass Pruning Shears 5/8” Garden Clippers - Plant Cutting Scissors with Sharp Precision-Ground Steel Blade",
+            "t": "Unforgettable Gardens: 500 Years of Historic Gardens and Landscapes",
             "a": null,
-            "u": "https://www.amazon.com/Fiskars-91095935J-Bypass-Pruning-Shears/dp/B00002N66H"
+            "u": "https://www.amazon.de/Unforgettable-Gardens-Years-Historic-Landscapes/dp/1849949034"
           },
           "34": {
-            "t": "Womanswork Stretch Gardening Glove with Micro Suede Palm, Hot Pink, Small",
+            "t": "A Year Full of Pots: Container Flowers for All Seasons",
             "a": null,
-            "u": "https://www.amazon.com/Womanswork-Stretch-Gardening-Glove-Micro/dp/B001KWFGO2"
+            "u": "https://www.amazon.de/Year-Full-Pots-Container-Flowers/dp/1526667479"
           },
           "35": {
-            "t": "Garden Planner and Log Book: Monthly Gardening Journal and Notebook for Gardening Enthusiasts, Detailed Organizer to Help You Grow and Maintain Your Garden - An Ideal Gardening Gift",
+            "t": "Square Foot Gardening: A New Way to Garden in Less Space with Less Work",
             "a": null,
-            "u": "https://www.amazon.com/Garden-Planner-Log-Book-Enthusiasts/dp/B0C12JW9Z5"
+            "u": "https://www.amazon.de/Square-Foot-Gardening-Garden-Space/dp/1579548563"
           },
           "36": {
-            "t": "Gorilla Carts 7GCG-NF Heavy-Duty Poly Dump Cart with No-Flat Tires, 7 cu ft, 1200 lb Capacity, Black",
+            "t": "Wie lange braucht eine Schnecke zurück in meinen Garten?: Kuriose Fragen und erstaunliche Antworten rund um den Garten. Über 100 praktische Tipps zu ... & Früchte, Erde, Klima und Gartenarbeit.",
             "a": null,
-            "u": "https://www.amazon.com/Gorilla-Carts-Heavy-Duty-No-Flat-Tires/dp/B084NY9PTB"
+            "u": "https://www.amazon.de/braucht-Schnecke-zurück-meinen-Garten/dp/3784355374"
           },
           "37": {
-            "t": "Greenhouse Setup Manual",
+            "t": "Gardening for Self-Sufficiency - From Soil to Sustenance: A Beginner's Guide to Growing Your Way to Independence (English Edition)",
             "a": null,
-            "u": "/Greenhouse-Setup-Manual-Barry-Nadel-ebook/dp/B0BV7K2HBQ"
+            "u": "https://www.amazon.de/Gardening-Self-Sufficiency-Sustenance-Beginners-Independence-ebook/dp/B0DV8MSDD6"
           },
           "38": {
-            "t": "Indoor Succulent Care: A Beginner's Guide on How Succulent Plants Can Keep You Out of Trouble and Make You a Better Person",
+            "t": "Companion Planting Made Simple For Beginners: Strategies to Improve Soil Enrichment, Maximize Garden Space, and Learn Natural Pest Control for a Healthier Bountiful Harvest (English Edition)",
             "a": null,
-            "u": "/Indoor-Succulent-Care-Beginners-Trouble-ebook/dp/B089KKHQ3Y"
+            "u": "https://www.amazon.de/Companion-Planting-Made-Simple-Beginners-ebook/dp/B0D5BC6G28"
           },
           "39": {
-            "t": "Backyard Herb Gardening: How To Grow Herbs From Your Backyard and Use It For Everyday Life",
+            "t": "Ground Force Container Gardening",
             "a": null,
-            "u": "/Backyard-Herb-Gardening-Herbs-Everyday-ebook/dp/B01N788EJU"
+            "u": "https://www.amazon.de/Ground-Container-Gardening-Charlie-Dimmock/dp/0563488093"
           },
           "40": {
-            "t": "Hydroponics: The Definitive Beginner’s Guide to Quickly Start Growing Vegetables, Fruits, & Herbs for Self-Sufficiency! (Gardening, Organic Gardening, Homesteading, Horticulture, Aquaculture)",
+            "t": "The Gardener's Almanac: A stunning month-by-month treasury of gardening wisdom and inspiration from the nation's best-loved gardener",
             "a": null,
-            "u": "/Hydroponics-Self-Sufficiency-Homesteading-Horticulture-Aquaculture-ebook/dp/B01BRQ06IG"
+            "u": "https://www.amazon.de/Gardeners-Almanac-Treasury-Knowledge-Inspiration/dp/1529389410"
           },
           "41": {
-            "t": "Radius Garden 30511 Ergonomic Garden Hand Tool Set, Red",
+            "t": "Quickfinder Gartenjahr: Der beste Zeitpunkt für jede Gartenarbeit (GU Gartenpraxis)",
             "a": null,
-            "u": "https://www.amazon.com/Radius-Garden-30511-Ergonomic-Gardening/dp/B0785NCG16"
+            "u": "https://www.amazon.de/Quickfinder-Gartenjahr-Zeitpunkt-Gartenarbeit-Garten/dp/3833853980"
           },
           "42": {
-            "t": "BIRASIL Outdoor Galvanized Raised Beds, Steel Garden Boxes for Flower Vegetables, Metal Planter Box for Gardening (8x4x1FT, Silver)",
+            "t": "RHS Let's Get Gardening",
             "a": null,
-            "u": "https://www.amazon.com/BIRASIL-Outdoor-Galvanized-Vegetables-Gardening/dp/B0B4D8V87N"
+            "u": "https://www.amazon.de/Lets-Gardening-Royal-Horticultural-Society/dp/0241382637"
           },
           "43": {
-            "t": "Gardening Log Book and Journal: Complete Garden Planner and Organizer, Plant Logs for Vegetables, Fruits, Flowers - Monthly Calendars (Garden Organizer for All Ages)",
+            "t": "The Urban Gardening Blueprint : How to Plan, Grow, and Thrive in Limited Spaces (English Edition)",
             "a": null,
-            "u": "https://www.amazon.com/Gardening-Log-Book-Journal-Vegetables/dp/B0B9QTH68Q"
+            "u": "https://www.amazon.de/Urban-Gardening-Blueprint-Limited-English-ebook/dp/B0DTFM4YSZ"
           },
           "44": {
-            "t": "Amyove Garage Tool Storage Rack, Garden Tool Organizer,Utility Rack,Holds Yard Tools, Wheeled for Garage, Shed, Outdoor, Garden Tool Stand",
+            "t": "Gardening for Beginners: 1",
             "a": null,
-            "u": "https://www.amazon.com/Amyove-Storage-Organizer-Utility-Wheeled/dp/B0BX46TVN5"
+            "u": "https://www.amazon.de/Gardening-Beginners-Abigail-Wheatley/dp/140955015X"
           },
           "45": {
-            "t": "Womens I Love Gardening So Much I Wet My Plants Tshirt Cute Summer Tee",
+            "t": "RHS Encyclopedia of Gardening",
             "a": null,
-            "u": "https://www.amazon.com/Gardening-Crazy-Dog-T-Shirts-Comfortable/dp/B07RT1VP3Y"
+            "u": "https://www.amazon.de/RHS-Encyclopedia-Gardening-Christopher-Brickell/dp/1409383946"
           },
           "46": {
-            "t": "Ironton Steel Garden Cart - 400-Lb. Capacity, 38in.L x 18 1/2in.W x 21in.H",
+            "t": "MINIGÄRTEN: Gardening-Ideen auf kleinstem Raum",
             "a": null,
-            "u": "https://www.amazon.com/Ironton-Steel-Garden-Cart-Capacity/dp/B0BVGN1MFW"
+            "u": "https://www.amazon.de/MINIGÄRTEN-Gardening-Ideen-auf-kleinstem-Raum/dp/3965630644"
           },
           "47": {
-            "t": "Miracle Gro Women's High-Dexterity Gardening Work Gloves, Touchscreen Technologies, Abrasion Resistant, Comfort, Blue/Tan, Medium, (MG86207/WML)",
+            "t": "Tropical Plants: For Home and Garden",
             "a": null,
-            "u": "https://www.amazon.com/Miracle-Gro-High-Dexterity-Technologies-MG86207-WML/dp/B09SV9L6M3"
+            "u": "https://www.amazon.de/Tropical-Plants-Garden-William-Warren/dp/0500017956"
           },
           "48": {
-            "t": "Florida Gardening Planner 2023: Florida month by month edible garden planner and reference guide for abundant harvests and self-sufficiency. (Southern Garden Regional Gardening Planners)",
+            "t": "Beatrix Potter's Gardening Life: The Plants and Places That Inspired the Classic Children's Tales",
             "a": null,
-            "u": "https://www.amazon.com/Florida-Gardening-Planner-2023-self-sufficiency/dp/1946050245"
+            "u": "https://www.amazon.de/Beatrix-Potters-Gardening-Life-Childrens/dp/1604693630"
           },
           "49": {
-            "t": "Kate Spade New York Make It Pop Floral Box, 0.85 LB, Green/Navy",
+            "t": "Guerilla Gardening: Ein botanisches Manifest",
             "a": null,
-            "u": "https://www.amazon.com/Kate-Spade-Make-Floral-Green/dp/B0B88T3GBH"
+            "u": "https://www.amazon.de/Guerilla-Gardening-Richard-Reynolds/dp/3936086443"
           },
           "50": {
-            "t": "Baby Baby",
+            "t": "RHS How to Create your Garden: Ideas and Advice for Transforming your Outdoor Space",
             "a": null,
-            "u": "https://www.amazon.com/Gardening/dp/B0CBD86VPX"
+            "u": "https://www.amazon.de/RHS-How-Create-your-Garden/dp/0241332311"
           },
           "51": {
-            "t": "The Martha Stewart Gardening Collection - Martha's Spring Garden [DVD]",
+            "t": "Grow Containers: Essential Know-how and Expert Advice for Gardening Success",
             "a": null,
-            "u": "https://www.amazon.com/Martha-Stewart-Gardening-Collection-Marthas/dp/B000E8M0WY"
+            "u": "https://www.amazon.de/Grow-Containers-Essential-know-how-gardening/dp/024143582X"
           },
           "52": {
-            "t": "Mykos RT4401 Mycorrhizae, Granular, 1-Lb. - Quantity 1",
+            "t": "Seasons at Highclere: Gardening, Growing, and Cooking through the Year at the Real Downton Abbey",
             "a": null,
-            "u": "https://www.amazon.com/Mykos-RT4401-Mycorrhizae-Granular-1-Lb/dp/B08QV8M84N"
+            "u": "https://www.amazon.de/Seasons-Highclere-Gardening-Growing-Cooking/dp/1529135583"
           },
           "53": {
-            "t": "Fiskars 384490-1001 Ergo Garden Tool Set, Regular Package, Black/Orange",
+            "t": "Relaxdays Kniebank für Gartenarbeit, klappbar, bis 150kg, inkl. 2 Taschen, gepolsterte Kniehilfe, 50x60x27,5 cm, schwarz",
             "a": null,
-            "u": "https://www.amazon.com/Fiskars-384490-1001-Garden-Piece-Orange/dp/B07DLQNBS9"
+            "u": "https://www.amazon.de/Relaxdays-Kniebank-Gartenarbeit-gepolsterte-Kniehilfe/dp/B08LN665NJ"
           },
           "54": {
-            "t": "Gardener's Log Book:2019 A 5-Year Planner (New York Botanical Garden)",
+            "t": "No-Waste Organic Gardening: Eco-friendly Solutions to Improve any Garden (No-Waste Gardening)",
             "a": null,
-            "u": "https://www.amazon.com/Gardeners-Log-Book-Planner-Botanical/dp/1524759074"
+            "u": "https://www.amazon.de/No-Waste-Organic-Gardening-Eco-Friendly-Solutions/dp/0760367647"
           },
           "55": {
-            "t": "New Stens OEM Replacement Belt 266-124 Compatible with/Replacement for John Deere M48444",
+            "t": "Gardening for Life - The Biodynamic Way: A Practical Introduction to a New Art of Gardening, Sowing, Planting, Harvesting (Art & Science)",
             "a": null,
-            "u": "https://www.amazon.com/Stens-266-124-Replacement-Belt-Black/dp/B07G7KT5FK"
+            "u": "https://www.amazon.de/Gardening-Life-Biodynamic-Way-Science/dp/1869890329"
           },
           "56": {
-            "t": "Burgon & Ball KPADPLUM Plum Kneelo GKN Ultra-Cushion Kneeler/Gardening Knee Pad",
+            "t": "Martha Stewart's Gardening Handbook: The Essential Guide to Designing, Planting, and Growing (English Edition)",
             "a": null,
-            "u": "https://www.amazon.com/Burgon-Ball-GKN-KPADPLUM-Kneelo/dp/B06WGLDGWC"
+            "u": "https://www.amazon.de/Martha-Stewarts-Gardening-Handbook-Essential-ebook/dp/B0DKS76QB2"
           },
           "57": {
-            "t": "Outdoor Garden Cleaning Shovel Multi-Functional Steel Flat Shovel Ice Shovel Weeding Planting Farm Weeding Tool (S: 21X25.5X3.4CM)",
+            "t": "On Guerrilla Gardening: A handbook for gardening without boundaries",
             "a": null,
-            "u": "https://www.amazon.com/Outdoor-Cleaning-Multi-Functional-Weeding-Planting/dp/B0BH4L53PK"
+            "u": "https://www.amazon.de/Guerrilla-Gardening-Handbook-Without-Boundaries/dp/0747590818"
           },
           "58": {
-            "t": "Garden Jewels: The Comprehensive Guide to Ornamental Planting. (The A-Z of Gardening Plants)",
+            "t": "Zuhause im Skandi-Garten. Inspiration, Dekoideen und Rezepte von Januar bis Dezember: Beate Balz zu Gast bei Andrea Schliep und Sebastian Streich",
             "a": null,
-            "u": "/Garden-Jewels-Comprehensive-Ornamental-Planting-ebook/dp/B0CH4TYY7R"
+            "u": "https://www.amazon.de/Zuhause-Skandi-Garten-Inspiration-Dekoideen-Dezember/dp/3735852238"
           },
           "59": {
-            "t": "RAISED BED GARDENING: A DIY GUIDE TO RAISED BED GARDENING",
+            "t": "Solar Gardening: Growing Vegetables Year-Round the American Intensive Way (The Real Goods Independent Living Books)",
             "a": null,
-            "u": "/RAISED-BED-GARDENING-DIY-GUIDE-ebook/dp/B0797MYX5C"
+            "u": "https://www.amazon.de/Solar-Gardening-Vegetables-Year-Round-Independent/dp/0930031695"
           }
         },
         "q": "gardening",
-        "ctry": "de",
-
-        // this is a limitation of the current test setup:
-        // in production, it should be the doublefetch URL, which would be: "https://www.amazon.de/s/?field-keywords=gardening"
-        "qurl": "https://www.amazon.com/s?k=gardening&ref=nb_sb_noss_1"
+        "qurl": "https://www.amazon.de/s?k=gardening",
+        "ctry": "de"
       }
     }
   ]
