@@ -1,6 +1,5 @@
 {
-  "url": "https://www.amazon.de/s/ref=nb_sb_noss/261-9879674-9680331?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&url=search-alias%3Daps&field-keywords=test",
-
+  "url": "https://www.amazon.de/s?k=test",
   "mustContain": [
     {
       "type": "wdp",
@@ -8,312 +7,309 @@
       "payload": {
         "r": {
           "0": {
-            "t": "Accu Chek Pro INSTANT 100 TEST STRIPS",
-            "a": null,
-            "u": "/Accu-Chek-Pro-INSTANT-STRIPS/dp/B09SZCL64P"
+            "t": "pDiagnostics 10x Corona Schnelltests | Nasaler COVID-19 Antigentest | Zuverlässig für neue Varianten 2025 | Hohe Sensitivität | Test für Laien",
+            "a": "Gesponsert",
+            "u": "/pDiagnostics-Schnelltests-Antigentest-Zuverlässig-Sensitivität/dp/B0DFWRWRR9"
           },
           "1": {
-            "t": "Vitamin B12 Test Kit von CERASCREEN – Vitamin-B12-Spiegel einfach per Selbsttest von Zuhause bestimmen I Vitaminmangel erkennen | Holo-TC-Test | Zertifiziertes Labor & detaillierter Ergebnisbericht",
-            "a": null,
-            "u": "/Vitamin-Test-CERASCREEN-Vitamin-B12-Spiegel-Ergebnisbericht/dp/B07TS8DKYC"
+            "t": "Lebensmittelallergie Test von CERASCREEN - IgE-Analyse von 44 Lebensmitteln Testkit für Zuhause | Nahrungsmittelunverträglichkeit prüfen | Zertifiziertes Labor & detaillierter Ergebnisbericht",
+            "a": "Gesponsert",
+            "u": "/Lebensmittelallergie-Test-CERASCREEN-Nahrungsmittelunverträglichkeit-Ergebnisbericht/dp/B0DFCVN26Y"
           },
           "2": {
-            "t": "Lebensmittelallergie Test von CERASCREEN - IgE-Analyse von 38 Lebensmitteln mit Selbsttest für Zuhause | Nahrungsmittelunverträglichkeit prüfen | Zertifiziertes Labor & detaillierter Ergebnisbericht",
-            "a": null,
-            "u": "/Lebensmittelallergie-Test-CERASCREEN-Ergebnisbericht-Nahrungsmittelunverträglichkeiten/dp/B08LDSYHMC"
+            "t": "Preventis SmarTest® Vitamin D | Vitamin D Test in 15 Min. | Nachweis von Vitamin D Mangel | Vitamin D Schnelltest für Zuhause (1 St.)",
+            "a": "Gesponsert",
+            "u": "/Preventis-SmarTest®-Vitamin-Nachweis-Schnelltest/dp/B0BQJBPBRJ"
           },
           "3": {
-            "t": "Vitamin D Test Kit von CERASCREEN - Spiegel messen und Mangel erkennen mit dem Selbsttest für zu Hause | Zertifiziertes Labor | Konkrete Handlungsempfehlungen und Gesundheitsinformationen",
-            "a": null,
-            "u": "/cerascreen-Cerascreen-Vitamin-D-Testkit/dp/B088NJL1CV"
+            "t": "Eisen Test von CERASCREEN – Ferritinwert schnell & einfach mit Testkit von Zuhause bestimmen I Jetzt auf Eisenunterversorgung testen | Professionelle Laboranalyse | Detaillierte Ergebnisse",
+            "a": "Gesponsert",
+            "u": "/Eisenmangel-Test-von-CERASCREEN-Ferritinwert/dp/B08N55SXXW"
           },
           "4": {
-            "t": "Hotgen Coronavirus (2019-nCoV) -Antigentest 20x 1er",
+            "t": "CorDx 4 in 1 Laien-Antigen Kombi-Test RSV Viren + Corona COVID-19 + Influenza A + B | Packung (1 Test)",
             "a": null,
-            "u": "https://www.amazon.de/Hotgen-Coronavirus-2019-nCoV-Antigentest-20x/dp/B002UCYKCU"
+            "u": "https://www.amazon.de/CorDx-Laien-Antigen-Kombi-Test-COVID-19-Influenza/dp/B0CP9MVMRQ"
           },
           "5": {
+            "t": "10 Stück Corona Schnelltest Selbsttest - Nasen-Selbsttest für zu Hause SARS-CoV-2",
+            "a": null,
+            "u": "https://www.amazon.de/Stück-Corona-Schnelltest-Selbsttest-Nasen-Selbsttest/dp/B09QWH3T52"
+          },
+          "6": {
+            "t": "fluorecare SARS-CoV-2, Influenza A/B & RSV Combo-Schnelltest, Corona schnelltest",
+            "a": null,
+            "u": "https://www.amazon.de/fluorecare®-SARS-CoV-2-Influenza-RSV-Combo-Schnelltest/dp/B0CGVY2W2D"
+          },
+          "7": {
+            "t": "Hotgen Corona Schnelltest Selbsttest Antigentest auf SARS-CoV-2, 10 Stück (1er Pack)…",
+            "a": null,
+            "u": "https://www.amazon.de/Schnelltest-Selbsttest-Antigentest-SARS-CoV-2-Eigenanwendung/dp/B0924W1CV5"
+          },
+          "8": {
+            "t": "ExactSign Antigen Schnelltest - Nasal-Swab/Laientest 4 x 5er (20 Stück) MHD 08/2026",
+            "a": null,
+            "u": "https://www.amazon.de/ExactSign-Antigen-Schnelltest-Nasal-Swab-Laientest/dp/B0CR7T3PQB"
+          },
+          "9": {
             "t": "NewGene COVID-19 Selbsttest für Laien, Antigen Schnelltest, 25 Stück, (5 x 5 Tests)",
             "a": null,
             "u": "https://www.amazon.de/NewGene-COVID-19-Selbsttest-Antigen-Schnelltest/dp/B0B7SN1HNM"
           },
-          "6": {
+          "10": {
+            "t": "PSA Test von CERASCREEN – Unterstützt die Früherkennung von Prostataerkrankungen | Testkit für Zuhause | Professionelle Laboranalyse | Detaillierte Online-Ergebnisse & Handlungsempfehlungen",
+            "a": "Gesponsert",
+            "u": "/Test-CERASCREEN-Prostataerkrankungen-Professionelle-Ergebnisbericht/dp/B09N43VRF7"
+          },
+          "11": {
+            "t": "Darmgesundheits Test von CERASCREEN – Gesundheitscheck Darmflora Plus | Stuhltest zur umfangreichen Untersuchung von 18 Darmbakterien und Pilzen (u.a. Candida) und dem pH-Wert des Stuhls",
+            "a": "Gesponsert",
+            "u": "/Darmgesundheits-Test-CERASCREEN-Gesundheitscheck-umfangreichen/dp/B0D1CJRMTR"
+          },
+          "12": {
+            "t": "ASPILOS Schilddrüse Schnelltest - Schilddrüsenunterfunktion Selbsttest für zu Hause - Ergebnis in 10 Minuten - Zuverlässig & Präzise - Labor-Qualität",
+            "a": "Gesponsert",
+            "u": "/ASPILOS-Schilddrüse-Schnelltest-Schilddrüsenunterfunktion-Labor-Qualität/dp/B0D5HTBYFY"
+          },
+          "13": {
+            "t": "well2wellness® Pooltester Test Kit Chlor/pH mit je 20 Messtabletten DPD No. 1 (Chlor) + Phenol Red Rapid (pH)",
+            "a": "Gesponsert",
+            "u": "/well2wellness®-Pooltester-Chlor-Messtabletten-Phenol/dp/B0C48DJRW6"
+          },
+          "14": {
+            "t": "pDiagnostics 20x Corona Schnelltests | Nasaler COVID-19 Antigentest | Zuverlässig für neue Varianten 2025 | Hohe Sensitivität | Test für Laien",
+            "a": null,
+            "u": "https://www.amazon.de/pDiagnostics-Schnelltests-Antigentest-Zuverlässig-Sensitivität/dp/B0DFWQ6YHL"
+          },
+          "15": {
+            "t": "Clearblue Schwangerschaftstest Schnelle Erkennung, 5x Pregnancy Test, über 99 % zuverlässig mit FloorguardTM , Ergebnis innerhalb von 1 Minute",
+            "a": null,
+            "u": "https://www.amazon.de/Clearblue-Schwangerschaftstest-Erkennung-Pregnancy-zuverlässig/dp/B0CQJSL7Z6"
+          },
+          "16": {
+            "t": "Combur 5-Test HC Urinteststreifen 10 Stück",
+            "a": null,
+            "u": "https://www.amazon.de/Combur-5-Test-HC-Urinteststreifen-Stück/dp/B001GK1SXQ"
+          },
+          "17": {
+            "t": "HIGHTOP SARS-CoV-2 Rapid Test (10 Stück einzeln verpackt), Corona Schnelltest, Antigen Schnelltest",
+            "a": null,
+            "u": "https://www.amazon.de/HIGHTOP-SARS-CoV-2-einzeln-verpackt-Schnelltest/dp/B0CQ5JB1J2"
+          },
+          "18": {
+            "t": "Leaky Gut Test von CERASCREEN - Leaky Gut Syndrom untersuchen | Durchlässiger Darm Test | Stuhltest einfach von Zuhause durchführen | Professionelle Analyse im medizinischen Labor",
+            "a": "Gesponsert",
+            "u": "/Leaky-Test-CERASCREEN-Durchlässiger-Professionelle/dp/B08CKXKCSL"
+          },
+          "19": {
+            "t": "Miniatur-Set zum testen - 24x 20 ml Überraschungspacket Warda Saunaduftkonzentrat Adventskalenderfüllung",
+            "a": "Gesponsert",
+            "u": "/Miniatur-Set-testen-Überraschungspacket-Saunaduftkonzentrat-Adventskalenderfüllung/dp/B07XPVNQ7K"
+          },
+          "20": {
+            "t": "cerascreen® Serotonin Test Kit – Serotonin Spiegel schnell & einfach per Selbsttest von Zuhause bestimmen | Serotoninunterversorgung | Jetzt Serotoninspiegel online messen",
+            "a": "Gesponsert",
+            "u": "/cerascreen®-Serotonin-Test-Serotoninmangel-Serotoninspiegel/dp/B016V1QKLO"
+          },
+          "21": {
+            "t": "Histamin-Intoleranz Test Kit von CERASCREEN – Histamin-Unverträglichkeit einfach von Zuhause per Selbsttest bestimmen | Diaminoxidase-Wert (DAO) I Zertifiziertes Labor I Detaillierter Ergebnisbericht",
+            "a": "Gesponsert",
+            "u": "/Histamin-Intoleranz-Test-CERASCREEN-Histamin-Unverträglichkeit-Ergebnisbericht/dp/B07TXHKH31"
+          },
+          "22": {
             "t": "Hotgen Coronavirus (2019-nCoV) - Covid 19 Antigen Schnelltest Corona 39 Stück",
             "a": null,
             "u": "https://www.amazon.de/Hotgen-Coronavirus-2019-nCoV-Antigen-Schnelltest/dp/B09W368MQS"
           },
-          "7": {
-            "t": "Hotgen Coronavirus (2019-nCoV) - Covid 19 Antigen Corona Schnelltest 100 Stück",
-            "a": null,
-            "u": "https://www.amazon.de/Hotgen-Coronavirus-2019-nCoV-Antigen-Schnelltest/dp/B09SS9S71L"
-          },
-          "8": {
-            "t": "Hotgen Coronavirus (2019-nCoV) - Covid 19 Antigen Schnelltest Corona 400 Stück",
-            "a": null,
-            "u": "https://www.amazon.de/Hotgen-Coronavirus-2019-nCoV-Antigen-Schnelltest/dp/B09T3NKCDL"
-          },
-          "9": {
+          "23": {
             "t": "autotest VIH® von ratiopharm: Selbsttest zur schnellen und zuverlässigen Feststellung einer potentiellen HIV-Infektion. Diskret und einfach daheim durchführbar.",
             "a": null,
             "u": "https://www.amazon.de/autotest-VIH®-ratiopharm-zuverlässigen-HIV-Infektion/dp/B07J9JJJ17"
           },
-          "10": {
-            "t": "Clearblue Schwangerschaftstest Frühtest digital, Pregnancy Test, 1x Frühschwangerschaftstest / Schwangerschaftsfrühtest mit Wochenbestimmung, Schwangerschaft bestimmen, 25 mIU/ml",
-            "a": null,
-            "u": "https://www.amazon.de/Clearblue-Schwangerschaftstest-Anzeige-Wochen-digitaler/dp/B00D6B1900"
-          },
-          "11": {
-            "t": "The Test: A New Era For Australia's Team - Series 1",
-            "a": null,
-            "u": "https://www.amazon.de/Under-Siege/dp/B08BYY73XW"
-          },
-          "12": {
-            "t": "5er Set Covid-19 Antigen Schnelltests Corona Selbsttest SARS-CoV-19 (5 Tests)",
-            "a": null,
-            "u": "/Covid-19-Antigen-Schnelltests-Selbsttest-SARS-CoV-19/dp/B094YGDC3R"
-          },
-          "13": {
-            "t": "HIGHTOP 4+1 Grippe A+B/Rsv / 20 Stück",
-            "a": null,
-            "u": "/HIGHTOP-Grippe-Rsv-20-Stück/dp/B0CCPQ524B"
-          },
-          "14": {
-            "t": "Tropical 6 in 1 Test 50 Teststreifen, 1er Pack (1 x 12 g)",
-            "a": null,
-            "u": "/Tropical-Test-Teststreifen-1er-Pack/dp/B00FJZIR6A"
-          },
-          "15": {
-            "t": "CITEST Corona Schnelltest für Zuhause, Testsíeger Stíftung Warentest, 5 Stück",
-            "a": null,
-            "u": "/CITEST-Schnelltest-Zuhause-Covid-19-Selbsttest/dp/B0BJ33Z7JQ"
-          },
-          "16": {
-            "t": "Vitamin D Test Kit von CERASCREEN - Spiegel messen und Mangel erkennen mit dem Selbsttest für zu Hause | Zertifiziertes Labor | Konkrete Handlungsempfehlungen und Gesundheitsinformationen",
-            "a": null,
-            "u": "https://www.amazon.de/cerascreen-Cerascreen-Vitamin-D-Testkit/dp/B088NJL1CV"
-          },
-          "17": {
-            "t": "Clearblue Schwangerschaftstest Frühe Erkennung, Frühtest, Pregnancy Test, 2x Frühschwangerschaftstest / Schwangerschaftsfrühtest, über 99 % zuverlässig, Schwangerschaft bestimmen, 25 mIU/ml",
-            "a": null,
-            "u": "https://www.amazon.de/Clearblue-Schwangerschaftstest-Schnell-Einfach-Tests/dp/B016I7W61Y"
-          },
-          "18": {
-            "t": "ZuhauseTEST Schilddrüse - TSH Test zur Feststellung einer Schilddrüsenunterfunktion",
-            "a": null,
-            "u": "https://www.amazon.de/NanoRepro-AG-ZUHAUSE-TEST-Schilddrüse/dp/B08WH7HHCR"
-          },
-          "19": {
-            "t": "Clearblue Kinderwunsch Ovulationstest Kit, 20 Tests + 1 digitale Testhalterung, Fruchtbarkeitstest für Frauen / Eisprung, Fortschrittlich & Digital (testet 2 Hormone), schneller schwanger werden",
-            "a": null,
-            "u": "https://www.amazon.de/Clearblue-Ovulationstest-Fortschrittlich-Digital-Tests/dp/B077Q5FYX1"
-          },
-          "20": {
-            "t": "Vitamin D Test - Doppelpackung von CERASCREEN | Vitamin-D-Spiegel zu Hause messen und Mangel erkennen - Spare jetzt im Kombi- Paket | Professionelle Laboranalyse mit konkreten Handlungsinformationen",
-            "a": null,
-            "u": "/Vitamin-Test-Doppelpackung-Professionelle-Laboranalyse/dp/B094D3D6CH"
-          },
-          "21": {
-            "t": "Omega 3 Test von CERASCREEN - Fettsäuren-Analyse | Verhältnis von Omega-3- zu Omega-6-Fettsäuren per Selbsttest bequem von zu Hause bestimmen | Zertifiziertes Fachlabor | Detaillierter Ergebnisbericht",
-            "a": null,
-            "u": "/Omega-Test-CERASCREEN-Omega-6-Fettsäuren-Professionelles/dp/B095C386GR"
-          },
-          "22": {
-            "t": "1x Sammelbecher Gurgeltest Röhrchen Behälter für Schule Test Kinder nach WICOVIR Studie",
-            "a": null,
-            "u": "/Sammelbecher-Gurgeltest-Röhrchen-Behälter-WICOVIR/dp/B0968L4P5C"
-          },
-          "23": {
-            "t": "Großer Allergie Test von CERASCREEN - Umfangreiche Laboruntersuchung von 61 Allergenen wie Lebensmittel, Pollen und Katzen | Selbsttest für zu Hause | IgE-Antikörper | Detaillierter Ergebnisbericht",
-            "a": null,
-            "u": "/Großer-Allergie-CERASCREEN-Laboruntersuchung-Handlungsempfehlungen/dp/B09N3TZMLC"
-          },
           "24": {
-            "t": "The Ultimate TOEFL iBT Test Prep Savings Bundle, Third Edition",
+            "t": "EUROPAPA® 40x Corona Laientest Selbsttest Covid-19 Antigentest auf SARS-CoV-2 Schnelltest zur Eigenanwendung Testkassete Probentupfer Antigenextrakt einzelverpackt",
             "a": null,
-            "u": "https://www.amazon.de/Ultimate-TOEFL-Savings-Bundle-Third/dp/1260473473"
+            "u": "https://www.amazon.de/Antigentest-Eigenanwendung-Probentupfer-Antigenextrakt-einzelverpackt/dp/B0DP2YF7M8"
           },
           "25": {
-            "t": "ZuhauseTEST Gesunder Magen - Helicobacter Pylori Schnelltest",
+            "t": "30 Stück One+Step Ovulationstest mit optimaler Sensitivität - Fruchtbarkeitstest für Frauen - Ovulationstests für Eisprung",
             "a": null,
-            "u": "https://www.amazon.de/ZuhauseTEST-Schnelltest-Antikörper-Helicobacter-Magenschmerzen/dp/B08WHPX72F"
+            "u": "https://www.amazon.de/One-Step-Ovulationstests-optimaler-Sensitivität/dp/B019DQABHI"
           },
           "26": {
-            "t": "Official Guide to the TOEFL Test",
+            "t": "fluorecare 1 x Corona Schnelltest Quick Influenza A/B & RSV | 4 in 1 Quick Home use Test | corona schnelltest neue variante 2024 1er pack",
             "a": null,
-            "u": "https://www.amazon.de/Official-Guide-Educational-Testing-Service/dp/1260470350"
+            "u": "https://www.amazon.de/fluorecare-Schnelltest-Influenza-schnelltest-variante/dp/B0BFBLH9Q7"
           },
           "27": {
-            "t": "TFA Dostmann Batterietester BatteryCheck, 98.1126.01, für Batterien und Akkus(AAA,AA,C,D),Knopfzelle, Blockbatterie, Anzeige des Ladestatus/Volt, einfach und schnell,schwarz",
+            "t": "OneTouch Ultra Plus Reflect Start-Set, Blutzuckermessgerät für Diabetes, inkl. 1 Blutzucker-Messgerät (mmol/L), 40 Teststreifen, 1 Stechhilfe, 40 Lanzetten, 1 Etui, 2 Batterien",
             "a": null,
-            "u": "https://www.amazon.de/TFA-Dostmann-Batterietester-98-1126-01-Blockbatterie-schwarz/dp/B08XQNZWYP"
+            "u": "https://www.amazon.de/OneTouch-Behandlung-Zucker-Krankheit-Blutzucker-Messgerät-Teststreifen/dp/B0BFC3T9QH"
           },
           "28": {
+            "t": "12×SAFECARE BIO-TECH Covid-19 & Influenza A+B Antigen Combo Rapid Test 3in1 (1er)",
+            "a": null,
+            "u": "https://www.amazon.de/12×SAFECARE-BIO-TECH-Covid-19-Influenza-Antigen/dp/B0BVZV82J6"
+          },
+          "29": {
+            "t": "Clearblue Schwangerschaftstest Frühe Erkennung, Frühtest, Pregnancy Test, 2x Frühschwangerschaftstest/Schwangerschaftsfrühtest, über 99% zuverlässig, Schwangerschaft bestimmen, 25 mIU/ml",
+            "a": null,
+            "u": "https://www.amazon.de/Clearblue-Schwangerschaftstest-Frühschwangerschaftstest-Schwangerschaftsfrühtest-Schwangerschaft/dp/B016I7W61Y"
+          },
+          "30": {
+            "t": "Hotgen Coronavirus (2019-nCoV) - Covid 19 Antigen Corona Schnelltest 100 Stück",
+            "a": null,
+            "u": "https://www.amazon.de/Hotgen-Coronavirus-2019-nCoV-Antigen-Schnelltest/dp/B09SS9S71L"
+          },
+          "31": {
+            "t": "COMBUR 9 Test M Teststreifen",
+            "a": null,
+            "u": "https://www.amazon.de/COMBUR-Test-Teststreifen-100-St/dp/B0041MKU4E"
+          },
+          "32": {
+            "t": "Fluorecare 4in1 Corona- & Grippetest (NEUE VARIANTE 2025) | Influenza A/B, RSV & COVID-19 Schnelltest | Laien-Selbsttest für Zuhause (4 Stück)",
+            "a": null,
+            "u": "https://www.amazon.de/Fluorecare-Grippetest-Influenza-Schnelltest-Laien-Selbsttest/dp/B0DV9TNHXN"
+          },
+          "33": {
+            "t": "CodeFree Blutzuckerteststreifen 50 Stück Diabetes-Tests zur Kontrolle bei Blutzucker (Zuckerkrankheit)",
+            "a": null,
+            "u": "https://www.amazon.de/CodeFree-Blutzuckerteststreifen-Diabetes-Tests-Kontrolle-Blutzucker/dp/B082XHVZCH"
+          },
+          "34": {
             "t": "Tetra Test 6in1 - Wassertest für das Aquarium, schnelle und einfache Überprüfung der Wasserqualität, 1 Dose (25 Teststreifen)",
             "a": null,
             "u": "https://www.amazon.de/Tetra-Wassertest-Aquarium-Überprüfung-Wasserqualität/dp/B001B65ZVQ"
           },
-          "29": {
-            "t": "harren24 Testkit Set inkl. 60 Testtabletten (Rapid), Wassertester und Aufbewahrungsbox, 30x DPD1 Chlor/Brom + 30x Phenol Red pH-Wert, Pool Wasseranalyse (60 Tablets + Tester)",
-            "a": null,
-            "u": "https://www.amazon.de/harren24-Testtabletten-Wassertester-Aufbewahrungsbox-Wasseranalyse/dp/B0C3R15GL4"
-          },
-          "30": {
-            "t": "sera 04942 Silikat Test (SiO3), Wassertest, misst zuverlässig und genau den Silikatgehalt, die Ursache bei Kieselalgen, für Süß- & Meerwasser, im Aquarium oder Teich, farblos",
-            "a": null,
-            "u": "https://www.amazon.de/sera-04942-SiO3-Test-Bestimmungen-Kieselalgen/dp/B001O68DQW"
-          },
-          "31": {
-            "t": "harren24 Testtabletten für Schütteltester (Rapid) zur chemischen Wasseranalyse von pH-Wert (Phenol red) und freiem Chlor (DPD1) (100 Tablets)",
-            "a": null,
-            "u": "https://www.amazon.de/harren24-Testtabletten-Schütteltester-chemischen-Wasseranalyse/dp/B0C27XYQRZ"
-          },
-          "32": {
-            "t": "LPA Test Bayern: Einstellungstest öffentlicher Dienst in Bayern bestehen | 1.200 Aufgaben mit Lösungen | Mittlerer (2. QE) & gehobener (3. QE) Dienst | Allgemeinwissen, Logik, Konzentration, Sprache",
-            "a": null,
-            "u": "https://www.amazon.de/LPA-Test-Bayern-Einstellungstest-Konzentration/dp/3948144478"
-          },
-          "33": {
-            "t": "harren24 Photometer Testtabletten Chlor DPD1, DPD3, Aktivsauerstoff DPD4, pH-Wert Phenol Red, Alkalinity M, CYA Test, Pool Wassertester, 50x, 100x, 250x, 500x (DPD 1 - freies Chlor, 100 Tablets)",
-            "a": null,
-            "u": "https://www.amazon.de/harren24-Photometer-Testtabletten-Aktivsauerstoff-Wassertester/dp/B0C1CBYM81"
-          },
-          "34": {
-            "t": "Mellerud Schimmelpilz Schnelltest | 1 x Schimmeltest | Mikrobiologischer Test zur Erkennung von Schimmelbefall",
-            "a": null,
-            "u": "https://www.amazon.de/Mellerud-2001009205-MELLERUD-Schimmelpilz-Test/dp/B004530EA4"
-          },
           "35": {
-            "t": "Ottolenghi Test Kitchen: Extra Good Things",
+            "t": "Hotgen Coronavirus (2019-nCoV) - Covid 19 Antigen Schnelltest Corona 60 Stück",
             "a": null,
-            "u": "https://www.amazon.de/Ottolenghi-Test-Kitchen-Extra-Things/dp/1529109477"
+            "u": "https://www.amazon.de/Hotgen-Coronavirus-2019-nCoV-Antigen-Schnelltest/dp/B09VYKBMJF"
           },
           "36": {
-            "t": "Testtrainer LPA-Test Bayern: Fit für den Beamtentest – mittlerer Dienst (2. QE) und gehobener Dienst (3. QE) | Über 800 Aufgaben mit allen Lösungswegen | Einstellungstest Öffentlicher Dienst üben",
+            "t": "JBL 2414400 Aquarienwasser-Teststreifen, 50 Teststreifen, PROAQUATEST EASY 7in1",
             "a": null,
-            "u": "https://www.amazon.de/Testtrainer-LPA-Test-Bayern-Lösungswegen-Einstellungstest/dp/3956241177"
+            "u": "https://www.amazon.de/JBL-ProAquaTest-Easy-7in1-Teststreifen/dp/B07R5WDK5M"
           },
           "37": {
-            "t": "NewGene COVID-19 Selbsttest für Laien, Antigen Schnelltest, 50 Stück, (10x 5 Tests)",
+            "t": "CYD® Check Your Drink 10 Teststreifen zum Nachweis von Ketamin und GHB (K.O. Tropfen) in Getränken",
             "a": null,
-            "u": "https://www.amazon.de/NewGene-COVID-19-Selbsttest-Antigen-Schnelltest/dp/B0B7SDYLFH"
+            "u": "https://www.amazon.de/Teststreifen-Nachweis-Ketamin-Tropfen-Getränken/dp/B0BZ587X1M"
           },
           "38": {
-            "t": "NewGene COVID-19 Selbsttest für Laien, Antigen Schnelltest, 25 x 1 Stück",
+            "t": "JBL Wassertest-Koffer, Mit 14 Tests und Zubehör, Für Süßwasser-Aquarien und Leitungswasser, ProAquaTest Lab",
             "a": null,
-            "u": "https://www.amazon.de/NewGene-COVID-19-Selbsttest-Antigen-Schnelltest/dp/B0B7SKCDTY"
+            "u": "https://www.amazon.de/JBL-Wassertest-Koffer-Süßwasser-Aquarien-Leitungswasser-ProAquaTest/dp/B07QNYNS7T"
           },
           "39": {
-            "t": "NewGene COVID-19 Selbsttest für Laien, Antigen Schnelltest, 100 Stück, (20x 5 Tests)",
+            "t": "EKNA Cannabis Test 3,5 ng - 2x Polizei Drogenschnelltest - Drogentest THC - Drogentest Speichel - THC Schnelltest für Fahrtauglichkeit - Zuverlässige & Sichere Ergebnisse (2 Stück)",
             "a": null,
-            "u": "https://www.amazon.de/NewGene-COVID-19-Selbsttest-Antigen-Schnelltest/dp/B0B7SCVB4B"
+            "u": "https://www.amazon.de/EKNA-Cannabis-Test-Drogenschnelltest-Fahrtauglichkeit/dp/B0DJRF58PP"
           },
           "40": {
-            "t": "Lebensmittel-Reaktionstest von CERASCREEN – Allergien und Unverträglichkeiten von 40 verschiedenen Lebensmitteln testen | Weizen, Milch, Nuss | Zertifiziertes Labor I Detaillierter Ergebnisbericht",
+            "t": "CYD® Check Your Drink 5 Teststreifen zum Nachweis von Ketamin und GHB (K.O. Tropfen) in Getränken",
             "a": null,
-            "u": "https://www.amazon.de/Lebensmittel-Reaktionstest-CERASCREEN-Unverträglichkeiten-Zertifiziertes-Ergebnisbericht/dp/B08PPVDNGC"
+            "u": "https://www.amazon.de/Teststreifen-Nachweis-Ketamin-Tropfen-Getränken/dp/B0BZ55KW8C"
           },
           "41": {
-            "t": "Gezielt vorbereitet - Originalaufgaben des LPA-Tests mit kommentierten Lösungen - Ideal für die Prüfungsvorbereitung: 3. Qualifikationsebene – Ausgabe ... für die Einstellungsjahre 2021, 2022 und 2023",
+            "t": "JBL ProScan 25420 Wassertest mit Smartphoneauswertung für Süßwasser Aquarien, 1 Stück (1er Pack)",
             "a": null,
-            "u": "https://www.amazon.de/Gezielt-vorbereitet-Prüfungsvorbereitung-Qualifikationsebene-Einstellungsjahre/dp/3896505491"
+            "u": "https://www.amazon.de/JBL-Wassertest-Smartphoneauswertung-Süßwasser-Aquarien/dp/B00R5S9EQ6"
           },
           "42": {
-            "t": "Pontes Gesamtband 1: Fit für Tests und Klassenarbeiten. Arbeitsheft mit Lösungen 1. Lernjahr (Pontes Gesamtband. Ausgabe 2020)",
+            "t": "test Jahrbuch 2025 - Der Ratgeber für die besten Produkte und die optimale Kaufentscheidung, Überblick über zahlreiche Produkte mit ehrlichen Bewertungen: Mehr als 100 Tests und Reports",
             "a": null,
-            "u": "https://www.amazon.de/Pontes-Gesamtband-Klassenarbeiten-Arbeitsheft-Mediensammlung/dp/3126233201"
+            "u": "https://www.amazon.de/test-Jahrbuch-2025-Tests-Reports/dp/3747108202"
           },
           "43": {
-            "t": "NanoRepro ZuhauseTEST Vaginalpilz, Schnelltest für Antikörper gegen Scheidenpilz, einfacher vaginaler Test für Frauen bei Symptomen wie Juckreiz oder Schmerzen beim Urinieren",
+            "t": "2𝟬 𝘅 𝗖𝗼𝗿𝗼𝗻𝗮 + 𝗜𝗻𝗳𝗹𝘂𝗲𝗻𝘇𝗮 𝗔/𝗕 𝟯𝗶𝗻𝟭 Test | 𝗠𝗛𝗗 𝟬𝟭/𝟮𝟲 | Set für Zuhause mit E-Book: Bleiben Sie gesund! by Saloot® | Grippe Influenza Covid-19 Corona Selbsttest Antigentest",
             "a": null,
-            "u": "https://www.amazon.de/ZUHAUSE-TEST-Vaginalpilz-1-Stück/dp/B07NJS3YZ3"
+            "u": "https://www.amazon.de/𝗖𝗼𝗿𝗼𝗻𝗮-𝗜𝗻𝗳𝗹𝘂𝗲𝗻𝘇𝗮-𝟯𝗶𝗻𝟭-𝗠𝗛𝗗-Zuhause/dp/B0DJRPW1R4"
           },
           "44": {
-            "t": "sera 04110 Gesamthärte Test (GH), misst zuverlässig und genau die Gesamthärte, für Süßwasser, im Aquarium oder Teich, 15 ml (1er Pack)",
+            "t": "Basiswissen KI-Testen: Qualität von und mit KI-basierten Systemen Aus- und Weiterbildung zum »Certified Tester AI Testing«– Foundation Level Specialist nach ISTQB®-Standard",
             "a": null,
-            "u": "https://www.amazon.de/sera-04110-gH-Test-Gesamthärte-zuverlässig/dp/B00178JA4Q"
+            "u": "https://www.amazon.de/Basiswissen-KI-Testen-KI-basierten-Weiterbildung-ISTQB®-Standard/dp/3864909473"
           },
           "45": {
-            "t": "NewGene COVID-19 Selbsttest für Laien, Antigen Schnelltest, 5 Stück",
+            "t": "Salifert Calcium (Ca) Test Kit - 50 to 100 Tests by",
             "a": null,
-            "u": "https://www.amazon.de/NEWGENE-Covid-19-Coronatest-Nasenabstich-Selbsttest/dp/B09LH8F397"
+            "u": "https://www.amazon.de/Salifert-Calcium-Ca-Test-Kit/dp/B001EIZT4Y"
           },
           "46": {
-            "t": "Übungsheft mit Tests im Sachunterricht 4. Klasse: Echte Klassenarbeiten mit Punktevergabe und Lösungen für den Übertritt - Sachkunde (Lernzielkontrollen, Band 404)",
+            "t": "Hotgen Coronavirus (2019-nCoV) - Covid 19 Antigen Schnelltest Corona 80 Stück",
             "a": null,
-            "u": "https://www.amazon.de/Tests-Sachunterricht-Lernzielkontrollen-Klasse-Proben/dp/3881004041"
+            "u": "https://www.amazon.de/Hotgen-Coronavirus-2019-nCoV-Antigen-Schnelltest/dp/B09W38VN81"
           },
           "47": {
-            "t": "Übungsheft mit Tests in Deutsch 4. Klasse: Echte Klassenarbeiten mit Punktevergabe und Lösungen für den Übertritt - Rechtschreibung, Grammatik und Lesen üben (Lernzielkontrollen, Band 284)",
+            "t": "CTEK MXS 5.0 Test & Charge, Batterieladegerät 12V, Batteriepfleger, Ladegerät Auto Und LKW Ladegerät, Testet Batterie Und Lichtmaschine, Entsulfatierungsprogramm Und Rekonditionierungsmodus",
             "a": null,
-            "u": "https://www.amazon.de/Tests-Deutsch-Lernzielkontrollen-Klasse-Klassenarbeiten/dp/3881002847"
+            "u": "https://www.amazon.de/CTEK-Batterieladegerät-Batteriepfleger-Entsulfatierungsprogramm-Rekonditionierungsmodus/dp/B00ARU3M5S"
           },
           "48": {
-            "t": "sera 04210 Karbonathärte Test (KH), misst zuverlässig und genau die Karbonathärte, für Süß- & Meerwasser, im Aquarium oder Teich, 15 ml (1er Pack)",
+            "t": "TFA Dostmann Batterietester BatteryCheck, 98.1126.01, für Batterien und Akkus(AAA,AA,C,D),Knopfzelle, Blockbatterie, Anzeige des Ladestatus/Volt, einfach und schnell,schwarz",
             "a": null,
-            "u": "https://www.amazon.de/sera-04210-kH-Test-Bestimmung-Karbonathärte/dp/B0013ZEFPW"
+            "u": "https://www.amazon.de/TFA-Dostmann-Batterietester-98-1126-01-Blockbatterie-schwarz/dp/B08XQNZWYP"
           },
           "49": {
-            "t": "Übungsheft mit Tests in Deutsch - Aufsatz Gymnasium 5. Klasse: Echte Klassenarbeiten mit Punktevergabe und Lösungen (Lernzielkontrollen, Band 285)",
+            "t": "Roche Combur - 7 Test, 100 Stück",
             "a": null,
-            "u": "https://www.amazon.de/Übungsheft-Tests-Deutsch-Klassenarbeiten-Lernzielkontrollen/dp/3881002855"
+            "u": "https://www.amazon.de/Economed-Roche-Combur-7-Test-100/dp/B002ZH676C"
           },
           "50": {
-            "t": "Prüfung Express – Deutsch-Test für Zuwanderer A2–B1: Neuausgabe.Deutsch als Zweitsprache / Übungsbuch mit Audios online",
+            "t": "Übungsheft mit Tests in Mathe 3. Klasse: Echte Klassenarbeiten mit Punktevergabe und Lösungen - Rechnen üben (Lernzielkontrollen, Band 83)",
             "a": null,
-            "u": "https://www.amazon.de/Prüfung-Express-Deutsch-Test-Neuausgabe-Deutsch-Zweitsprache/dp/3198016517"
+            "u": "https://www.amazon.de/Tests-Mathe-Lernzielkontrollen-Klasse-Klassenarbeiten/dp/3881000836"
           },
           "51": {
-            "t": "25x Longsee",
+            "t": "Übungsheft mit Tests in Mathe 4. Klasse: Echte Klassenarbeiten mit Punktevergabe und Lösungen - Rechnen üben für den Übertritt (Lernzielkontrollen, Band 84)",
             "a": null,
-            "u": "https://www.amazon.de/parahealth-25x-Longsee/dp/B0C74R6ZZB"
+            "u": "https://www.amazon.de/Tests-Mathe-Lernzielkontrollen-Lernzielkontrolle-Klassenarbeiten/dp/3881000844"
           },
           "52": {
-            "t": "Tetra Pond Test 6in1 - Wassertest für den Teich, schnelle und einfache Überprüfung der Wasserqualität im Gartenteich, 1 Dose (25 Teststreifen)",
+            "t": "Adeste – 5 x 1er Corona Schnelltest für Zuhause COVID 19 Antigen Rapid Test Swab Selbsttest. Geprüft für alle neuen 2024 Varianten. Zertifiziert für den Heimgebrauch",
             "a": null,
-            "u": "https://www.amazon.de/Tetra-Teststreifen-Bestimmung-Wasserwerten-Gartenteich/dp/B004UAFVEG"
+            "u": "https://www.amazon.de/Adeste-Schnelltest-Zuhause-Covid-19-Selbsttest/dp/B09HVCKFTB"
           },
           "53": {
-            "t": "Vitamin B12 Test Kit von CERASCREEN – Vitamin-B12-Spiegel einfach per Selbsttest von Zuhause bestimmen I Vitaminmangel erkennen | Holo-TC-Test | Zertifiziertes Labor & detaillierter Ergebnisbericht",
+            "t": "Übungsheft mit Tests in Deutsch 3. Klasse: Echte Klassenarbeiten mit Punktevergabe und Lösungen - Rechtschreibung, Grammatik und Lesen üben (Lernzielkontrollen, Band 283)",
             "a": null,
-            "u": "https://www.amazon.de/Vitamin-Test-CERASCREEN-Vitamin-B12-Spiegel-Ergebnisbericht/dp/B07TS8DKYC"
+            "u": "https://www.amazon.de/Tests-Deutsch-Lernzielkontrollen-Klasse-Klassenarbeiten/dp/3881002839"
           },
           "54": {
-            "t": "Testtrainer IQ-Tests: . Mit Spaß trainieren - . Erfolgreich testen",
+            "t": "Prüfungstraining DaF - A2/B1: Deutsch-Test für Zuwanderer - Übungsbuch mit Lösungen und Audios als Download (2. Auflage 2022) - Mit Hörtexten und Beispielen",
             "a": null,
-            "u": "https://www.amazon.de/Testtrainer-IQ-Tests-trainieren-Erfolgreich-testen/dp/3442175313"
+            "u": "https://www.amazon.de/Prüfungstraining-DaF-Deutsch-Test-Zuwanderer-Lösungsbeileger/dp/3060203741"
           },
           "55": {
-            "t": "Histamin-Intoleranz Test Kit von CERASCREEN – Histamin-Unverträglichkeit einfach von Zuhause per Selbsttest bestimmen | Diaminoxidase-Wert (DAO) I Zertifiziertes Labor I Detaillierter Ergebnisbericht",
+            "t": "COAGUCHEK XS PT Test PST 1X24 St",
             "a": null,
-            "u": "https://www.amazon.de/Histamin-Intoleranz-Test-CERASCREEN-Histamin-Unverträglichkeit-Ergebnisbericht/dp/B07TXHKH31"
+            "u": "https://www.amazon.de/CoaguChek-XS-PT-Test-24St/dp/B01MSHLE17"
           },
           "56": {
-            "t": "test Jahrbuch 2023: Unsere Themen - Akkuwischer, E-Bikes, Geschirrspüler, Kinderwagen, Smartphones, Kopfhörer uvm.: Mehr als 100 Tests und Reports",
+            "t": "Benning SDT 1. Steckdosentester (Prüfung von Schutzkontaktsteckdosen, Prüfart 2-polig, Spannungsmessbereich 230 V AC, Klingenlänge 17 mm) 20053, schwarz, grau und rot",
             "a": null,
-            "u": "https://www.amazon.de/test-Jahrbuch-2023-Bikes-Geschirrspüler-ebook/dp/B0BNLSSWWX"
+            "u": "https://www.amazon.de/Benning-Sockeltester-SDT-Fingerkontakt-020053/dp/B01KWJPNGO"
           },
           "57": {
-            "t": "The Test - Staffel 2",
+            "t": "Clean Code - Refactoring, Patterns, Testen und Techniken für: Deutsche Ausgabe",
             "a": null,
-            "u": "https://www.amazon.de/kannst-nicht-sein-wenn-sehen/dp/B0B7GKPLN9"
+            "u": "https://www.amazon.de/Clean-Code-Refactoring-Patterns-Techniken-ebook/dp/B00MIF2ANK"
           },
           "58": {
-            "t": "Jamar 9-Loch Peg Test Kit, Pegboard Set zur Verbesserung der motorischen Koordination und Fingerfertigkeit, Handtrainer Spiel, Ergotherapie, Physiotherapie und für Kinder, Erwachsene, & Kleinkinder",
+            "t": "Übungsheft mit Tests in Mathe 2. Klasse: Echte Klassenarbeiten mit Punktevergabe und Lösungen - Rechnen lernen (Lernzielkontrollen, Band 82)",
             "a": null,
-            "u": "https://www.amazon.de/Verbesserung-Koordination-Fingerfertigkeit-Ergotherapie-Physiotherapie/dp/B0056PQ6VQ"
+            "u": "https://www.amazon.de/Tests-Mathe-Lernzielkontrollen-Klasse-Klassenarbeiten/dp/3881000828"
           },
           "59": {
-            "t": "Test: Manchmal ist es nur eine Frage des Glucks. [OmU]",
+            "t": "The Official Guide to the TOEFL IBT Test (Official Guide to the TOEFL Test)",
             "a": null,
-            "u": "https://www.amazon.de/Test-Manchmal-Frage-Glücks-Untertiteln/dp/B00KXV74UA"
+            "u": "https://www.amazon.de/Official-Guide-TOEFL-Test-Toefl/dp/1265477310"
           }
         },
         "q": "test",
-        "ctry": "de",
-
-        // this is a limitation of the current test setup:
-        // in production, it should be the doublefetch URL, which would be: "https://www.amazon.de/s/?field-keywords=test"
-        "qurl": "https://www.amazon.de/s/ref=nb_sb_noss/261-9879674-9680331?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&url=search-alias%3Daps&field-keywords=test"
+        "qurl": "https://www.amazon.de/s?k=test",
+        "ctry": "de"
       }
     }
   ]

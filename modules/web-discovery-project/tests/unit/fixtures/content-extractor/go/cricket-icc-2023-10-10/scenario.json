@@ -3,6 +3,164 @@
   "mustContain": [
     {
       "type": "wdp",
+      "action": "query0",
+      "payload": {
+        "q": "cricket icc",
+        "qurl": "https://www.google.com/search?q=cricket%20icc&gl=us&hl=en",
+        "ctry": "de",
+        "lang": "en"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "query",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "ICC (@ICC) · Twitter",
+            "u": "https://twitter.com/ICC",
+            "age": null,
+            "m": null,
+            "lang": null
+          },
+          "1": {
+            "t": "Official International Cricket Council Website",
+            "u": "https://www.icc-cricket.com/homepage",
+            "age": null,
+            "m": null,
+            "lang": "en"
+          },
+          "2": {
+            "t": "Official ICC Men's Cricket World Cup 2023 Website",
+            "u": "https://www.cricketworldcup.com/",
+            "age": null,
+            "m": null,
+            "lang": "en"
+          },
+          "3": {
+            "t": "Upcoming Men's Fixtures",
+            "u": "https://www.icc-cricket.com/mens-schedule/list",
+            "age": null,
+            "m": null,
+            "lang": "en"
+          },
+          "4": {
+            "t": "International Cricket Council",
+            "u": "https://en.wikipedia.org/wiki/International_Cricket_Council",
+            "age": null,
+            "m": null,
+            "lang": "en"
+          },
+          "5": {
+            "t": "ICC (@icc) • Instagram photos and videos",
+            "u": "https://www.instagram.com/icc/",
+            "age": null,
+            "m": null,
+            "lang": "en"
+          },
+          "6": {
+            "t": "ICC Cricket World Cup",
+            "u": "https://www.espn.com/espnplus/catalog/ac34effe-35e5-4e49-9fc0-89f001f9cbba/icc-cricket-world-cup",
+            "age": null,
+            "m": null,
+            "lang": "en"
+          },
+          "7": {
+            "t": "ICC - International Cricket Council",
+            "u": "https://www.facebook.com/icc/",
+            "age": null,
+            "m": null,
+            "lang": "en"
+          }
+        },
+        "q": "cricket icc",
+        "qurl": "https://www.google.com/search?q=cricket%20icc&gl=us&hl=en",
+        "ctry": "de",
+        "lang": "en"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "top-stories",
+      "payload": {
+        "r": {
+          "0": {
+            "u": "https://www.bbc.com/sport/live/cricket/66854377",
+            "lu": "37 mins ago",
+            "h": "England vs Bangladesh LIVE: ICC Men's Cricket World Cup 2023 - score, \ncommentary, video highlights & updates - Live"
+          },
+          "1": {
+            "u": "https://www.hindustantimes.com/cricket/joe-root-breaks-graham-goochs-31-year-old-world-cup-record-with-dazzling-knock-against-bangladesh-101696935811252.html",
+            "lu": "2 hours ago",
+            "h": "Joe Root breaks Graham Gooch's 31-year-old World Cup record with dazzling \nknock"
+          },
+          "2": {
+            "u": "https://www.espncricinfo.com/series/icc-cricket-world-cup-2023-24-1367856/bangladesh-vs-england-7th-match-1384398/full-scorecard",
+            "lu": "1 hour ago",
+            "h": "BAN vs ENG, ICC Cricket World Cup 2023/24, 7th Match at Dharamsala, October \n10, 2023 - Full Scorecard"
+          },
+          "3": {
+            "u": "https://www.aljazeera.com/sports/liveblog/2023/10/10/live-pakistan-vs-sri-lanka-icc-cricket-world-cup-2023",
+            "lu": "LIVE",
+            "h": "LIVE: Pakistan vs Sri Lanka – ICC Cricket World Cup 2023"
+          },
+          "4": {
+            "u": "https://zeenews.india.com/cricket/live-updates/live-cricket-score-pak-vs-sl-icc-odi-cricket-world-cup-2023-match-no-8-today-pakistan-vs-sri-lanka-rajiv-gandhi-international-stadium-hyderabad-babar-azam-dasun-shanaka-345-runs-2nd-innings-target-for-pak-2673187",
+            "lu": "LIVE",
+            "h": "PAK 56-2 (12) | PAK Vs SL ICC ODI World Cup 2023 Live Cricket Score and \nUpdates: Babar Azam Departs,"
+          },
+          "5": {
+            "u": "https://www.espncricinfo.com/series/icc-cricket-world-cup-2023-24-1367856",
+            "lu": "Jun 27, 2023",
+            "h": "World Cup 2023 | 2023/24 ICC Cricket World Cup | Live Score, Schedule, News"
+          },
+          "6": {
+            "u": "https://thewire.in/sport/cricket-world-cup-pakistani-presenter-zainab-abbas-leaves-india",
+            "lu": "1 hour ago",
+            "h": "Cricket World Cup: Pakistani Presenter Leaves India After Complaint Over \n'Derogatory Remarks'"
+          }
+        },
+        "q": "cricket icc",
+        "qurl": "https://www.google.com/search?q=cricket%20icc&gl=us&hl=en",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "infobox",
+      "payload": {
+        "t": "International Cricket Council",
+        "desc": "The International Cricket Council is the global governing body of cricket. It was founded as the Imperial Cricket Conference in 1909 by representatives from Australia, England and South Africa. It was renamed as the International Cricket Conference in 1965, and took up its current name in 1987.",
+        "u": "https://en.wikipedia.org/wiki/International_Cricket_Council",
+        "st": {
+          "0": {
+            "prop": "Headquarters",
+            "val": "Dubai, United Arab Emirates"
+          },
+          "1": {
+            "prop": "Founded",
+            "val": "June 15, 1909"
+          },
+          "2": {
+            "prop": "Abbreviation",
+            "val": "ICC"
+          },
+          "3": {
+            "prop": "CEO",
+            "val": "Geoff Allardice"
+          },
+          "4": {
+            "prop": "Chairman",
+            "val": "Greg Barclay"
+          }
+        },
+        "q": "cricket icc",
+        "qurl": "https://www.google.com/search?q=cricket%20icc&gl=us&hl=en",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
       "action": "widget-title",
       "payload": {
         "q": "cricket icc",

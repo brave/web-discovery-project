@@ -3,6 +3,161 @@
   "mustContain": [
     {
       "type": "wdp",
+      "action": "query0",
+      "payload": {
+        "q": "nba",
+        "qurl": "https://www.google.com/search?q=nba&gl=us&hl=en",
+        "ctry": "de",
+        "lang": "en-UA"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "query",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "The official site of the NBA for the latest NBA Scores, Stats ...",
+            "u": "https://www.nba.com/",
+            "age": null,
+            "m": null,
+            "lang": null
+          },
+          "1": {
+            "t": "List of oldest and youngest National Basketball Association players",
+            "u": "https://en.wikipedia.org/wiki/List_of_oldest_and_youngest_National_Basketball_Association_players#:~:text=He played in 1,611 regular,NBA after they turned 40.",
+            "age": null,
+            "m": null,
+            "lang": null
+          },
+          "2": {
+            "t": "National Basketball Association Scheduling Simulation - CMU Math",
+            "u": "https://www.math.cmu.edu/~af1p/Teaching/OR2/Projects/P51/393FinalPaper.pdf",
+            "age": null,
+            "m": null,
+            "lang": null
+          },
+          "3": {
+            "t": "List of National Basketball Association seasons played leaders - Wikipedia",
+            "u": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_seasons_played_leaders#:~:text=Vince Carter, who began his,have played in 22 seasons.",
+            "age": null,
+            "m": null,
+            "lang": null
+          },
+          "4": {
+            "t": "Best Record Since NBA All Star Break | StatMuse",
+            "u": "https://www.statmuse.com/nba/ask/best-record-since-nba-all-star-break#:~:text=The Los Angeles Lakers have,a record of 1363-935.",
+            "age": null,
+            "m": null,
+            "lang": null
+          },
+          "5": {
+            "t": "NBA (@NBA) · Twitter",
+            "u": "https://twitter.com/NBA",
+            "age": null,
+            "m": null,
+            "lang": null
+          },
+          "6": {
+            "t": "National Basketball Association",
+            "u": "https://en.wikipedia.org/wiki/National_Basketball_Association",
+            "age": null,
+            "m": null,
+            "lang": "en"
+          },
+          "7": {
+            "t": "NBA on ESPN - Scores, Stats and Highlights",
+            "u": "https://www.espn.com/nba/",
+            "age": null,
+            "m": null,
+            "lang": "en"
+          },
+          "8": {
+            "t": "NBA (@nba) • Instagram photos and videos",
+            "u": "https://www.instagram.com/nba/",
+            "age": null,
+            "m": null,
+            "lang": "en"
+          },
+          "9": {
+            "t": "NBA | National Basketball Association, News, Scores ...",
+            "u": "https://bleacherreport.com/nba",
+            "age": null,
+            "m": null,
+            "lang": "en"
+          },
+          "10": {
+            "t": "NBA",
+            "u": "https://www.youtube.com/user/NBA",
+            "age": null,
+            "m": null,
+            "lang": "en"
+          }
+        },
+        "q": "nba",
+        "qurl": "https://www.google.com/search?q=nba&gl=us&hl=en",
+        "ctry": "de",
+        "lang": "en-UA"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "top-stories",
+      "payload": {
+        "r": {
+          "0": {
+            "u": "https://www.foxsports.com.au/basketball/nba/nba-2023-philadelphia-76ers-news-damien-lillard-trade-kelly-oubre-jr-james-harden-future-latest-trade-news-updates/news-story/62fd644009f224490ad5497a1604141c",
+            "lu": "11 hours ago",
+            "h": "NBA 2023: Philadelphia 76ers news; Damien Lillard trade; Kelly Oubre Jr. \nJames Harden future, latest trade news ..."
+          },
+          "1": {
+            "u": "https://www.espn.com/nba/story/_/id/38498956/magic-johnson-says-knicks-only-nba-team-consider-owning",
+            "lu": "13 hours ago",
+            "h": "Magic Johnson says Knicks only NBA team he'd consider owning - ESPN"
+          },
+          "2": {
+            "u": "https://www.si.com/nba/2023/09/26/nba-mailbag-does-damian-lillard-trade-make-sense-raptors",
+            "lu": "17 hours ago",
+            "h": "NBA Mailbag: Does a Damian Lillard Trade Make Sense for the Raptors?"
+          }
+        },
+        "q": "nba",
+        "qurl": "https://www.google.com/search?q=nba&gl=us&hl=en",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "infobox",
+      "payload": {
+        "t": "NBA",
+        "desc": "The National Basketball Association is a professional basketball league in North America composed of 30 teams. It is one of the major professional sports leagues in the United States and Canada and is considered the premier professional basketball league in the world.",
+        "u": "https://en.wikipedia.org/wiki/National_Basketball_Association",
+        "st": {
+          "0": {
+            "prop": "Founded",
+            "val": "June 6, 1946, New York, New York, United States"
+          },
+          "1": {
+            "prop": "Headquarters",
+            "val": "New York, New York, United States"
+          },
+          "2": {
+            "prop": "Inaugural season",
+            "val": "1946–47"
+          },
+          "3": {
+            "prop": "Most recent champion(s)",
+            "val": "Denver Nuggets; (1st title)"
+          }
+        },
+        "q": "nba",
+        "qurl": "https://www.google.com/search?q=nba&gl=us&hl=en",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
       "action": "widget-title",
       "payload": {
         "q": "nba",

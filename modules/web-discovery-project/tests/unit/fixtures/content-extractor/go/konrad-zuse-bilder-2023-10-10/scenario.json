@@ -3,6 +3,16 @@
   "mustContain": [
     {
       "type": "wdp",
+      "action": "query0",
+      "payload": {
+        "q": "konrad zuse bilder",
+        "qurl": "https://www.google.com/search?q=konrad%20zuse%20bilder&gl=us&hl=en",
+        "ctry": "de",
+        "lang": "en"
+      }
+    },
+    {
+      "type": "wdp",
       "action": "query",
       "payload": {
         "r": {
@@ -10,68 +20,76 @@
             "t": "Konrad Zuse - 53 artworks - painting",
             "u": "https://www.wikiart.org/en/konrad-zuse",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "1": {
             "t": "Konrad zuse Stock Photos and Images",
             "u": "https://www.alamy.com/stock-photo/konrad-zuse.html",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "2": {
             "t": "Sold at Auction: Konrad Zuse",
             "u": "https://www.invaluable.com/artist/zuse-konrad-smxqcw2o4n/sold-at-auction-prices/",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "de"
           },
           "3": {
             "t": "72 Konrad Zuse Photos & High Res Pictures",
             "u": "https://www.gettyimages.com/photos/konrad-zuse",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "de"
           },
           "4": {
             "t": "20 Konrad Zuse Images, Stock Photos & Vectors",
             "u": "https://www.shutterstock.com/search/konrad-zuse",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "5": {
             "t": "Konrad Zuse",
             "u": "http://www.artnet.com/artists/konrad-zuse/",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "6": {
             "t": "Konrad Zuse",
             "u": "https://www.german-way.com/notable-people/featured-bios/konrad-zuse/",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "7": {
             "t": "Art by Konrad Zuse",
             "u": "https://www.wut.de/e-174ww-ww-daus-000.php",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "8": {
             "t": "Konrad Zuse Stock Photos - Free & Royalty- ... - Dreamstime",
             "u": "https://www.dreamstime.com/photos-images/konrad-zuse.html",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           }
         },
         "q": "konrad zuse bilder",
         "qurl": "https://www.google.com/search?q=konrad%20zuse%20bilder&gl=us&hl=en",
-        "ctry": "de"
+        "ctry": "de",
+        "lang": "en"
       }
     },
     {
       "type": "wdp",
       "action": "img-p",
       "payload": {
-        "q": "konrad zuse bilder",
-        "qurl": "https://www.google.com/search?q=konrad%20zuse%20bilder&gl=us&hl=en",
         "r": {
           "0": {
             "u": "https://www.wikiart.org/en/konrad-zuse"
@@ -116,6 +134,8 @@
             "u": "https://www.alamy.com/stock-photo/konrad-zuse.html"
           }
         },
+        "q": "konrad zuse bilder",
+        "qurl": "https://www.google.com/search?q=konrad%20zuse%20bilder&gl=us&hl=en",
         "ctry": "de"
       }
     }

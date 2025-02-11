@@ -3,6 +3,16 @@
   "mustContain": [
     {
       "type": "wdp",
+      "action": "query0",
+      "payload": {
+        "q": "passauer dom",
+        "qurl": "https://www.google.com/search?q=passauer%20dom&gl=us&hl=en",
+        "ctry": "de",
+        "lang": "en"
+      }
+    },
+    {
+      "type": "wdp",
       "action": "query",
       "payload": {
         "r": {
@@ -10,55 +20,95 @@
             "t": "St. Stephen's Cathedral, Passau",
             "u": "https://en.wikipedia.org/wiki/St._Stephen's_Cathedral,_Passau",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "1": {
             "t": "St. Stephen's Cathedral - Passau Tourism",
             "u": "https://tourism.passau.de/discover-passau/sights/st-stephens-cathedral/",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "2": {
             "t": "Dom St. Stephan, Passau",
             "u": "https://www.tripadvisor.com/Attraction_Review-g187311-d1899014-Reviews-Dom_St_Stephan-Passau_Lower_Bavaria_Bavaria.html",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "3": {
             "t": "Dom St. Stephan",
             "u": "https://www.bistum-passau.de/dom-kultur/dom-st-stephan-passau",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "de"
           },
           "4": {
             "t": "St. Stephen's Cathedral | Straße der Kaiser und Könige",
             "u": "https://www.routeofemperorsandkings.com/location/dom-st-stephan-in-passau/",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "5": {
             "t": "Der Dom zu Passau: Vom Mittelalter bis zur Gegenwart",
             "u": "https://www.amazon.com/Der-Dom-zu-Passau/dp/3791727079",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "6": {
             "t": "Passau Cathedral / Passauer Dom - Google My Maps",
             "u": "https://www.google.com/mymaps/viewer?mid=1C7BLBkYAgru9xUPPCRzoAfdS6uI&hl=en",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "de"
           },
           "7": {
             "t": "Organ Dom Passau",
             "u": "https://www.amazon.com/Organ-Dom-Passau-Athanasiades/dp/B000024E99",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "8": {
             "t": "Dom St. Stephan (Passau) - Cycle Routes and Map",
             "u": "https://www.komoot.com/highlight/295304",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
+          }
+        },
+        "q": "passauer dom",
+        "qurl": "https://www.google.com/search?q=passauer%20dom&gl=us&hl=en",
+        "ctry": "de",
+        "lang": "en"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "infobox",
+      "payload": {
+        "t": "St. Stephan's Cathedral",
+        "desc": "St. Stephen's Cathedral is a baroque church from 1688 in Passau, Germany, dedicated to Saint Stephen. It is the seat of the Catholic Bishop of Passau and the main church of his diocese.\nSince 730, there have been many churches built on the site of the current cathedral.",
+        "u": "https://en.wikipedia.org/wiki/St._Stephen's_Cathedral,_Passau",
+        "st": {
+          "0": {
+            "prop": "Architect",
+            "val": "Carlo Lurago"
+          },
+          "1": {
+            "prop": "Architectural style",
+            "val": "Baroque architecture"
+          },
+          "2": {
+            "prop": "Opened",
+            "val": "1693"
+          },
+          "3": {
+            "prop": "Bells",
+            "val": "8"
           }
         },
         "q": "passauer dom",
@@ -68,22 +118,63 @@
     },
     {
       "type": "wdp",
-      "action": "places2",
+      "action": "placeinfo",
       "payload": {
-        "q": "passauer dom",
-        "type": "Map",
-        "qurl": "https://www.google.com/search?q=passauer%20dom&gl=us&hl=en",
-        "ctry": "de"
-      }
-    },
-    {
-      "type": "wdp",
-      "action": "place",
-      "payload": {
+        "ad": null,
+        "addr": "Domplatz, 94032 Passau, Germany",
         "t": "St. Stephan's Cathedral",
         "u": "https://www.bistum-passau.de/dom-kultur/dom-st-stephan-passau",
-        "addr": "Domplatz, 94032 Passau, Germany",
-        "loc": "48.5741597,13.4656793,15z",
+        "sum": "Catholic cathedral in Passau, Germany",
+        "desc": " ",
+        "p": "+49 851 3930",
+        "opt": null,
+        "open": {
+          "0": {
+            "item": "Tuesday"
+          },
+          "1": {
+            "item": "6:30 AM–7 PM"
+          },
+          "2": {
+            "item": "Wednesday"
+          },
+          "3": {
+            "item": "6:30 AM–7 PM"
+          },
+          "4": {
+            "item": "Thursday"
+          },
+          "5": {
+            "item": "6:30 AM–7 PM"
+          },
+          "6": {
+            "item": "Friday"
+          },
+          "7": {
+            "item": "6:30 AM–7 PM"
+          },
+          "8": {
+            "item": "Saturday"
+          },
+          "9": {
+            "item": "6:30 AM–7 PM"
+          },
+          "10": {
+            "item": "Sunday"
+          },
+          "11": {
+            "item": "6:30 AM–7 PM"
+          },
+          "12": {
+            "item": "Monday"
+          },
+          "13": {
+            "item": "6:30 AM–7 PM"
+          }
+        },
+        "shut": null,
+        "q": "passauer dom",
+        "qurl": "https://www.google.com/search?q=passauer%20dom&gl=us&hl=en",
         "ctry": "de"
       }
     },
@@ -91,8 +182,6 @@
       "type": "wdp",
       "action": "img-p",
       "payload": {
-        "q": "passauer dom",
-        "qurl": "https://www.google.com/search?q=passauer%20dom&gl=us&hl=en",
         "r": {
           "0": {
             "u": "https://en.wikipedia.org/wiki/St._Stephen%27s_Cathedral,_Passau"
@@ -125,37 +214,30 @@
             "u": "https://www.pfarrbriefservice.de/image/dom-st-stephan-passau"
           }
         },
+        "q": "passauer dom",
+        "qurl": "https://www.google.com/search?q=passauer%20dom&gl=us&hl=en",
         "ctry": "de"
       }
     },
     {
       "type": "wdp",
-      "action": "infobox",
+      "action": "place",
+      "payload": {
+        "t": "St. Stephan's Cathedral",
+        "u": "https://www.bistum-passau.de/dom-kultur/dom-st-stephan-passau",
+        "addr": "Domplatz, 94032 Passau, Germany",
+        "loc": "48.5741597,13.4656793,15z",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "places2",
       "payload": {
         "q": "passauer dom",
+        "type": "map",
         "qurl": "https://www.google.com/search?q=passauer%20dom&gl=us&hl=en",
-        "ctry": "de",
-        "t": "St. Stephan's Cathedral",
-        "desc": "St. Stephen's Cathedral is a baroque church from 1688 in Passau, Germany, dedicated to Saint Stephen. It is the seat of the Catholic Bishop of Passau and the main church of his diocese.\nSince 730, there have been many churches built on the site of the current cathedral.",
-        "u": "https://en.wikipedia.org/wiki/St._Stephen's_Cathedral,_Passau",
-        "st": {
-          "0": {
-            "prop": "Architect",
-            "val": "Carlo Lurago"
-          },
-          "1": {
-            "prop": "Architectural style",
-            "val": "Baroque architecture"
-          },
-          "2": {
-            "prop": "Opened",
-            "val": "1693"
-          },
-          "3": {
-            "prop": "Bells",
-            "val": "8"
-          }
-        }
+        "ctry": "de"
       }
     }
   ]

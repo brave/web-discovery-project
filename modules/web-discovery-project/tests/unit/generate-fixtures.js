@@ -20,7 +20,7 @@ const FIXTURES_BASE_PATH = path.join(__dirname, "fixtures/content-extractor");
 const DEFAULT_PATTERNS = jsonParse(
   fs.readFileSync(`${FIXTURES_BASE_PATH}/rules.json`, "utf8")
 );
-const ALLOWED_SOURCES = new Set(["go", "bing"]);
+const ALLOWED_SOURCES = new Set(["go", "bing", "am"]);
 
 function findAllFixtures() {
   function isFixtureDir(file) {
@@ -123,6 +123,9 @@ const generateFixture = async (dir) => {
       break;
     case "bing":
       url = `https://www.bing.com/search?q=${encodeURIComponent(query)}`;
+      break;
+    case "am":
+      url = `https://www.amazon.de/s?k=${encodeURIComponent(query)}`
       break;
     default:
       return;

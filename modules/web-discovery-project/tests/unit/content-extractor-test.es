@@ -9,8 +9,6 @@
 const fs = require("fs");
 const path = require("path");
 const zlib = require("zlib");
-const jsdom = require("jsdom");
-const { JSDOM } = jsdom;
 
 const expect = chai.expect;
 const R = require("ramda");
@@ -97,23 +95,13 @@ export default describeModule(
 
       let ContentExtractor;
       let WDP;
-      let mockWindow;
       let document;
       let fixture;
-
-      const setupDocument = function (html) {
-        mockWindow = new JSDOM(`<!DOCTYPE html><p>Test DOM</p>`).window;
-
-        document = mockWindow.document;
-        document.open();
-        document.write(html);
-        document.close();
-      };
 
       const initFixture = function (_path) {
         try {
           fixture = readFixtureFromDisk(_path);
-          setupDocument(fixture.html);
+          document = WDP.parseHtml(fixture.html);
         } catch (e) {
           throw new Error(`Failed to load test fixture "${_path}": ${e}`, e);
         }
@@ -175,6 +163,9 @@ export default describeModule(
         const Patterns = (
           await this.system.import("web-discovery-project/patterns")
         ).default;
+        const parseHtml = (
+          await this.system.import("web-discovery-project/html-helpers")
+        ).parseHtml;
 
         ContentExtractor = this.module().ContentExtractor;
         WDP = {
@@ -203,16 +194,13 @@ export default describeModule(
           },
         };
         WDP.contentExtractor = new ContentExtractor(WDP.patterns, WDP);
+        WDP.parseHtml = parseHtml;
       });
 
       afterEach(function () {
         document = null;
         fixture = null;
         global.URL = oldURL;
-
-        if (mockWindow) {
-          mockWindow = null;
-        }
       });
 
       describe("with an empty ruleset", function () {
