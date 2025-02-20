@@ -3,6 +3,16 @@
   "mustContain": [
     {
       "type": "wdp",
+      "action": "query0",
+      "payload": {
+        "q": "sq",
+        "qurl": "https://www.google.com/search?q=sq&gl=us&hl=en",
+        "ctry": "de",
+        "lang": "en-UA"
+      }
+    },
+    {
+      "type": "wdp",
       "action": "query",
       "payload": {
         "r": {
@@ -10,115 +20,83 @@
             "t": "Loch Ness Monster",
             "u": "https://en.wikipedia.org/wiki/Loch_Ness_Monster",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "1": {
             "t": "Ungeheuer von Loch Ness",
             "u": "https://de.wikipedia.org/wiki/Ungeheuer_von_Loch_Ness",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "de"
           },
           "2": {
             "t": "Monster von Loch Ness: Was wir über Nessie wissen",
             "u": "https://www.galileo.tv/natur/monster-von-loch-ness-suche-nach-nessie-see-ungeheuer/",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "de"
           },
           "3": {
             "t": "Das Ungeheuer von Loch Ness! Wie ist der Nessie ... - YouTube",
             "u": "https://www.youtube.com/watch?v=SlT232EQSQ8",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": null
           },
           "4": {
             "t": "Ein Ungeheuer? Loch Ness gibt sein Rätsel nicht preis",
             "u": "https://www.youtube.com/watch?v=2hryr-XK66Y",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": null
           },
           "5": {
             "t": "Entdecken Sie das Loch Ness Monster | Highland Titles",
             "u": "https://www.highlandtitles.de/das-loch-ness-monster/",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "de"
           },
           "6": {
             "t": "Ist das ENDLICH der Beweis für „Nessie“? - YouTube",
             "u": "https://www.youtube.com/watch?v=tznzEUE3krc",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": null
           },
           "7": {
             "t": "Nessie – das Ungeheuer von Loch Ness - Fabelwesen - ...",
             "u": "https://www.planet-wissen.de/kultur/fabelwesen/britische_schauergestalten/pwienessiedasungeheuervonlochness100.html",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "de"
           },
           "8": {
             "t": "Loch Ness in Schottland: Größte Suche nach Ungeheuer ...",
             "u": "https://www.spiegel.de/panorama/loch-ness-in-schottland-groesste-suche-nach-ungeheuer-nessie-seit-jahrzehnten-geplant-a-e005552e-425a-4367-9df1-f7a43f9d3ce5",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "de"
           },
           "9": {
             "t": "Nessie - Das Ungeheuer von Loch Ness: Monster, Mythen ...",
             "u": "https://www.amazon.com/Nessie-Das-Ungeheuer-Loch-Ness/dp/3890943853",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           }
         },
         "q": "ungeheuer von loch ness",
         "qurl": "https://www.google.com/search?q=sq&gl=us&hl=en",
-        "ctry": "de"
-      }
-    },
-    {
-      "type": "wdp",
-      "action": "snippet2",
-      "payload": {
-        "r": {
-          "0": {
-            "u": "https://en.wikipedia.org/wiki/Loch_Ness_Monster"
-          }
-        },
-        "q": "ungeheuer von loch ness",
-        "qurl": "https://www.google.com/search?q=sq&gl=us&hl=en",
-        "ctry": "de"
-      }
-    },
-    {
-      "type": "wdp",
-      "action": "img-p",
-      "payload": {
-        "q": "ungeheuer von loch ness",
-        "qurl": "https://www.google.com/search?q=sq&gl=us&hl=en",
-        "r": {
-          "0": {
-            "u": "https://www.youtube.com/watch?v=SlT232EQSQ8"
-          },
-          "1": {
-            "u": "https://www.planet-wissen.de/kultur/fabelwesen/britische_schauergestalten/pwienessiedasungeheuervonlochness100.html"
-          },
-          "2": {
-            "u": "https://www.heute.at/s/endgueltiger-beweis-foto-soll-loch-ness-monster-zeigen-100088720"
-          },
-          "3": {
-            "u": "https://www.geo.de/wissen/ungeheuer-von-loch-ness--die-entstehung-des-nessie-mythos-33764758.html"
-          },
-          "4": {
-            "u": "https://www.nzz.ch/panorama/monster-von-loch-ness-ein-hype-wird-90-ld.1735498"
-          }
-        },
-        "ctry": "de"
+        "ctry": "de",
+        "lang": "en-UA"
       }
     },
     {
       "type": "wdp",
       "action": "infobox",
       "payload": {
-        "q": "ungeheuer von loch ness",
-        "qurl": "https://www.google.com/search?q=sq&gl=us&hl=en",
-        "ctry": "de",
         "t": "About",
         "desc": "The Loch Ness Monster, affectionately known as Nessie, is a creature in Scottish folklore that is said to inhabit Loch Ness in the Scottish Highlands. It is often described as large, long-necked, and with one or more humps protruding from the water.",
         "u": "https://en.wikipedia.org/wiki/Loch_Ness_Monster",
@@ -143,7 +121,36 @@
             "prop": "Similar entities",
             "val": "Champ, Ogopogo, Altamaha-ha"
           }
-        }
+        },
+        "q": "ungeheuer von loch ness",
+        "qurl": "https://www.google.com/search?q=sq&gl=us&hl=en",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "img-p",
+      "payload": {
+        "r": {
+          "0": {
+            "u": "https://www.youtube.com/watch?v=SlT232EQSQ8"
+          },
+          "1": {
+            "u": "https://www.planet-wissen.de/kultur/fabelwesen/britische_schauergestalten/pwienessiedasungeheuervonlochness100.html"
+          },
+          "2": {
+            "u": "https://www.heute.at/s/endgueltiger-beweis-foto-soll-loch-ness-monster-zeigen-100088720"
+          },
+          "3": {
+            "u": "https://www.geo.de/wissen/ungeheuer-von-loch-ness--die-entstehung-des-nessie-mythos-33764758.html"
+          },
+          "4": {
+            "u": "https://www.nzz.ch/panorama/monster-von-loch-ness-ein-hype-wird-90-ld.1735498"
+          }
+        },
+        "q": "ungeheuer von loch ness",
+        "qurl": "https://www.google.com/search?q=sq&gl=us&hl=en",
+        "ctry": "de"
       }
     }
   ]

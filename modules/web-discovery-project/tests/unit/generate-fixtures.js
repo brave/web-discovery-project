@@ -7,24 +7,20 @@ const { expect } = require("chai");
 const sinon = require("sinon");
 const FileHound = require("filehound");
 const { gunzipSync, gzipSync } = require("zlib");
-const { JSDOM } = require("jsdom");
 const stripJsonComments = require("strip-json-comments");
 const { ContentExtractor } = require("../../../../build/web-discovery-project/content-extractor.js");
+const Patterns = require("../../../../build/web-discovery-project/patterns.js").default;
+const { parseHtml } = require("../../../../build/web-discovery-project/html-helpers.js");
 
 function jsonParse(text) {
   return JSON.parse(stripJsonComments(text));
 }
 
 const FIXTURES_BASE_PATH = path.join(__dirname, "fixtures/content-extractor");
-const DEFAULT_PATTERNS = {
-  normal: jsonParse(
-    fs.readFileSync(`${FIXTURES_BASE_PATH}/patterns.json`, "utf8")
-  ),
-  strict: jsonParse(
-    fs.readFileSync(`${FIXTURES_BASE_PATH}/patterns-anon.json`, "utf8")
-  ),
-};
-const ALLOWED_SOURCES = new Set(["go", "bing"]);
+const DEFAULT_PATTERNS = jsonParse(
+  fs.readFileSync(`${FIXTURES_BASE_PATH}/rules.json`, "utf8")
+);
+const ALLOWED_SOURCES = new Set(["go", "bing", "am"]);
 
 function findAllFixtures() {
   function isFixtureDir(file) {
@@ -78,18 +74,8 @@ const groupTelemetryCallsByAction = (sinonSpy) => {
   )(sinonSpy.args);
 };
 
-const setupDocument = function (html) {
-  const mockWindow = new JSDOM(`<!DOCTYPE html><p>Test DOM</p>`).window;
-
-  const document = mockWindow.document;
-  document.open();
-  document.write(html);
-  document.close();
-  return document;
-};
-
 const generateScenario = (url, html) => {
-  const WebDiscoveryProject = {
+  const WDP = {
     debug: false,
     msgType: "wdp",
     getCountryCode() {
@@ -103,13 +89,22 @@ const generateScenario = (url, html) => {
     // args: url, query
     addStrictQueries: sinon.fake(),
     queryCache: {},
+    patterns: new Patterns(),
+    checkURL: (doc, url) => {
+      const { messages } = WDP.contentExtractor.run(doc, url);
+      for (const message of messages)
+        WDP.telemetry({
+          type: WDP.msgType,
+          action: message.action,
+          payload: message.payload,
+        });
+    },
   };
-  const contentExtractor = new ContentExtractor(WebDiscoveryProject);
-  contentExtractor.updatePatterns(DEFAULT_PATTERNS.normal, "normal");
-  contentExtractor.updatePatterns(DEFAULT_PATTERNS.strict, "strict");
-  const document = setupDocument(html);
-  contentExtractor.checkURL(document, url, "strict");
-  const messages = groupTelemetryCallsByAction(WebDiscoveryProject.telemetry);
+  WDP.patterns.update(DEFAULT_PATTERNS);
+  WDP.contentExtractor = new ContentExtractor(WDP.patterns, WDP);
+  const document = parseHtml(html);
+  WDP.checkURL(document, url);
+  const messages = groupTelemetryCallsByAction(WDP.telemetry);
   const mustContain = Object.values(messages).reduce((acc, v) => acc.concat(v), []);
   return {url, mustContain};
 };
@@ -128,6 +123,9 @@ const generateFixture = async (dir) => {
       break;
     case "bing":
       url = `https://www.bing.com/search?q=${encodeURIComponent(query)}`;
+      break;
+    case "am":
+      url = `https://www.amazon.de/s?k=${encodeURIComponent(query)}`
       break;
     default:
       return;

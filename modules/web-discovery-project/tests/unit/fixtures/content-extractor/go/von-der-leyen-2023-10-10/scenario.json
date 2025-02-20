@@ -3,6 +3,16 @@
   "mustContain": [
     {
       "type": "wdp",
+      "action": "query0",
+      "payload": {
+        "q": "von der leyen",
+        "qurl": "https://www.google.com/search?q=von%20der%20leyen&gl=us&hl=en",
+        "ctry": "de",
+        "lang": "en"
+      }
+    },
+    {
+      "type": "wdp",
       "action": "query",
       "payload": {
         "r": {
@@ -10,109 +20,83 @@
             "t": "Ursula von der Leyen",
             "u": "https://en.wikipedia.org/wiki/Ursula_von_der_Leyen",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "1": {
             "t": "Ursula von der Leyen (@vonderleyen) · Twitter",
             "u": "https://twitter.com/vonderleyen",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": null
           },
           "2": {
             "t": "Ursula von der Leyen - The Commissioners",
             "u": "https://commissioners.ec.europa.eu/ursula-von-der-leyen_en",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "3": {
             "t": "Ursula von der Leyen - European Commission",
             "u": "https://be.linkedin.com/in/ursula-von-der-leyen",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "4": {
             "t": "Ursula von der Leyen",
             "u": "https://apnews.com/hub/ursula-von-der-leyen",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "5": {
             "t": "Ursula von der Leyen (@ursulavonderleyen)",
             "u": "https://www.instagram.com/ursulavonderleyen/",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "6": {
             "t": "2023 State of the Union Address by President Ursula von ...",
             "u": "https://www.wilsoncenter.org/article/2023-state-union-address-president-ursula-von-der-leyen-how-will-eu-answer-call-history",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "7": {
             "t": "Ursula von der Leyen - Geschichte der CDU",
             "u": "https://www.kas.de/en/web/geschichte-der-cdu/biogram-detail/-/content/ursula-von-der-leyen-2",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "8": {
             "t": "Ursula von der Leyen | Facts, European Commission, & ...",
             "u": "https://www.britannica.com/biography/Ursula-von-der-Leyen",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "9": {
             "t": "Ursula von der Leyen | World",
             "u": "https://www.theguardian.com/world/ursula-von-der-leyen",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           }
         },
         "q": "von der leyen",
         "qurl": "https://www.google.com/search?q=von%20der%20leyen&gl=us&hl=en",
-        "ctry": "de"
-      }
-    },
-    {
-      "type": "wdp",
-      "action": "snippet2",
-      "payload": {
-        "r": {
-          "0": {
-            "u": "https://en.wikipedia.org/wiki/Ursula_von_der_Leyen"
-          }
-        },
-        "q": "von der leyen",
-        "qurl": "https://www.google.com/search?q=von%20der%20leyen&gl=us&hl=en",
-        "ctry": "de"
-      }
-    },
-    {
-      "type": "wdp",
-      "action": "img-p",
-      "payload": {
-        "q": "von der leyen",
-        "qurl": "https://www.google.com/search?q=von%20der%20leyen&gl=us&hl=en",
-        "r": {
-          "0": {
-            "u": "https://time.com/6185490/ursula-von-der-leyen-interview/"
-          },
-          "1": {
-            "u": "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcTFJJMhkRUA1RqVwF49U81zW0e9qoZG-r4afDeq0FuBVH71KJYwiEKoEYcTfdChTTzFD0AXUmyu3b9Vqe0"
-          },
-          "2": {
-            "u": "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcRN6TyNorrXvkQRDMmDSaPQuIJpU8qrD0y-6CHMoF_KsLWCIcOAZRxTBVr5bwoOCYawcJdO6Kgxfy7S680"
-          }
-        },
-        "ctry": "de"
+        "ctry": "de",
+        "lang": "en"
       }
     },
     {
       "type": "wdp",
       "action": "infobox",
       "payload": {
-        "q": "von der leyen",
-        "qurl": "https://www.google.com/search?q=von%20der%20leyen&gl=us&hl=en",
-        "ctry": "de",
         "t": "About",
         "desc": "Ursula Gertrud von der Leyen is a German physician and politician serving as the 13th president of the European Commission since 2019. She served in the German federal government between 2005 and 2019, holding successive positions in Angela Merkel's cabinet, most recently as minister of defence.",
         "u": "https://en.wikipedia.org/wiki/Ursula_von_der_Leyen",
@@ -145,7 +129,30 @@
             "prop": "Party",
             "val": "European People's Party group"
           }
-        }
+        },
+        "q": "von der leyen",
+        "qurl": "https://www.google.com/search?q=von%20der%20leyen&gl=us&hl=en",
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "img-p",
+      "payload": {
+        "r": {
+          "0": {
+            "u": "https://time.com/6185490/ursula-von-der-leyen-interview/"
+          },
+          "1": {
+            "u": "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcTFJJMhkRUA1RqVwF49U81zW0e9qoZG-r4afDeq0FuBVH71KJYwiEKoEYcTfdChTTzFD0AXUmyu3b9Vqe0"
+          },
+          "2": {
+            "u": "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcRN6TyNorrXvkQRDMmDSaPQuIJpU8qrD0y-6CHMoF_KsLWCIcOAZRxTBVr5bwoOCYawcJdO6Kgxfy7S680"
+          }
+        },
+        "q": "von der leyen",
+        "qurl": "https://www.google.com/search?q=von%20der%20leyen&gl=us&hl=en",
+        "ctry": "de"
       }
     }
   ]

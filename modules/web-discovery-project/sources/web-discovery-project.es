@@ -23,6 +23,7 @@ import { parseURL, Network } from "./network";
 import prefs from "../core/prefs";
 import pacemaker from "../core/services/pacemaker";
 import SafebrowsingEndpoint from "./safebrowsing-endpoint";
+import Patterns from "./patterns";
 
 /*
 Configuration for Bloomfilter
@@ -96,6 +97,8 @@ const WebDiscoveryProject = {
   deadFiveMts: 5,
   deadTwentyMts: 20,
   msgType: "wdp",
+  patterns: new Patterns(),
+  _patternsLastUpdated: null,
   probHashLogM: [
     [
       -1.839225984234144, -1.8009413231413045, -2.5864601561900273,
@@ -1595,11 +1598,13 @@ const WebDiscoveryProject = {
       config.settings.ENDPOINT_PATTERNS,
       (content) => {
         try {
-          const { normal, strict } = JSON.parse(content);
-          logger.debug("Got new patterns", { normal, strict });
-          WebDiscoveryProject.contentExtractor.updatePatterns(normal, "normal");
-          WebDiscoveryProject.contentExtractor.updatePatterns(strict, "strict");
-          logger.info("WebDiscoveryProject patterns successfully updated");
+          const rules = JSON.parse(content);
+          logger.debug("Got new patterns", rules);
+          WebDiscoveryProject.patterns.update(rules);
+          WebDiscoveryProject._patternsLastUpdated = new Date();
+          logger.info(
+            `WebDiscoveryProject patterns successfully updated at ${WebDiscoveryProject._patternsLastUpdated}`,
+          );
         } catch (e) {
           logger.warn("Failed to apply new WebDiscoveryProject patterns", e);
         }
@@ -1817,7 +1822,9 @@ const WebDiscoveryProject = {
 
       if (pos_hash_char > -1) {
         if (
-          !WebDiscoveryProject.contentExtractor.isSearchEngineUrl(aURI) &&
+          !WebDiscoveryProject.contentExtractor.urlAnalyzer.isSearchEngineUrl(
+            aURI,
+          ) &&
           aURI.length - pos_hash_char >= 10
         ) {
           _log("Dropped because of # in url: " + decodeURIComponent(aURI));
@@ -3360,7 +3367,7 @@ const WebDiscoveryProject = {
       if (activeURL.indexOf("about:") != 0) {
         if (WebDiscoveryProject.state["v"][activeURL] == null) {
           const braveQuery =
-            WebDiscoveryProject.contentExtractor.tryExtractBraveSerpQuery(
+            WebDiscoveryProject.contentExtractor.urlAnalyzer.tryExtractBraveSerpQuery(
               activeURL,
             );
           logger.debug("[onLocationChange] isBraveQuery", braveQuery);
@@ -3371,7 +3378,9 @@ const WebDiscoveryProject = {
               t: "br",
             };
           } else if (
-            WebDiscoveryProject.contentExtractor.isSearchEngineUrl(activeURL)
+            WebDiscoveryProject.contentExtractor.urlAnalyzer.isSearchEngineUrl(
+              activeURL,
+            )
           ) {
             logger.debug("[onLocationChange] isSearchEngineUrl", activeURL);
             pacemaker.setTimeout(
@@ -3381,7 +3390,7 @@ const WebDiscoveryProject = {
                 }
                 getContentDocument(originalURL)
                   .then((doc) => {
-                    WebDiscoveryProject.checkURL(doc, url, "normal");
+                    WebDiscoveryProject.checkURL(doc, url, true);
                   })
                   .catch((e) => {
                     logger.info(
@@ -3512,12 +3521,12 @@ const WebDiscoveryProject = {
                 .then(
                   function (cd) {
                     if (
-                      !WebDiscoveryProject.contentExtractor.isSearchEngineUrl(
+                      !WebDiscoveryProject.contentExtractor.urlAnalyzer.isSearchEngineUrl(
                         currURL,
                       )
                     ) {
                       try {
-                        WebDiscoveryProject.checkURL(cd, currURL, "normal");
+                        WebDiscoveryProject.checkURL(cd, currURL, false);
                       } catch (e) {}
                       //Check active usage...
                       // WebDiscoveryProject.activeUsage += 1;
@@ -3618,7 +3627,7 @@ const WebDiscoveryProject = {
               }
             })
             .catch((e) => {
-              _log("Error fetching fetching the currentURL: " + e);
+              _log("Error fetching the currentURL: " + e);
             });
 
           WebDiscoveryProject.counter += 4;
@@ -4631,7 +4640,11 @@ const WebDiscoveryProject = {
           let state;
           let comment;
           if (isPrivate) {
-            if (WebDiscoveryProject.contentExtractor.isSearchEngineUrl(url)) {
+            if (
+              WebDiscoveryProject.contentExtractor.urlAnalyzer.isSearchEngineUrl(
+                url,
+              )
+            ) {
               state = "search";
               comment = 'search pages never generate "page" messages';
             } else {
@@ -4696,23 +4709,27 @@ const WebDiscoveryProject = {
     else return null;
   },
 
-  checkURL(pageContent, url, ruleset) {
-    return WebDiscoveryProject.contentExtractor.checkURL(
+  checkURL(pageContent, url, addStrictQuery) {
+    const { messages } = WebDiscoveryProject.contentExtractor.run(
       pageContent,
       url,
-      ruleset,
+      addStrictQuery,
     );
+    for (const message of messages)
+      WebDiscoveryProject.telemetry({
+        type: WebDiscoveryProject.msgType,
+        action: message.action,
+        payload: message.payload,
+      });
   },
 
   /**
    * Used in context-search module
-   *
-   * TODO: A safer option would be to hard-code the list of
-   * search engines. Otherwise, updating the patterns can potentially
-   * change the search results that we show.
    */
   isSearchEngineUrl(url) {
-    return WebDiscoveryProject.contentExtractor.isSearchEngineUrl(url);
+    return WebDiscoveryProject.contentExtractor.urlAnalyzer.isSearchEngineUrl(
+      url,
+    );
   },
 
   aggregateMetrics: function (metricsBefore, metricsAfter) {
@@ -5035,7 +5052,7 @@ const WebDiscoveryProject = {
           e.qurl,
           function (url, page_data, ourl, x) {
             let cd = WebDiscoveryProject.docCache[url]["doc"];
-            WebDiscoveryProject.checkURL(cd, url, "strict");
+            WebDiscoveryProject.checkURL(cd, url, false);
           },
           function (a, b, c, d) {
             _log("Error aux>>>> " + d);
@@ -5158,7 +5175,11 @@ const WebDiscoveryProject = {
       // Check URL is dangerous, with strict DROPLONGURL.
       if (WebDiscoveryProject.dropLongURL(url, { strict: true })) {
         // If it's Google / Yahoo / Bing. Then mask and send them.
-        if (WebDiscoveryProject.contentExtractor.isSearchEngineUrl(url)) {
+        if (
+          WebDiscoveryProject.contentExtractor.urlAnalyzer.isSearchEngineUrl(
+            url,
+          )
+        ) {
           url = WebDiscoveryProject.maskURL(url);
         } else {
           url = "(PROTECTED)";
@@ -5450,7 +5471,9 @@ const WebDiscoveryProject = {
       */
 
     var tt = new Date().getTime();
-    if (WebDiscoveryProject.contentExtractor.isSearchEngineUrl(url)) {
+    if (
+      WebDiscoveryProject.contentExtractor.urlAnalyzer.isSearchEngineUrl(url)
+    ) {
       return;
     }
 
@@ -5713,7 +5736,10 @@ const WebDiscoveryProject = {
     }
 
     const { isSearchEngineUrl, queryUrl } =
-      WebDiscoveryProject.contentExtractor.checkAnonSearchURL(url, query);
+      WebDiscoveryProject.contentExtractor.urlAnalyzer.checkAnonSearchURL(
+        url,
+        query,
+      );
     if (isSearchEngineUrl) {
       try {
         const qObj = {
@@ -5731,6 +5757,7 @@ const WebDiscoveryProject = {
   },
 };
 WebDiscoveryProject.contentExtractor = new ContentExtractor(
+  WebDiscoveryProject.patterns,
   WebDiscoveryProject,
 );
 

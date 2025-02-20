@@ -1,0 +1,1880 @@
+{
+  "search-go": {
+    "input": {
+      "#search": {
+        "first": {
+          "q": {
+            "select": "#rso",
+            "attr": "data-async-context",
+            "transform": [
+              [
+                "trySplit",
+                "query:",
+                1
+              ],
+              [
+                "decodeURIComponent"
+              ]
+            ]
+          },
+          "wt": {
+            "select": "div.EfDVh.viOShc div.ofy7ae, div.EfDVh.viOShc table.torspo_view__table span.tsp-ht",
+            "attr": "textContent"
+          }
+        }
+      },
+      "html[lang]": {
+        "first": {
+          "lang": {
+            "attr": "lang",
+            "transform": [
+              [
+                "filterExact",
+                [
+                  "en",
+                  "fr",
+                  "en-GB",
+                  "de",
+                  "en-CA",
+                  "ja",
+                  "en-IN",
+                  "en-AU",
+                  "nl",
+                  "it",
+                  "pl",
+                  "es-419",
+                  "pt-BR",
+                  "es",
+                  "en-NL",
+                  "en-DE",
+                  "en-FR",
+                  "de-AT",
+                  "zh-TW",
+                  "id",
+                  "en-PH",
+                  "en-SG",
+                  "tr",
+                  "nl-BE",
+                  "en-ID",
+                  "hu",
+                  "cs",
+                  "en-ZA",
+                  "en-NZ",
+                  "sv",
+                  "fr-BE",
+                  "en-PL",
+                  "el",
+                  "de-CH",
+                  "pt-PT",
+                  "en-MY",
+                  "zh-CN",
+                  "ko",
+                  "da",
+                  "en-BE",
+                  "en-IE",
+                  "ru-UA",
+                  "fr-CA",
+                  "en-IT",
+                  "en-ES",
+                  "en-RO",
+                  "en-CH",
+                  "ro",
+                  "en-SE",
+                  "fi",
+                  "uk",
+                  "en-GR",
+                  "es-AR",
+                  "en-PK",
+                  "en-BR",
+                  "fr-CH",
+                  "es-MX",
+                  "en-JP",
+                  "no",
+                  "en-AT",
+                  "en-DK",
+                  "sk",
+                  "en-PT",
+                  "en-CZ",
+                  "vi",
+                  "en-HK",
+                  "en-FI",
+                  "en-IL",
+                  "zh-HK",
+                  "en-NG",
+                  "ru",
+                  "en-TR",
+                  "en-NO",
+                  "en-VN",
+                  "bg",
+                  "en-BG",
+                  "es-CO",
+                  "en-TH",
+                  "ru-BY",
+                  "en-UA",
+                  "en-MX",
+                  "iw",
+                  "en-HU",
+                  "es-PE",
+                  "en-EG",
+                  "th",
+                  "sl",
+                  "hr",
+                  "en-HR",
+                  "en-RS",
+                  "sr",
+                  "ar-AE",
+                  "bn",
+                  "es-CL",
+                  "en-BD",
+                  "ar",
+                  "ru-KZ",
+                  "en-TW",
+                  "fr-MA"
+                ]
+              ]
+            ]
+          }
+        }
+      },
+      "div#rso div.g:not(:has(div.g))": {
+        "all": {
+          "t": {
+            "select": "a > br + h3, g-section-with-header g-link > a > h3",
+            "attr": "textContent"
+          },
+          "u": {
+            "select": "div.yuRUbf > div > span > a[jsname], div.yuRUbf > div > a[jsname], div.nhaZ2c > div > span > a, div.DhN8Cf > div > a[jsname], g-section-with-header g-link > a.a-no-hover-decoration",
+            "attr": "href",
+            "transform": [
+              [
+                "trySplit",
+                "?ref_src=twsrc",
+                0
+              ],
+              [
+                "tryDecodeURIComponent"
+              ]
+            ]
+          },
+          "age": {
+            "select": "div > span.LEwnzc.Sqrs4e:not(:has(span[aria-hidden=\"true\"])) > span",
+            "attr": "textContent"
+          },
+          "m": {
+            "select": ".TXwUJf a.fl",
+            "attr": "textContent"
+          },
+          "lang": {
+            "attr": "lang"
+          }
+        }
+      },
+      "#rso a.WlydOe": {
+        "all": {
+          "u": {
+            "attr": "href",
+            "transform": [
+              [
+                "maskU"
+              ]
+            ]
+          },
+          "lu": {
+            "select": "div.OSrXXb > span",
+            "attr": "textContent"
+          },
+          "h": {
+            "select": "div.ynAwRc[role='heading']",
+            "attr": "textContent"
+          }
+        }
+      },
+      "#main": {
+        "first": {
+          "sq": {
+            "select": "#taw #fprsl.gL9Hy",
+            "attr": "textContent"
+          },
+          "oq": {
+            "select": "#fprs a.spell_orig",
+            "attr": "textContent"
+          },
+          "type": {
+            "firstMatch": [
+              {
+                "select": "#lu_map",
+                "attr": "id",
+                "transform": [
+                  [
+                    "trySplit",
+                    "lu_",
+                    1
+                  ]
+                ]
+              },
+              {
+                "select": "#rso a > g-img > img[id^=dimg_][alt]",
+                "attr": "alt",
+                "transform": [
+                  [
+                    "trySplit",
+                    " ",
+                    0
+                  ]
+                ]
+              },
+              {
+                "select": "#rso a > g-img > img[id^=dimg_][alt]",
+                "attr": "alt",
+                "transform": [
+                  [
+                    "trySplit",
+                    " ",
+                    0
+                  ]
+                ]
+              },
+              {
+                "select": "#main div[jscontroller] a[aria-label][href*=\"/maps/\"]:has(img[alt])",
+                "attr": "aria-label",
+                "transform": [
+                  [
+                    "trySplit",
+                    " ",
+                    0
+                  ]
+                ]
+              },
+              {
+                "select": "div[jscontroller] a[href*=\"/maps/\"]:has(g-img > img[alt])",
+                "attr": "alt",
+                "transform": [
+                  [
+                    "trySplit",
+                    " ",
+                    0
+                  ]
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "#main div[jsmodel] div.YzSd": {
+        "first": {
+          "type": {
+            "attr": "textContent"
+          }
+        }
+      },
+      "#tads div[data-text-ad]": {
+        "all": {
+          "u": {
+            "firstMatch": [
+              {
+                "select": "a.sVXRqc[data-pcu][href^=\"https://www.googleadservices.com/\"]",
+                "attr": "data-pcu",
+                "transform": [
+                  [
+                    "trySplit",
+                    ",",
+                    0
+                  ],
+                  [
+                    "maskU"
+                  ]
+                ]
+              },
+              {
+                "select": "a.sVXRqc",
+                "attr": "href",
+                "transform": [
+                  [
+                    "removeParams",
+                    [
+                      "utm_source",
+                      "utm_medium",
+                      "utm_campaign",
+                      "utm_term",
+                      "utm_content",
+                      "utm_cluster",
+                      "utm_group",
+                      "mtm_campaign",
+                      "mtm_kwd",
+                      "mtm_source",
+                      "adg_ctx",
+                      "_x_ads_sub_channel",
+                      "_p_rfs",
+                      "_x_ns_prz_type",
+                      "_x_ns_sku_id",
+                      "_x_ns_gid",
+                      "mrk_rec",
+                      "_x_ads_channel",
+                      "_x_gmc_account",
+                      "_x_login_type",
+                      "_bg_fs",
+                      "_p_jump_id",
+                      "_x_vst_scene",
+                      "source",
+                      "ref_",
+                      "smid",
+                      "referralCode",
+                      "locale_override",
+                      "cpkey",
+                      "Locale"
+                    ]
+                  ],
+                  [
+                    "trySplit",
+                    "#",
+                    0
+                  ],
+                  [
+                    "relaxedMaskU"
+                  ]
+                ]
+              }
+            ]
+          },
+          "pcu": {
+            "select": "a.sVXRqc",
+            "attr": "data-pcu",
+            "transform": [
+              [
+                "trySplit",
+                ",",
+                0
+              ],
+              [
+                "maskU"
+              ]
+            ]
+          },
+          "t": {
+            "select": "a.sVXRqc > div.CCgQ5[role='heading'] > span",
+            "attr": "textContent"
+          },
+          "text": {
+            "select": "div > div.Va3FIb",
+            "attr": "textContent"
+          }
+        }
+      },
+      "[id^='vplap']": {
+        "all": {
+          "u": {
+            "attr": "href",
+            "transform": [
+              [
+                "removeParams",
+                [
+                  "utm_source",
+                  "utm_medium",
+                  "utm_campaign",
+                  "utm_term",
+                  "utm_content",
+                  "utm_cluster",
+                  "utm_group",
+                  "mtm_campaign",
+                  "mtm_kwd",
+                  "mtm_source",
+                  "adg_ctx",
+                  "_x_ads_sub_channel",
+                  "_p_rfs",
+                  "_x_ns_prz_type",
+                  "_x_ns_sku_id",
+                  "_x_ns_gid",
+                  "mrk_rec",
+                  "_x_ads_channel",
+                  "_x_gmc_account",
+                  "_x_login_type",
+                  "_bg_fs",
+                  "_p_jump_id",
+                  "_x_vst_scene",
+                  "source",
+                  "ref_",
+                  "smid",
+                  "referralCode",
+                  "locale_override",
+                  "cpkey",
+                  "Locale"
+                ]
+              ],
+              [
+                "trySplit",
+                "#",
+                0
+              ],
+              [
+                "relaxedMaskU"
+              ]
+            ]
+          },
+          "t": {
+            "attr": "aria-label"
+          }
+        }
+      },
+      "#bottomads div[data-text-ad]": {
+        "all": {
+          "u": {
+            "firstMatch": [
+              {
+                "select": "a[data-pcu][href^=\"https://www.googleadservices.com/\"]",
+                "attr": "data-pcu",
+                "transform": [
+                  [
+                    "trySplit",
+                    ",",
+                    0
+                  ],
+                  [
+                    "maskU"
+                  ]
+                ]
+              },
+              {
+                "select": "a[data-pcu]",
+                "attr": "href",
+                "transform": [
+                  [
+                    "removeParams",
+                    [
+                      "utm_source",
+                      "utm_medium",
+                      "utm_campaign",
+                      "utm_term",
+                      "utm_content",
+                      "utm_cluster",
+                      "utm_group",
+                      "mtm_campaign",
+                      "mtm_kwd",
+                      "mtm_source",
+                      "adg_ctx",
+                      "_x_ads_sub_channel",
+                      "_p_rfs",
+                      "_x_ns_prz_type",
+                      "_x_ns_sku_id",
+                      "_x_ns_gid",
+                      "mrk_rec",
+                      "_x_ads_channel",
+                      "_x_gmc_account",
+                      "_x_login_type",
+                      "_bg_fs",
+                      "_p_jump_id",
+                      "_x_vst_scene",
+                      "source",
+                      "ref_",
+                      "smid",
+                      "referralCode",
+                      "locale_override",
+                      "cpkey",
+                      "Locale"
+                    ]
+                  ],
+                  [
+                    "trySplit",
+                    "#",
+                    0
+                  ],
+                  [
+                    "relaxedMaskU"
+                  ]
+                ]
+              }
+            ]
+          },
+          "pcu": {
+            "select": "a[data-pcu]",
+            "attr": "data-pcu",
+            "transform": [
+              [
+                "trySplit",
+                ",",
+                0
+              ],
+              [
+                "maskU"
+              ]
+            ]
+          },
+          "t": {
+            "select": "div[role='heading']",
+            "attr": "textContent"
+          },
+          "text": {
+            "select": "div > div.Va3FIb",
+            "attr": "textContent"
+          }
+        }
+      },
+      "#rso div[data-id=\"jobs-detail-viewer\"] div.EimVGf[data-share-url]": {
+        "all": {
+          "t": {
+            "select": "div.tNxQIb",
+            "attr": "textContent"
+          },
+          "c": {
+            "select": "div.wHYlTd",
+            "attr": "textContent"
+          },
+          "loc": {
+            "select": "div.wHYlTd.FqK3wc",
+            "attr": "textContent",
+            "transform": [
+              [
+                "split",
+                "\u2022",
+                0
+              ],
+              [
+                "trim"
+              ]
+            ]
+          },
+          "via": {
+            "select": "div.wHYlTd.FqK3wc",
+            "attr": "textContent",
+            "transform": [
+              [
+                "split",
+                "\u2022",
+                1
+              ],
+              [
+                "trySplit",
+                "  \u00fcber ",
+                1
+              ],
+              [
+                "trySplit",
+                "  via ",
+                1
+              ],
+              [
+                "trim"
+              ]
+            ]
+          },
+          "age": {
+            "select": "div.ApHyTb div.I2Cbhb:has(svg > path[d^=\"M11.99 2C6\"])",
+            "attr": "textContent"
+          },
+          "jty": {
+            "select": "div.ApHyTb div:has(svg > path[d^=\"M20 6h\"])",
+            "attr": "textContent"
+          },
+          "jsa": {
+            "firstMatch": [
+              {
+                "select": "div.ApHyTb div:has(svg > path[d^=\"M11.8 10.9\"])",
+                "attr": "textContent"
+              },
+              {
+                "select": "div.ApHyTb div:has(svg > path[d^=\"M2 5v14h20V5H2zm18 12H4V7h16v10zm-5-5.25c1.03\"])",
+                "attr": "textContent"
+              }
+            ]
+          },
+          "jhe": {
+            "select": "div.ApHyTb div:has(svg path[d^=\"M10.5,13H8v-3h2.5V7.5h3V10H16v3h-2.5v2.5h-3V13z\"])",
+            "attr": "textContent"
+          },
+          "jde": {
+            "select": "div.ApHyTb div:has(svg path[d^=\"M15.05,20\"])",
+            "attr": "textContent"
+          },
+          "jqu": {
+            "select": "div.ApHyTb div:has(svg path[d^=\"M21 5v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7\"])",
+            "attr": "textContent"
+          },
+          "jva": {
+            "select": "div.ApHyTb div:has(svg path[d^=\"M19 4h-1V2h-2v2H8V2H6v2H5c-1.11\"])",
+            "attr": "textContent"
+          },
+          "jrp": {
+            "select": "div.ApHyTb div:has(svg path[d^=\"M15,10c0-0.55,0.45-1,1-1s1,0.45,1,1c0,0.55-0.45,1-1,1S15,10.55,15,10z\"])",
+            "attr": "textContent"
+          }
+        }
+      },
+      "#rcnt div.ifM9O > div": {
+        "all": {
+          "ent": {
+            "select": "div[role=\"heading\"] > :nth-child(1)",
+            "attr": "textContent"
+          },
+          "pred": {
+            "select": "div[role=\"heading\"] > :nth-child(3)",
+            "attr": "textContent"
+          },
+          "ans": {
+            "select": "div.kno-fb-ctx.KBXm4e, .kp-header div[data-attrid] > div",
+            "attr": "textContent"
+          }
+        }
+      },
+      "div#rcnt.GyAeWb div#rso > div.ULSxyf block-component, div#rcnt.GyAeWb > div.M8OgIe": {
+        "all": {
+          "u": {
+            "select": "div.yuRUbf a",
+            "attr": "href",
+            "transform": [
+              [
+                "trySplit",
+                "#",
+                0
+              ],
+              [
+                "maskU"
+              ]
+            ]
+          }
+        }
+      },
+      "#cnt:has(#rcnt > div.mNh24c + div.UFQ0Gb)": {
+        "all": {
+          "ent": {
+            "select": "#rcnt > div.mNh24c + div.UFQ0Gb div[data-attrid=\"title\"][role=\"heading\"]",
+            "attr": "textContent"
+          },
+          "pred": {
+            "firstMatch": [
+              {
+                "select": "#center_col[role=main] div[role=\"tabpanel\"] div[jsname=\"xQjRM\"] a[data-ti^=\"default_tab:kc:\"] div.T6zPgb > div[aria-level=\"2\"][role=\"heading\"] > span.mgAbYb.OSrXXb.RES9jf.IFnjPb",
+                "attr": "textContent"
+              },
+              {
+                "select": "#center_col[role=main] div[role=\"tabpanel\"] div[jsname=\"xQjRM\"]:not(:has(a[role=\"link\"])) div.T6zPgb:not(.YC72Wc) > div[aria-level=\"2\"][role=\"heading\"] > span.mgAbYb.OSrXXb.RES9jf.IFnjPb",
+                "attr": "textContent"
+              }
+            ]
+          }
+        }
+      },
+      "#cnt div.ifM9O div[data-attrid=\"wa:/description\"] > span.ILfuVd > span.hgKElc": {
+        "first": {
+          "t": {
+            "attr": "textContent"
+          }
+        }
+      },
+      "#cnt div.ifM9O div[data-attrid=\"wa:/description\"] > span.ILfuVd > span.hgKElc b": {
+        "all": {
+          "k": {
+            "attr": "textContent"
+          }
+        }
+      },
+      "div.webanswers-webanswers_table__webanswers-table tbody > tr": {
+        "all": {
+          "0": {
+            "select": "th:nth-child(1), td:nth-child(1)",
+            "attr": "textContent"
+          },
+          "1": {
+            "select": "th:nth-child(2), td:nth-child(2)",
+            "attr": "textContent"
+          },
+          "2": {
+            "select": "th:nth-child(3), td:nth-child(3)",
+            "attr": "textContent"
+          },
+          "3": {
+            "select": "th:nth-child(4), td:nth-child(4)",
+            "attr": "textContent"
+          },
+          "4": {
+            "select": "th:nth-child(5), td:nth-child(5)",
+            "attr": "textContent"
+          },
+          "5": {
+            "select": "th:nth-child(6), td:nth-child(6)",
+            "attr": "textContent"
+          },
+          "6": {
+            "select": "th:nth-child(7), td:nth-child(7)",
+            "attr": "textContent"
+          },
+          "7": {
+            "select": "th:nth-child(8), td:nth-child(8)",
+            "attr": "textContent"
+          }
+        }
+      },
+      "div.ifM9O:has(div.webanswers-webanswers_table__webanswers-table)": {
+        "first": {
+          "t": {
+            "select": "div[role=\"heading\"]",
+            "attr": "textContent"
+          },
+          "u": {
+            "select": "div.webanswers-webanswers_table__webanswers-table a",
+            "attr": "href"
+          },
+          "lang": {
+            "select": "div[lang]",
+            "attr": "lang"
+          }
+        }
+      },
+      "#rcnt div.M8OgIe div[jscontroller] div[aria-valuetext=Generating][role=progressbar]": {
+        "first": {
+          "type": {
+            "attr": "role"
+          }
+        }
+      },
+      "#rhs[role=\"complementary\"]": {
+        "first": {
+          "t": {
+            "firstMatch": [
+              {
+                "select": "[data-attrid=\"title\"]",
+                "attr": "textContent"
+              },
+              {
+                "select": "div[role=heading]",
+                "attr": "textContent"
+              }
+            ]
+          }
+        }
+      },
+      "#rhs[role=\"complementary\"]:has(div[data-attrid])": {
+        "first": {
+          "desc": {
+            "firstMatch": [
+              {
+                "select": "div[data-attrid=\"VisualDigestDescription\"] span.QoPDcf > span",
+                "attr": "textContent"
+              },
+              {
+                "select": "div[data-attrid=\"description\"] div.V4pKmd div.kno-rdesc > h3 + span",
+                "attr": "textContent"
+              },
+              {
+                "select": "div[data-attrid=\"description\"] div.kno-rdesc > h3 + span",
+                "attr": "textContent"
+              }
+            ]
+          },
+          "u": {
+            "firstMatch": [
+              {
+                "select": "div[data-attrid=\"VisualDigestDescription\"] > a",
+                "attr": "href"
+              },
+              {
+                "select": "div[data-attrid=\"description\"] div.kno-rdesc > h3 + span + span > a",
+                "attr": "href"
+              }
+            ]
+          }
+        }
+      },
+      "#rhs[role=\"complementary\"] div.wDYxhc[data-attrid^=\"kc:/\"], #rhs[role=\"complementary\"] div.wDYxhc[data-attrid^=\"ss:/\"]": {
+        "all": {
+          "prop": {
+            "select": "div.rVusze > span.w8qArf:nth-child(1)",
+            "attr": "textContent",
+            "transform": [
+              [
+                "split",
+                ": ",
+                0
+              ]
+            ]
+          },
+          "val": {
+            "select": "div.rVusze > span:nth-child(2)",
+            "attr": "textContent"
+          }
+        }
+      },
+      "#rso #rhs div.kp-wholepage.kp-wholepage-osrp": {
+        "first": {
+          "ad": {
+            "select": "div[data-attrid=\"kc:/local:promotions\"] span.PsFiZe",
+            "attr": "textContent"
+          },
+          "t": {
+            "select": "h2[data-attrid=\"title\"] > span",
+            "attr": "textContent"
+          },
+          "u": {
+            "firstMatch": [
+              {
+                "select": "h2[data-attrid=\"title\"] + div > div > a[href^=\"http\"]",
+                "attr": "href",
+                "transform": [
+                  [
+                    "maskU"
+                  ]
+                ]
+              },
+              {
+                "select": "div[data-attrid=\"kc:/local:menu\"] a[href^=\"http\"]",
+                "attr": "href",
+                "transform": [
+                  [
+                    "maskU"
+                  ]
+                ]
+              }
+            ]
+          },
+          "sum": {
+            "select": "div[data-attrid=\"kc:/local:one line summary\"] > div > span.YhemCb:not([data-ved])",
+            "attr": "textContent"
+          },
+          "desc": {
+            "firstMatch": [
+              {
+                "select": "div[data-attrid=\"description\"] div.kno-rdesc > span > span",
+                "attr": "textContent"
+              },
+              {
+                "select": "div[data-attrid=\"kc:/local:scalable attributes\"] > c-wiz > div > div > div > span",
+                "attr": "textContent"
+              }
+            ]
+          },
+          "addr": {
+            "firstMatch": [
+              {
+                "select": "div[data-attrid=\"kc:/location/location:address\"] a[data-url^=\"/maps/place\"] > span",
+                "attr": "textContent"
+              },
+              {
+                "select": "div[data-attrid=\"kc:/location/location:address\"] > div > div > span.LrzXr",
+                "attr": "textContent"
+              }
+            ]
+          },
+          "opt": {
+            "select": "div[data-attrid=\"kc:/local:business_availability_modes\"] > c-wiz > div",
+            "attr": "textContent"
+          },
+          "p": {
+            "firstMatch": [
+              {
+                "select": "div[data-attrid=\"kc:/collection/knowledge_panels/has_phone:phone\"] [data-dtype=\"d3ph\"]",
+                "attr": "textContent"
+              },
+              {
+                "select": "div[data-attrid=\"kc:/local:alt phone\"] [data-dtype=\"d3ph\"]",
+                "attr": "textContent"
+              }
+            ]
+          },
+          "shut": {
+            "select": "div[data-attrid=\"kc:/local:permanently closed\"] span#Shyhc",
+            "attr": "textContent"
+          }
+        }
+      },
+      "#rso #rhs div.kp-wholepage.kp-wholepage-osrp div[data-attrid=\"kc:/location/location:hours\"] table tr > td": {
+        "all": {
+          "item": {
+            "attr": "textContent"
+          }
+        }
+      },
+      "a.k8XOCe, a.ngTNl span.dg6jd": {
+        "all": {
+          "t": {
+            "attr": "textContent"
+          }
+        }
+      },
+      "div.EyBRub div[data-lpage]": {
+        "all": {
+          "u": {
+            "attr": "data-lpage"
+          }
+        }
+      },
+      "#main div.PhiYYd.QBl4oe": {
+        "all": {
+          "t": {
+            "select": "img",
+            "attr": "alt"
+          },
+          "u": {
+            "select": "div.twQ0Be > a",
+            "attr": "href"
+          }
+        }
+      },
+      "#main a[href^=http].xMqpbd:has(div.ZxS7Db)": {
+        "all": {
+          "t": {
+            "select": "div.KYaZsb div.ZxS7Db",
+            "attr": "textContent"
+          },
+          "u": {
+            "attr": "href"
+          }
+        }
+      },
+      "div.kp-wholepage-osrp": {
+        "first": {
+          "t": {
+            "select": "div.kp-header div.SPZz6b h2[data-attrid=\"title\"]",
+            "attr": "textContent"
+          },
+          "u": {
+            "select": "div.kp-header div.SPZz6b h2[data-attrid=\"title\"] + div.IzNS7c > div.QqG1Sd > a.ab_button:not([data-url])",
+            "attr": "href"
+          },
+          "addr": {
+            "select": "div[data-attrid=\"kc:/location/location:address\"] span.w8qArf + span.LrzXr",
+            "attr": "textContent"
+          },
+          "loc": {
+            "select": "a[data-url^='/maps/place/']",
+            "attr": "data-url",
+            "transform": [
+              [
+                "trySplit",
+                "/",
+                4
+              ],
+              [
+                "trySplit",
+                "@",
+                1
+              ],
+              [
+                "trySplit",
+                "?",
+                0
+              ]
+            ]
+          }
+        }
+      },
+      "#main .VkpGBb": {
+        "all": {
+          "t": {
+            "select": ".cXedhc div.dbg0pd",
+            "attr": "textContent"
+          },
+          "addr": {
+            "select": "div.CNIbvd > div.rllt__details > [role='heading'] + div, div:not(.CNIbvd) > div.rllt__details > [role='heading'] + div + div",
+            "attr": "textContent"
+          }
+        }
+      },
+      "#rso div.KYLHhb div[role=heading] > span.mgAbYb": {
+        "first": {
+          "type": {
+            "attr": "textContent"
+          }
+        }
+      },
+      "#rso div.KYLHhb div.VqeGe": {
+        "all": {
+          "t": {
+            "select": "div.T3Fozb > div[role=heading]",
+            "attr": "textContent"
+          },
+          "u": {
+            "select": "a",
+            "attr": "href",
+            "transform": [
+              [
+                "relaxedMaskU"
+              ]
+            ]
+          },
+          "site": {
+            "select": "div.R8BTeb",
+            "attr": "textContent"
+          }
+        }
+      }
+    },
+    "output": {
+      "query0": {
+        "fields": [
+          {
+            "key": "q"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          },
+          {
+            "key": "lang",
+            "source": "html[lang]",
+            "optional": true
+          }
+        ]
+      },
+      "query": {
+        "fields": [
+          {
+            "key": "r",
+            "source": "div#rso div.g:not(:has(div.g))",
+            "requiredKeys": [
+              "t",
+              "u"
+            ]
+          },
+          {
+            "key": "q",
+            "source": "#search"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          },
+          {
+            "key": "lang",
+            "source": "html[lang]",
+            "optional": true
+          }
+        ]
+      },
+      "top-stories": {
+        "fields": [
+          {
+            "key": "r",
+            "source": "#rso a.WlydOe",
+            "requiredKeys": [
+              "u",
+              "h"
+            ]
+          },
+          {
+            "key": "q",
+            "source": "#search"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      },
+      "sq": {
+        "fields": [
+          {
+            "key": "sq",
+            "source": "#main"
+          },
+          {
+            "key": "oq",
+            "source": "#main"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      },
+      "ads_A": {
+        "fields": [
+          {
+            "key": "r",
+            "source": "#tads div[data-text-ad]",
+            "requiredKeys": [
+              "t",
+              "u"
+            ]
+          },
+          {
+            "key": "q",
+            "source": "#search"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          },
+          {
+            "key": "lang",
+            "source": "html[lang]",
+            "optional": true
+          }
+        ]
+      },
+      "ads_C": {
+        "fields": [
+          {
+            "key": "r",
+            "source": "[id^='vplap']"
+          },
+          {
+            "key": "q",
+            "source": "#search"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          },
+          {
+            "key": "lang",
+            "source": "html[lang]",
+            "optional": true
+          }
+        ]
+      },
+      "ads_D": {
+        "fields": [
+          {
+            "key": "r",
+            "source": "#bottomads div[data-text-ad]",
+            "requiredKeys": [
+              "t",
+              "u"
+            ]
+          },
+          {
+            "key": "q",
+            "source": "#search"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          },
+          {
+            "key": "lang",
+            "source": "html[lang]",
+            "optional": true
+          }
+        ]
+      },
+      "job-ads": {
+        "fields": [
+          {
+            "key": "r",
+            "source": "#rso div[data-id=\"jobs-detail-viewer\"] div.EimVGf[data-share-url]",
+            "requiredKeys": [
+              "t",
+              "c",
+              "via",
+              "loc"
+            ]
+          },
+          {
+            "key": "q",
+            "source": "#search"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          },
+          {
+            "key": "lang",
+            "source": "html[lang]",
+            "optional": true
+          }
+        ]
+      },
+      "snippet": {
+        "fields": [
+          {
+            "key": "r",
+            "source": "#rcnt div.ifM9O > div"
+          },
+          {
+            "key": "q",
+            "source": "#search"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      },
+      "snippet2": {
+        "fields": [
+          {
+            "key": "r",
+            "source": "div#rcnt.GyAeWb div#rso > div.ULSxyf block-component, div#rcnt.GyAeWb > div.M8OgIe"
+          },
+          {
+            "key": "q",
+            "source": "#search"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      },
+      "snippet3": {
+        "fields": [
+          {
+            "key": "q",
+            "source": "#search"
+          },
+          {
+            "key": "r",
+            "source": "#cnt:has(#rcnt > div.mNh24c + div.UFQ0Gb)"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      },
+      "snippet-t1": {
+        "fields": [
+          {
+            "key": "t",
+            "source": "div.ifM9O:has(div.webanswers-webanswers_table__webanswers-table)"
+          },
+          {
+            "key": "r",
+            "source": "div.webanswers-webanswers_table__webanswers-table tbody > tr",
+            "requiredKeys": [
+              "0"
+            ]
+          },
+          {
+            "key": "u",
+            "source": "div.ifM9O:has(div.webanswers-webanswers_table__webanswers-table)",
+            "optional": true
+          },
+          {
+            "key": "lang",
+            "source": "div.ifM9O:has(div.webanswers-webanswers_table__webanswers-table)",
+            "optional": true
+          },
+          {
+            "key": "q",
+            "source": "#search"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      },
+      "aio": {
+        "fields": [
+          {
+            "key": "type",
+            "source": "#rcnt div.M8OgIe div[jscontroller] div[aria-valuetext=Generating][role=progressbar]"
+          },
+          {
+            "key": "q",
+            "source": "#search"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          },
+          {
+            "key": "lang",
+            "source": "html[lang]",
+            "optional": true
+          }
+        ]
+      },
+      "infobox": {
+        "fields": [
+          {
+            "key": "t",
+            "source": "#rhs[role=\"complementary\"]"
+          },
+          {
+            "key": "desc",
+            "source": "#rhs[role=\"complementary\"]:has(div[data-attrid])",
+            "optional": true
+          },
+          {
+            "key": "u",
+            "source": "#rhs[role=\"complementary\"]:has(div[data-attrid])"
+          },
+          {
+            "key": "st",
+            "source": "#rhs[role=\"complementary\"] div.wDYxhc[data-attrid^=\"kc:/\"], #rhs[role=\"complementary\"] div.wDYxhc[data-attrid^=\"ss:/\"]",
+            "requiredKeys": [
+              "prop",
+              "val"
+            ],
+            "optional": true
+          },
+          {
+            "key": "q",
+            "source": "#search"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      },
+      "placeinfo": {
+        "fields": [
+          {
+            "key": "ad",
+            "source": "#rso #rhs div.kp-wholepage.kp-wholepage-osrp",
+            "optional": true
+          },
+          {
+            "key": "addr",
+            "source": "#rso #rhs div.kp-wholepage.kp-wholepage-osrp"
+          },
+          {
+            "key": "t",
+            "source": "#rso #rhs div.kp-wholepage.kp-wholepage-osrp",
+            "optional": true
+          },
+          {
+            "key": "u",
+            "source": "#rso #rhs div.kp-wholepage.kp-wholepage-osrp",
+            "optional": true
+          },
+          {
+            "key": "sum",
+            "source": "#rso #rhs div.kp-wholepage.kp-wholepage-osrp",
+            "optional": true
+          },
+          {
+            "key": "desc",
+            "source": "#rso #rhs div.kp-wholepage.kp-wholepage-osrp",
+            "optional": true
+          },
+          {
+            "key": "p",
+            "source": "#rso #rhs div.kp-wholepage.kp-wholepage-osrp",
+            "optional": true
+          },
+          {
+            "key": "opt",
+            "source": "#rso #rhs div.kp-wholepage.kp-wholepage-osrp",
+            "optional": true
+          },
+          {
+            "key": "open",
+            "source": "#rso #rhs div.kp-wholepage.kp-wholepage-osrp div[data-attrid=\"kc:/location/location:hours\"] table tr > td",
+            "optional": true
+          },
+          {
+            "key": "shut",
+            "source": "#rso #rhs div.kp-wholepage.kp-wholepage-osrp",
+            "optional": true
+          },
+          {
+            "key": "q",
+            "source": "#search"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      },
+      "img-p": {
+        "fields": [
+          {
+            "key": "r",
+            "source": "div.EyBRub div[data-lpage]"
+          },
+          {
+            "key": "q",
+            "source": "#search"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      },
+      "video-p": {
+        "fields": [
+          {
+            "key": "r",
+            "source": "#main div.PhiYYd.QBl4oe"
+          },
+          {
+            "key": "q",
+            "source": "#search"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      },
+      "videos-p": {
+        "fields": [
+          {
+            "key": "r",
+            "source": "#main a[href^=http].xMqpbd:has(div.ZxS7Db)"
+          },
+          {
+            "key": "q",
+            "source": "#search"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      },
+      "place": {
+        "fields": [
+          {
+            "key": "t",
+            "source": "div.kp-wholepage-osrp"
+          },
+          {
+            "key": "u",
+            "source": "div.kp-wholepage-osrp",
+            "optional": true
+          },
+          {
+            "key": "addr",
+            "source": "div.kp-wholepage-osrp"
+          },
+          {
+            "key": "loc",
+            "source": "div.kp-wholepage-osrp"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      },
+      "places": {
+        "fields": [
+          {
+            "key": "r",
+            "source": "#main .VkpGBb"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      },
+      "places2": {
+        "fields": [
+          {
+            "key": "q",
+            "source": "#search"
+          },
+          {
+            "key": "type",
+            "source": "#main"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      },
+      "local": {
+        "fields": [
+          {
+            "key": "type",
+            "source": "#main div[jsmodel] div.YzSd"
+          },
+          {
+            "key": "q",
+            "source": "#search"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      },
+      "sites": {
+        "fields": [
+          {
+            "key": "type",
+            "source": "#rso div.KYLHhb div[role=heading] > span.mgAbYb"
+          },
+          {
+            "key": "r",
+            "source": "#rso div.KYLHhb div.VqeGe"
+          },
+          {
+            "key": "q",
+            "source": "#search"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          },
+          {
+            "key": "lang",
+            "source": "html[lang]",
+            "optional": true
+          }
+        ]
+      },
+      "widget-title": {
+        "fields": [
+          {
+            "key": "q",
+            "source": "#search"
+          },
+          {
+            "key": "wt",
+            "source": "#search"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      }
+    }
+  },
+  "search-goi": {
+    "input": {
+      "#search": {
+        "first": {
+          "q": {
+            "select": "#rso",
+            "attr": "data-async-context",
+            "transform": [
+              [
+                "trySplit",
+                "query:",
+                1
+              ],
+              [
+                "decodeURIComponent"
+              ]
+            ]
+          }
+        }
+      },
+      "div[jscontroller=\"Um3BXb\"]": {
+        "all": {
+          "u": {
+            "attr": "data-lpage"
+          },
+          "ru": {
+            "select": "div.guK3rf.cHaqb > span",
+            "attr": "textContent"
+          },
+          "t": {
+            "select": "div.toI8Rb.OSrXXb",
+            "attr": "textContent"
+          }
+        }
+      }
+    },
+    "output": {
+      "img": {
+        "fields": [
+          {
+            "key": "r",
+            "source": "div[jscontroller=\"Um3BXb\"]",
+            "requiredKeys": [
+              "u",
+              "ru",
+              "t"
+            ]
+          },
+          {
+            "key": "q",
+            "source": "#search"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      }
+    }
+  },
+  "search-gov": {
+    "input": {
+      "#search": {
+        "first": {
+          "q": {
+            "select": "#rso",
+            "attr": "data-async-context",
+            "transform": [
+              [
+                "trySplit",
+                "query:",
+                1
+              ],
+              [
+                "decodeURIComponent"
+              ]
+            ]
+          }
+        }
+      },
+      "#rso .g": {
+        "all": {
+          "u": {
+            "select": "div.xe8e1b a",
+            "attr": "href"
+          },
+          "t": {
+            "select": "div.xe8e1b h3",
+            "attr": "textContent"
+          },
+          "len": {
+            "select": "div.gY2b2c div.c8rnLc > span",
+            "attr": "textContent"
+          },
+          "age": {
+            "select": "div.fzUZNc div.gqF9jc > span > span",
+            "attr": "textContent"
+          }
+        }
+      }
+    },
+    "output": {
+      "videos": {
+        "fields": [
+          {
+            "key": "r",
+            "source": "#rso .g",
+            "requiredKeys": [
+              "t",
+              "u"
+            ]
+          },
+          {
+            "key": "q",
+            "source": "#search"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      }
+    }
+  },
+  "search-am": {
+    "input": {
+      "#twotabsearchtextbox": {
+        "first": {
+          "q": {
+            "attr": "value"
+          }
+        }
+      },
+      "#search div.s-result-item[data-component-type=\"s-search-result\"]": {
+        "all": {
+          "t": {
+            "select": "div.sg-col-inner div > div > div > a > h2 > span",
+            "attr": "textContent"
+          },
+          "a": {
+            "select": ".puis-sponsored-label-text > span > span",
+            "attr": "textContent"
+          },
+          "u": {
+            "select": "div.sg-col-inner div > div > div > a",
+            "attr": "href",
+            "transform": [
+              [
+                "decodeURIComponent"
+              ],
+              [
+                "decodeURIComponent"
+              ],
+              [
+                "trySplit",
+                "&url=",
+                1
+              ],
+              [
+                "trySplit",
+                "/ref=",
+                0
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "output": {
+      "query-am": {
+        "fields": [
+          {
+            "key": "r",
+            "source": "#search div.s-result-item[data-component-type=\"s-search-result\"]",
+            "requiredKeys": [
+              "t",
+              "u"
+            ]
+          },
+          {
+            "key": "q",
+            "source": "#twotabsearchtextbox"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      }
+    }
+  },
+  "search-bi": {
+    "input": {
+      ".b_algo": {
+        "all": {
+          "t": {
+            "select": "h2 [href]",
+            "attr": "textContent"
+          },
+          "u": {
+            "select": "h2 [href]",
+            "attr": "href"
+          }
+        }
+      },
+      "#sb_form": {
+        "first": {
+          "q": {
+            "select": "#sb_form_q",
+            "attr": "value"
+          }
+        }
+      }
+    },
+    "output": {
+      "query": {
+        "fields": [
+          {
+            "key": "r",
+            "source": ".b_algo",
+            "requiredKeys": [
+              "t",
+              "u"
+            ]
+          },
+          {
+            "key": "q",
+            "source": "#sb_form"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      }
+    }
+  },
+  "search-bii": {
+    "input": {
+      "div[role=\"main\"] div.imgpt > a": {
+        "all": {
+          "t": {
+            "attr": "m",
+            "transform": [
+              [
+                "json",
+                "t"
+              ]
+            ]
+          },
+          "u": {
+            "attr": "m",
+            "transform": [
+              [
+                "json",
+                "murl"
+              ]
+            ]
+          },
+          "ru": {
+            "attr": "m",
+            "transform": [
+              [
+                "json",
+                "purl"
+              ]
+            ]
+          }
+        }
+      },
+      "#sb_form_q": {
+        "first": {
+          "q": {
+            "attr": "value"
+          }
+        }
+      }
+    },
+    "output": {
+      "img": {
+        "fields": [
+          {
+            "key": "r",
+            "source": "div[role=\"main\"] div.imgpt > a",
+            "requiredKeys": [
+              "u",
+              "ru",
+              "t"
+            ]
+          },
+          {
+            "key": "q",
+            "source": "#sb_form_q"
+          },
+          {
+            "key": "qurl"
+          },
+          {
+            "key": "ctry"
+          }
+        ]
+      }
+    }
+  }
+}
