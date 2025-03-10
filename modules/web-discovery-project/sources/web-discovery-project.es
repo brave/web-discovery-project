@@ -3375,23 +3375,15 @@ const WebDiscoveryProject = {
           ) {
             logger.debug("[onLocationChange] isSearchEngineUrl", activeURL);
             pacemaker.setTimeout(
-              function (url, originalURL) {
+              function (url) {
                 if (!WebDiscoveryProject) {
                   return;
                 }
-                getContentDocument(originalURL)
-                  .then((doc) => {
-                    WebDiscoveryProject.checkURL(doc, url, true);
-                  })
-                  .catch((e) => {
-                    logger.info(
-                      `Failed to get content for originalURL=${originalURL} (internalURL=${url}, details=${e})`,
-                    );
-                  });
+                const query = WebDiscoveryProject.contentExtractor.extractQuery(url);
+                if (query) WebDiscoveryProject.addStrictQueries(url, query)
               },
               WebDiscoveryProject.WAIT_TIME,
               activeURL,
-              originalURL,
             );
           }
 
@@ -3516,10 +3508,7 @@ const WebDiscoveryProject = {
                         currURL,
                       )
                     ) {
-                      try {
-                        WebDiscoveryProject.checkURL(cd, currURL, false);
-                      } catch (e) {}
-                      //Check active usage...
+                      // Check active usage...
                       // WebDiscoveryProject.activeUsage += 1;
                       WebDiscoveryProject.incrActiveUsage();
                     }
@@ -4682,11 +4671,10 @@ const WebDiscoveryProject = {
     else return null;
   },
 
-  checkURL(pageContent, url, addStrictQuery) {
+  checkURL(pageContent, url) {
     const { messages } = WebDiscoveryProject.contentExtractor.run(
       pageContent,
       url,
-      addStrictQuery,
     );
     for (const message of messages)
       WebDiscoveryProject.telemetry({
@@ -5021,7 +5009,7 @@ const WebDiscoveryProject = {
           e.qurl,
           function (url, page_data, ourl, x) {
             let cd = WebDiscoveryProject.docCache[url]["doc"];
-            WebDiscoveryProject.checkURL(cd, url, false);
+            WebDiscoveryProject.checkURL(cd, url);
           },
           function (a, b, c, d) {
             logger.debug("Error aux>>>> " + d);

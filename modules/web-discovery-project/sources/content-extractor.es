@@ -97,7 +97,13 @@ export class ContentExtractor {
     this.urlAnalyzer = new UrlAnalyzer(this.patterns);
   }
 
-  run(pageContent, url, addStrictQuery) {
+  extractQuery(url) {
+    const { found, query } = this.urlAnalyzer.parseLinks(url);
+    if (!found) return;
+    return query;
+  }
+
+  run(pageContent, url) {
     function discard(reason = "") {
       logger.debug("No messages found for query:", query, "Reason:", reason);
       return {
@@ -108,8 +114,6 @@ export class ContentExtractor {
 
     const { found, type, query } = this.urlAnalyzer.parseLinks(url);
     if (!found) return discard("No content found.");
-
-    if (addStrictQuery) this.wdp.addStrictQueries(url, query);
 
     const messages = this.extractMessages(pageContent, type, query, url);
     if (messages.length === 0) {
