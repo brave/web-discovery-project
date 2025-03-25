@@ -3,6 +3,16 @@
   "mustContain": [
     {
       "type": "wdp",
+      "action": "query0",
+      "payload": {
+        "q": "kuckucksuhr kaufen",
+        "qurl": "https://www.google.com/search?q=kuckucksuhr%20kaufen&gl=us&hl=en",
+        "ctry": "de",
+        "lang": "en"
+      }
+    },
+    {
+      "type": "wdp",
       "action": "query",
       "payload": {
         "r": {
@@ -10,66 +20,77 @@
             "t": "Kuckucksuhren » jetzt online kaufen | uhren-park.de",
             "u": "https://www.uhren-park.de/index.php/cat/c1_Kuckucksuhren.html",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "de"
           },
           "1": {
             "t": "Original Kuckucksuhren aus dem Schwarzwald",
             "u": "https://www.kuckucksuhr.net/",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "de"
           },
           "2": {
             "t": "Kuckucksuhren aus dem Schwarzwald",
             "u": "https://www.schwarzwaldpalast.de/",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "de"
           },
           "3": {
             "t": "Original Kuckucksuhren aus dem Schwarzwald",
             "u": "https://www.hausder1000uhren.de/",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "de"
           },
           "4": {
             "t": "Kuckucksuhren / Spezialuhren: Küche, Haushalt & Wohnen",
             "u": "https://www.amazon.de/Kuckucksuhren/b?ie=UTF8&node=2970892031",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "de"
           },
           "5": {
             "t": "Kuckucksuhren bestellen | Große Auswahl an ...",
             "u": "https://www.haus-der-schwarzwalduhren.de/",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "de"
           },
           "6": {
             "t": "Kuckucksuhren online kaufen",
             "u": "https://www.ebay.de/b/Kuckucksuhren/79644/bn_2394739",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "de"
           },
           "7": {
             "t": "Exklusive Kuckucksuhren Unikate",
             "u": "https://www.kuckucksuhr.com/",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "de"
           },
           "8": {
             "t": "Kuckucksuhren günstig online kaufen",
             "u": "https://www.kaufland.de/wanduhren/kuckucksuhren/",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "de"
           },
           "9": {
             "t": "Kuckucksuhren aus dem Schwarzwald",
             "u": "https://kuckucksuhren.shop/",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "de"
           }
         },
         "q": "kuckucksuhr kaufen",
         "qurl": "https://www.google.com/search?q=kuckucksuhr%20kaufen&gl=us&hl=en",
-        "ctry": "de"
+        "ctry": "de",
+        "lang": "en"
       }
     }
   ]

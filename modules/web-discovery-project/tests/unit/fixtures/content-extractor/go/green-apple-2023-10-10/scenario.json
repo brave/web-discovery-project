@@ -3,6 +3,16 @@
   "mustContain": [
     {
       "type": "wdp",
+      "action": "query0",
+      "payload": {
+        "q": "green apple",
+        "qurl": "https://www.google.com/search?q=green%20apple&gl=us&hl=en",
+        "ctry": "de",
+        "lang": "en"
+      }
+    },
+    {
+      "type": "wdp",
       "action": "query",
       "payload": {
         "r": {
@@ -10,56 +20,62 @@
             "t": "Green Apple Books | REAL {books, people, local}",
             "u": "https://www.greenapplebooks.com/",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "1": {
             "t": "Green Apple Waterford",
             "u": "https://greenapplewaterford.com/",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "2": {
             "t": "Green Apple China Bistro",
             "u": "http://www.greenapplechinabistro.com/",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "3": {
             "t": "Granny Smith",
             "u": "https://en.wikipedia.org/wiki/Granny_Smith",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "4": {
             "t": "Health Benefits of Green Apples",
             "u": "https://www.webmd.com/diet/health-benefits-green-apples",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "5": {
             "t": "Green Apple NW",
             "u": "https://www.greenapplenw.com/",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           },
           "6": {
             "t": "Green Apple Active | Organic Bamboo Active & Yoga Clothing",
             "u": "https://www.greenappleactive.com/",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "en"
           }
         },
         "q": "green apple",
         "qurl": "https://www.google.com/search?q=green%20apple&gl=us&hl=en",
-        "ctry": "de"
+        "ctry": "de",
+        "lang": "en"
       }
     },
     {
       "type": "wdp",
       "action": "img-p",
       "payload": {
-        "q": "green apple",
-        "qurl": "https://www.google.com/search?q=green%20apple&gl=us&hl=en",
         "r": {
           "0": {
             "u": "https://www.kroger.com/p/small-green-granny-smith-apple/0000000004139"
@@ -92,29 +108,8 @@
             "u": "https://www.bebeautiful.in/all-thing-lifestyle/health-and-wellness/heres-why-green-apple-is-the-super-fruit-you-need"
           }
         },
-        "ctry": "de"
-      }
-    },
-    {
-      "type": "wdp",
-      "action": "videos-p",
-      "payload": {
         "q": "green apple",
         "qurl": "https://www.google.com/search?q=green%20apple&gl=us&hl=en",
-        "r": {
-          "0": {
-            "t": "Mrs. GREEN APPLE - Feeling",
-            "u": "https://www.google.com/#"
-          },
-          "1": {
-            "t": "Green Apple Ribbons: just the ASMR🍏😍 part 2",
-            "u": "https://www.google.com/#"
-          },
-          "2": {
-            "t": "Green Apple Ribbons: just the ASMR 🍏😍 | Ribbon Candy",
-            "u": "https://www.tiktok.com/@loganscandies/video/7286219511290727722"
-          }
-        },
         "ctry": "de"
       }
     }

@@ -23,6 +23,7 @@ import { parseURL, Network } from "./network";
 import prefs from "../core/prefs";
 import pacemaker from "../core/services/pacemaker";
 import SafebrowsingEndpoint from "./safebrowsing-endpoint";
+import Patterns from "./patterns";
 
 /*
 Configuration for Bloomfilter
@@ -31,12 +32,6 @@ Configuration for Bloomfilter
 const bloomFilterSize = 500001; // false-positive 0.01, hashes 7
 const bloomFilterNHashes = 7;
 const allowedCountryCodes = config.settings.ALLOWED_COUNTRY_CODES;
-
-function _log(...msg) {
-  if (WebDiscoveryProject.debug) {
-    logger.log(WebDiscoveryProject.LOG_KEY, ...msg);
-  }
-}
 
 function getRandomIntInclusive(min, max) {
   const _min = Math.ceil(min);
@@ -81,7 +76,6 @@ const WebDiscoveryProject = {
   WAIT_TIME: 2000,
   PAGE_WAIT_TIME: 5000,
   LOG_KEY: "wdp",
-  debug: false,
   utility_regression_tests: false,
   httpCache: {},
   httpCache401: {},
@@ -96,6 +90,8 @@ const WebDiscoveryProject = {
   deadFiveMts: 5,
   deadTwentyMts: 20,
   msgType: "wdp",
+  patterns: new Patterns(),
+  _patternsLastUpdated: null,
   probHashLogM: [
     [
       -1.839225984234144, -1.8009413231413045, -2.5864601561900273,
@@ -1595,11 +1591,13 @@ const WebDiscoveryProject = {
       config.settings.ENDPOINT_PATTERNS,
       (content) => {
         try {
-          const { normal, strict } = JSON.parse(content);
-          logger.debug("Got new patterns", { normal, strict });
-          WebDiscoveryProject.contentExtractor.updatePatterns(normal, "normal");
-          WebDiscoveryProject.contentExtractor.updatePatterns(strict, "strict");
-          logger.info("WebDiscoveryProject patterns successfully updated");
+          const rules = JSON.parse(content);
+          logger.debug("Got new patterns", rules);
+          WebDiscoveryProject.patterns.update(rules);
+          WebDiscoveryProject._patternsLastUpdated = new Date();
+          logger.info(
+            `WebDiscoveryProject patterns successfully updated at ${WebDiscoveryProject._patternsLastUpdated}`,
+          );
         } catch (e) {
           logger.warn("Failed to apply new WebDiscoveryProject patterns", e);
         }
@@ -1675,7 +1673,7 @@ const WebDiscoveryProject = {
   },
   maskURL(url) {
     if (WebDiscoveryProject.urlLeaksExtensionId(url)) {
-      _log("Dropping URL with extension id:", url);
+      logger.debug("Dropping URL with extension id:", url);
       return "";
     }
     var url_parts = null;
@@ -1708,7 +1706,7 @@ const WebDiscoveryProject = {
   },
   maskURLStrict(url) {
     if (WebDiscoveryProject.urlLeaksExtensionId(url)) {
-      _log("Dropping URL with extension id:", url);
+      logger.debug("Dropping URL with extension id:", url);
       return "";
     }
     var url_parts = null;
@@ -1786,7 +1784,7 @@ const WebDiscoveryProject = {
 
       if (!url_parts) return true;
 
-      _log(JSON.stringify(url_parts));
+      logger.debug(JSON.stringify(url_parts));
       if (aURI.indexOf("about:") == 0) return true;
 
       if (isIpAddress(url_parts.hostname)) {
@@ -1817,10 +1815,12 @@ const WebDiscoveryProject = {
 
       if (pos_hash_char > -1) {
         if (
-          !WebDiscoveryProject.contentExtractor.isSearchEngineUrl(aURI) &&
+          !WebDiscoveryProject.contentExtractor.urlAnalyzer.isSearchEngineUrl(
+            aURI,
+          ) &&
           aURI.length - pos_hash_char >= 10
         ) {
-          _log("Dropped because of # in url: " + decodeURIComponent(aURI));
+          logger.debug("Dropped because of # in url: " + decodeURIComponent(aURI));
           return true;
         }
       }
@@ -1841,12 +1841,12 @@ const WebDiscoveryProject = {
         return true;
       }
 
-      _log("Sanitize: URL is ok: " + aURI);
+      logger.debug("Sanitize: URL is ok: " + aURI);
 
       return false;
     } catch (ee) {
       // if there were any exception, we return true for safety
-      _log("Exception in isSuspiciousURL: " + ee);
+      logger.debug("Exception in isSuspiciousURL: " + ee);
       return true;
     }
   },
@@ -1882,7 +1882,7 @@ const WebDiscoveryProject = {
     return strict_value;
   },
   dropLongURL: function (url, options) {
-    _log("DLU called with arguments:", url, options);
+    logger.debug("DLU called with arguments:", url, options);
     try {
       if (options == null)
         options = {
@@ -1930,7 +1930,7 @@ const WebDiscoveryProject = {
           url_parts.query_string &&
           url_parts.query_string.length > WebDiscoveryProject.qs_len
         ) {
-          _log("DLU failed: length of query string is longer than qs_len");
+          logger.debug("DLU failed: length of query string is longer than qs_len");
           return true;
         }
 
@@ -1938,7 +1938,7 @@ const WebDiscoveryProject = {
           var v = url_parts.query_string.split(/[&;]/);
           if (v.length > 4) {
             // that means that there is a least one &; hence 5 params
-            _log("DLU failed: there are more than 4 parameters");
+            logger.debug("DLU failed: there are more than 4 parameters");
             return true;
           }
           if (
@@ -1948,7 +1948,7 @@ const WebDiscoveryProject = {
               12,
             ) != null
           ) {
-            _log(
+            logger.debug(
               "DLU failed: long number in the query string: ",
               url_parts.query_string,
             );
@@ -1960,7 +1960,7 @@ const WebDiscoveryProject = {
           !options.allowlisted &&
           WebDiscoveryProject.checkForLongNumber(url_parts.path, 12) != null
         ) {
-          _log("DLU failed: long number in path: ", url_parts.path);
+          logger.debug("DLU failed: long number in path: ", url_parts.path);
           return true;
         }
       }
@@ -1977,7 +1977,7 @@ const WebDiscoveryProject = {
             return true;
         } else {
           if (vpath[i].length > 12 && WebDiscoveryProject.isHash(vpath[i])) {
-            _log("DLU failed: hash in the URL ", vpath[i]);
+            logger.debug("DLU failed: hash in the URL ", vpath[i]);
             return true;
           }
         }
@@ -1990,7 +1990,7 @@ const WebDiscoveryProject = {
         if (options.strict == true) mult = 0.5;
         if (cstr.length > WebDiscoveryProject.rel_segment_len * mult) {
           if (WebDiscoveryProject.isHash(cstr)) {
-            _log("DLU failed: hash in the path ", cstr);
+            logger.debug("DLU failed: hash in the path ", cstr);
             return true;
           }
         }
@@ -2057,7 +2057,7 @@ const WebDiscoveryProject = {
         if (url_parts.query_string && url_parts.query_string.length > 0) {
           for (var i = 0; i < v.length; i++)
             if (v[i].test("?" + url_parts.query_string)) {
-              _log("Prohibited keyword found: ", url_parts.query_string);
+              logger.debug("Prohibited keyword found: ", url_parts.query_string);
               return true;
             }
         }
@@ -2065,7 +2065,7 @@ const WebDiscoveryProject = {
         if (path_query_string && path_query_string.length > 0) {
           for (var i = 0; i < v.length; i++)
             if (v[i].test(path_query_string)) {
-              _log("Prohibited keyword found: ", path_query_string);
+              logger.debug("Prohibited keyword found: ", path_query_string);
               return true;
             }
         }
@@ -2074,7 +2074,7 @@ const WebDiscoveryProject = {
       return false;
     } catch (ee) {
       // if there were any exception, we return true for safety
-      _log("Exception in dropLongURL: " + ee);
+      logger.debug("Exception in dropLongURL: " + ee);
       return true;
     }
   },
@@ -2192,7 +2192,7 @@ const WebDiscoveryProject = {
           };
         }
       } catch (e) {
-        _log(e);
+        logger.debug(e);
       }
     },
   },
@@ -2259,7 +2259,7 @@ const WebDiscoveryProject = {
         }
       }
     } catch (ee) {
-      _log(">>>> REDIRECT ERROR >>> " + ee);
+      logger.debug(">>>> REDIRECT ERROR >>> " + ee);
     }
     return res;
   },
@@ -2308,7 +2308,7 @@ const WebDiscoveryProject = {
         onsuccess(url, page_data, original_url, x);
       })
       .catch((error_message) => {
-        _log(`Error on doublefetch: ${error_message}`);
+        logger.debug(`Error on doublefetch: ${error_message}`);
         onerror(url, page_data, original_url, error_message);
       });
   },
@@ -2343,25 +2343,25 @@ const WebDiscoveryProject = {
     // compares the structure of the page when rendered in the browser with the structure of
     // the page after.
 
-    _log("xbef: " + JSON.stringify(struct_bef));
-    _log("xaft: " + JSON.stringify(struct_aft));
+    logger.debug("xbef: " + JSON.stringify(struct_bef));
+    logger.debug("xaft: " + JSON.stringify(struct_aft));
 
     // Check if struct_bef or struct_aft is not null, in case anyone is then we mark it as private.
 
     // if any of the titles is null (false), then decline (discard)
     if (!(struct_bef && struct_aft)) {
-      _log("fovalidDoubleFetch: found an empty structure");
+      logger.debug("fovalidDoubleFetch: found an empty structure");
       return false;
     }
 
     if (!(struct_bef["t"] && struct_aft["t"])) {
-      _log("fovalidDoubleFetch: found an empty title");
+      logger.debug("fovalidDoubleFetch: found an empty title");
       return false;
     }
 
     // if any of the two struct has a iall to false decline
     if (!(struct_bef["iall"] && struct_aft["iall"])) {
-      _log("fovalidDoubleFetch: found a noindex");
+      logger.debug("fovalidDoubleFetch: found a noindex");
       return false;
     }
 
@@ -2374,12 +2374,12 @@ const WebDiscoveryProject = {
     /*
         Adding key to check how many pages will we loose if frame check is turned on
         if (struct_bef['nfsh']==null || struct_aft['nfsh']==null || struct_bef['nfsh']!=struct_aft['nfsh']) {
-            _log("fovalidDoubleFetch: number of internal frames does not match");
+            logger.debug("fovalidDoubleFetch: number of internal frames does not match");
             return false;
         }
 
         if (struct_bef['nifsh']==null || struct_aft['nifsh']==null || struct_bef['nifsh']!=struct_aft['nifsh']) {
-            _log("fovalidDoubleFetch: number of internal iframes does not match");
+            logger.debug("fovalidDoubleFetch: number of internal iframes does not match");
             return false;
         }
         */
@@ -2412,7 +2412,7 @@ const WebDiscoveryProject = {
           (struct_bef["lh"] || 0) /
           ((struct_bef["lh"] || 0) + (struct_aft["lh"] || 0));
         if (ratio_lh < 0.1 || ratio_lh > 0.9) {
-          _log("fovalidDoubleFetch: lh is not balanced");
+          logger.debug("fovalidDoubleFetch: lh is not balanced");
           length_html_ok = false;
         }
       }
@@ -2426,7 +2426,7 @@ const WebDiscoveryProject = {
           (struct_bef["nl"] || 0) /
           ((struct_bef["nl"] || 0) + (struct_aft["nl"] || 0));
         if (ratio_nl < 0.1 || ratio_nl > 0.9) {
-          _log("fovalidDoubleFetch: nl is not balanced");
+          logger.debug("fovalidDoubleFetch: nl is not balanced");
           length_text_ok = false;
         }
       }
@@ -2445,7 +2445,7 @@ const WebDiscoveryProject = {
         struct_aft["nip"] == null ||
         (struct_bef["nip"] == 0 && struct_aft["nip"] > 0)
       ) {
-        _log("validDoubleFetch: fail nip");
+        logger.debug("validDoubleFetch: fail nip");
         return false;
       }
 
@@ -2455,7 +2455,7 @@ const WebDiscoveryProject = {
         struct_aft["nf"] == null ||
         (struct_bef["nf"] == 0 && struct_aft["nf"] > 0)
       ) {
-        _log("validDoubleFetch: fail text nf");
+        logger.debug("validDoubleFetch: fail text nf");
         return false;
       }
     }
@@ -2481,7 +2481,7 @@ const WebDiscoveryProject = {
         // the longest titles is 4 tokens long, the, we are a bit flexible on title differences
         if (jc >= 0.5) return true;
         else {
-          _log("short title fail title overlap");
+          logger.debug("short title fail title overlap");
           return false;
         }
       } else {
@@ -2511,11 +2511,11 @@ const WebDiscoveryProject = {
               WebDiscoveryProject.auxUnion(vtt1, vtt2).length;
             // we are more demanding on the title overlap now
             if (jc <= 0.8) {
-              _log("validDoubleFetch: fail title overlap after ascii");
+              logger.debug("validDoubleFetch: fail title overlap after ascii");
               return false;
             }
           } else {
-            _log("validDoubleFetch: fail title overlap");
+            logger.debug("validDoubleFetch: fail title overlap");
             return false;
           }
         }
@@ -2530,7 +2530,7 @@ const WebDiscoveryProject = {
           struct_aft["nip"] == null ||
           (struct_bef["nip"] == 0 && struct_aft["nip"] > 0)
         ) {
-          _log("validDoubleFetch: fail nip");
+          logger.debug("validDoubleFetch: fail nip");
           return false;
         }
 
@@ -2540,7 +2540,7 @@ const WebDiscoveryProject = {
           struct_aft["nf"] == null ||
           (struct_bef["nf"] == 0 && struct_aft["nf"] > 0)
         ) {
-          _log("validDoubleFetch: fail text nf");
+          logger.debug("validDoubleFetch: fail text nf");
           return false;
         }
 
@@ -2551,7 +2551,7 @@ const WebDiscoveryProject = {
       return true;
     }
 
-    _log("validDoubleFetch: default option");
+    logger.debug("validDoubleFetch: default option");
 
     return false;
   },
@@ -2600,7 +2600,7 @@ const WebDiscoveryProject = {
     } else return url;
   },
   fetchReferral: function (referral_url, callback) {
-    _log("PPP in fetchReferral: " + referral_url);
+    logger.debug("PPP in fetchReferral: " + referral_url);
 
     if (referral_url && referral_url != "") {
       if (WebDiscoveryProject.docCache[referral_url] == null) {
@@ -2609,20 +2609,20 @@ const WebDiscoveryProject = {
           null,
           null,
           function (referral_url) {
-            _log(
+            logger.debug(
               "PPP in fetchReferral success auxGetPageData: " + referral_url,
             );
             callback();
           },
           function (referral_url) {
-            _log(
+            logger.debug(
               "PPP in fetchReferral failure auxGetPageData: " + referral_url,
             );
             callback();
           },
         );
       } else {
-        _log("PPP in fetchReferral already in docCache: " + referral_url);
+        logger.debug("PPP in fetchReferral already in docCache: " + referral_url);
         callback();
       }
     } else callback();
@@ -2645,7 +2645,7 @@ const WebDiscoveryProject = {
     if (page_doc == null || page_doc["x"] == null) {
       // this should not happen, but it does. Need to debug why the 'x' field gets lost
       // right now, let's set is a private to avoid any risk
-      _log("page_doc.x missing for url:", url);
+      logger.debug("page_doc.x missing for url:", url);
       return discard("page_doc.x missing");
     }
 
@@ -2666,7 +2666,7 @@ const WebDiscoveryProject = {
       if (cUrl) {
         if (!allowlisted && WebDiscoveryProject.dropLongURL(cUrl)) {
           // oops, the canonical is also bad, therefore mark as private
-          _log(`both URL=${url} and canonical_url=${cUrl} are too long`);
+          logger.debug(`both URL=${url} and canonical_url=${cUrl} are too long`);
           return discard(`both URL and canonical_url are too long`);
         }
         // proceed, as we are in the good scenario in which the canonical
@@ -2695,14 +2695,14 @@ const WebDiscoveryProject = {
         await WebDiscoveryProject.telemetry(result.msgCandidate);
       }
     } catch (e) {
-      _log("Unexpected error during doublefetch", e);
+      logger.debug("Unexpected error during doublefetch", e);
     }
   },
 
   _doubleFetch(url, page_doc) {
     return new Promise((resolve, _) => {
       function privateUrlFound(url, explanation) {
-        _log(
+        logger.debug(
           "The URL",
           url,
           "failed one of the doublefetch heuristics. Details:",
@@ -2715,7 +2715,7 @@ const WebDiscoveryProject = {
         });
       }
       function publicUrlFound(url, page_doc) {
-        _log("The URL", url, "passed all doublefetch heuristics");
+        logger.debug("The URL", url, "passed all doublefetch heuristics");
         resolve({
           url,
           isPrivate: false,
@@ -2741,7 +2741,7 @@ const WebDiscoveryProject = {
         return;
       }
 
-      _log("going to double-fetch:", url);
+      logger.debug("going to double-fetch:", url);
       WebDiscoveryProject.auxGetPageData(
         url,
         page_doc,
@@ -2749,7 +2749,7 @@ const WebDiscoveryProject = {
         function (url, page_doc, original_url, data) {
           // data contains the public data of the url double-fetch,
 
-          _log("success on doubleFetch, need further validation", url);
+          logger.debug("success on doubleFetch, need further validation", url);
 
           if (
             WebDiscoveryProject.validDoubleFetch(page_doc["x"], data, {
@@ -2796,11 +2796,11 @@ const WebDiscoveryProject = {
 
               if (page_doc["ref"] && page_doc["ref"] != "") {
                 // the page has a referral
-                _log(
+                logger.debug(
                   "PPP: page has a referral, " + url + " < " + page_doc["ref"],
                 );
                 var hasurl = WebDiscoveryProject.hasURL(page_doc["ref"], url);
-                _log(
+                logger.debug(
                   "PPP: page has a referral, " +
                     url +
                     " < " +
@@ -2810,7 +2810,7 @@ const WebDiscoveryProject = {
                 );
 
                 // overwrite strict value because the link exists on a public fetchable page
-                _log(
+                logger.debug(
                   "Strictness values:",
                   url_strict_value,
                   structure_strict_value,
@@ -2821,13 +2821,13 @@ const WebDiscoveryProject = {
                 }
               } else {
                 // page has no referral
-                _log("PPP: page has NO referral,", url);
+                logger.debug("PPP: page has NO referral,", url);
 
                 // we do not know the origin of the page, run the dropLongURL strict version, if
                 // there is no canonical or if there is canonical and is the same as the url,
               }
 
-              _log(
+              logger.debug(
                 "strict URL:",
                 url,
                 "> struct:",
@@ -2885,7 +2885,7 @@ const WebDiscoveryProject = {
                 );
                 return;
               }
-              _log("success on doubleFetch, need further validation");
+              logger.debug("success on doubleFetch, need further validation");
 
               //
               // we need to modify the 'x' field of page_doc to substitute any structural information about
@@ -2960,14 +2960,14 @@ const WebDiscoveryProject = {
                 // because it would be cleaner hence safer
                 //
 
-                _log("going to clean_url double-fetch:", clean_url);
+                logger.debug("going to clean_url double-fetch:", clean_url);
 
                 WebDiscoveryProject.auxGetPageData(
                   clean_url,
                   page_doc,
                   first_url_double_fetched,
                   function (url, page_doc, original_url, data) {
-                    _log(
+                    logger.debug(
                       "success on clean_url doubleFetch, need further validation",
                     );
 
@@ -2992,10 +2992,8 @@ const WebDiscoveryProject = {
                       // in such a case, it's safer to assume that the fragments cleaned were identifiying a user, and the
                       // website is redirecting to the login page, in such a case, we should not send the page at all, in fact, we
                       // should mark it as private just to be sure,
-                      if (WebDiscoveryProject.debug) {
-                        _log("checking clean_url, page_doc:", page_doc);
-                        _log("checking clean_url, data: ", data);
-                      }
+                      logger.debug("checking clean_url, page_doc:", page_doc);
+                      logger.debug("checking clean_url, data: ", data);
 
                       if (page_doc["x"]["nip"] < data["nip"]) {
                         // the page with url_clean have more input password fields or more forms, this is dangerous,
@@ -3012,7 +3010,7 @@ const WebDiscoveryProject = {
                   function (url, page_doc, original_url, error_message) {
                     // there was a failure, the clean_url does not go to the same place, therefore it's better
                     // not to replace
-                    _log(
+                    logger.debug(
                       "failure on clean_url doubleFetch! structure did not match",
                     );
                     publicUrlFound(original_url, page_doc);
@@ -3030,7 +3028,7 @@ const WebDiscoveryProject = {
           }
         },
         function (url, page_doc, original_url, error_message) {
-          _log("failure on doubleFetch!", error_message);
+          logger.debug("failure on doubleFetch!", error_message);
           privateUrlFound(
             url,
             `rejected as doublefetch failed with an error ${error_message}`,
@@ -3048,7 +3046,7 @@ const WebDiscoveryProject = {
         if (!cd) {
           // fetch the content of the source_url,
           //
-          _log("hasURL no CD!!! ");
+          logger.debug("hasURL no CD!!! ");
           return false;
         }
       } else return false;
@@ -3095,7 +3093,7 @@ const WebDiscoveryProject = {
 
       return found;
     } catch (ee) {
-      _log("Error on hasURL: " + ee);
+      logger.debug("Error on hasURL: " + ee);
       return false;
     }
   },
@@ -3233,7 +3231,7 @@ const WebDiscoveryProject = {
         }
       }
     } catch (ee) {
-      _log("no-index check failed " + ee);
+      logger.debug("no-index check failed " + ee);
     }
 
     // extract the canonical url if available
@@ -3360,7 +3358,7 @@ const WebDiscoveryProject = {
       if (activeURL.indexOf("about:") != 0) {
         if (WebDiscoveryProject.state["v"][activeURL] == null) {
           const braveQuery =
-            WebDiscoveryProject.contentExtractor.tryExtractBraveSerpQuery(
+            WebDiscoveryProject.contentExtractor.urlAnalyzer.tryExtractBraveSerpQuery(
               activeURL,
             );
           logger.debug("[onLocationChange] isBraveQuery", braveQuery);
@@ -3371,27 +3369,21 @@ const WebDiscoveryProject = {
               t: "br",
             };
           } else if (
-            WebDiscoveryProject.contentExtractor.isSearchEngineUrl(activeURL)
+            WebDiscoveryProject.contentExtractor.urlAnalyzer.isSearchEngineUrl(
+              activeURL,
+            )
           ) {
             logger.debug("[onLocationChange] isSearchEngineUrl", activeURL);
             pacemaker.setTimeout(
-              function (url, originalURL) {
+              function (url) {
                 if (!WebDiscoveryProject) {
                   return;
                 }
-                getContentDocument(originalURL)
-                  .then((doc) => {
-                    WebDiscoveryProject.checkURL(doc, url, "normal");
-                  })
-                  .catch((e) => {
-                    logger.info(
-                      `Failed to get content for originalURL=${originalURL} (internalURL=${url}, details=${e})`,
-                    );
-                  });
+                const query = WebDiscoveryProject.contentExtractor.extractQuery(url);
+                if (query) WebDiscoveryProject.addStrictQueries(url, query)
               },
               WebDiscoveryProject.WAIT_TIME,
               activeURL,
-              originalURL,
             );
           }
 
@@ -3512,14 +3504,11 @@ const WebDiscoveryProject = {
                 .then(
                   function (cd) {
                     if (
-                      !WebDiscoveryProject.contentExtractor.isSearchEngineUrl(
+                      !WebDiscoveryProject.contentExtractor.urlAnalyzer.isSearchEngineUrl(
                         currURL,
                       )
                     ) {
-                      try {
-                        WebDiscoveryProject.checkURL(cd, currURL, "normal");
-                      } catch (e) {}
-                      //Check active usage...
+                      // Check active usage...
                       // WebDiscoveryProject.activeUsage += 1;
                       WebDiscoveryProject.incrActiveUsage();
                     }
@@ -3552,13 +3541,11 @@ const WebDiscoveryProject = {
                     }
                   },
                   function () {
-                    if (WebDiscoveryProject.debug) {
-                      _log("CANNOT GET THE CONTENT OF : " + currURL);
-                    }
+                    logger.debug("CANNOT GET THE CONTENT OF : " + currURL);
                   },
                 )
                 .catch((ee) => {
-                  _log(
+                  logger.debug(
                     "Error fetching title and length of page: " +
                       ee +
                       " : " +
@@ -3618,7 +3605,7 @@ const WebDiscoveryProject = {
               }
             })
             .catch((e) => {
-              _log("Error fetching fetching the currentURL: " + e);
+              logger.debug("Error fetching the currentURL: " + e);
             });
 
           WebDiscoveryProject.counter += 4;
@@ -3681,15 +3668,15 @@ const WebDiscoveryProject = {
                       );
                       delete WebDiscoveryProject.state["v"][url];
                       delete WebDiscoveryProject.queryCache[url];
-                      //_log("Deleted: moved to dead pages after 20 mts.");
-                      //_log("Deleted: moved to dead pages after 20 mts: " + WebDiscoveryProject.state['m'].length);
+                      //logger.debug("Deleted: moved to dead pages after 20 mts.");
+                      //logger.debug("Deleted: moved to dead pages after 20 mts: " + WebDiscoveryProject.state['m'].length);
                     }
                   }
                 }
               }
             })
             .catch((ee) => {
-              _log(ee);
+              logger.debug(ee);
             });
         },
         { timeout: 5000 },
@@ -3786,9 +3773,7 @@ const WebDiscoveryProject = {
     tasks.push(
       pacemaker.register(
         function checkActiveUsage() {
-          if (WebDiscoveryProject.debug) {
-            _log("Check if alive");
-          }
+          logger.debug("Check if alive");
           WebDiscoveryProject.checkActiveUsage();
         },
         { timeout: 20 * 60 * 1000 },
@@ -3849,9 +3834,7 @@ const WebDiscoveryProject = {
         (WebDiscoveryProject.lastEv["keypresspage"] | 0) >
       1 * WebDiscoveryProject.tmult
     ) {
-      if (WebDiscoveryProject.debug) {
-        //_log('captureKeyPressPage');
-      }
+      //logger.debug('captureKeyPressPage');
       WebDiscoveryProject.lastEv["keypresspage"] = WebDiscoveryProject.counter;
       WebDiscoveryProject.lastActive = WebDiscoveryProject.counter;
       var activeURL = WebDiscoveryProject.cleanCurrentUrl(ev.target.baseURI);
@@ -3870,9 +3853,7 @@ const WebDiscoveryProject = {
         (WebDiscoveryProject.lastEv["mousemovepage"] | 0) >
       1 * WebDiscoveryProject.tmult
     ) {
-      if (WebDiscoveryProject.debug) {
-        _log("captureMouseMovePage");
-      }
+      logger.debug("captureMouseMovePage");
       WebDiscoveryProject.lastEv["mousemovepage"] = WebDiscoveryProject.counter;
       WebDiscoveryProject.lastActive = WebDiscoveryProject.counter;
       var activeURL = WebDiscoveryProject.cleanCurrentUrl(ev.target.baseURI);
@@ -3886,7 +3867,7 @@ const WebDiscoveryProject = {
     }
   },
   getURLFromEvent: function (ev) {
-    _log(">>>> Get url from event >>> " + ev.target.href);
+    logger.debug(">>>> Get url from event >>> " + ev.target.href);
     try {
       if (ev.target.href != null || ev.target.href != undefined) {
         return decodeURIComponent("" + ev.target.href);
@@ -3899,9 +3880,7 @@ const WebDiscoveryProject = {
         }
       }
     } catch (ee) {
-      if (WebDiscoveryProject.debug) {
-        _log("Error in getURLFromEvent: " + ee);
-      }
+      logger.debug("Error in getURLFromEvent: " + ee);
     }
     return null;
   },
@@ -3913,7 +3892,7 @@ const WebDiscoveryProject = {
 
     var targetURL = WebDiscoveryProject.getURLFromEvent(ev) || href;
 
-    _log("captureMouseClickPage>> " + targetURL);
+    logger.debug("captureMouseClickPage>> " + targetURL);
     if (contextHTML) {
       WebDiscoveryProject.contextFromEvent = {
         html: contextHTML,
@@ -3929,25 +3908,23 @@ const WebDiscoveryProject = {
 
       // Need to improve.
       var activeURL = WebDiscoveryProject.cleanCurrentUrl(ev.target.baseURI);
-      if (WebDiscoveryProject.debug) {
-        _log(
-          "captureMouseClickPage>> " +
-            WebDiscoveryProject.counter +
-            " " +
-            targetURL +
-            " : " +
-            " active: " +
-            activeURL +
-            " " +
-            (WebDiscoveryProject.state["v"][activeURL] != null) +
-            " " +
-            ev.target +
-            " :: " +
-            ev.target.value +
-            " >>" +
-            JSON.stringify(WebDiscoveryProject.lastEv),
-        );
-      }
+      logger.debug(
+        "captureMouseClickPage>> " +
+          WebDiscoveryProject.counter +
+          " " +
+          targetURL +
+          " : " +
+          " active: " +
+          activeURL +
+          " " +
+          (WebDiscoveryProject.state["v"][activeURL] != null) +
+          " " +
+          ev.target +
+          " :: " +
+          ev.target.value +
+          " >>" +
+          JSON.stringify(WebDiscoveryProject.lastEv),
+      );
 
       if (WebDiscoveryProject.state["v"][activeURL] != null) {
         WebDiscoveryProject.linkCache[targetURL] = {
@@ -3993,9 +3970,7 @@ const WebDiscoveryProject = {
         (WebDiscoveryProject.lastEv["mouseclickpage"] | 0) >
       1 * WebDiscoveryProject.tmult
     ) {
-      if (WebDiscoveryProject.debug) {
-        _log("captureMouseClickPage");
-      }
+      logger.debug("captureMouseClickPage");
       WebDiscoveryProject.lastEv["mouseclickpage"] =
         WebDiscoveryProject.counter;
       WebDiscoveryProject.lastActive = WebDiscoveryProject.counter;
@@ -4015,9 +3990,7 @@ const WebDiscoveryProject = {
         (WebDiscoveryProject.lastEv["scrollpage"] | 0) >
       1 * WebDiscoveryProject.tmult
     ) {
-      if (WebDiscoveryProject.debug) {
-        _log("captureScrollPage ");
-      }
+      logger.debug("captureScrollPage ");
 
       WebDiscoveryProject.lastEv["scrollpage"] = WebDiscoveryProject.counter;
       WebDiscoveryProject.lastActive = WebDiscoveryProject.counter;
@@ -4037,9 +4010,7 @@ const WebDiscoveryProject = {
         (WebDiscoveryProject.lastEv["copypage"] | 0) >
       1 * WebDiscoveryProject.tmult
     ) {
-      if (WebDiscoveryProject.debug) {
-        _log("captureCopyPage");
-      }
+      logger.debug("captureCopyPage");
       WebDiscoveryProject.lastEv["copypage"] = WebDiscoveryProject.counter;
       WebDiscoveryProject.lastActive = WebDiscoveryProject.counter;
       var activeURL = WebDiscoveryProject.cleanCurrentUrl(ev.target.baseURI);
@@ -4070,19 +4041,19 @@ const WebDiscoveryProject = {
 
   init: function () {
     return Promise.resolve().then(() => {
-      _log("Init function called:");
-      WebDiscoveryProject.log = _log;
+      logger.debug("Init function called:");
+      WebDiscoveryProject.log = logger.debug;
       return Promise.resolve()
         .then(() => {
           if (WebDiscoveryProject.db) {
-            _log("Closing database connections...");
+            logger.debug("Closing database connections...");
             return WebDiscoveryProject.db
               .asyncClose()
               .then(() => {
                 WebDiscoveryProject.db = undefined;
-                _log("Closing database connections...done");
+                logger.debug("Closing database connections...done");
               })
-              .catch((e) => _log(e));
+              .catch((e) => logger.debug(e));
           } else {
             return Promise.resolve();
           }
@@ -4091,7 +4062,7 @@ const WebDiscoveryProject = {
           const db = new Storage(WebDiscoveryProject);
           return db.init().then(() => {
             WebDiscoveryProject.db = db;
-            _log("Successfully connected to database");
+            logger.debug("Successfully connected to database");
           });
         })
         .then(() => {
@@ -4136,7 +4107,7 @@ const WebDiscoveryProject = {
                 // Means we have never sent the signal.
                 WebDiscoveryProject.saveActiveUsageTime();
               } else {
-                _log(`Active usage last sent  from db as ${data}`);
+                logger.debug(`Active usage last sent  from db as ${data}`);
                 WebDiscoveryProject.activeUsageLastSent = parseInt(data);
               }
             },
@@ -4176,7 +4147,7 @@ const WebDiscoveryProject = {
     if (msg.action == "page") {
       if (msg.payload.tend && msg.payload.tin) {
         var duration = msg.payload.tend - msg.payload.tin;
-        _log(
+        logger.debug(
           "Duration spent: " +
             msg.payload.tend +
             " : " +
@@ -4186,7 +4157,7 @@ const WebDiscoveryProject = {
         );
       } else {
         var duration = null;
-        _log(
+        logger.debug(
           "Duration spent: " +
             msg.payload.tend +
             " : " +
@@ -4227,11 +4198,11 @@ const WebDiscoveryProject = {
       // Check for title.
       if (msg.payload.x.t) {
         if (WebDiscoveryProject.isSuspiciousTitle(msg.payload.x.t)) {
-          _log("Suspicious Title: " + msg.payload.x.t);
+          logger.debug("Suspicious Title: " + msg.payload.x.t);
           return null;
         }
       } else {
-        _log("Missing Title: " + msg.payload.x.t);
+        logger.debug("Missing Title: " + msg.payload.x.t);
         return null;
       }
 
@@ -4252,7 +4223,7 @@ const WebDiscoveryProject = {
           // the canonical exists and is ok
           msg.payload.url = canonical_url;
         } else {
-          _log("Suspicious url with no/bad canonical: " + msg.payload.url);
+          logger.debug("Suspicious url with no/bad canonical: " + msg.payload.url);
           return null;
         }
       } else {
@@ -4307,10 +4278,10 @@ const WebDiscoveryProject = {
       // Check for canonical seen or not.
       if (msg.payload["x"]["canonical_url"]) {
         if (msg.payload["url"] == msg.payload["x"]["canonical_url"]) {
-          _log("Canoncial is same: ");
+          logger.debug("Canoncial is same: ");
           // canonicalSeen = WebDiscoveryProject.canoincalUrlSeen(msg.payload['x']['canonical_url']);
           if (msg.payload["csb"] && msg.payload["ft"]) {
-            _log("Canoncial seen before: ");
+            logger.debug("Canoncial seen before: ");
             delete msg.payload.csb;
             delete msg.payload.ft;
           }
@@ -4397,7 +4368,7 @@ const WebDiscoveryProject = {
         // there are billions of results, only few of them are on the first page.
         // That it where we currently set the threshold.
         if (cleanR.length < 4) {
-          _log(
+          logger.debug(
             `Dropping message for query ${msg.payload.q}, as there are too few search results.`,
           );
           return null;
@@ -4406,8 +4377,8 @@ const WebDiscoveryProject = {
           newR[idx] = each;
         });
 
-        _log("Original: " + JSON.stringify(msg.payload.r));
-        _log("New: " + JSON.stringify(newR));
+        logger.debug("Original: " + JSON.stringify(msg.payload.r));
+        logger.debug("New: " + JSON.stringify(newR));
         msg.payload.r = newR;
       }
     }
@@ -4430,7 +4401,7 @@ const WebDiscoveryProject = {
         payload: payload,
       });
     } else {
-      _log("Not a valid object, not sent to notification");
+      logger.debug("Not a valid object, not sent to notification");
     }
   },
 
@@ -4440,7 +4411,7 @@ const WebDiscoveryProject = {
       await WebDiscoveryProject.runAllMessageSanitizers(msg);
 
     if (accepted) {
-      _log(
+      logger.debug(
         "all checks passed: telemetry message added to the send queue:",
         msg,
       );
@@ -4466,7 +4437,7 @@ const WebDiscoveryProject = {
           );
         });
     } else {
-      _log("telemetry message has been discarded:", rejectDetails, msg);
+      logger.debug("telemetry message has been discarded:", rejectDetails, msg);
     }
   },
 
@@ -4507,7 +4478,7 @@ const WebDiscoveryProject = {
     try {
       msg = WebDiscoveryProject.sanitizePageMessageUrls(msg);
     } catch (e) {
-      _log("Error while sanitizing urls of page message", e, msg);
+      logger.debug("Error while sanitizing urls of page message", e, msg);
       return discard("failed safe quorum check for other urls");
     }
 
@@ -4631,7 +4602,11 @@ const WebDiscoveryProject = {
           let state;
           let comment;
           if (isPrivate) {
-            if (WebDiscoveryProject.contentExtractor.isSearchEngineUrl(url)) {
+            if (
+              WebDiscoveryProject.contentExtractor.urlAnalyzer.isSearchEngineUrl(
+                url,
+              )
+            ) {
               state = "search";
               comment = 'search pages never generate "page" messages';
             } else {
@@ -4696,42 +4671,41 @@ const WebDiscoveryProject = {
     else return null;
   },
 
-  checkURL(pageContent, url, ruleset) {
-    return WebDiscoveryProject.contentExtractor.checkURL(
+  checkURL(pageContent, url) {
+    const { messages } = WebDiscoveryProject.contentExtractor.run(
       pageContent,
       url,
-      ruleset,
     );
+    for (const message of messages)
+      WebDiscoveryProject.telemetry({
+        type: WebDiscoveryProject.msgType,
+        action: message.action,
+        payload: message.payload,
+      });
   },
 
   /**
    * Used in context-search module
-   *
-   * TODO: A safer option would be to hard-code the list of
-   * search engines. Otherwise, updating the patterns can potentially
-   * change the search results that we show.
    */
   isSearchEngineUrl(url) {
-    return WebDiscoveryProject.contentExtractor.isSearchEngineUrl(url);
+    return WebDiscoveryProject.contentExtractor.urlAnalyzer.isSearchEngineUrl(
+      url,
+    );
   },
 
   aggregateMetrics: function (metricsBefore, metricsAfter) {
     var aggregates = { cp: 0, mm: 0, kp: 0, sc: 0, md: 0 };
-    if (WebDiscoveryProject.debug) {
-      _log(
-        "aggregates: " +
-          JSON.stringify(metricsBefore) +
-          JSON.stringify(metricsAfter),
-      );
-    }
+    logger.debug(
+      "aggregates: " +
+        JSON.stringify(metricsBefore) +
+        JSON.stringify(metricsAfter),
+    );
 
     var _keys = Object.keys(aggregates);
     for (var i = 0; i < _keys.length; i++) {
       aggregates[_keys[i]] = metricsBefore[_keys[i]] + metricsAfter[_keys[i]];
     }
-    if (WebDiscoveryProject.debug) {
-      _log("aggregates: " + JSON.stringify(aggregates));
-    }
+    logger.debug("aggregates: " + JSON.stringify(aggregates));
 
     return aggregates;
   },
@@ -4893,7 +4867,7 @@ const WebDiscoveryProject = {
       "activeUsage",
       JSON.stringify(WebDiscoveryProject.activeUsage),
       (result) => {
-        _log("Active usage stats saved:", result);
+        logger.debug("Active usage stats saved:", result);
       },
     );
   },
@@ -4937,7 +4911,7 @@ const WebDiscoveryProject = {
             "activeUsage",
             JSON.stringify(WebDiscoveryProject.activeUsage),
             (result) => {
-              _log("Active usage stats saved:", result);
+              logger.debug("Active usage stats saved:", result);
             },
           );
           WebDiscoveryProject.saveActiveUsageTime();
@@ -4952,7 +4926,7 @@ const WebDiscoveryProject = {
       ctry: WebDiscoveryProject.getCountryCode(), // Need to fix this.
     };
 
-    _log(
+    logger.debug(
       `Sending alive message for the hour: ${h} , ${JSON.stringify(payload)}`,
     );
 
@@ -4969,17 +4943,17 @@ const WebDiscoveryProject = {
       t,
       (result) => {
         WebDiscoveryProject.activeUsageLastSent = t;
-        _log(`Active usage last sent as ${t}`);
+        logger.debug(`Active usage last sent as ${t}`);
       },
     );
   },
   saveStrictQueries: function () {
-    _log("Saving local table");
+    logger.debug("Saving local table");
     WebDiscoveryProject.db.saveRecordTelemetry(
       "localStrictQueries",
       JSON.stringify(WebDiscoveryProject.strictQueries),
       (result) => {
-        _log("localStrictQueries saved:", result);
+        logger.debug("localStrictQueries saved:", result);
       },
     );
   },
@@ -4990,7 +4964,7 @@ const WebDiscoveryProject = {
         "bf",
         bf.join("|"),
         (result) => {
-          _log("bloom filter saved:", result);
+          logger.debug("bloom filter saved:", result);
         },
       );
     }
@@ -4998,7 +4972,7 @@ const WebDiscoveryProject = {
   loadBloomFilter: function () {
     WebDiscoveryProject.db.loadRecordTelemetry("bf", function (data) {
       if (data == null) {
-        _log("There was no data on WebDiscoveryProject.bf");
+        logger.debug("There was no data on WebDiscoveryProject.bf");
         WebDiscoveryProject.bloomFilter = new BloomFilter(
           Array(bloomFilterSize).join("0"),
           bloomFilterNHashes,
@@ -5017,7 +4991,7 @@ const WebDiscoveryProject = {
       "localStrictQueries",
       function (data) {
         if (data == null || data.length == 0) {
-          _log("There was no data on WebDiscoveryProject.bf");
+          logger.debug("There was no data on WebDiscoveryProject.bf");
           WebDiscoveryProject.strictQueries = [];
         } else {
           WebDiscoveryProject.strictQueries = JSON.parse(data);
@@ -5035,10 +5009,10 @@ const WebDiscoveryProject = {
           e.qurl,
           function (url, page_data, ourl, x) {
             let cd = WebDiscoveryProject.docCache[url]["doc"];
-            WebDiscoveryProject.checkURL(cd, url, "strict");
+            WebDiscoveryProject.checkURL(cd, url);
           },
           function (a, b, c, d) {
-            _log("Error aux>>>> " + d);
+            logger.debug("Error aux>>>> " + d);
           },
         );
         WebDiscoveryProject.strictQueries.splice(idx, 1);
@@ -5103,13 +5077,13 @@ const WebDiscoveryProject = {
 
     // Check if there is a query.
     if (!query || query.length == 0) {
-      _log("No Query");
+      logger.debug("No Query");
       return Promise.reject("No Query");
     }
 
     // If suspicious query.
     if (WebDiscoveryProject.isSuspiciousQuery(query)) {
-      _log("Query is suspicious");
+      logger.debug("Query is suspicious");
       sanitisedQuery = "(PROTECTED)";
     }
 
@@ -5130,7 +5104,7 @@ const WebDiscoveryProject = {
       (WebDiscoveryProject.isSuspiciousURL(query) ||
         WebDiscoveryProject.dropLongURL(query))
     ) {
-      _log("Query is dangerous");
+      logger.debug("Query is dangerous");
       sanitisedQuery = "(PROTECTED)";
     }
 
@@ -5145,20 +5119,24 @@ const WebDiscoveryProject = {
       }
       const urlPrivate = WebDiscoveryProject.bloomFilter.testSingle(md5(url));
       if (urlPrivate) {
-        _log("Url is already marked private");
+        logger.debug("Url is already marked private");
         return Promise.reject("Url is already marked private");
       }
 
       // Check URL is suspicious
       if (WebDiscoveryProject.isSuspiciousURL(url)) {
-        _log("Url is suspicious");
+        logger.debug("Url is suspicious");
         url = "(PROTECTED)";
       }
 
       // Check URL is dangerous, with strict DROPLONGURL.
       if (WebDiscoveryProject.dropLongURL(url, { strict: true })) {
         // If it's Google / Yahoo / Bing. Then mask and send them.
-        if (WebDiscoveryProject.contentExtractor.isSearchEngineUrl(url)) {
+        if (
+          WebDiscoveryProject.contentExtractor.urlAnalyzer.isSearchEngineUrl(
+            url,
+          )
+        ) {
           url = WebDiscoveryProject.maskURL(url);
         } else {
           url = "(PROTECTED)";
@@ -5207,7 +5185,7 @@ const WebDiscoveryProject = {
           .isHostNamePrivate(query)
           .then((res) => {
             if (res) {
-              _log("Private Domain");
+              logger.debug("Private Domain");
               sanitisedQuery = "(PROTECTED)";
             }
             if (sanitisedQuery) {
@@ -5256,7 +5234,7 @@ const WebDiscoveryProject = {
       struct_aft.nifsh == null ||
       struct_bef.nifsh != struct_aft.nifsh
     ) {
-      _log("fovalidDoubleFetch: number of internal iframes does not match");
+      logger.debug("fovalidDoubleFetch: number of internal iframes does not match");
       return false;
     }
 
@@ -5274,7 +5252,7 @@ const WebDiscoveryProject = {
       struct_aft.nfsh == null ||
       struct_bef.nfsh != struct_aft.nfsh
     ) {
-      _log("fovalidDoubleFetch: number of internal frameset does not match");
+      logger.debug("fovalidDoubleFetch: number of internal frameset does not match");
       return false;
     }
 
@@ -5301,7 +5279,7 @@ const WebDiscoveryProject = {
         WebDiscoveryProject.location = json.location;
       }
     } catch (e) {
-      _log("Error loading config.", e);
+      logger.debug("Error loading config.", e);
     }
   },
   getCountryCode: function () {
@@ -5396,21 +5374,21 @@ const WebDiscoveryProject = {
     // engine.
     if (msg.action === "page") {
       const urls = WebDiscoveryProject.getUrlsToSanitizeFromPageMessage(msg);
-      _log("All urls in the message:" + JSON.stringify(urls));
+      logger.debug("All urls in the message:" + JSON.stringify(urls));
 
       for (const original of urls) {
         if (original.t === "canonical") {
           msg.payload.x.canonical_url = WebDiscoveryProject.maskURLStrict(
             original.url,
           );
-          _log(
+          logger.debug(
             `Sanitized 'canonical': ${original.url} -> ${msg.payload.x.canonical_url}`,
           );
         }
 
         if (original.t === "ref") {
           msg.payload.ref = WebDiscoveryProject.maskURLStrict(original.url);
-          _log(`Sanitized 'ref': ${original.url} -> ${msg.payload.ref}`);
+          logger.debug(`Sanitized 'ref': ${original.url} -> ${msg.payload.ref}`);
         }
 
         if (original.t.startsWith("red")) {
@@ -5418,12 +5396,12 @@ const WebDiscoveryProject = {
           msg.payload.red[redPos] = WebDiscoveryProject.maskURLStrict(
             original.url,
           );
-          _log(
+          logger.debug(
             `Sanitized 'ref++${redPos}': ${original.url} -> ${msg.payload.red[redPos]}`,
           );
         }
       }
-      _log("All urls in the message:" + JSON.stringify(msg));
+      logger.debug("All urls in the message:" + JSON.stringify(msg));
     }
   },
   addURLtoDB(url, ref, paylobj) {
@@ -5450,7 +5428,9 @@ const WebDiscoveryProject = {
       */
 
     var tt = new Date().getTime();
-    if (WebDiscoveryProject.contentExtractor.isSearchEngineUrl(url)) {
+    if (
+      WebDiscoveryProject.contentExtractor.urlAnalyzer.isSearchEngineUrl(url)
+    ) {
       return;
     }
 
@@ -5482,7 +5462,7 @@ const WebDiscoveryProject = {
 
     WebDiscoveryProject.db.getURL(url, function (obj) {
       // If the url is already not in the DB or marked private, then we need save it.
-      _log(">>>>> Add url to dbobj" + obj.length + privateHash);
+      logger.debug(">>>>> Add url to dbobj" + obj.length + privateHash);
       if (!privateHash && obj.length === 0) {
         // does not exist
         var setPrivate = false;
@@ -5499,40 +5479,38 @@ const WebDiscoveryProject = {
           // page data structure is empty, so no need to double fetch, is private
           let reason = "empty page data";
           setPrivate = true;
-          _log("Setting private because empty page data");
+          logger.debug("Setting private because empty page data");
         } else if (WebDiscoveryProject.isSuspiciousURL(url)) {
           // if the url looks private already add it already as checked and private
           let reason = "susp. url";
           setPrivate = true;
-          _log("Setting private because suspiciousURL");
+          logger.debug("Setting private because suspiciousURL");
         } else {
           if (WebDiscoveryProject.httpCache401[url]) {
             let reason = "401";
             setPrivate = true;
-            _log("Setting private because of 401");
+            logger.debug("Setting private because of 401");
           } else {
             let reason = "";
             setPrivate = false;
           }
         }
-        _log(">>>>> lets save >>> " + JSON.stringify(newObj));
+        logger.debug(">>>>> lets save >>> " + JSON.stringify(newObj));
 
         // This needs to simplified, if it needs to set Private, why insert it in the first place.
         // Possibly because else the remove url would break in setAsPrivate.
         WebDiscoveryProject.db.saveURL(url, newObj, function () {
-          if (WebDiscoveryProject.debug) {
-            _log("Insertion success add urltoDB");
-          }
+          logger.debug("Insertion success add urltoDB");
 
           if (setPrivate) WebDiscoveryProject.setAsPrivate(url);
         });
       } else if (obj.length === 1) {
-        _log(">>>>> Add url to dbobj found record" + JSON.stringify(obj));
+        logger.debug(">>>>> Add url to dbobj found record" + JSON.stringify(obj));
         let record = obj[0];
         // Looks like the URL is already there, we just need to update the stats.
 
         //Need to aggregate the engagement metrics.
-        _log(record);
+        logger.debug(record);
         let metricsBefore;
         if (typeof record.payload === "string") {
           // (possibly only reachable on Bootstrapped extensions)
@@ -5553,7 +5531,7 @@ const WebDiscoveryProject = {
         cloneObj.payload = paylobj || {};
 
         WebDiscoveryProject.db.updateURL(url, cloneObj, function () {
-          _log("Record updated");
+          logger.debug("Record updated");
         });
 
         paylobj["e"] = { cp: 0, mm: 0, kp: 0, sc: 0, md: 0 };
@@ -5566,7 +5544,7 @@ const WebDiscoveryProject = {
     }
 
     WebDiscoveryProject.db.removeUnsafe(url, (result) => {
-      _log(`Deleting ${url} : ${result}`);
+      logger.debug(`Deleting ${url} : ${result}`);
     });
 
     if (WebDiscoveryProject.state["v"][url]) {
@@ -5576,7 +5554,7 @@ const WebDiscoveryProject = {
   },
   setAsPublic: function (url) {
     WebDiscoveryProject.db.removeUnsafe(url, (result) => {
-      _log(`Deleting ${url} : ${result}`);
+      logger.debug(`Deleting ${url} : ${result}`);
     });
 
     if (WebDiscoveryProject.state["v"][url]) {
@@ -5594,7 +5572,7 @@ const WebDiscoveryProject = {
     );
   },
   processUnchecks: function (listOfUncheckedUrls) {
-    _log(">>> URLS UNPROCESSED >>> " + JSON.stringify(listOfUncheckedUrls));
+    logger.debug(">>> URLS UNPROCESSED >>> " + JSON.stringify(listOfUncheckedUrls));
     var url_pagedocPair = {};
 
     for (var i = 0; i < listOfUncheckedUrls.length; i++) {
@@ -5635,12 +5613,12 @@ const WebDiscoveryProject = {
               }
             }
           }
-          _log(">>>>> DOUBLE FETCH COUNT >>> " + JSON.stringify(obj));
+          logger.debug(">>>>> DOUBLE FETCH COUNT >>> " + JSON.stringify(obj));
           WebDiscoveryProject.db.saveRecordTelemetry(
             "last-double-fetch",
             JSON.stringify(obj),
             (result) => {
-              _log("last-double-fetch saved:", result);
+              logger.debug("last-double-fetch saved:", result);
             },
           );
 
@@ -5658,7 +5636,7 @@ const WebDiscoveryProject = {
     // google and aclk? in it.
     if (targetURL.includes("google") && targetURL.includes("aclk?")) {
       const clickedU = normalizeAclkUrl(targetURL);
-      _log("ad-ctr: targetURL:", targetURL, "normalized to", clickedU);
+      logger.debug("ad-ctr: targetURL:", targetURL, "normalized to", clickedU);
 
       if (WebDiscoveryProject.adDetails[clickedU]) {
         let query = WebDiscoveryProject.adDetails[clickedU].query;
@@ -5682,7 +5660,7 @@ const WebDiscoveryProject = {
           },
         };
 
-        _log("ad-ctr payload:", payload);
+        logger.debug("ad-ctr payload:", payload);
         WebDiscoveryProject.telemetry(payload);
       }
     }
@@ -5703,17 +5681,20 @@ const WebDiscoveryProject = {
   addStrictQueries(url, query) {
     // In some cases, we get query undefined.
     if (!query) {
-      _log(">> Got an undefined query >>> " + url);
+      logger.debug(">> Got an undefined query >>> " + url);
       return;
     }
 
     if (WebDiscoveryProject.isSuspiciousQuery(query)) {
-      _log("Dropping suspicious query before double-fetch:", query);
+      logger.debug("Dropping suspicious query before double-fetch:", query);
       return;
     }
 
     const { isSearchEngineUrl, queryUrl } =
-      WebDiscoveryProject.contentExtractor.checkAnonSearchURL(url, query);
+      WebDiscoveryProject.contentExtractor.urlAnalyzer.checkAnonSearchURL(
+        url,
+        query,
+      );
     if (isSearchEngineUrl) {
       try {
         const qObj = {
@@ -5731,6 +5712,7 @@ const WebDiscoveryProject = {
   },
 };
 WebDiscoveryProject.contentExtractor = new ContentExtractor(
+  WebDiscoveryProject.patterns,
   WebDiscoveryProject,
 );
 
