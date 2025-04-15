@@ -1,6 +1,6 @@
 {
   "name": "web-discovery-project",
-  "version": "1.1.71",
+  "version": "1.1.72",
   "description": "Standalone Web Discovery Project package and extension",
   "scripts": {
     "lint": "node fern.js lint",
@@ -74,7 +74,7 @@
     "camelcase": "6.3.0",
     "chai": "4.3.10",
     "chai-as-promised": "7.1.1",
-    "chai-dom": "1.12.0",
+    "chai-dom": "1.12.1",
     "colors": "1.4.0",
     "commander": "11.1.0",
     "concurrently": "8.2.2",
