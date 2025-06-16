@@ -88,52 +88,6 @@
     },
     {
       "type": "wdp",
-      "action": "top-stories",
-      "payload": {
-        "r": {
-          "0": {
-            "u": "https://apnews.com/article/israel-hamas-republican-2024-candidates-trump-4fc0bf20c40acdcf49a579db79bec035",
-            "lu": "2 days ago",
-            "h": "The Republican field is blaming Joe Biden for dealing with Iran after \nHamas' attack on Israel"
-          },
-          "1": {
-            "u": "https://news.yahoo.com/donald-trump-unleashes-macho-bluster-102613712.html",
-            "lu": "1 day ago",
-            "h": "Donald Trump Unleashes His Macho Bluster In All-Caps Response To Hamas \nAttack On Israel"
-          },
-          "2": {
-            "u": "https://www.politico.com/news/2023/10/09/trump-new-hampshire-rally-israel-00120622",
-            "lu": "17 hours ago",
-            "h": "What war? Trump is busy talking about whales, weightlifting and the Patriots"
-          },
-          "3": {
-            "u": "https://thehill.com/homenews/campaign/4247244-trump-hurd-drop-out-2024-gop-race/",
-            "lu": "53 mins ago",
-            "h": "Trump rips Hurd after former congressman pulls out of White House race: \n‘It’s about time!’"
-          },
-          "4": {
-            "u": "https://www.wsj.com/articles/i-am-dropping-out-and-endorsing-nikki-haley-to-beat-donald-trump-fafd472",
-            "lu": "15 hours ago",
-            "h": "Nikki Haley Can Beat Donald Trump - WSJ"
-          },
-          "5": {
-            "u": "https://www.npr.org/2023/10/10/1204241558/trump-biden-election-2024-age-voters",
-            "lu": "4 hours ago",
-            "h": "We spoke to older voters about Trump and Biden's age. We saw 3 recurring \nthemes"
-          },
-          "6": {
-            "u": "https://www.foxnews.com/politics/mystery-solved-iran-backed-judge-seek-trump-arrest-visit-invite-washington-dc-confirmed",
-            "lu": "5 hours ago",
-            "h": "Mystery solved as Iran-backed judge, who seeks Trump's arrest, confirms \ninvite to Washington, DC"
-          }
-        },
-        "q": "trump",
-        "qurl": "https://www.google.com/search?q=trump&gl=us&hl=en",
-        "ctry": "de"
-      }
-    },
-    {
-      "type": "wdp",
       "action": "infobox",
       "payload": {
         "t": "About",

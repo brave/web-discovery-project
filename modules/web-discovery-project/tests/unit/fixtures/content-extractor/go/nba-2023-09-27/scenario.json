@@ -102,32 +102,6 @@
     },
     {
       "type": "wdp",
-      "action": "top-stories",
-      "payload": {
-        "r": {
-          "0": {
-            "u": "https://www.foxsports.com.au/basketball/nba/nba-2023-philadelphia-76ers-news-damien-lillard-trade-kelly-oubre-jr-james-harden-future-latest-trade-news-updates/news-story/62fd644009f224490ad5497a1604141c",
-            "lu": "11 hours ago",
-            "h": "NBA 2023: Philadelphia 76ers news; Damien Lillard trade; Kelly Oubre Jr. \nJames Harden future, latest trade news ..."
-          },
-          "1": {
-            "u": "https://www.espn.com/nba/story/_/id/38498956/magic-johnson-says-knicks-only-nba-team-consider-owning",
-            "lu": "13 hours ago",
-            "h": "Magic Johnson says Knicks only NBA team he'd consider owning - ESPN"
-          },
-          "2": {
-            "u": "https://www.si.com/nba/2023/09/26/nba-mailbag-does-damian-lillard-trade-make-sense-raptors",
-            "lu": "17 hours ago",
-            "h": "NBA Mailbag: Does a Damian Lillard Trade Make Sense for the Raptors?"
-          }
-        },
-        "q": "nba",
-        "qurl": "https://www.google.com/search?q=nba&gl=us&hl=en",
-        "ctry": "de"
-      }
-    },
-    {
-      "type": "wdp",
       "action": "infobox",
       "payload": {
         "t": "NBA",

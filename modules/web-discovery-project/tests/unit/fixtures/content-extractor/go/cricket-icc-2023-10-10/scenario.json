@@ -81,52 +81,6 @@
     },
     {
       "type": "wdp",
-      "action": "top-stories",
-      "payload": {
-        "r": {
-          "0": {
-            "u": "https://www.bbc.com/sport/live/cricket/66854377",
-            "lu": "37 mins ago",
-            "h": "England vs Bangladesh LIVE: ICC Men's Cricket World Cup 2023 - score, \ncommentary, video highlights & updates - Live"
-          },
-          "1": {
-            "u": "https://www.hindustantimes.com/cricket/joe-root-breaks-graham-goochs-31-year-old-world-cup-record-with-dazzling-knock-against-bangladesh-101696935811252.html",
-            "lu": "2 hours ago",
-            "h": "Joe Root breaks Graham Gooch's 31-year-old World Cup record with dazzling \nknock"
-          },
-          "2": {
-            "u": "https://www.espncricinfo.com/series/icc-cricket-world-cup-2023-24-1367856/bangladesh-vs-england-7th-match-1384398/full-scorecard",
-            "lu": "1 hour ago",
-            "h": "BAN vs ENG, ICC Cricket World Cup 2023/24, 7th Match at Dharamsala, October \n10, 2023 - Full Scorecard"
-          },
-          "3": {
-            "u": "https://www.aljazeera.com/sports/liveblog/2023/10/10/live-pakistan-vs-sri-lanka-icc-cricket-world-cup-2023",
-            "lu": "LIVE",
-            "h": "LIVE: Pakistan vs Sri Lanka – ICC Cricket World Cup 2023"
-          },
-          "4": {
-            "u": "https://zeenews.india.com/cricket/live-updates/live-cricket-score-pak-vs-sl-icc-odi-cricket-world-cup-2023-match-no-8-today-pakistan-vs-sri-lanka-rajiv-gandhi-international-stadium-hyderabad-babar-azam-dasun-shanaka-345-runs-2nd-innings-target-for-pak-2673187",
-            "lu": "LIVE",
-            "h": "PAK 56-2 (12) | PAK Vs SL ICC ODI World Cup 2023 Live Cricket Score and \nUpdates: Babar Azam Departs,"
-          },
-          "5": {
-            "u": "https://www.espncricinfo.com/series/icc-cricket-world-cup-2023-24-1367856",
-            "lu": "Jun 27, 2023",
-            "h": "World Cup 2023 | 2023/24 ICC Cricket World Cup | Live Score, Schedule, News"
-          },
-          "6": {
-            "u": "https://thewire.in/sport/cricket-world-cup-pakistani-presenter-zainab-abbas-leaves-india",
-            "lu": "1 hour ago",
-            "h": "Cricket World Cup: Pakistani Presenter Leaves India After Complaint Over \n'Derogatory Remarks'"
-          }
-        },
-        "q": "cricket icc",
-        "qurl": "https://www.google.com/search?q=cricket%20icc&gl=us&hl=en",
-        "ctry": "de"
-      }
-    },
-    {
-      "type": "wdp",
       "action": "infobox",
       "payload": {
         "t": "International Cricket Council",

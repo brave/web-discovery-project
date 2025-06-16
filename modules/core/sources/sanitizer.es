@@ -2,6 +2,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
+import { isHash } from "./helpers/hash-detector";
 import logger from "./logger";
 
 function isCharNumber(char) {
@@ -212,9 +213,19 @@ function tryParseUrl(url) {
   }
 }
 
-function checkForInternalIp(hostname) {
+function isPrivateHostname(hostname) {
   // TODO: this could be extended to detect more cases
   return hostname === "localhost" || hostname === "127.0.0.1";
+}
+
+// Note: This is a conservative implementation that detects all valid IPv4 addresses.
+// It may produce false-positives, so consider this if using for other purposes.
+function looksLikeIPv4Address(hostname) {
+  return /^[0-9]{1,3}[.][0-9]{1,3}[.][0-9]{1,3}[.][0-9]{1,3}$/.test(hostname);
+}
+
+function looksLikeSafeUrlParameter(key, value) {
+  return value.length < 18 || /^[a-z-_]+$/.test(value);
 }
 
 /**
@@ -229,50 +240,81 @@ function urlLeaksExtensionId(url) {
   );
 }
 
-/**
- * Sanity checks to protect against accidentially sending sensitive URLs.
- *
- * There are three possible outcomes:
- * 1) "safe": URL can be accepted as is
- * 2) "truncated": URL may have sensitive parts but can be truncated
- *    (use includ the hostname but remove the rest)
- * 3) "dropped": URL is corrupted or unsafe
- *
- * Expections: this function should be seen as an additional layer of defence,
- * but do not expect it to detect all situation. Instead, make sure to extract
- * only URLs where the context is safe. Otherwise, you are expecting too
- * much from this static classifier.
- *
- * When changing new rules here, it is OK to be conservative. Since
- * classification error are expected, rather err on the side of
- * dropping (or truncating) too much.
- */
-export function sanitizeUrl(url) {
-  const accept = () => ({ result: "safe", safeUrl: url });
-  const drop = (reason) => ({ result: "dropped", safeUrl: null, reason });
+function normalizeUrlPart(urlPart) {
+  return urlPart.toLowerCase().replace(/_/g, '-');
+}
+
+// Note: matches URL parts (https://example.test/foo/bar/baz -> ['foo', 'bar', 'baz]).
+// Before matching, URL match will be normalized (see "normalizeUrlPart").
+const RISKY_URL_PATH_PARTS = new Set([
+  // login related:
+  'login',
+  'login.php',
+  'login-actions',
+  'logout',
+  'signin',
+  'recover',
+  'forgot',
+  'forgot-password',
+  'reset-credentials',
+  'authenticate',
+  'not-confirmed',
+  'reset',
+  'oauth',
+  'password',
+
+  // potential tokens
+  'token',
+
+  // could leak account:
+  'edit',
+  'checkout',
+  'account',
+  'share',
+  'sharing',
+
+  // Admin accounts
+  'admin',
+  'console',
+
+  // Wordpress
+  'wp-admin',
+  'wp-admin.php',
+
+  // Oracle WebLogic
+  'weblogic',
+]);
+
+export function sanitizeUrl(url, options = {}) {
+  const { strict = false, tryPreservePath = false } = options;
+  let accept = () => ({ result: 'safe', safeUrl: url });
+  const drop = (reason) => ({ result: 'dropped', safeUrl: null, reason });
 
   // first run some sanity check on the structure of the URL
   const parsedUrl = tryParseUrl(url);
   if (!parsedUrl) {
-    return drop("invalid URL");
+    return drop('invalid URL');
   }
   if (parsedUrl.username) {
-    return drop("URL sets username");
+    return drop('URL sets username');
   }
   if (parsedUrl.password) {
-    return drop("URL sets password");
+    return drop('URL sets password');
   }
-  if (parsedUrl.port && parsedUrl.port !== "80" && parsedUrl.port !== "443") {
-    return drop("URL has uncommon port");
+  if (parsedUrl.port && parsedUrl.port !== '80' && parsedUrl.port !== '443') {
+    return drop('URL has uncommon port');
   }
-  if (parsedUrl.protocol !== "http:" && parsedUrl.protocol !== "https:") {
-    return drop("URL has uncommon protocol");
+  if (parsedUrl.protocol !== 'http:' && parsedUrl.protocol !== 'https:') {
+    return drop('URL has uncommon protocol');
   }
-  if (checkForInternalIp(parsedUrl.hostname)) {
-    return drop("URL is not public");
+  if (isPrivateHostname(parsedUrl.hostname)) {
+    return drop('URL is not public');
+  }
+  if (looksLikeIPv4Address(parsedUrl.hostname)) {
+    return drop('hostname is an ipv4 address');
   }
   if (urlLeaksExtensionId(url)) {
-    return drop("URL leaks extension ID");
+    return drop('URL leaks extension ID');
   }
 
   try {
@@ -285,34 +327,120 @@ export function sanitizeUrl(url) {
     // so it is less likely that sites include secrets or personal
     // identifiers in the hostname.
     const truncate = (reason) => {
+      if (tryPreservePath && (parsedUrl.search || parsedUrl.hash)) {
+        // if the URL with only the URL path left is safe, than we can mask the
+        // URL less aggressively. Instead of leaving only the domain, we can
+        // keep also the URL path.
+        parsedUrl.search = '';
+        parsedUrl.hash = '';
+        const urlWithoutPath = parsedUrl.toString();
+        const { result, safeUrl } = sanitizeUrl(urlWithoutPath, {
+          ...options,
+          tryPreservePath: false,
+        });
+        if (result === 'safe') {
+          return {
+            result: 'truncated',
+            safeUrl: `${safeUrl} (PROTECTED)`,
+            reason,
+          };
+        }
+      }
+
       const safeUrl = `${parsedUrl.protocol}//${parsedUrl.hostname}/ (PROTECTED)`;
-      logger.debug("sanitizeUrl truncated URL:", url, "->", safeUrl);
+      logger.debug('sanitizeUrl truncated URL:', url, '->', safeUrl);
       return {
-        result: "truncated",
+        result: 'truncated',
         safeUrl,
         reason,
       };
     };
 
-    // TODO: these rules could use some polishing
-    if (url.hostname > 50) {
-      return drop("hostname too long");
+    // 50 is somewhat arbitrary, but appears to be an acceptable compromise.
+    // There are valid websites with domains longer than 50 characters
+    // (up to over 130 chars), but it is rare. Looking at relevant examples,
+    // 99 percent fell in to 50 character range. If you need to tweaking
+    // this value, it might be possible to increase it at bit.
+    if (parsedUrl.hostname.length > 50) {
+      return drop('hostname too long');
     }
+
     if (url.length > 800) {
-      return truncate("url too long");
+      return truncate('url too long');
+    }
+    if (parsedUrl.search.length > 150) {
+      return truncate('url search part too long');
+    }
+    if (parsedUrl.searchParams.size > 8) {
+      return truncate('too many url search parameters');
     }
 
     const decodedUrl = decodeURIComponent(url);
     if (checkForEmail(url) || checkForEmail(decodedUrl)) {
-      return truncate("potential email found");
+      return truncate('potential email found');
     }
 
-    // TODO: check each path and query parameter and truncate if there
-    // are fields that could be tokens, secrets, names or logins.
+    const pathParts = parsedUrl.pathname.split('/');
+    if (pathParts.length > 8) {
+      return truncate('too many parts in the url path');
+    }
+    for (const part of pathParts) {
+      const normalizedPart = normalizeUrlPart(part);
+      if (RISKY_URL_PATH_PARTS.has(normalizedPart)) {
+        return truncate(`Found a problematic part in the URL path: ${part}`);
+      }
+
+      if (strict && isHash(part, { threshold: 0.015 })) {
+        return truncate(
+          `Found URL path that could be an identifier: <<${part}>>`,
+        );
+      }
+    }
+
+    const regexps = [
+      /[&?]redirect(?:-?url)?=/i,
+      /[&?#/=;](?:http|https)(?::[/]|%3A%2F)/,
+      /[/]order[/]./i,
+      /[/]auth[/]realms[/]/i,
+      /[/]protocol[/]openid-connect[/]/i,
+      /((maps|route[^r-]).*|@)\d{1,2}[^\d]-?\d{6}.+\d{1,2}[^\d]-?\d{6}/i,
+    ];
+    for (const regexp of regexps) {
+      if (regexp.test(url)) {
+        return truncate(`matches ${regexp}`);
+      }
+    }
+
+    for (const [key, value] of parsedUrl.searchParams) {
+      if (value.length > 18 && !looksLikeSafeUrlParameter(key, value)) {
+        const { accept: ok, reason } = checkSuspiciousQuery(value);
+        if (!ok) {
+          return truncate(
+            `Found problematic URL parameter ${key}=${value}: ${reason}`,
+          );
+        }
+      }
+      if (strict && isHash(value, { threshold: 0.015 })) {
+        return truncate(
+          `Found URL parameter that could be an identifier ${key}=${value}`,
+        );
+      }
+    }
+
+    if (parsedUrl.hash) {
+      parsedUrl.hash = '';
+      const safeUrl = `${parsedUrl} (PROTECTED)`;
+      logger.debug('sanitizeUrl truncated URL:', url, '->', safeUrl);
+      return {
+        result: 'truncated',
+        safeUrl,
+        reason: 'URL fragment found',
+      };
+    }
 
     return accept();
   } catch (e) {
     logger.warn(`Unexpected error in sanitizeUrl. Skipping url=${url}`, e);
-    return drop("Unexpected error");
+    return drop('Unexpected error');
   }
 }

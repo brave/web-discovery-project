@@ -149,8 +149,6 @@ const TRANSFORMS = new Map(
      *
      * Example ["removeParams", ["foo", "bar"]]:
      * - "https://example.test/path?foo=1&bar=2" -> "https://example.test/path"
-     *
-     * @since: 1
      */
     removeParams: (url, queryParams) => {
       expectString(url);
@@ -165,8 +163,6 @@ const TRANSFORMS = new Map(
     /**
      * Given text, it will verify that it is a well-formed URL;
      * otherwise, it will end the processing by "nulling" it out.
-     *
-     * @since: 1
      */
     requireURL: (url) => {
       expectString(url);
@@ -176,8 +172,6 @@ const TRANSFORMS = new Map(
     /**
      * Validates if the given value is in a predefined list of allowed
      * values; otherwise, it will end the processing by "nulling" it out.
-     *
-     * @since: 2
      */
     filterExact: (text, allowedStrings) => {
       expectString(text);
@@ -190,10 +184,23 @@ const TRANSFORMS = new Map(
      * parts that may be sensitive (i.e. keeping only the hostname),
      * or even drop it completely.
      */
-    maskU: (x) => {
-      expectString(x);
+    maskU: (url) => {
+      expectString(url);
       try {
-        return sanitizeUrl(x).safeUrl;
+        return sanitizeUrl(url).safeUrl;
+      } catch (e) {
+        return null;
+      }
+    },
+
+    /**
+     * Like "maskU", but tries to preserve the URL path when truncating.
+     */
+    relaxedMaskU: (url) => {
+      expectString(url);
+      try {
+        return sanitizeUrl(url, { strict: false, tryPreservePath: true })
+          .safeUrl;
       } catch (e) {
         return null;
       }
