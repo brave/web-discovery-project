@@ -5,11 +5,12 @@
   "scripts": {
     "lint": "node fern.js lint",
     "build": "node fern.js build configs/sandbox.js --environment prod",
+    "build-dev": "node fern.js build configs/sandbox.js --environment development",
     "build-module": "node fern.js build configs/module.js --environment prod",
     "postinstall": "patch-package",
     "start:brave": "web-ext run --source-dir='./build' --target chromium --chromium-binary \"$BRAVE_PATH\"",
     "start:build": "node --unhandled-rejections=strict fern.js serve configs/sandbox.js --no-launch",
-    "start": "npm run build && concurrently npm:start:*"
+    "start": "npm run build-dev && concurrently npm:start:*"
   },
   "repository": {
     "type": "git",
