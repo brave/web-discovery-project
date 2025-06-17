@@ -26,7 +26,7 @@ export function isValidEAN13(ean) {
     const factor = i % 2 === 0 ? 1 : 3;
     sum += factor * uncheckedCharToNumber(ean[i]);
   }
-  const checksum = 10 - (sum % 10);
+  const checksum = (10 - (sum % 10)) % 10;
   return checksum === uncheckedCharToNumber(ean[12]);
 }
 
