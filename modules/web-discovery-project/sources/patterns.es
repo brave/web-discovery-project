@@ -274,6 +274,11 @@ const TRANSFORMS = new Map(
         return "";
       }
     },
+
+    trim: (text) => {
+      expectString(text);
+      return text.trim();
+    },
   }),
 );
 
