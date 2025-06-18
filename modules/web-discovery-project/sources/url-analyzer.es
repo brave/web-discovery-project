@@ -9,23 +9,27 @@ import logger from "./logger";
 const URL_PATTERNS = [
   {
     type: "search-goi",
+    isSearchEngine: true,
     regexp:
       /^https:[/][/][^/]*[.]google[.].*?[#?&;]((q=[^&]+&([^&]+&)*tbm=isch)|(tbm=isch&([^&]+&)*q=[^&]+))/,
     prefix: "search?tbm=isch&gbv=1&q=",
   },
   {
     type: "search-gov",
+    isSearchEngine: true,
     regexp:
       /^https:[/][/][^/]*[.]google[.].*?[#?&;]((q=[^&]+&([^&]+&)*tbm=vid)|(tbm=vid&([^&]+&)*q=[^&]+))/,
     prefix: "search?tbm=vid&gbv=1&q=",
   },
   {
     type: "search-go",
+    isSearchEngine: true,
     regexp: /^https:[/][/][^/]*[.]google[.].*?[#?&;]/,
     prefix: "search?q=",
   },
   {
     type: "search-ya",
+    isSearchEngine: true,
     regexp: /^https:[/][/][^/]*[.]search[.]yahoo[.].*?[#?&;][pq]=[^$&]+/,
     prefix: "search?q=",
     queryFinder(parsedUrl) {
@@ -34,16 +38,19 @@ const URL_PATTERNS = [
   },
   {
     type: "search-bii",
+    isSearchEngine: true,
     regexp: /^https:[/][/][^/]*[.]bing[.][^/]+[/]images[/]search[?]q=[^$&]+/,
     prefix: "images/search?q=",
   },
   {
     type: "search-bi",
+    isSearchEngine: true,
     regexp: /^https:[/][/][^/]*[.]bing[.].*?[#?&;]q=[^$&]+/,
     prefix: "search?q=",
   },
   {
     type: "search-am",
+    isSearchEngine: false,
     regexp:
       /^https:[/][/][^/]*[.]amazon[.][^/]+[/](s[?]k=[^$&]+|.*[?&]field-keywords=[^$&]+)/,
     prefix: "s/?field-keywords=",
@@ -56,6 +63,7 @@ const URL_PATTERNS = [
   },
   {
     type: "amp",
+    isSearchEngine: false,
     regexp:
       /^https:[/][/][^/]*[.]amazon[.][^/]+[/]([/]dp[/]|[/]gp[/]product[/])/,
     queryFinder(parsedUrl) {
@@ -64,24 +72,17 @@ const URL_PATTERNS = [
   },
   {
     type: "search-dd",
+    isSearchEngine: true,
     regexp:
       /^https:[/][/]duckduckgo.com[/](?:html$|.*[?&]q=[^&]+.*&ia=web|[?]q=[^&]+$)/,
     prefix: "?q=",
   },
   {
     type: "li",
+    isSearchEngine: false,
     regexp: /^https:[/][/][^/]*linkedin[.][^/]+[/]pub[/]dir+/,
   },
 ];
-const SEARCH_ENGINE_TYPES = new Set([
-  "search-goi",
-  "search-gov",
-  "search-go",
-  "search-ya",
-  "search-bii",
-  "search-bi",
-  "search-dd",
-]);
 
 export default class UrlAnalyzer {
   constructor(patterns) {
@@ -90,11 +91,12 @@ export default class UrlAnalyzer {
   }
 
   parseLinks(url) {
-    for (const {
-      type,
-      regexp,
-      queryFinder = (parsedUrl) => parsedUrl.searchParams.get("q"),
-    } of this._urlPatterns) {
+    for (const urlPattern of this._urlPatterns) {
+      const {
+        type,
+        regexp,
+        queryFinder = (parsedUrl) => parsedUrl.searchParams.get("q"),
+      } = urlPattern;
       if (regexp.test(url)) {
         // Workaround for an encoding issue (source: https://stackoverflow.com/a/24417399/783510).
         // Reason: we want to preserve the original search term. In other words, searches
@@ -115,7 +117,7 @@ export default class UrlAnalyzer {
           );
           return { found: false };
         }
-        return { found: true, type, query };
+        return { found: true, urlPattern, query };
       }
     }
 
@@ -123,9 +125,9 @@ export default class UrlAnalyzer {
   }
 
   isSearchEngineUrl(url) {
-    const { found, type } = this.parseLinks(url);
+    const { found, urlPattern } = this.parseLinks(url);
     if (!found) return false;
-    return SEARCH_ENGINE_TYPES.has(type);
+    return urlPattern.isSearchEngine || false;
   }
 
   tryExtractBraveSerpQuery(url) {
@@ -138,10 +140,8 @@ export default class UrlAnalyzer {
   }
 
   checkAnonSearchURL(url, query) {
-    const { found, type } = this.parseLinks(url);
+    const { found, urlPattern } = this.parseLinks(url);
     if (!found) return { isSearchEngineUrl: false, queryUrl: null };
-    const isSearchEngineUrl = SEARCH_ENGINE_TYPES.has(type);
-    const urlPattern = URL_PATTERNS.find((p) => p.type == type);
     const queryPrefix = urlPattern.prefix;
     if (!queryPrefix) {
       logger.debug(
@@ -152,6 +152,6 @@ export default class UrlAnalyzer {
     const encodedQuery = encodeURIComponent(query).replace(/%20/g, "+");
     const hostname = extractHostname(url);
     const queryUrl = `https://${hostname}/${queryPrefix}${encodedQuery}`;
-    return { isSearchEngineUrl, queryUrl };
+    return { isSearchEngineUrl: urlPattern.isSearchEngine || false, queryUrl };
   }
 }

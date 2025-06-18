@@ -112,10 +112,10 @@ export class ContentExtractor {
       };
     }
 
-    const { found, type, query } = this.urlAnalyzer.parseLinks(url);
+    const { found, urlPattern, query } = this.urlAnalyzer.parseLinks(url);
     if (!found) return discard("No content found.");
 
-    const messages = this.extractMessages(pageContent, type, query, url);
+    const messages = this.extractMessages(pageContent, urlPattern.type, query, url);
     if (messages.length === 0) {
       return discard("No content found.");
     }
