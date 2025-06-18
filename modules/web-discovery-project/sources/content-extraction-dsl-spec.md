@@ -78,7 +78,9 @@ Transformations are arrays of operations to apply to extracted values:
 | `json` | Parse JSON and extract a specific field | `["json", "t"]` |
 | `maskU` | Mask/sanitize URLs | `["maskU"]` |
 | `relaxedMaskU` | Less strict URL masking | `["relaxedMaskU"]` |
-| `removeParams` | Remove specific URL parameters | `["removeParams", ["utm_source", "ref_"]]` |
+| `queryParam` | Extract a query parameter from a URL | `["queryParam", "gl"]` |
+| `removeParams` | Remove specific query parameters from a URL | `["removeParams", ["utm_source", "ref_"]]` |
+| `requireURL` | Verify that a URL is well-formed | `["requireURL", "https://example.com"]` |
 | `split` | Split string by delimiter | `["split", "•", 0]` |
 | `trim` | Remove whitespace | `["trim"]` |
 
