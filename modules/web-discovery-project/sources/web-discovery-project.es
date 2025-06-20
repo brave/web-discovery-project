@@ -4,12 +4,13 @@
 
 import BloomFilter from "../core/bloom-filter";
 import md5 from "../core/helpers/md5";
-import { isHashProb, isHash } from "../core/helpers/hash-detector";
+import { isHash } from "../core/helpers/hash-detector";
 import { sha1 } from "../core/crypto/utils";
 import random from "../core/crypto/random";
 import { fetch, httpGet } from "../core/http";
 import { parse, isIpAddress } from "../core/url";
 import { extractHostname } from "../core/tlds";
+import { checkSuspiciousQuery } from "../core/sanitizer";
 import Storage from "../platform/web-discovery-project/storage";
 import config from "../core/config";
 import { getAllOpenPages } from "../platform/web-discovery-project/opentabs";
@@ -235,8 +236,7 @@ const WebDiscoveryProject = {
 
       if (url_parts.hostname.length < 8 && url_parts.path.length > 4) {
         var v = url_parts.path.split("/");
-        for (var i = 0; i < v.length; i++)
-          if (isHash(v[i])) return true;
+        for (var i = 0; i < v.length; i++) if (isHash(v[i])) return true;
       }
       return false;
     } catch (ee) {
@@ -326,7 +326,9 @@ const WebDiscoveryProject = {
           ) &&
           aURI.length - pos_hash_char >= 10
         ) {
-          logger.debug("Dropped because of # in url: " + decodeURIComponent(aURI));
+          logger.debug(
+            "Dropped because of # in url: " + decodeURIComponent(aURI),
+          );
           return true;
         }
       }
@@ -417,8 +419,7 @@ const WebDiscoveryProject = {
           }
 
           for (var i = 0; i < v.length; i++) {
-            if (v[i].length > 3 && isHash(v[i]))
-              return true;
+            if (v[i].length > 3 && isHash(v[i])) return true;
           }
 
           if (
@@ -436,7 +437,9 @@ const WebDiscoveryProject = {
           url_parts.query_string &&
           url_parts.query_string.length > WebDiscoveryProject.qs_len
         ) {
-          logger.debug("DLU failed: length of query string is longer than qs_len");
+          logger.debug(
+            "DLU failed: length of query string is longer than qs_len",
+          );
           return true;
         }
 
@@ -479,8 +482,7 @@ const WebDiscoveryProject = {
 
         if (options.strict == true) {
           // if strict, check the no token in path looks like a hash
-          if (vpath[i].length > 5 && isHash(vpath[i]))
-            return true;
+          if (vpath[i].length > 5 && isHash(vpath[i])) return true;
         } else {
           if (vpath[i].length > 12 && isHash(vpath[i])) {
             logger.debug("DLU failed: hash in the URL ", vpath[i]);
@@ -563,7 +565,10 @@ const WebDiscoveryProject = {
         if (url_parts.query_string && url_parts.query_string.length > 0) {
           for (var i = 0; i < v.length; i++)
             if (v[i].test("?" + url_parts.query_string)) {
-              logger.debug("Prohibited keyword found: ", url_parts.query_string);
+              logger.debug(
+                "Prohibited keyword found: ",
+                url_parts.query_string,
+              );
               return true;
             }
         }
@@ -1128,7 +1133,9 @@ const WebDiscoveryProject = {
           },
         );
       } else {
-        logger.debug("PPP in fetchReferral already in docCache: " + referral_url);
+        logger.debug(
+          "PPP in fetchReferral already in docCache: " + referral_url,
+        );
         callback();
       }
     } else callback();
@@ -1172,7 +1179,9 @@ const WebDiscoveryProject = {
       if (cUrl) {
         if (!allowlisted && WebDiscoveryProject.dropLongURL(cUrl)) {
           // oops, the canonical is also bad, therefore mark as private
-          logger.debug(`both URL=${url} and canonical_url=${cUrl} are too long`);
+          logger.debug(
+            `both URL=${url} and canonical_url=${cUrl} are too long`,
+          );
           return discard(`both URL and canonical_url are too long`);
         }
         // proceed, as we are in the good scenario in which the canonical
@@ -1885,8 +1894,17 @@ const WebDiscoveryProject = {
                 if (!WebDiscoveryProject) {
                   return;
                 }
-                const query = WebDiscoveryProject.contentExtractor.extractQuery(url);
-                if (query) WebDiscoveryProject.addStrictQueries(url, query)
+                const query =
+                  WebDiscoveryProject.contentExtractor.extractQuery(url);
+                if (!query) return;
+                const queryCheck = checkSuspiciousQuery(query);
+                if (!queryCheck.accept) {
+                  logger.debug(
+                    `[onLocationChange] Dropping suspicious query before double-fetch (${queryCheck.reason})`,
+                  );
+                  return;
+                }
+                WebDiscoveryProject.addStrictQueries(url, query);
               },
               WebDiscoveryProject.WAIT_TIME,
               activeURL,
@@ -2729,7 +2747,9 @@ const WebDiscoveryProject = {
           // the canonical exists and is ok
           msg.payload.url = canonical_url;
         } else {
-          logger.debug("Suspicious url with no/bad canonical: " + msg.payload.url);
+          logger.debug(
+            "Suspicious url with no/bad canonical: " + msg.payload.url,
+          );
           return null;
         }
       } else {
@@ -2831,7 +2851,7 @@ const WebDiscoveryProject = {
 
     // Check if qr.q is suspicious.
     if (msg.payload.qr) {
-      if (WebDiscoveryProject.isSuspiciousQuery(msg.payload.qr.q)) {
+      if (!checkSuspiciousQuery(msg.payload.qr.q).accept) {
         delete msg.payload.qr;
       }
     }
@@ -2847,7 +2867,7 @@ const WebDiscoveryProject = {
       if (msg.payload.q == null || msg.payload.q == "") {
         return null;
       } else {
-        if (WebDiscoveryProject.isSuspiciousQuery(msg.payload.q)) {
+        if (!checkSuspiciousQuery(msg.payload.q).accept) {
           return null;
         }
       }
@@ -3228,7 +3248,7 @@ const WebDiscoveryProject = {
         if (cstr.length > WebDiscoveryProject.rel_segment_len) {
           if (isHash(cstr)) return true;
 
-          if (isHashProb(cstr.toLowerCase())) {
+          if (isHash(cstr.toLowerCase(), { threshold: 0.0225 })) {
             return true;
           }
         }
@@ -3503,42 +3523,6 @@ const WebDiscoveryProject = {
       }
     });
   },
-  isSuspiciousQuery: function (query) {
-    //Remove the msg if the query is too long,
-    if (query.length > 50) return true;
-    if (query.split(" ").length > 7) return true;
-
-    // Remove the msg if the query contains a number longer than 7 digits
-    // can be 666666 but also things like (090)90-2, 5555 3235
-    // note that full dates will be removed 2014/12/12
-    //
-    var haslongnumber = WebDiscoveryProject.checkForLongNumber(query, 7);
-    if (haslongnumber != null) return true;
-
-    //Remove if email (exact), even if not totally well formed
-    if (WebDiscoveryProject.checkForEmail(query)) {
-      return true;
-    }
-    //Remove if query looks like an http pass
-    if (/[^:]+:[^@]+@/.test(query)) return true;
-
-    var v = query.split(" ");
-    for (let i = 0; i < v.length; i++) {
-      if (v[i].length > 20) return true;
-      if (/[^:]+:[^@]+@/.test(v[i])) return true;
-    }
-
-    if (query.length > 12) {
-      var cquery = query.replace(/[^A-Za-z0-9]/g, "");
-
-      if (cquery.length > 12) {
-        // we are a bit more strict here because the query
-        // can have parts well formed
-        if (isHashProb(cquery)) return true;
-      }
-    }
-    return false;
-  },
   sanitizeResultTelemetry: function (data) {
     /*
         Sanitize result telemetry. Does NOT send it, but returns sanitized telemetry.
@@ -3564,7 +3548,7 @@ const WebDiscoveryProject = {
     }
 
     // If suspicious query.
-    if (WebDiscoveryProject.isSuspiciousQuery(query)) {
+    if (!checkSuspiciousQuery(query).accept) {
       logger.debug("Query is suspicious");
       sanitisedQuery = "(PROTECTED)";
     }
@@ -3716,7 +3700,9 @@ const WebDiscoveryProject = {
       struct_aft.nifsh == null ||
       struct_bef.nifsh != struct_aft.nifsh
     ) {
-      logger.debug("fovalidDoubleFetch: number of internal iframes does not match");
+      logger.debug(
+        "fovalidDoubleFetch: number of internal iframes does not match",
+      );
       return false;
     }
 
@@ -3734,7 +3720,9 @@ const WebDiscoveryProject = {
       struct_aft.nfsh == null ||
       struct_bef.nfsh != struct_aft.nfsh
     ) {
-      logger.debug("fovalidDoubleFetch: number of internal frameset does not match");
+      logger.debug(
+        "fovalidDoubleFetch: number of internal frameset does not match",
+      );
       return false;
     }
 
@@ -3870,7 +3858,9 @@ const WebDiscoveryProject = {
 
         if (original.t === "ref") {
           msg.payload.ref = WebDiscoveryProject.maskURLStrict(original.url);
-          logger.debug(`Sanitized 'ref': ${original.url} -> ${msg.payload.ref}`);
+          logger.debug(
+            `Sanitized 'ref': ${original.url} -> ${msg.payload.ref}`,
+          );
         }
 
         if (original.t.startsWith("red")) {
@@ -3987,7 +3977,9 @@ const WebDiscoveryProject = {
           if (setPrivate) WebDiscoveryProject.setAsPrivate(url);
         });
       } else if (obj.length === 1) {
-        logger.debug(">>>>> Add url to dbobj found record" + JSON.stringify(obj));
+        logger.debug(
+          ">>>>> Add url to dbobj found record" + JSON.stringify(obj),
+        );
         let record = obj[0];
         // Looks like the URL is already there, we just need to update the stats.
 
@@ -4054,7 +4046,9 @@ const WebDiscoveryProject = {
     );
   },
   processUnchecks: function (listOfUncheckedUrls) {
-    logger.debug(">>> URLS UNPROCESSED >>> " + JSON.stringify(listOfUncheckedUrls));
+    logger.debug(
+      ">>> URLS UNPROCESSED >>> " + JSON.stringify(listOfUncheckedUrls),
+    );
     var url_pagedocPair = {};
 
     for (var i = 0; i < listOfUncheckedUrls.length; i++) {
@@ -4122,7 +4116,7 @@ const WebDiscoveryProject = {
 
       if (WebDiscoveryProject.adDetails[clickedU]) {
         let query = WebDiscoveryProject.adDetails[clickedU].query;
-        if (WebDiscoveryProject.isSuspiciousQuery(query)) {
+        if (!checkSuspiciousQuery(query).accept) {
           query = " (PROTECTED) ";
         }
         const domain = cleanFinalUrl(
@@ -4167,7 +4161,7 @@ const WebDiscoveryProject = {
       return;
     }
 
-    if (WebDiscoveryProject.isSuspiciousQuery(query)) {
+    if (!checkSuspiciousQuery(query).accept) {
       logger.debug("Dropping suspicious query before double-fetch:", query);
       return;
     }
