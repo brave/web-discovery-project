@@ -10,7 +10,7 @@ import random from "../core/crypto/random";
 import { fetch, httpGet } from "../core/http";
 import { parse, isIpAddress } from "../core/url";
 import { extractHostname } from "../core/tlds";
-import { checkSuspiciousQuery } from "../core/sanitizer";
+import { checkSuspiciousQuery, sanitizeUrl } from "../core/sanitizer";
 import Storage from "../platform/web-discovery-project/storage";
 import config from "../core/config";
 import { getAllOpenPages } from "../platform/web-discovery-project/opentabs";
@@ -282,81 +282,6 @@ const WebDiscoveryProject = {
     }
 
     return false;
-  },
-  isSuspiciousURL: function (aURI) {
-    try {
-      var url_parts = {};
-      url_parts = parseURL(aURI);
-
-      if (!url_parts) return true;
-
-      logger.debug(JSON.stringify(url_parts));
-      if (aURI.indexOf("about:") == 0) return true;
-
-      if (isIpAddress(url_parts.hostname)) {
-        return true;
-      }
-
-      if (url_parts.username != "" || url_parts.password != "") {
-        return true;
-      }
-
-      if (
-        !WebDiscoveryProject.utility_regression_tests &
-        (url_parts.port != "") &
-        (url_parts.port != "80" && url_parts.port != "443")
-      ) {
-        return true;
-      }
-
-      if (
-        (url_parts.protocol != "http") &
-        (url_parts.protocol != "https") &
-        (url_parts.protocol != "")
-      ) {
-        return true;
-      }
-
-      var pos_hash_char = aURI.indexOf("#");
-
-      if (pos_hash_char > -1) {
-        if (
-          !WebDiscoveryProject.contentExtractor.urlAnalyzer.isSearchEngineUrl(
-            aURI,
-          ) &&
-          aURI.length - pos_hash_char >= 10
-        ) {
-          logger.debug(
-            "Dropped because of # in url: " + decodeURIComponent(aURI),
-          );
-          return true;
-        }
-      }
-
-      if (
-        !WebDiscoveryProject.utility_regression_tests &
-          (url_parts.hostname.indexOf("localhost") > -1) ||
-        url_parts.hostname.endsWith(".local")
-      ) {
-        return true;
-      }
-
-      if (url_parts.hostname.endsWith(".onion")) {
-        return true;
-      }
-
-      if (WebDiscoveryProject.isSuspiciousDomainName(url_parts.hostname)) {
-        return true;
-      }
-
-      logger.debug("Sanitize: URL is ok: " + aURI);
-
-      return false;
-    } catch (ee) {
-      // if there were any exception, we return true for safety
-      logger.debug("Exception in isSuspiciousURL: " + ee);
-      return true;
-    }
   },
   calculateStrictness: function (url, page_doc, structure = false) {
     var strict_value = true;
@@ -1103,7 +1028,7 @@ const WebDiscoveryProject = {
     if (clean_url != url) {
       // they are different, sanity checks
       if (
-        WebDiscoveryProject.isSuspiciousURL(clean_url) ||
+        !sanitizeUrl(clean_url).safeUrl ||
         WebDiscoveryProject.dropLongURL(clean_url)
       )
         return url;
@@ -1167,7 +1092,7 @@ const WebDiscoveryProject = {
     }
 
     // the url is suspicious, this should never be the case here but better safe
-    if (WebDiscoveryProject.isSuspiciousURL(url) == true) {
+    if (!sanitizeUrl(url).safeUrl) {
       return discard("URL failed the isSuspiciousURL check");
     }
 
@@ -1865,7 +1790,7 @@ const WebDiscoveryProject = {
       const activeURL = WebDiscoveryProject.cleanCurrentUrl(url);
 
       //Check if the URL is know to be bad: private, about:, odd ports, etc.
-      if (WebDiscoveryProject.isSuspiciousURL(activeURL)) {
+      if (!sanitizeUrl(activeURL).safeUrl) {
         logger.debug("[onLocationChange] isSuspiciousURL", activeURL);
         return;
       }
@@ -2469,7 +2394,7 @@ const WebDiscoveryProject = {
         }
 
         if (
-          !WebDiscoveryProject.isSuspiciousURL(linkURL) &&
+          sanitizeUrl(linkURL).safeUrl &&
           !WebDiscoveryProject.dropLongURL(linkURL)
         ) {
           WebDiscoveryProject.isAlreadyMarkedPrivate(linkURL, function (_res) {
@@ -2700,7 +2625,7 @@ const WebDiscoveryProject = {
       // Check if they are suspicious.
       // Check if they are marked private.
       if (msg.payload.ref) {
-        if (WebDiscoveryProject.isSuspiciousURL(msg.payload["ref"])) {
+        if (!sanitizeUrl(msg.payload["ref"]).safeUrl) {
           msg.payload["ref"] = null;
         } else {
           msg.payload["ref"] = WebDiscoveryProject.maskURL(msg.payload["ref"]);
@@ -2780,13 +2705,13 @@ const WebDiscoveryProject = {
       if (short_url || short_canonical_url) return null;
 
       // check if suspiciousURL
-      if (WebDiscoveryProject.isSuspiciousURL(msg.payload.url)) return null;
+      if (!sanitizeUrl(msg.payload.url).safeUrl) return null;
 
       if (
         msg.payload.x.canonical_url != null &&
         msg.payload.x.canonical_url != ""
       ) {
-        if (WebDiscoveryProject.isSuspiciousURL(msg.payload.x.canonical_url))
+        if (!sanitizeUrl(msg.payload.x.canonical_url).safeUrl)
           return null;
       }
 
@@ -2794,7 +2719,7 @@ const WebDiscoveryProject = {
       if (msg.payload.red) {
         var cleanRed = [];
         msg.payload.red.forEach(function (e) {
-          if (!WebDiscoveryProject.isSuspiciousURL(e)) {
+          if (sanitizeUrl(e).safeUrl) {
             cleanRed.push(WebDiscoveryProject.maskURL(e));
           }
         });
@@ -2881,7 +2806,7 @@ const WebDiscoveryProject = {
 
         Object.keys(msg.payload.r).forEach((eachResult) => {
           if (
-            !WebDiscoveryProject.isSuspiciousURL(msg.payload.r[eachResult].u)
+            sanitizeUrl(msg.payload.r[eachResult].u).safeUrl
           ) {
             cleanR.push(msg.payload.r[eachResult]);
           }
@@ -3567,7 +3492,7 @@ const WebDiscoveryProject = {
 
     if (
       queryLikeURL &&
-      (WebDiscoveryProject.isSuspiciousURL(query) ||
+      (!sanitizeUrl(query).safeUrl ||
         WebDiscoveryProject.dropLongURL(query))
     ) {
       logger.debug("Query is dangerous");
@@ -3590,7 +3515,7 @@ const WebDiscoveryProject = {
       }
 
       // Check URL is suspicious
-      if (WebDiscoveryProject.isSuspiciousURL(url)) {
+      if (!sanitizeUrl(url).safeUrl) {
         logger.debug("Url is suspicious");
         url = "(PROTECTED)";
       }
@@ -3952,7 +3877,7 @@ const WebDiscoveryProject = {
           let reason = "empty page data";
           setPrivate = true;
           logger.debug("Setting private because empty page data");
-        } else if (WebDiscoveryProject.isSuspiciousURL(url)) {
+        } else if (!sanitizeUrl(url).safeUrl) {
           // if the url looks private already add it already as checked and private
           let reason = "susp. url";
           setPrivate = true;
