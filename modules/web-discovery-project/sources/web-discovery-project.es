@@ -162,73 +162,6 @@ const WebDiscoveryProject = {
   _md5: function (str) {
     return md5(str);
   },
-
-  // There should be no reason for these URLs to show up, but if they do
-  // we should never send them to the backend. Especially, "moz-extension"
-  // is problematic, as it includes an id that is unique per user and
-  // can be used to link messages.
-  urlLeaksExtensionId(url) {
-    const parsed = parse(url);
-    if (!parsed) {
-      return false;
-    }
-
-    return (
-      parsed.protocol === "moz-extension:" ||
-      parsed.protocol === "chrome-extension:"
-    );
-  },
-  maskURL(url) {
-    if (WebDiscoveryProject.urlLeaksExtensionId(url)) {
-      logger.debug("Dropping URL with extension id:", url);
-      return "";
-    }
-    var url_parts = null;
-    var masked_url = null;
-    url_parts = parseURL(url);
-
-    // TO BE FIXED
-    if (!url_parts) return "";
-
-    // Fix
-    if (WebDiscoveryProject.dropLongURL(url)) {
-      //Explicit check for google search url.
-      if (url_parts["hostname"].indexOf("google") > 0) {
-        if (url_parts["query_string"]) {
-          var query_stringsParts = parseQueryString(url_parts["query_string"]);
-          if (query_stringsParts["url"]) {
-            masked_url = query_stringsParts["url"][0];
-            masked_url = WebDiscoveryProject.maskURL(
-              decodeURIComponent("" + masked_url),
-            );
-            return masked_url;
-          }
-        }
-      }
-      masked_url =
-        url_parts.protocol + "://" + url_parts.hostname + "/ (PROTECTED)";
-      return masked_url;
-    }
-    return url;
-  },
-  maskURLStrict(url) {
-    if (WebDiscoveryProject.urlLeaksExtensionId(url)) {
-      logger.debug("Dropping URL with extension id:", url);
-      return "";
-    }
-    var url_parts = null;
-    var masked_url = null;
-    // Fix
-    // url_parts = WebDiscoveryProject.parseUri(url);
-    url_parts = parseURL(url);
-
-    // TO BE FIXED
-    if (!url_parts) return "";
-
-    masked_url =
-      url_parts.protocol + "://" + url_parts.hostname + "/ (PROTECTED)";
-    return masked_url;
-  },
   isShortenerURL: function (url) {
     try {
       var url_parts = parseURL(url);
@@ -2400,12 +2333,12 @@ const WebDiscoveryProject = {
           WebDiscoveryProject.isAlreadyMarkedPrivate(linkURL, function (_res) {
             if (_res && _res["private"] == 0) {
               WebDiscoveryProject.state["v"][activeURL]["c"].push({
-                l: "" + WebDiscoveryProject.maskURL(linkURL),
+                l: "" + sanitizeUrl(linkURL).safeUrl,
                 t: WebDiscoveryProject.counter,
               });
             } else if (!_res) {
               WebDiscoveryProject.state["v"][activeURL]["c"].push({
-                l: "" + WebDiscoveryProject.maskURL(linkURL),
+                l: "" + sanitizeUrl(linkURL).safeUrl,
                 t: WebDiscoveryProject.counter,
               });
             }
@@ -2628,7 +2561,7 @@ const WebDiscoveryProject = {
         if (!sanitizeUrl(msg.payload["ref"]).safeUrl) {
           msg.payload["ref"] = null;
         } else {
-          msg.payload["ref"] = WebDiscoveryProject.maskURL(msg.payload["ref"]);
+          msg.payload["ref"] = WebDiscoveryProject.sanitizeUrl(msg.payload["ref"]);
         }
 
         // Check if ref. exists in bloom filter, then turn ref to null.
@@ -2720,7 +2653,7 @@ const WebDiscoveryProject = {
         var cleanRed = [];
         msg.payload.red.forEach(function (e) {
           if (sanitizeUrl(e).safeUrl) {
-            cleanRed.push(WebDiscoveryProject.maskURL(e));
+            cleanRed.push(sanitizeUrl(e).safeUrl);
           }
         });
         msg.payload.red = cleanRed;
@@ -3528,7 +3461,7 @@ const WebDiscoveryProject = {
             url,
           )
         ) {
-          url = WebDiscoveryProject.maskURL(url);
+          url = sanitizeUrl(url).safeUrl;
         } else {
           url = "(PROTECTED)";
         }
@@ -3542,7 +3475,7 @@ const WebDiscoveryProject = {
         let maskedURL;
         let parsedUrl = parseURL(url);
         if (parsedUrl && parsedUrl.hostname) {
-          maskedURL = WebDiscoveryProject.maskURL(url);
+          maskedURL = sanitizeUrl(url).safeUrl;
         } else {
           maskedURL = "(PROTECTED)";
         }
@@ -3773,16 +3706,14 @@ const WebDiscoveryProject = {
 
       for (const original of urls) {
         if (original.t === "canonical") {
-          msg.payload.x.canonical_url = WebDiscoveryProject.maskURLStrict(
-            original.url,
-          );
+          msg.payload.x.canonical_url = sanitizeUrl(original.url, { strict: true }).safeUrl;
           logger.debug(
             `Sanitized 'canonical': ${original.url} -> ${msg.payload.x.canonical_url}`,
           );
         }
 
         if (original.t === "ref") {
-          msg.payload.ref = WebDiscoveryProject.maskURLStrict(original.url);
+          msg.payload.ref = sanitizeUrl(original.url, { strict: true }).safeUrl;
           logger.debug(
             `Sanitized 'ref': ${original.url} -> ${msg.payload.ref}`,
           );
@@ -3790,9 +3721,7 @@ const WebDiscoveryProject = {
 
         if (original.t.startsWith("red")) {
           let redPos = original.t.split(":")[1];
-          msg.payload.red[redPos] = WebDiscoveryProject.maskURLStrict(
-            original.url,
-          );
+          msg.payload.red[redPos] = sanitizeUrl(original.url, { strict: true }).safeUrl;
           logger.debug(
             `Sanitized 'ref++${redPos}': ${original.url} -> ${msg.payload.red[redPos]}`,
           );
