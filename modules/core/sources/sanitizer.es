@@ -3,7 +3,9 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
 import { isHash } from "./helpers/hash-detector";
-import logger from "./logger";
+import Logger from "./logger";
+
+const logger = Logger.get("sanitizer", { level: "warning" });
 
 function isCharNumber(char) {
   const code = char.charCodeAt(0);
