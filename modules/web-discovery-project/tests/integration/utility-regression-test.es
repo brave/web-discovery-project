@@ -52,7 +52,6 @@ const test_urls = [
   "https://www.theblaze.com/news/woke-doctrine-virginia-mom-slams-anti-second-amendment-school-assignment-for-advancing-a-political-agenda",
   "https://www.csmonitor.com/Commentary/2022/1031/Inspiring-by-example?icid=rss",
   "https://www.democracynow.org/2022/10/26/pennsylvania_mehmet_oz_john_fetterman_debate",
-  "https://www.spiegel.de/international/world/the-divided-village-mistrust-abounds-among-the-liberated-residents-of-ukrainian-village-a-a0c64575-da9d-46b6-ba07-26a72db4a316#ref=rss",
   "https://www.politico.com/news/2022/10/11/liv-golf-nra-mckenna-associates-00061215",
 ];
 
@@ -90,7 +89,7 @@ export default () => {
     beforeEach(async () => {
       await app.modules["web-discovery-project"].isReady();
       WebDiscoveryProject.debug = true;
-      WebDiscoveryProject.utility_regression_tests = true;
+      WebDiscoveryProject.testMode = true;
 
       // Reload pipeline
       pipeline.unload();

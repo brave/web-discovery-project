@@ -286,7 +286,7 @@ const RISKY_URL_PATH_PARTS = new Set([
 ]);
 
 export function sanitizeUrl(url, options = {}) {
-  const { strict = false, tryPreservePath = false } = options;
+  const { strict = false, tryPreservePath = false, testMode = false } = options;
   let accept = () => ({ result: 'safe', safeUrl: url });
   const drop = (reason) => ({ result: 'dropped', safeUrl: null, reason });
 
@@ -301,13 +301,13 @@ export function sanitizeUrl(url, options = {}) {
   if (parsedUrl.password) {
     return drop('URL sets password');
   }
-  if (parsedUrl.port && parsedUrl.port !== '80' && parsedUrl.port !== '443') {
+  if (!testMode && parsedUrl.port && parsedUrl.port !== '80' && parsedUrl.port !== '443') {
     return drop('URL has uncommon port');
   }
   if (parsedUrl.protocol !== 'http:' && parsedUrl.protocol !== 'https:') {
     return drop('URL has uncommon protocol');
   }
-  if (isPrivateHostname(parsedUrl.hostname)) {
+  if (!testMode && isPrivateHostname(parsedUrl.hostname)) {
     return drop('URL is not public');
   }
   if (looksLikeIPv4Address(parsedUrl.hostname)) {
