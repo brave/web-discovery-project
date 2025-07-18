@@ -3,6 +3,7 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
 import { app, expect } from "../../../tests/core/integration/helpers";
+import { isHash } from "../../../core/helpers/hash-detector";
 
 export default function () {
   const WebDiscoveryProject =
@@ -20,7 +21,7 @@ export default function () {
 
       hashes.forEach((e) => {
         it(`'${e}' is a hash"`, function () {
-          expect(WebDiscoveryProject.isHash(e)).to.equal(true);
+          expect(isHash(e)).to.equal(true);
         });
       });
     });

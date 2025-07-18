@@ -5,11 +5,12 @@
   "scripts": {
     "lint": "node fern.js lint",
     "build": "node fern.js build configs/sandbox.js --environment prod",
+    "build-dev": "node fern.js build configs/sandbox.js --environment development",
     "build-module": "node fern.js build configs/module.js --environment prod",
     "postinstall": "patch-package",
     "start:brave": "web-ext run --source-dir='./build' --target chromium --chromium-binary \"$BRAVE_PATH\"",
     "start:build": "node --unhandled-rejections=strict fern.js serve configs/sandbox.js --no-launch",
-    "start": "npm run build && concurrently npm:start:*"
+    "start": "npm run build-dev && concurrently npm:start:*"
   },
   "repository": {
     "type": "git",
@@ -116,7 +117,7 @@
     "abortcontroller-polyfill": "1.7.5",
     "anonymous-credentials": "https://github.com/human-web/anonymous-credentials/releases/download/1.0.0/anonymous-credentials-1.0.0.tgz",
     "dexie": "3.2.4",
-    "linkedom": "0.14.12",
+    "linkedom": "0.16.11",
     "pako": "2.1.0",
     "punycode": "2.3.1",
     "star-wasm": "https://github.com/brave/web-discovery-project/releases/download/star-wasm-0.1.3.tgz/star-wasm-0.1.3.tgz",

@@ -3,6 +3,16 @@
   "mustContain": [
     {
       "type": "wdp",
+      "action": "query0",
+      "payload": {
+        "q": "goetze wm 2014 tor",
+        "qurl": "https://www.google.com/search?q=goetze%20wm%202014%20tor&gl=us&hl=en",
+        "ctry": "de",
+        "lang": "en"
+      }
+    },
+    {
+      "type": "wdp",
       "action": "query",
       "payload": {
         "r": {
@@ -10,66 +20,77 @@
             "t": "Mario Götze WM 2014 Finale Tor - YouTube",
             "u": "https://www.youtube.com/watch?v=TEWcZ-6l10U",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": null
           },
           "1": {
             "t": "Mario Götze WM 2014 Finale Tor in 4K/UHD 13.07.2014",
             "u": "https://www.youtube.com/watch?v=YiWllGdMITE",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": null
           },
           "2": {
             "t": "WM FINALE 2014 - Tor Götze ! ( 5 TV Kommentatoren )",
             "u": "https://www.youtube.com/watch?v=t9xm_Ingtuc",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": null
           },
           "3": {
             "t": "WM 2014 Finale Tor Mario Götze - YouTube",
             "u": "https://www.youtube.com/watch?v=j_guXT4I-AQ",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": null
           },
           "4": {
             "t": "Gotze Goal vs Argentina | 2014 World Cup Final - YouTube",
             "u": "https://www.youtube.com/watch?v=lu_0zOUTdPE",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": null
           },
           "5": {
             "t": "Mario Götze Germany vs Argentina 2014 FIFA World Cup Goal.",
             "u": "https://www.youtube.com/watch?v=1QJ6P8Yxil4",
             "age": null,
-            "m": "tor"
+            "m": "tor",
+            "lang": null
           },
           "6": {
             "t": "WM 2014 Finale Tor Mario Götze - YouTube",
             "u": "https://www.youtube.com/watch?v=AZ-AzW8Y06w",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": null
           },
           "7": {
             "t": "WM-Finale 2014 - Tor von Mario Götze - YouTube",
             "u": "https://www.youtube.com/watch?v=g67hj4VB8z0",
             "age": null,
-            "m": "goetze"
+            "m": "goetze",
+            "lang": null
           },
           "8": {
             "t": "Mario Götzes WM-Siegtreffer ist das \"Tor des Jahrzehnts\"",
             "u": "https://www.dfb.de/news/detail/mario-goetzes-wm-siegtreffer-ist-das-tor-des-jahrzehnts-215608/",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "de"
           },
           "9": {
             "t": "WM 2014: Das Tor, das ewig bleibt - Sport",
             "u": "https://www.sueddeutsche.de/sport/goetze-schuerrle-wm-2014-tor-finale-1.4971888",
             "age": null,
-            "m": null
+            "m": null,
+            "lang": "de"
           }
         },
         "q": "goetze wm 2014 tor",
         "qurl": "https://www.google.com/search?q=goetze%20wm%202014%20tor&gl=us&hl=en",
-        "ctry": "de"
+        "ctry": "de",
+        "lang": "en"
       }
     }
   ]
