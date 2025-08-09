@@ -39,7 +39,8 @@ module.exports = class BroccoliWebpack extends Plugin {
     }
 
     bundles.forEach((bundle) => {
-      entries[bundle] = path.join(inputPath, bundle);
+      // Use relative paths from inputPath to make builds deterministic
+      entries[bundle] = `./${bundle}`;
     });
 
     return new Promise((resolve, reject) => {
@@ -49,10 +50,12 @@ module.exports = class BroccoliWebpack extends Plugin {
         mode: env.DEVELOPMENT ? "development" : "production",
         entry: entries,
         devtool: false,
+        context: inputPath, // Use input path as context for consistency
         output: {
           filename: "[name]",
           path: outputPath,
           webassemblyModuleFilename: "star.wasm",
+          hashFunction: 'xxhash64', // Use deterministic hash function
         },
         experiments: {
           syncWebAssembly: true,
@@ -64,11 +67,22 @@ module.exports = class BroccoliWebpack extends Plugin {
             fs: false,
             path: require.resolve("path-browserify"),
           },
+
         },
         externals: this.builderConfig.globalDeps,
         optimization: {
           minimize: !!env.PROD,
+          moduleIds: 'deterministic', // Use deterministic module IDs
+          chunkIds: 'deterministic',  // Ensure deterministic chunk IDs
+          usedExports: false, // Disable tree shaking for deterministic builds
+          sideEffects: false, // Disable side effects detection for deterministic builds
         },
+        snapshot: {
+          // Disable file system timestamps for deterministic builds
+          managedPaths: [],
+          immutablePaths: [],
+        },
+
       });
 
       compiler.run((error, stats) => {
