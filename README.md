@@ -22,7 +22,8 @@ Everything should work locally with this setup. By default it will rely on the `
 ## Mac
 
 ```sh
-$ BRAVE_PATH="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser" npm run start
+$ BRAVE_PATH="/Applications/Brave
+android RMX1971
 ```
 
 ## Documentation
@@ -62,19 +63,12 @@ Open extension dev tools (burger menu > extensions > developer mode toggle > bac
 
 ### For `query` messages
 
-Force updating WebDiscoveryProject patterns:
-```javascript
-WDP.app.modules['web-discovery-project'].background.webDiscoveryProject.patternsLoader.resourceWatcher.forceUpdate()
-```
-
-After visiting a SERP page, force double-fetch to happen:
-```javascript
-WDP.app.modules['web-discovery-project'].background.webDiscoveryProject.strictQueries.map(x=>x.tDiff=0)
+Force 
 ```
 
 #### For `page` messages
 
-Open a new tab and visit `https://www.marca.com/` (or another URL, and replace the occurrences in the following commands).
+Open a new tab and visit `https://www.marca.com/` (or another URL, and replace the occurrences in 
 
 Force an *active page* (tab is still open) to the database to be double-fetched...
 
@@ -97,7 +91,6 @@ WDP.app.modules['web-discovery-project'].background.webDiscoveryProject.listOfUn
 Force a double-fetch of a single URL, (URL as appears in the table above, it might have been canonized)
 
 ```javascript
-WDP.app.modules['web-discovery-project'].background.webDiscoveryProject.forceDoubleFetch("https://www.marca.com/")
 ```
 
 ## Tests
