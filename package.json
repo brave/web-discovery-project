@@ -136,8 +136,5 @@
     "serialize-javascript": "6.0.2",
     "tmp": "0.2.4",
     "sha.js": "2.4.12"
-  },
-  "resolutions": {
-    "sha.js": "2.4.12"
   }
 }
