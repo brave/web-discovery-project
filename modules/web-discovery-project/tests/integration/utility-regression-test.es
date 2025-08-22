@@ -95,12 +95,11 @@ export default () => {
       WebDiscoveryProject.debug = true;
       WebDiscoveryProject.testMode = true;
 
-      // Reset bloom filter for clean test state
-      const BloomFilter = app.modules["web-discovery-project"].background.dependencies.BloomFilter;
-      WebDiscoveryProject.bloomFilter = new BloomFilter(
-        Array(500001).join("0"),
-        7,
-      );
+      // Clear bloom filter database storage to ensure clean state
+      WebDiscoveryProject.db.saveRecordTelemetry("bf", null, () => {
+        // Force reload of bloom filter with clean data
+        WebDiscoveryProject.loadBloomFilter();
+      });
 
       // Reload pipeline
       pipeline.unload();
