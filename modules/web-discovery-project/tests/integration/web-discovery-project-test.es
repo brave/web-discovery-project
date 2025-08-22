@@ -3,7 +3,7 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
 import { app, expect } from "../../../tests/core/integration/helpers";
-import { isHash } from "@web-discovery-project/parser";
+import { HashProb } from "@web-discovery-project/parser";
 
 export default function () {
   const WebDiscoveryProject =
@@ -17,11 +17,125 @@ export default function () {
     });
 
     describe("web-discovery-project.isHash", function () {
-      const hashes = ["04C2EAD03B", "54f5095c96e"];
+      const notHash = [
+        "",
+        "11667216660",
+        "12",
+        "2022",
+        "Firefox",
+        "about-us",
+        "anti-tracking",
+        "callback",
+        "cliqz.com",
+        "compress%2Cformat%2Cenhance",
+        "compress-format-enhance",
+        "contact",
+        "front/ng",
+        "homepage",
+        "javascript",
+        "navigation",
+        "newsletter",
+        "privacy-policy",
+        "search-results",
+        "settings",
+        "shopping",
+      ];
 
-      hashes.forEach((e) => {
-        it(`'${e}' is a hash"`, function () {
-          expect(isHash(e)).to.equal(true);
+      const hashes = [
+        "02a6a4e3-260a-4513-a95b-7bc5b50679c9",
+        "04C2EAD03B",
+        "1021x952",
+        "1024x768",
+        "1440x900",
+        "22163a4ff903",
+        "468x742",
+        "54f5095c96e",
+        "5d41402abc4b",
+        "6a204bd89f3c",
+        "7b3e4d2f-8a19-4c6e-bc0d-1e5f6a7b8c9d",
+        "8c14e45fceea",
+        "9f86d081884c",
+        "B62a15974a93",
+        "a1b2c3d4e5",
+        "c81e728d9d4c",
+        "d3b07384d113",
+        "download",
+        "e3b0c44298fc1c14",
+        "f47ac10b58cc",
+      ];
+
+      notHash.forEach(function (str) {
+        it(`'${str}' is not a hash`, function () {
+          expect(WebDiscoveryProject.hashProb.isHash(str)).to.be.false;
+        });
+      });
+
+      hashes.forEach(function (str) {
+        it(`'${str}' is a hash`, function () {
+          expect(WebDiscoveryProject.hashProb.isHash(str)).to.be.true;
+        });
+      });
+    });
+
+    describe("web-discovery-project.isHash(0.015)", function () {
+      const thresh = 0.015;
+
+      const notHash = [
+        "",
+        "1021x952",
+        "1024x768",
+        "11667216660",
+        "12",
+        "1440x900",
+        "2022",
+        "22163a4ff903",
+        "9f86d081884c",
+        "Firefox",
+        "about-us",
+        "anti-tracking",
+        "callback",
+        "cliqz.com",
+        "compress%2Cformat%2Cenhance",
+        "compress-format-enhance",
+        "contact",
+        "d3b07384d113",
+        "download",
+        "front/ng",
+        "homepage",
+        "javascript",
+        "navigation",
+        "newsletter",
+        "privacy-policy",
+        "search-results",
+        "settings",
+        "shopping",
+      ];
+
+      const hashes = [
+        "02a6a4e3-260a-4513-a95b-7bc5b50679c9",
+        "04C2EAD03B",
+        "468x742",
+        "54f5095c96e",
+        "5d41402abc4b",
+        "6a204bd89f3c",
+        "7b3e4d2f-8a19-4c6e-bc0d-1e5f6a7b8c9d",
+        "8c14e45fceea",
+        "B62a15974a93",
+        "a1b2c3d4e5",
+        "c81e728d9d4c",
+        "e3b0c44298fc1c14",
+        "f47ac10b58cc",
+      ];
+
+      notHash.forEach(function (str) {
+        it(`'${str}' is not a hash`, function () {
+          expect(WebDiscoveryProject.hashProb.isHash(str, thresh)).to.be.false;
+        });
+      });
+
+      hashes.forEach(function (str) {
+        it(`'${str}' is a hash`, function () {
+          expect(WebDiscoveryProject.hashProb.isHash(str, thresh)).to.be.true;
         });
       });
     });
@@ -38,6 +152,34 @@ export default function () {
       emails.forEach((e) => {
         it(`'${e}' is a email`, function () {
           expect(WebDiscoveryProject.checkForEmail(e)).to.equal(true);
+        });
+      });
+    });
+
+    describe("web-discovery-project.dropLongURL", function () {
+      const longUrls = [
+        "https://example.com/22163a4ff903",
+        "https://example.com?q=22163a4ff903",
+        "https://example.com/foobarbazfoobarbazfoobarbazfoobarbazfoobarbazfoobarbazfoobarbazfoobarbazfoobarbaz",
+        "https://www.wsj.com/articles/ultra-orthodox-israeli-military-unit-faces-calls-to-disband-after-abuse-allegations-11667216660",
+      ];
+
+      const notLongUrls = [
+        "https://example.com",
+        "https://www.nytimes.com/2022/10/27/fashion/craftsmanship-eb-meyrowitz-eyeglasses-london.html",
+        "https://www.newsweek.com/american-army-halloween-trick-treat-candy-himars-viral-video-ukraine-fort-sill-1755955",
+        "https://www.telegraph.co.uk/news/2022/10/30/bbc-local-radio-stations-face-big-cuts-content-area/",
+      ];
+
+      longUrls.forEach((u) => {
+        it(`'${u}' is a long URL`, function () {
+          expect(WebDiscoveryProject.dropLongURL(u, { strict: true })).to.equal(true);
+        });
+      });
+
+      notLongUrls.forEach((u) => {
+        it(`'${u}' is not a long URL`, function () {
+          expect(WebDiscoveryProject.dropLongURL(u, { strict: true })).to.equal(false);
         });
       });
     });

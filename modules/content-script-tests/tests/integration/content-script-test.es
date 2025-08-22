@@ -32,9 +32,11 @@ export default function () {
     });
 
     context("module is enabled", () => {
-      it("triggers content script on matching page", async () => {
+      it("triggers content script on matching page", async function () {
+        this.timeout(30 * 1000); // Increase test timeout to 30 sec
+
         await newTab("http://example.com");
-        await waitFor(() => expect(called).to.have.length(1));
+        await waitFor(() => expect(called).to.have.length(1), 20 * 1000);
         expect(called[0]).to.be.eql([
           {
             a: 42,

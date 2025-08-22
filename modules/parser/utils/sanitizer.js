@@ -2,7 +2,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
-import { isHash } from "./hash-detector.js";
+import { HashProb } from "./hash/index.js";
 
 function isCharNumber(char) {
   const code = char.charCodeAt(0);
@@ -284,6 +284,8 @@ const RISKY_URL_PATH_PARTS = new Set([
   'weblogic',
 ]);
 
+const hashProb = new HashProb();
+
 export function sanitizeUrl(url, options = {}) {
   const { strict = false, tryPreservePath = false, testMode = false, debug = false } = options;
   let accept = () => ({ result: 'safe', safeUrl: url });
@@ -393,7 +395,7 @@ export function sanitizeUrl(url, options = {}) {
         return truncate(`Found a problematic part in the URL path: ${part}`);
       }
 
-      if (strict && isHash(part, { threshold: 0.015 })) {
+      if (strict && hashProb.isHash(part, 0.015)) {
         return truncate(
           `Found URL path that could be an identifier: <<${part}>>`,
         );
@@ -423,7 +425,7 @@ export function sanitizeUrl(url, options = {}) {
           );
         }
       }
-      if (strict && isHash(value, { threshold: 0.015 })) {
+      if (strict && hashProb.isHash(value, 0.015)) {
         return truncate(
           `Found URL parameter that could be an identifier ${key}=${value}`,
         );
