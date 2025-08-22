@@ -32,4 +32,4 @@ COPY --chown=node:node patches/ /app/patches/
 
 WORKDIR /app/
 
-RUN npm ci
+RUN npm ci && npx update-browserslist-db@latest
