@@ -2,7 +2,7 @@ FROM node:lts-bookworm
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-ENV PATH "/usr/local/ssl/bin:$PATH"
+ENV PATH="/usr/local/ssl/bin:$PATH"
 
 RUN mkdir /app
 RUN chown node:node -R /app
@@ -32,4 +32,4 @@ COPY --chown=node:node patches/ /app/patches/
 
 WORKDIR /app/
 
-RUN npm ci
+RUN npm ci && npx update-browserslist-db@latest
