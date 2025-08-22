@@ -95,15 +95,14 @@ export default () => {
       WebDiscoveryProject.debug = true;
       WebDiscoveryProject.testMode = true;
 
-      // Clear bloom filter database storage to ensure clean state
-      WebDiscoveryProject.db.saveRecordTelemetry("bf", null, () => {
-        // Force reload of bloom filter with clean data
-        WebDiscoveryProject.loadBloomFilter();
-      });
-
       // Reload pipeline
       pipeline.unload();
       await pipeline.init();
+    });
+
+    afterEach(() => {
+      // Reset bloom filter after each test to prevent state leakage
+      WebDiscoveryProject.bloomFilter = null;
     });
 
     describe("utility-regression-test.base", () => {
