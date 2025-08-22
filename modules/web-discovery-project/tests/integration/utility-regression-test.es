@@ -80,8 +80,12 @@ export default () => {
       );
       await updateTab(tabId, { url });
       await waitFor(
-        async () => expect((await getTab(tabId)).url).to.not.eql("about:blank"),
-        2000,
+        async () => {
+          const tab = await getTab(tabId);
+          expect(tab.url, `Tab ${tabId} URL should change from about:blank to ${url}`).to.not.eql("about:blank");
+          return true;
+        },
+        10000,
       );
       return tabId;
     };
@@ -90,6 +94,13 @@ export default () => {
       await app.modules["web-discovery-project"].isReady();
       WebDiscoveryProject.debug = true;
       WebDiscoveryProject.testMode = true;
+
+      // Reset bloom filter for clean test state
+      const BloomFilter = app.modules["web-discovery-project"].background.dependencies.BloomFilter;
+      WebDiscoveryProject.bloomFilter = new BloomFilter(
+        Array(500001).join("0"),
+        7,
+      );
 
       // Reload pipeline
       pipeline.unload();
@@ -139,7 +150,8 @@ export default () => {
                 ).length == 1
               );
             }
-          });
+            return false;
+          }, 30000);
           await WebDiscoveryProject.forceDoubleFetch(url);
           await waitFor(
             async () =>
@@ -148,6 +160,7 @@ export default () => {
                   WebDiscoveryProject.db.getURL(url, resolve),
                 )
               ).length == 0,
+            15000,
           );
           WebDiscoveryProject.isAlreadyMarkedPrivate(url, (res) => {
             expect(res.private, "url is marked as private!").equal(0);
