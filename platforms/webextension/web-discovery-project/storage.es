@@ -5,6 +5,8 @@
 /* eslint func-names: 'off' */
 /* eslint no-param-reassign: 'off' */
 
+import logger from "./logger";
+
 const webDiscoveryProjectChromeDB = {
   VERSION: "0.1",
   set: (db, key, obj, callback) => {
@@ -54,7 +56,7 @@ const webDiscoveryProjectChromeDB = {
   size: (callback) => {
     chrome.storage.local.getBytesInUse(null, (a) => {
       const res = [a, a / chrome.storage.local.QUOTA_BYTES];
-      this.WebDiscoveryProject.log("Current size: ", res[0], res[1]);
+      this.WebDiscoveryProject.logger.debug("Current size: ", res[0], res[1]);
       if (callback) callback(res);
     });
   },

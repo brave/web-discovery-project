@@ -2437,6 +2437,7 @@ const WebDiscoveryProject = {
   init: function () {
     return Promise.resolve().then(() => {
       logger.debug("Init function called:");
+      WebDiscoveryProject.logger = logger
       return Promise.resolve()
         .then(() => {
           if (WebDiscoveryProject.db) {
