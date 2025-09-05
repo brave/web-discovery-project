@@ -2437,7 +2437,6 @@ const WebDiscoveryProject = {
   init: function () {
     return Promise.resolve().then(() => {
       logger.debug("Init function called:");
-      WebDiscoveryProject.log = logger.debug;
       return Promise.resolve()
         .then(() => {
           if (WebDiscoveryProject.db) {
@@ -2578,10 +2577,10 @@ const WebDiscoveryProject = {
         ) {
           msg.payload["ref"] = null;
         } else {
-          msg.payload["ref"] = WebDiscoveryProject.sanitizeUrl(
+          msg.payload["ref"] = sanitizeUrl(
             msg.payload["ref"],
             { testMode: WebDiscoveryProject.testMode },
-          );
+          ).safeUrl;
         }
 
         // Check if ref. exists in bloom filter, then turn ref to null.
@@ -2681,9 +2680,7 @@ const WebDiscoveryProject = {
       if (msg.payload.red) {
         var cleanRed = [];
         msg.payload.red.forEach(function (e) {
-          if (
-            (sanitizeUrl(e).safeUrl, { testMode: WebDiscoveryProject.testMode })
-          ) {
+          if (!sanitizeUrl(e, { testMode: WebDiscoveryProject.testMode }).safeUrl) {
             cleanRed.push(
               sanitizeUrl(e, { testMode: WebDiscoveryProject.testMode })
                 .safeUrl,
@@ -3965,7 +3962,7 @@ const WebDiscoveryProject = {
       var page_struct_before = page_doc["x"];
       url_pagedocPair[url] = page_doc;
 
-      WebDiscoveryProject.log(
+      logger.debug(
         "Going for double fetch (url:",
         url,
         ", page_doc:",

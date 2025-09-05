@@ -4,4 +4,4 @@
 
 import Logger from "../core/logger";
 
-export default Logger.get("wdp", { level: "warning" });
+export default Logger.get("wdp", { level: "debug" });
