@@ -13,4 +13,10 @@ module.exports = {
     WDP_PATTERNS_SIGNING: true,
     WDP_ENV: "production",
   },
+  default_prefs: {
+    ...base.default_prefs,
+    "logger.hpnv2.level": "debug",
+    "logger.web-discovery-project.level": "debug",
+    "showConsoleLogs": true,
+  },
 };
