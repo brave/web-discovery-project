@@ -28,7 +28,7 @@ import { setTimeout } from "../timers";
 // it does not matter exactly how many seconds as long as it's less or equal to
 // 10), then you should use `pacemaker.everyFewSeconds()`.
 
-const logger = Logger.get("pacemaker", { level: "warn" });
+const logger = Logger.get("pacemaker", { level: "debug" });
 
 // Common durations
 export const ONE_SECOND = 1000;

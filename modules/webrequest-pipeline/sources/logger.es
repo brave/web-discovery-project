@@ -4,4 +4,4 @@
 
 import Logger from "../core/logger";
 
-export default Logger.get("webrequest-pipeline", { level: "warning" });
+export default Logger.get("webrequest-pipeline", { level: "debug" });

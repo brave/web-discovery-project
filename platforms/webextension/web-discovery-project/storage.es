@@ -5,8 +5,6 @@
 /* eslint func-names: 'off' */
 /* eslint no-param-reassign: 'off' */
 
-import logger from "./logger";
-
 const webDiscoveryProjectChromeDB = {
   VERSION: "0.1",
   set: (db, key, obj, callback) => {

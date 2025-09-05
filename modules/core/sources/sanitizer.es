@@ -5,7 +5,7 @@
 import { isHash } from "./helpers/hash-detector";
 import Logger from "./logger";
 
-const logger = Logger.get("sanitizer", { level: "warning" });
+const logger = Logger.get("sanitizer", { level: "debug" });
 
 function isCharNumber(char) {
   const code = char.charCodeAt(0);
