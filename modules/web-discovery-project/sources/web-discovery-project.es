@@ -961,7 +961,7 @@ const WebDiscoveryProject = {
     if (clean_url != url) {
       // they are different, sanity checks
       if (
-        sanitizeUrl(clean_url, { testMode: WebDiscoveryProject.testMode }).result != "safe" ||
+        sanitizeUrl(clean_url, { testMode: WebDiscoveryProject.testMode }).result !== "safe" ||
         WebDiscoveryProject.dropLongURL(clean_url)
       )
         return url;
@@ -1025,7 +1025,7 @@ const WebDiscoveryProject = {
     }
 
     // the url is suspicious, this should never be the case here but better safe
-    if (sanitizeUrl(url, { testMode: WebDiscoveryProject.testMode }).result != "safe") {
+    if (sanitizeUrl(url, { testMode: WebDiscoveryProject.testMode }).result !== "safe") {
       return discard("URL failed the isSuspiciousURL check");
     }
 
@@ -2680,7 +2680,7 @@ const WebDiscoveryProject = {
       if (msg.payload.red) {
         var cleanRed = [];
         msg.payload.red.forEach(function (e) {
-          if (sanitizeUrl(e, { testMode: WebDiscoveryProject.testMode }).result != "safe") {
+          if (sanitizeUrl(e, { testMode: WebDiscoveryProject.testMode }).result !== "safe") {
             cleanRed.push(
               sanitizeUrl(e, { testMode: WebDiscoveryProject.testMode })
                 .safeUrl,
@@ -3483,7 +3483,7 @@ const WebDiscoveryProject = {
 
       // Check URL is suspicious
       if (
-        sanitizeUrl(url, { testMode: WebDiscoveryProject.testMode }).result != "safe"
+        sanitizeUrl(url, { testMode: WebDiscoveryProject.testMode }).result !== "safe"
       ) {
         logger.debug("Url is suspicious");
         url = "(PROTECTED)";
@@ -3856,7 +3856,7 @@ const WebDiscoveryProject = {
           setPrivate = true;
           logger.debug("Setting private because empty page data");
         } else if (
-          sanitizeUrl(url, { testMode: WebDiscoveryProject.testMode }).result != "safe"
+          sanitizeUrl(url, { testMode: WebDiscoveryProject.testMode }).result !== "safe"
         ) {
           // if the url looks private already add it already as checked and private
           let reason = "susp. url";
