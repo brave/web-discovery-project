@@ -2335,7 +2335,7 @@ const WebDiscoveryProject = {
           }
         }
 
-        let sanitizedUrl = sanitizeUrl(linkURL, {
+        const sanitizedUrl = sanitizeUrl(linkURL, {
           testMode: WebDiscoveryProject.testMode,
         });
         if (
@@ -2671,10 +2671,10 @@ const WebDiscoveryProject = {
       if (msg.payload.red) {
         var cleanRed = [];
         msg.payload.red.forEach(function (e) {
-          let safeUrl = sanitizeUrl(e, {
+          const safeUrl = sanitizeUrl(e, {
             testMode: WebDiscoveryProject.testMode,
           }).safeUrl;
-          if (safeUrl) {
+          if (safeUrl !== null) {
             cleanRed.push(safeUrl);
           }
         });
