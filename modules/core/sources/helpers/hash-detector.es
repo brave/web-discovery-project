@@ -1499,7 +1499,7 @@ function isHashProb(str) {
   for (let i = 0; i < str.length - 1; i += 1) {
     const pos1 = probHashChars[str[i]];
     const pos2 = probHashChars[str[i + 1]];
-    if (pos1 && pos2) {
+    if (pos1 !== undefined && pos2 !== undefined) {
       logProb += probHashLogM[pos1][pos2];
       transC += 1;
     }

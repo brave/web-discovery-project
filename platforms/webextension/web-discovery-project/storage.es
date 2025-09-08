@@ -54,7 +54,7 @@ const webDiscoveryProjectChromeDB = {
   size: (callback) => {
     chrome.storage.local.getBytesInUse(null, (a) => {
       const res = [a, a / chrome.storage.local.QUOTA_BYTES];
-      this.WebDiscoveryProject.log("Current size: ", res[0], res[1]);
+      this.WebDiscoveryProject.logger.debug("Current size: ", res[0], res[1]);
       if (callback) callback(res);
     });
   },

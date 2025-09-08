@@ -47,7 +47,12 @@ function runSelector(item, selector, attr, baseURI) {
       // * links should be as close to the original page as possible
       // * extensions IDs must not leak into the output
       const rawLink = elem.getAttribute("href");
-      return rawLink ? new URL(rawLink, baseURI).href : null;
+      if (!rawLink) return null;
+      try {
+        return new URL(rawLink, baseURI).href;
+      } catch (e) {
+        return null;
+      }
     }
     if (elem.hasAttribute(attr)) {
       return elem.getAttribute(attr);

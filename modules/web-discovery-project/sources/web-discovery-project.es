@@ -961,8 +961,9 @@ const WebDiscoveryProject = {
     if (clean_url != url) {
       // they are different, sanity checks
       if (
-        !sanitizeUrl(clean_url, { testMode: WebDiscoveryProject.testMode })
-          .safeUrl ||
+        sanitizeUrl(clean_url, {
+          testMode: WebDiscoveryProject.testMode,
+        }).result !== "safe" ||
         WebDiscoveryProject.dropLongURL(clean_url)
       )
         return url;
@@ -1026,7 +1027,10 @@ const WebDiscoveryProject = {
     }
 
     // the url is suspicious, this should never be the case here but better safe
-    if (!sanitizeUrl(url, { testMode: WebDiscoveryProject.testMode }).safeUrl) {
+    if (
+      sanitizeUrl(url, { testMode: WebDiscoveryProject.testMode }).result !==
+      "safe"
+    ) {
       return discard("URL failed the isSuspiciousURL check");
     }
 
@@ -1725,8 +1729,9 @@ const WebDiscoveryProject = {
 
       //Check if the URL is know to be bad: private, about:, odd ports, etc.
       if (
-        !sanitizeUrl(activeURL, { testMode: WebDiscoveryProject.testMode })
-          .safeUrl
+        sanitizeUrl(activeURL, {
+          testMode: WebDiscoveryProject.testMode,
+        }).result !== "safe"
       ) {
         logger.debug("[onLocationChange] isSuspiciousURL", activeURL);
         return;
@@ -2330,28 +2335,22 @@ const WebDiscoveryProject = {
           }
         }
 
+        const sanitizedUrl = sanitizeUrl(linkURL, {
+          testMode: WebDiscoveryProject.testMode,
+        });
         if (
-          sanitizeUrl(linkURL, { testMode: WebDiscoveryProject.testMode })
-            .safeUrl &&
+          sanitizedUrl.result === "safe" &&
           !WebDiscoveryProject.dropLongURL(linkURL)
         ) {
           WebDiscoveryProject.isAlreadyMarkedPrivate(linkURL, function (_res) {
             if (_res && _res["private"] == 0) {
               WebDiscoveryProject.state["v"][activeURL]["c"].push({
-                l:
-                  "" +
-                  sanitizeUrl(linkURL, {
-                    testMode: WebDiscoveryProject.testMode,
-                  }).safeUrl,
+                l: "" + sanitizedUrl.safeUrl,
                 t: WebDiscoveryProject.counter,
               });
             } else if (!_res) {
               WebDiscoveryProject.state["v"][activeURL]["c"].push({
-                l:
-                  "" +
-                  sanitizeUrl(linkURL, {
-                    testMode: WebDiscoveryProject.testMode,
-                  }).safeUrl,
+                l: "" + sanitizedUrl.safeUrl,
                 t: WebDiscoveryProject.counter,
               });
             }
@@ -2437,7 +2436,7 @@ const WebDiscoveryProject = {
   init: function () {
     return Promise.resolve().then(() => {
       logger.debug("Init function called:");
-      WebDiscoveryProject.log = logger.debug;
+      WebDiscoveryProject.logger = logger;
       return Promise.resolve()
         .then(() => {
           if (WebDiscoveryProject.db) {
@@ -2571,18 +2570,9 @@ const WebDiscoveryProject = {
       // Check if they are suspicious.
       // Check if they are marked private.
       if (msg.payload.ref) {
-        if (
-          !sanitizeUrl(msg.payload["ref"], {
-            testMode: WebDiscoveryProject.testMode,
-          }).safeUrl
-        ) {
-          msg.payload["ref"] = null;
-        } else {
-          msg.payload["ref"] = WebDiscoveryProject.sanitizeUrl(
-            msg.payload["ref"],
-            { testMode: WebDiscoveryProject.testMode },
-          );
-        }
+        msg.payload["ref"] = sanitizeUrl(msg.payload["ref"], {
+          testMode: WebDiscoveryProject.testMode,
+        }).safeUrl;
 
         // Check if ref. exists in bloom filter, then turn ref to null.
         WebDiscoveryProject.isAlreadyMarkedPrivate(
@@ -2659,9 +2649,9 @@ const WebDiscoveryProject = {
 
       // check if suspiciousURL
       if (
-        !sanitizeUrl(msg.payload.url, {
+        sanitizeUrl(msg.payload.url, {
           testMode: WebDiscoveryProject.testMode,
-        }).safeUrl
+        }).result !== "safe"
       )
         return null;
 
@@ -2670,9 +2660,9 @@ const WebDiscoveryProject = {
         msg.payload.x.canonical_url != ""
       ) {
         if (
-          !sanitizeUrl(msg.payload.x.canonical_url, {
+          sanitizeUrl(msg.payload.x.canonical_url, {
             testMode: WebDiscoveryProject.testMode,
-          }).safeUrl
+          }).result !== "safe"
         )
           return null;
       }
@@ -2681,13 +2671,11 @@ const WebDiscoveryProject = {
       if (msg.payload.red) {
         var cleanRed = [];
         msg.payload.red.forEach(function (e) {
-          if (
-            (sanitizeUrl(e).safeUrl, { testMode: WebDiscoveryProject.testMode })
-          ) {
-            cleanRed.push(
-              sanitizeUrl(e, { testMode: WebDiscoveryProject.testMode })
-                .safeUrl,
-            );
+          const safeUrl = sanitizeUrl(e, {
+            testMode: WebDiscoveryProject.testMode,
+          }).safeUrl;
+          if (safeUrl !== null) {
+            cleanRed.push(safeUrl);
           }
         });
         msg.payload.red = cleanRed;
@@ -2775,7 +2763,7 @@ const WebDiscoveryProject = {
           if (
             sanitizeUrl(msg.payload.r[eachResult].u, {
               testMode: WebDiscoveryProject.testMode,
-            }).safeUrl
+            }).result === "safe"
           ) {
             cleanR.push(msg.payload.r[eachResult]);
           }
@@ -2989,7 +2977,10 @@ const WebDiscoveryProject = {
     if (!source || source === "openTabs") {
       const allOpenPages = await WebDiscoveryProject.getAllOpenPages();
       pages = allOpenPages
-        .map((url) => ({ url, page_doc: WebDiscoveryProject.state.v[url] }))
+        .map((url) => ({
+          url,
+          page_doc: WebDiscoveryProject.state.v[url],
+        }))
         .filter(({ url, page_doc }) => page_doc && isRelevantUrl(url));
     } else if (source === "unprocessed") {
       pages = await new Promise((resolve, reject) => {
@@ -3461,8 +3452,8 @@ const WebDiscoveryProject = {
 
     if (
       queryLikeURL &&
-      (!sanitizeUrl(query, { testMode: WebDiscoveryProject.testMode })
-        .safeUrl ||
+      (sanitizeUrl(query, { testMode: WebDiscoveryProject.testMode }).result !==
+        "safe" ||
         WebDiscoveryProject.dropLongURL(query))
     ) {
       logger.debug("Query is dangerous");
@@ -3486,7 +3477,8 @@ const WebDiscoveryProject = {
 
       // Check URL is suspicious
       if (
-        !sanitizeUrl(url, { testMode: WebDiscoveryProject.testMode }).safeUrl
+        sanitizeUrl(url, { testMode: WebDiscoveryProject.testMode }).result !==
+        "safe"
       ) {
         logger.debug("Url is suspicious");
         url = "(PROTECTED)";
@@ -3859,7 +3851,8 @@ const WebDiscoveryProject = {
           setPrivate = true;
           logger.debug("Setting private because empty page data");
         } else if (
-          !sanitizeUrl(url, { testMode: WebDiscoveryProject.testMode }).safeUrl
+          sanitizeUrl(url, { testMode: WebDiscoveryProject.testMode })
+            .result !== "safe"
         ) {
           // if the url looks private already add it already as checked and private
           let reason = "susp. url";
@@ -3965,7 +3958,7 @@ const WebDiscoveryProject = {
       var page_struct_before = page_doc["x"];
       url_pagedocPair[url] = page_doc;
 
-      WebDiscoveryProject.log(
+      logger.debug(
         "Going for double fetch (url:",
         url,
         ", page_doc:",
