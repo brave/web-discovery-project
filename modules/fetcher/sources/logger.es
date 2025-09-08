@@ -4,4 +4,4 @@
 
 import Logger from "../core/logger";
 
-export default Logger.get("fetcher", { level: "debug" });
+export default Logger.get("fetcher", { level: "warning" });

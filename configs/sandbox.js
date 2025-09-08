@@ -13,5 +13,6 @@ module.exports = {
     ...base.default_prefs,
     "logger.hpnv2.level": "debug",
     "logger.web-discovery-project.level": "debug",
+    "showConsoleLogs": true,
   },
 };
