@@ -524,7 +524,7 @@ export default describeModule(
 
         it("should accept pages with a long URL, but a short canonical URL", function () {
           const longUrl =
-            "https://example.test/this/is/a/very/long/url/with/ids/like/123456789012345678";
+                "https://example.test/this/is/very/long/url?foo=foo&bar=bar&baz=baz&qux=qux";
           assumeFailsUrlChecks(longUrl);
 
           const shortUrl = "https://example.test/short-link";
