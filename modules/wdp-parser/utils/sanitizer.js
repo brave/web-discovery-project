@@ -2,10 +2,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
-import { isHash } from "./helpers/hash-detector";
-import Logger from "./logger";
-
-const logger = Logger.get("sanitizer", { level: "warning" });
+import { isHash } from "./hash-detector.js";
 
 function isCharNumber(char) {
   const code = char.charCodeAt(0);
@@ -288,9 +285,13 @@ const RISKY_URL_PATH_PARTS = new Set([
 ]);
 
 export function sanitizeUrl(url, options = {}) {
-  const { strict = false, tryPreservePath = false, testMode = false } = options;
+  const { strict = false, tryPreservePath = false, testMode = false, debug = false } = options;
   let accept = () => ({ result: 'safe', safeUrl: url });
   const drop = (reason) => ({ result: 'dropped', safeUrl: null, reason });
+  const logger = {
+    warn: debug ? console.warn.bind(console, "[sanitizer]") : () => null,
+    debug: debug ? console.debug.bind(console, "[sanitizer]") : () => null,
+  }
 
   // first run some sanity check on the structure of the URL
   const parsedUrl = tryParseUrl(url);

@@ -1,6 +1,7 @@
 {
   "name": "web-discovery-project",
   "version": "1.1.74",
+  "workspaces": ["modules/wdp-parser"],
   "description": "Standalone Web Discovery Project package and extension",
   "scripts": {
     "lint": "node fern.js lint",

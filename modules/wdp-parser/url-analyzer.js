@@ -2,9 +2,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
-import { extractHostname } from "../core/tlds";
-import { parse } from "../core/url";
-import logger from "./logger";
+import { parse } from "./utils/url.js";
 
 const URL_PATTERNS = [
   {
@@ -85,9 +83,10 @@ const URL_PATTERNS = [
 ];
 
 export default class UrlAnalyzer {
-  constructor(patterns) {
+  constructor(patterns, debug) {
     this.patterns = patterns;
     this._urlPatterns = URL_PATTERNS;
+    this.logger = { debug: debug ? console.debug.bind(console, "[url-analyzer]") : () => null };
   }
 
   parseLinks(url) {
@@ -110,7 +109,7 @@ export default class UrlAnalyzer {
           return { found: false };
         }
         if (!this.patterns.typeExists(type)) {
-          logger.debug(
+          this.logger.debug(
             "Matching rule for",
             url,
             "skipped (no matching server side rules exist)",
@@ -144,13 +143,14 @@ export default class UrlAnalyzer {
     if (!found) return { isSearchEngineUrl: false, queryUrl: null };
     const queryPrefix = urlPattern.prefix;
     if (!queryPrefix) {
-      logger.debug(
+      this.logger.debug(
         `URL pattern with type '${urlPattern.type}' has no query prefix`,
       );
       return { isSearchEngineUrl: false, queryUrl: null };
     }
     const encodedQuery = encodeURIComponent(query).replace(/%20/g, "+");
-    const hostname = extractHostname(url);
+    const parsedUrl = parse(url);
+    const hostname = parsedUrl.hostname(url);
     const queryUrl = `https://${hostname}/${queryPrefix}${encodedQuery}`;
     return { isSearchEngineUrl: urlPattern.isSearchEngine || false, queryUrl };
   }

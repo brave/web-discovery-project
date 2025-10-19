@@ -8,8 +8,6 @@ const sinon = require("sinon");
 const FileHound = require("filehound");
 const { gunzipSync, gzipSync } = require("zlib");
 const stripJsonComments = require("strip-json-comments");
-const { ContentExtractor } = require("../../../../build/web-discovery-project/content-extractor.js");
-const Patterns = require("../../../../build/web-discovery-project/patterns.js").default;
 const { parseHtml } = require("../../../../build/web-discovery-project/html-helpers.js");
 
 function jsonParse(text) {
@@ -74,7 +72,8 @@ const groupTelemetryCallsByAction = (sinonSpy) => {
   )(sinonSpy.args);
 };
 
-const generateScenario = (url, html) => {
+const generateScenario = async (url, html) => {
+  const { ContentExtractor, Patterns } = await import("wdp-parser");
   const WDP = {
     debug: false,
     msgType: "wdp",
@@ -91,7 +90,7 @@ const generateScenario = (url, html) => {
     queryCache: {},
     patterns: new Patterns(),
     checkURL: (doc, url) => {
-      const { messages } = WDP.contentExtractor.run(doc, url);
+      const { messages } = WDP.contentExtractor.run(doc, url, WDP.getCountryCode());
       for (const message of messages)
         WDP.telemetry({
           type: WDP.msgType,
@@ -101,7 +100,7 @@ const generateScenario = (url, html) => {
     },
   };
   WDP.patterns.update(DEFAULT_PATTERNS);
-  WDP.contentExtractor = new ContentExtractor(WDP.patterns, WDP);
+  WDP.contentExtractor = new ContentExtractor(WDP.patterns);
   const document = parseHtml(html);
   WDP.checkURL(document, url);
   const messages = groupTelemetryCallsByAction(WDP.telemetry);
@@ -141,7 +140,7 @@ const generateFixture = async (dir) => {
     scenario = fs.readFileSync(scenarioFilePath).toString();
   } else {
     console.log("Missing scenario. Attempting to generate");
-    scenario = generateScenario(url, page);
+    scenario = await generateScenario(url, page);
     fs.writeFileSync(
       path.join(dir, "scenario.json"),
       JSON.stringify(scenario, null, 2)
@@ -151,8 +150,8 @@ const generateFixture = async (dir) => {
 
 const main = async () => {
   console.log("Generating fixtures...");
-  findAllFixtures().forEach((fixtureDir) => {
-    generateFixture(path.join(FIXTURES_BASE_PATH, fixtureDir));
+  findAllFixtures().forEach(async (fixtureDir) => {
+    await generateFixture(path.join(FIXTURES_BASE_PATH, fixtureDir));
   });
 };
 

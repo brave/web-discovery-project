@@ -1,0 +1,11 @@
+{
+  "name": "wdp-parser",
+  "version": "0.0.1",
+  "main": "wdpParser.js",
+  "type": "module",
+  "scripts": {},
+  "author": "",
+  "license": "MPL-2.0",
+  "description": "",
+  "dependencies": {}
+}

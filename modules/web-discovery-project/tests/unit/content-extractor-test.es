@@ -184,7 +184,7 @@ export default describeModule(
           queryCache: {},
           patterns: new Patterns(),
           checkURL: (doc, url) => {
-            const { messages } = WDP.contentExtractor.run(doc, url);
+            const { messages } = WDP.contentExtractor.run(doc, url, WDP.getCountryCode());
             for (const message of messages)
               WDP.telemetry({
                 type: WDP.msgType,
@@ -193,7 +193,7 @@ export default describeModule(
               });
           },
         };
-        WDP.contentExtractor = new ContentExtractor(WDP.patterns, WDP);
+        WDP.contentExtractor = new ContentExtractor(WDP.patterns);
         WDP.parseHtml = parseHtml;
       });
 

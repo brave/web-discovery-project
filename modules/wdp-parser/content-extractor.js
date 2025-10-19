@@ -4,9 +4,8 @@
 
 /* eslint-disable no-continue */
 
-import logger from "./logger";
-import { lookupBuiltinTransform } from "./patterns";
-import UrlAnalyzer from "./url-analyzer";
+import { lookupBuiltinTransform } from "./patterns.js";
+import UrlAnalyzer from "./url-analyzer.js";
 
 export function parseQueryString(query) {
   if (query.length === 0) {
@@ -96,10 +95,10 @@ function findFirstMatch(rootItem, selectorDef, baseURI) {
 }
 
 export class ContentExtractor {
-  constructor(patterns, wdp) {
-    this.wdp = wdp;
+  constructor(patterns, debug) {
     this.patterns = patterns;
-    this.urlAnalyzer = new UrlAnalyzer(this.patterns);
+    this.urlAnalyzer = new UrlAnalyzer(this.patterns, debug);
+    this.logger = { debug: debug ? console.debug.bind(console, "[content-extractor]") : () => null };
   }
 
   extractQuery(url) {
@@ -108,28 +107,29 @@ export class ContentExtractor {
     return query;
   }
 
-  run(pageContent, url) {
-    function discard(reason = "") {
-      logger.debug("No messages found for query:", query, "Reason:", reason);
+  run(pageContent, url, ctry) {
+    const { found, urlPattern, query } = this.urlAnalyzer.parseLinks(url);
+
+    const discard = (reason = "") => {
+      this.logger.debug("No messages found for query:", query, "Reason:", reason);
       return {
         messages: [],
         reason,
       };
     }
 
-    const { found, urlPattern, query } = this.urlAnalyzer.parseLinks(url);
-    if (!found) return discard("No content found.");
+    if (!found) return discard("No rules found.");
 
-    const messages = this.extractMessages(pageContent, urlPattern.type, query, url);
+    const messages = this.extractMessages(pageContent, urlPattern.type, query, url, ctry);
     if (messages.length === 0) {
       return discard("No content found.");
     }
 
-    logger.debug(messages.length, "messages found for query:", query);
+    this.logger.debug(messages.length, "messages found for query:", query);
     return { messages };
   }
 
-  extractMessages(doc, type, query, url) {
+  extractMessages(doc, type, query, url, ctry) {
     const rules = this.patterns.getRulesSnapshot();
     if (!rules[type]) {
       return [];
@@ -172,7 +172,7 @@ export class ContentExtractor {
     const context = {
       q: query ?? null,
       qurl: url,
-      ctry: this.wdp.getCountryCode(),
+      ctry: ctry,
     };
     const isPresent = (x) => x !== null && x !== undefined && x !== "";
 
@@ -256,7 +256,7 @@ export class ContentExtractor {
       const body = { action, payload };
       messages.push(body);
     }
-    logger.debug("Found the following messages:", messages);
+    this.logger.debug("Found the following messages:", messages);
     return messages;
   }
 }
