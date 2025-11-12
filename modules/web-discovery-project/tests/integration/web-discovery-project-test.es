@@ -104,6 +104,22 @@ export default function () {
       });
     });
 
+    describe("web-discovery-project.searchEngineUrl", function () {
+      const testSearchEngineUrl = "https://google.com/search?q=apple+pie&sca_esv=3204631f57a9e94fc9b15156c2a60e5a&ei=6e19f02b9aade4603fe3bc81768743f6";
+
+      it(`${testPrivateUrl} is private`, function () {
+        WebDiscoveryProject.isAlreadyMarkedPrivate(testPrivateUrl, (e) => {
+          expect(e.private).to.equal(1);
+        });
+      });
+
+      it(`${testSearchEngineUrl} is public`, function () {
+        WebDiscoveryProject.isAlreadyMarkedPrivate(testSearchEngineUrl, (e) => {
+          expect(e.private).to.equal(0);
+        });
+      });
+    });
+
     describe("web-discovery-project.storage", function () {
       it("storage test", function (done) {
         WebDiscoveryProject.db.saveRecordTelemetry("unit-test", "test", () => {
