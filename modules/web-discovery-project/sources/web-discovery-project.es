@@ -1732,6 +1732,8 @@ const WebDiscoveryProject = {
         sanitizeUrl(activeURL, {
           testMode: WebDiscoveryProject.testMode,
         }).result !== "safe"
+        // For search engine URLs we check if the query is suspicious
+        && !WebDiscoveryProject.isSearchEngineUrl(activeURL)
       ) {
         logger.debug("[onLocationChange] isSuspiciousURL", activeURL);
         return;
