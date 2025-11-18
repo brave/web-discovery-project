@@ -2,7 +2,7 @@
 
 "use strict";
 
-const glob = require("glob");
+const { globSync } = require("glob");
 const path = require("path");
 const systemjs = require("systemjs");
 const Mocha = require("mocha");
@@ -44,8 +44,8 @@ const baseURL = baseDir + (buildConfig.platform === "mobile" ? "/dev" : "");
 const testFiles = [];
 
 []
-  .concat(glob.sync(`${baseDir}/**/tests/**/unit/**/*-test.js`))
-  .concat(glob.sync(`${baseDir}/**/tests/**/*lint-test.js`))
+  .concat(globSync(`${baseDir}/**/tests/**/unit/**/*-test.js`))
+  .concat(globSync(`${baseDir}/**/tests/**/*lint-test.js`))
   .forEach(function (path) {
     if (fgrep && path.indexOf(fgrep) === -1) {
       return;

@@ -4,7 +4,7 @@
 
 const Plugin = require("broccoli-plugin");
 const path = require("path");
-const glob = require("glob");
+const { globSync } = require("glob");
 const webpack = require("webpack");
 
 const env = require("../env");
@@ -27,7 +27,7 @@ module.exports = class BroccoliWebpack extends Plugin {
     console.log(
       "*********************** Bundling Process Started *******************************",
     );
-    const bundles = glob.sync("**/*.bundle.js", {
+    const bundles = globSync("**/*.bundle.js", {
       cwd: inputPath,
       follow: true,
     });

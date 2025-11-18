@@ -3,7 +3,7 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
 const writeFile = require("broccoli-file-creator");
-const glob = require("glob");
+const { globSync } = require("glob");
 const camelCase = require("camelcase");
 const config = require("../config");
 
@@ -21,7 +21,7 @@ const defaults = [];
 if (config.modules && config.modules.indexOf("integration-tests") !== -1) {
   config.modules.forEach((moduleName) => {
     const prefix = `./modules/${moduleName}/tests/integration`;
-    glob.sync(`${prefix}/**/*-test.es`).forEach((f) => {
+    globSync(`${prefix}/**/*-test.es`).forEach((f) => {
       const filename = f.substring(prefix.length + 1, f.lastIndexOf("."));
       const defaultExport = createDefaultExportName([
         moduleName,
