@@ -15,6 +15,8 @@ const R = require("ramda");
 const FileHound = require("filehound");
 
 const stripJsonComments = require("strip-json-comments");
+const wdpParser = require("wdp-parser");
+const { ContentExtractor, Patterns, parseQueryString } = require("wdp-parser");
 
 function jsonParse(text) {
   return JSON.parse(stripJsonComments(text));
@@ -66,7 +68,7 @@ const DEFAULT_PATTERNS = jsonParse(
 const enableLogging = true;
 
 export default describeModule(
-  "web-discovery-project/content-extractor",
+  "web-discovery-project/html-helpers",
   () => ({
     "core/logger": {
       default: {
@@ -88,12 +90,12 @@ export default describeModule(
         },
       },
     },
+    "wdp-parser": wdpParser,
   }),
   () => {
     describe("ContentExtractor", function () {
       this.timeout(20000);
 
-      let ContentExtractor;
       let WDP;
       let document;
       let fixture;
@@ -160,14 +162,10 @@ export default describeModule(
         /* eslint-disable-next-line global-require */
         global.URL = global.URL || require("url").URL;
 
-        const Patterns = (
-          await this.system.import("web-discovery-project/patterns")
-        ).default;
         const parseHtml = (
           await this.system.import("web-discovery-project/html-helpers")
         ).parseHtml;
 
-        ContentExtractor = this.module().ContentExtractor;
         WDP = {
           debug: enableLogging,
           msgType: "wdp",
@@ -356,12 +354,6 @@ export default describeModule(
     });
 
     describe("parseQueryString", function () {
-      let parseQueryString;
-
-      beforeEach(function () {
-        parseQueryString = this.module().parseQueryString;
-      });
-
       it("should pass regression tests", function () {
         expect(parseQueryString("")).to.deep.equal({});
         expect(parseQueryString("foo")).to.deep.equal({ foo: [true] });

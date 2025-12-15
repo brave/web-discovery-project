@@ -1,7 +1,7 @@
 {
   "name": "wdp-parser",
   "version": "0.0.1",
-  "main": "wdpParser.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {},
   "author": "",
