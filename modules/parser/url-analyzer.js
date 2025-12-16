@@ -150,7 +150,7 @@ export default class UrlAnalyzer {
     }
     const encodedQuery = encodeURIComponent(query).replace(/%20/g, "+");
     const parsedUrl = parse(url);
-    const hostname = parsedUrl.hostname(url);
+    const hostname = parsedUrl.hostname;
     const queryUrl = `https://${hostname}/${queryPrefix}${encodedQuery}`;
     return { isSearchEngineUrl: urlPattern.isSearchEngine || false, queryUrl };
   }
