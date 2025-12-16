@@ -15,8 +15,7 @@ const R = require("ramda");
 const FileHound = require("filehound");
 
 const stripJsonComments = require("strip-json-comments");
-const wdpParser = require("wdp-parser");
-const { ContentExtractor, Patterns, parseQueryString } = require("wdp-parser");
+const { ContentExtractor, Patterns, parseQueryString } = require("@web-discovery-project/parser");
 
 function jsonParse(text) {
   return JSON.parse(stripJsonComments(text));
@@ -90,7 +89,6 @@ export default describeModule(
         },
       },
     },
-    "wdp-parser": wdpParser,
   }),
   () => {
     describe("ContentExtractor", function () {

@@ -73,7 +73,7 @@ const groupTelemetryCallsByAction = (sinonSpy) => {
 };
 
 const generateScenario = async (url, html) => {
-  const { ContentExtractor, Patterns } = await import("wdp-parser");
+  const { ContentExtractor, Patterns } = await import("@web-discovery-project/parser");
   const WDP = {
     debug: false,
     msgType: "wdp",

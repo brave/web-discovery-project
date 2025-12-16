@@ -3,7 +3,7 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
 import { app, expect } from "../../../tests/core/integration/helpers";
-import { isHash } from "wdp-parser";
+import { isHash } from "@web-discovery-project/parser";
 
 export default function () {
   const WebDiscoveryProject =

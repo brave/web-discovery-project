@@ -7,8 +7,6 @@
 const expect = chai.expect;
 const crypto = require("crypto");
 
-const wdpParser = require("wdp-parser");
-
 const MOCK = {
   "core/services/pacemaker": {
     default: {},
@@ -134,7 +132,6 @@ const MOCK = {
   "webextension-polyfill": {
     default: {},
   },
-  "wdp-parser": wdpParser,
 };
 
 export default describeModule(

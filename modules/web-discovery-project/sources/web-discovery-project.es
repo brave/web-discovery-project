@@ -22,7 +22,7 @@ import { parseURL, Network } from "./network";
 import prefs from "../core/prefs";
 import pacemaker from "../core/services/pacemaker";
 import SafebrowsingEndpoint from "./safebrowsing-endpoint";
-import { checkSuspiciousQuery, sanitizeUrl, ContentExtractor, isHash, Patterns } from "wdp-parser";
+import { checkSuspiciousQuery, sanitizeUrl, ContentExtractor, isHash, Patterns } from "@web-discovery-project/parser";
 
 /*
 Configuration for Bloomfilter
