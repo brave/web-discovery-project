@@ -103,7 +103,10 @@ export default class UrlAnalyzer {
         // avoid the ambigious '+' character and use explicit white space encoding.
         const url_ = url.replaceAll("+", "%20");
         const parsedUrl = parse(url_);
-
+        if (!parsedUrl) {
+          this.logger.warning(`Url '${url_}' is malformed`);
+          return { found: false };
+        }
         const query = queryFinder(parsedUrl);
         if (!query) {
           return { found: false };
@@ -135,7 +138,7 @@ export default class UrlAnalyzer {
       url.startsWith("https://bravesearch.com/search?") ||
       url.startsWith("https://search.brave.software/search?");
     const parsedUrl = parse(url);
-    return isBraveSearch && parsedUrl.searchParams.get("q");
+    return isBraveSearch && parsedUrl && parsedUrl.searchParams.get("q");
   }
 
   checkAnonSearchURL(url, query) {
@@ -150,6 +153,9 @@ export default class UrlAnalyzer {
     }
     const encodedQuery = encodeURIComponent(query).replace(/%20/g, "+");
     const parsedUrl = parse(url);
+    if (!parsedUrl) {
+      return { isSearchEngineUrl: false, queryUrl: null };
+    }
     const hostname = parsedUrl.hostname;
     const queryUrl = `https://${hostname}/${queryPrefix}${encodedQuery}`;
     return { isSearchEngineUrl: urlPattern.isSearchEngine || false, queryUrl };
