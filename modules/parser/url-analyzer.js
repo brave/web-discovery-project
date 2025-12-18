@@ -104,7 +104,7 @@ export default class UrlAnalyzer {
         const url_ = url.replaceAll("+", "%20");
         const parsedUrl = parse(url_);
         if (!parsedUrl) {
-          this.logger.warning(`Url '${url_}' is malformed`);
+          this.logger.debug(`Url '${url_}' is malformed`);
           return { found: false };
         }
         const query = queryFinder(parsedUrl);
