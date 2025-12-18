@@ -67,6 +67,8 @@ const DEFAULT_PATTERNS = jsonParse(
 const enableLogging = true;
 
 export default describeModule(
+  // TODO Specifyping an arbitrary simple module here for compatibility reasons. We
+  // should move away from the `describeModule` approach
   "web-discovery-project/html-helpers",
   () => ({
     "core/logger": {
