@@ -116,7 +116,7 @@ export class ContentExtractor {
         messages: [],
         reason,
       };
-    }
+    };
 
     if (!found) return discard("No rules found.");
 
