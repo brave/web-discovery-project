@@ -150,9 +150,9 @@ const generateFixture = async (dir) => {
 
 const main = async () => {
   console.log("Generating fixtures...");
-  findAllFixtures().forEach(async (fixtureDir) => {
+  for (const fixtureDir of findAllFixtures()) {
     await generateFixture(path.join(FIXTURES_BASE_PATH, fixtureDir));
-  });
+  }
 };
 
 main();
