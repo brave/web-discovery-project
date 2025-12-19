@@ -15,6 +15,7 @@ const R = require("ramda");
 const FileHound = require("filehound");
 
 const stripJsonComments = require("strip-json-comments");
+const { ContentExtractor, Patterns, parseQueryString } = require("@web-discovery-project/parser");
 
 function jsonParse(text) {
   return JSON.parse(stripJsonComments(text));
@@ -66,7 +67,9 @@ const DEFAULT_PATTERNS = jsonParse(
 const enableLogging = true;
 
 export default describeModule(
-  "web-discovery-project/content-extractor",
+  // TODO Specifyping an arbitrary simple module here for compatibility reasons. We
+  // should move away from the `describeModule` approach
+  "web-discovery-project/html-helpers",
   () => ({
     "core/logger": {
       default: {
@@ -93,7 +96,6 @@ export default describeModule(
     describe("ContentExtractor", function () {
       this.timeout(20000);
 
-      let ContentExtractor;
       let WDP;
       let document;
       let fixture;
@@ -160,14 +162,10 @@ export default describeModule(
         /* eslint-disable-next-line global-require */
         global.URL = global.URL || require("url").URL;
 
-        const Patterns = (
-          await this.system.import("web-discovery-project/patterns")
-        ).default;
         const parseHtml = (
           await this.system.import("web-discovery-project/html-helpers")
         ).parseHtml;
 
-        ContentExtractor = this.module().ContentExtractor;
         WDP = {
           debug: enableLogging,
           msgType: "wdp",
@@ -184,7 +182,7 @@ export default describeModule(
           queryCache: {},
           patterns: new Patterns(),
           checkURL: (doc, url) => {
-            const { messages } = WDP.contentExtractor.run(doc, url);
+            const { messages } = WDP.contentExtractor.run(doc, url, WDP.getCountryCode());
             for (const message of messages)
               WDP.telemetry({
                 type: WDP.msgType,
@@ -193,7 +191,7 @@ export default describeModule(
               });
           },
         };
-        WDP.contentExtractor = new ContentExtractor(WDP.patterns, WDP);
+        WDP.contentExtractor = new ContentExtractor(WDP.patterns);
         WDP.parseHtml = parseHtml;
       });
 
@@ -356,12 +354,6 @@ export default describeModule(
     });
 
     describe("parseQueryString", function () {
-      let parseQueryString;
-
-      beforeEach(function () {
-        parseQueryString = this.module().parseQueryString;
-      });
-
       it("should pass regression tests", function () {
         expect(parseQueryString("")).to.deep.equal({});
         expect(parseQueryString("foo")).to.deep.equal({ foo: [true] });

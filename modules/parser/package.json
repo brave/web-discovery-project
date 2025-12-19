@@ -1,0 +1,11 @@
+{
+  "name": "@web-discovery-project/parser",
+  "version": "0.0.1",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {},
+  "author": "",
+  "license": "MPL-2.0",
+  "description": "",
+  "dependencies": {}
+}

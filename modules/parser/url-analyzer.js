@@ -2,9 +2,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
-import { extractHostname } from "../core/tlds";
-import { parse } from "../core/url";
-import logger from "./logger";
+import { parse } from "./utils/url.js";
 
 const URL_PATTERNS = [
   {
@@ -85,9 +83,10 @@ const URL_PATTERNS = [
 ];
 
 export default class UrlAnalyzer {
-  constructor(patterns) {
+  constructor(patterns, debug) {
     this.patterns = patterns;
     this._urlPatterns = URL_PATTERNS;
+    this.logger = { debug: debug ? console.debug.bind(console, "[url-analyzer]") : () => null };
   }
 
   parseLinks(url) {
@@ -104,13 +103,16 @@ export default class UrlAnalyzer {
         // avoid the ambigious '+' character and use explicit white space encoding.
         const url_ = url.replaceAll("+", "%20");
         const parsedUrl = parse(url_);
-
+        if (!parsedUrl) {
+          this.logger.debug(`Url '${url_}' is malformed`);
+          return { found: false };
+        }
         const query = queryFinder(parsedUrl);
         if (!query) {
           return { found: false };
         }
         if (!this.patterns.typeExists(type)) {
-          logger.debug(
+          this.logger.debug(
             "Matching rule for",
             url,
             "skipped (no matching server side rules exist)",
@@ -136,7 +138,7 @@ export default class UrlAnalyzer {
       url.startsWith("https://bravesearch.com/search?") ||
       url.startsWith("https://search.brave.software/search?");
     const parsedUrl = parse(url);
-    return isBraveSearch && parsedUrl.searchParams.get("q");
+    return isBraveSearch && parsedUrl && parsedUrl.searchParams.get("q");
   }
 
   checkAnonSearchURL(url, query) {
@@ -144,13 +146,17 @@ export default class UrlAnalyzer {
     if (!found) return { isSearchEngineUrl: false, queryUrl: null };
     const queryPrefix = urlPattern.prefix;
     if (!queryPrefix) {
-      logger.debug(
+      this.logger.debug(
         `URL pattern with type '${urlPattern.type}' has no query prefix`,
       );
       return { isSearchEngineUrl: false, queryUrl: null };
     }
     const encodedQuery = encodeURIComponent(query).replace(/%20/g, "+");
-    const hostname = extractHostname(url);
+    const parsedUrl = parse(url);
+    if (!parsedUrl) {
+      return { isSearchEngineUrl: false, queryUrl: null };
+    }
+    const hostname = parsedUrl.hostname;
     const queryUrl = `https://${hostname}/${queryPrefix}${encodedQuery}`;
     return { isSearchEngineUrl: urlPattern.isSearchEngine || false, queryUrl };
   }

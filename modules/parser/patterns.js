@@ -2,9 +2,8 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
-import logger from "./logger";
-import { sanitizeUrl } from "../core/sanitizer";
-import { removeQueryParams } from "../core/url";
+import { sanitizeUrl } from "./utils/sanitizer.js";
+import { removeQueryParams } from "./utils/url.js";
 
 function expectString(arg) {
   if (typeof arg !== "string") {
@@ -297,12 +296,13 @@ export function lookupBuiltinTransform(name) {
  * the server for updates.
  */
 export default class Patterns {
-  constructor() {
+  constructor(debug) {
     this._rules = {};
+    this.logger = { debug: debug ? console.debug.bind(console, "[patterns]") : () => null };
   }
 
   update(rules) {
-    logger.debug("Loaded patterns:", rules);
+    this.logger.debug("Loaded patterns:", rules);
     this._rules = rules;
   }
 

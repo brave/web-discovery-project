@@ -4,13 +4,11 @@
 
 import BloomFilter from "../core/bloom-filter";
 import md5 from "../core/helpers/md5";
-import { isHash } from "../core/helpers/hash-detector";
 import { sha1 } from "../core/crypto/utils";
 import random from "../core/crypto/random";
 import { fetch, httpGet } from "../core/http";
 import { parse, isIpAddress } from "../core/url";
 import { extractHostname } from "../core/tlds";
-import { checkSuspiciousQuery, sanitizeUrl } from "../core/sanitizer";
 import Storage from "../platform/web-discovery-project/storage";
 import config from "../core/config";
 import { getAllOpenPages } from "../platform/web-discovery-project/opentabs";
@@ -18,14 +16,13 @@ import { normalizeAclkUrl } from "./ad-detection";
 import { getActiveTab, isPrivateMode, getWindow } from "../core/browser";
 import DoublefetchHandler from "./doublefetch-handler";
 import WebDiscoveryProjectPatternsLoader from "./web-discovery-project-patterns-loader";
-import { ContentExtractor, parseQueryString } from "./content-extractor";
 import logger from "./logger";
 import { parseHtml, getContentDocument } from "./html-helpers";
 import { parseURL, Network } from "./network";
 import prefs from "../core/prefs";
 import pacemaker from "../core/services/pacemaker";
 import SafebrowsingEndpoint from "./safebrowsing-endpoint";
-import Patterns from "./patterns";
+import { checkSuspiciousQuery, sanitizeUrl, ContentExtractor, isHash, Patterns } from "@web-discovery-project/parser";
 
 /*
 Configuration for Bloomfilter
@@ -3088,6 +3085,7 @@ const WebDiscoveryProject = {
     const { messages } = WebDiscoveryProject.contentExtractor.run(
       pageContent,
       url,
+      WebDiscoveryProject.getCountryCode(),
     );
     for (const message of messages)
       WebDiscoveryProject.telemetry({
@@ -4092,7 +4090,6 @@ const WebDiscoveryProject = {
 };
 WebDiscoveryProject.contentExtractor = new ContentExtractor(
   WebDiscoveryProject.patterns,
-  WebDiscoveryProject,
 );
 
 export default WebDiscoveryProject;
