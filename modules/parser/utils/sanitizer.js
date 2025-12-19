@@ -291,7 +291,7 @@ export function sanitizeUrl(url, options = {}) {
   const logger = {
     warn: debug ? console.warn.bind(console, "[sanitizer]") : () => null,
     debug: debug ? console.debug.bind(console, "[sanitizer]") : () => null,
-  }
+  };
 
   // first run some sanity check on the structure of the URL
   const parsedUrl = tryParseUrl(url);
