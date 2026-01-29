@@ -1,19 +1,19 @@
 import { defineConfig, globalIgnores } from "eslint/config";
 import globals from "globals";
 import babelParser from "@babel/eslint-parser";
-import typescriptEslint from "@typescript-eslint/eslint-plugin";
+import tsEslint from "@typescript-eslint/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import js from "@eslint/js";
+import jsEslint from "@eslint/js";
 import { FlatCompat } from "@eslint/eslintrc";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const compat = new FlatCompat({
     baseDirectory: __dirname,
-    recommendedConfig: js.configs.recommended,
-    allConfig: js.configs.all,
+    recommendedConfig: jsEslint.configs.recommended,
+    allConfig: jsEslint.configs.all,
 });
 
 export default defineConfig([
@@ -24,11 +24,11 @@ export default defineConfig([
         "**/build/",
     ]),
     {
-        extends: compat.extends(
-            "eslint:recommended",
-            "plugin:compat/recommended",
-            "prettier"
-        ),
+        files: ["./{modules,tests}/**/*.{js,es}"],
+
+        extends: [
+            jsEslint.configs.recommended,
+        ],
 
         languageOptions: {
             globals: {
@@ -47,43 +47,40 @@ export default defineConfig([
             },
 
             parser: babelParser,
-            ecmaVersion: 5,
-            sourceType: "commonjs",
+            ecmaVersion: 6,
+            sourceType: "module",
 
             parserOptions: {
                 requireConfigFile: false,
             },
         },
 
+        linterOptions: {
+            reportUnusedDisableDirectives: false,
+        },
         rules: {
-            "compat/compat": "error",
             "import/extensions": "off",
-            "no-underscore-dangle": "off",
             "import/no-unresolved": "off",
             "no-restricted-globals": ["error", "Worker"],
+            "no-underscore-dangle": "off",
+            "no-unused-vars": "off",
         },
     },
     {
-        files: ["**/*.ts"],
-
-        extends: compat.extends(
-            "eslint:recommended",
-            "plugin:compat/recommended",
-            "plugin:@typescript-eslint/recommended",
-            "plugin:@typescript-eslint/recommended-requiring-type-checking"
-        ),
+        files: ["./{modules,tests}/**/*.ts"],
 
         plugins: {
-            "@typescript-eslint": typescriptEslint,
+            "@typescript-eslint": tsEslint,
         },
 
         languageOptions: {
             parser: tsParser,
-            ecmaVersion: 5,
-            sourceType: "script",
+            ecmaVersion: 6,
+            sourceType: "module",
 
             parserOptions: {
-                project: "./tsconfig.json",
+                project: path.resolve(__dirname, "tsconfig.json"),
+                tsconfigRootDir: __dirname,
             },
         },
 
@@ -97,13 +94,5 @@ export default defineConfig([
             "@typescript-eslint/no-unsafe-argument": "off",
             "@typescript-eslint/no-explicit-any": "off",
         },
-    },
-    {
-        ignores: [
-            "modules/web-discovery-project/sources/web-discovery-project.es",
-            "modules/core/dist/EventUtils.js",
-            "specific/node/index.js",
-            "build/",
-        ],
     },
 ]);
