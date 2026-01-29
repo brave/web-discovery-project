@@ -17,13 +17,13 @@ module.exports = (program) => {
     .option("--platform-only", 'check only "platforms/**" files')
     .option("-f --filetype <filetype>", 'specify file extension ("es", "jsx")')
     .option("-m --module <module>", "specify module folder")
-    .action((options) => {
-      const { CLIEngine } = require("eslint");
-      const cli = new CLIEngine({
+    .action(async (options) => {
+      const { ESLint } = require("eslint");
+      const eslint = new ESLint({
         cache: true,
         fix: options.fix,
       });
-      const formatter = cli.getFormatter();
+      const formatter = await eslint.loadFormatter();
 
       const module = options.module ? `${options.module}/**` : "**";
       let validSources = ["sources", "tests"];
@@ -64,10 +64,10 @@ module.exports = (program) => {
       }
 
       console.log("Linting the following paths: ", pathsToLint);
-      const report = cli.executeOnFiles(pathsToLint);
+      const report = await eslint.lintFiles(pathsToLint);
 
       if (options.fix) {
-        CLIEngine.outputFixes(report);
+        ESLint.outputFixes(report);
       }
 
       const logs = formatter(report.results);
