@@ -1,6 +1,6 @@
 {
   "name": "web-discovery-project",
-  "version": "1.1.74",
+  "version": "1.1.75",
   "workspaces": ["modules/parser"],
   "description": "Standalone Web Discovery Project package and extension",
   "scripts": {
@@ -65,7 +65,7 @@
     "@typescript-eslint/eslint-plugin": "6.11.0",
     "@typescript-eslint/parser": "6.11.0",
     "@xmldom/xmldom": "0.8.10",
-    "body-parser": "1.20.3",
+    "body-parser": "1.20.4",
     "broccoli": "3.5.2",
     "broccoli-babel-transpiler": "8.0.0",
     "broccoli-concat": "4.2.5",
@@ -132,7 +132,7 @@
   "overrides": {
     "ansi-html": "0.0.9",
     "cookie": "0.7.0",
-    "body-parser": "1.20.3",
+    "body-parser": "1.20.4",
     "eslint": "9.39.2",
     "express": "4.21.2",
     "form-data": "4.0.4",
