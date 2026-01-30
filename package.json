@@ -1,6 +1,6 @@
 {
   "name": "web-discovery-project",
-  "version": "1.1.74",
+  "version": "1.1.75",
   "workspaces": ["modules/parser"],
   "description": "Standalone Web Discovery Project package and extension",
   "scripts": {
@@ -100,7 +100,7 @@
     "mocha": "10.2.0",
     "mockdate": "3.0.5",
     "node-notifier": "10.0.1",
-    "patch-package": "8.0.0",
+    "patch-package": "8.0.1",
     "path-browserify": "1.0.1",
     "ramda": "0.29.1",
     "sinon": "17.0.1",
