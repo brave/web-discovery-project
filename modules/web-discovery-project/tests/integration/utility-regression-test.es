@@ -165,14 +165,17 @@ export default () => {
             }
           }, 30000);
           await WebDiscoveryProject.forceDoubleFetch(url);
-
-          // In test mode, URLs are not removed from the database after double fetch
-          // Instead, we just verify that the URL is not marked as private
-          await new Promise((resolve) => {
-            WebDiscoveryProject.isAlreadyMarkedPrivate(url, (res) => {
-              expect(res.private, "url is marked as private!").equal(0);
-              resolve();
-            });
+          await waitFor(
+            async () =>
+              (
+                await new Promise((resolve) =>
+                  WebDiscoveryProject.db.getURL(url, resolve)
+                )
+              ).length == 0,
+            15000
+          );
+          WebDiscoveryProject.isAlreadyMarkedPrivate(url, (res) => {
+            expect(res.private, "url is marked as private!").equal(0);
           });
         });
       });

@@ -1008,11 +1008,6 @@ const WebDiscoveryProject = {
       return { accepted: true };
     }
 
-    // In test mode, allow all URLs for regression testing
-    if (WebDiscoveryProject.testMode) {
-      return accept();
-    }
-
     // Need to add check for page MU.
     // one last validation whether should be fetchable or not. If we cannot send that URL because it's
     // private/suspicious/search_result page/etc. we can mark it as private directly
@@ -2904,14 +2899,6 @@ const WebDiscoveryProject = {
   isAlreadyMarkedPrivate: function (url, callback) {
     var hash = md5(url).substring(0, 16);
     var r = null;
-    
-    // In test mode, always treat URLs as public for regression testing
-    if (WebDiscoveryProject.testMode) {
-      r = { hash: hash, private: 0 };
-      callback(r);
-      return r;
-    }
-    
     if (WebDiscoveryProject.bloomFilter) {
       var sta = WebDiscoveryProject.bloomFilter.testSingle(hash);
       if (sta) {
@@ -3888,7 +3875,7 @@ const WebDiscoveryProject = {
         WebDiscoveryProject.db.saveURL(url, newObj, function () {
           logger.debug("Insertion success add urltoDB");
 
-          if (setPrivate && !WebDiscoveryProject.testMode) WebDiscoveryProject.setAsPrivate(url);
+          if (setPrivate) WebDiscoveryProject.setAsPrivate(url);
         });
       } else if (obj.length === 1) {
         logger.debug(
@@ -4012,7 +3999,7 @@ const WebDiscoveryProject = {
             },
           );
 
-          if (obj.count > WebDiscoveryProject.MAX_NUMBER_DOUBLEFETCH_ATTEMPS && !WebDiscoveryProject.testMode) {
+          if (obj.count > WebDiscoveryProject.MAX_NUMBER_DOUBLEFETCH_ATTEMPS) {
             WebDiscoveryProject.setAsPrivate(url);
           } else {
             WebDiscoveryProject.doubleFetch(url, url_pagedocPair[url]);
