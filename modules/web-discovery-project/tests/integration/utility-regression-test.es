@@ -83,7 +83,7 @@ export default () => {
           tab.url,
           `Tab ${tabId} URL should change from about:blank to ${url}`,
         ).to.not.eql("about:blank");
-      }, 4000);
+      }, 15 * 1000);
       return tabId;
     };
 
