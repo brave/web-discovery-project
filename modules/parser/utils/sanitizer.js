@@ -393,7 +393,7 @@ export function sanitizeUrl(url, options = {}) {
         return truncate(`Found a problematic part in the URL path: ${part}`);
       }
 
-      if (strict && isHash(part, { threshold: 0.015 })) {
+      if (strict && isHash(part, { threshold: 0.027 })) {
         return truncate(
           `Found URL path that could be an identifier: <<${part}>>`,
         );
@@ -423,7 +423,7 @@ export function sanitizeUrl(url, options = {}) {
           );
         }
       }
-      if (strict && isHash(value, { threshold: 0.015 })) {
+      if (strict && isHash(value, { threshold: 0.027 })) {
         return truncate(
           `Found URL parameter that could be an identifier ${key}=${value}`,
         );

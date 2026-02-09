@@ -1510,6 +1510,6 @@ function isHashProb(str) {
   return Math.exp(logProb);
 }
 
-export function isHash(str, { threshold = 0.015 } = {}) {
+export function isHash(str, { threshold = 0.027 } = {}) {
   return str.length >= 6 && isHashProb(str) < threshold;
 }
