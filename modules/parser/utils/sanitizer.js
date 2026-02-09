@@ -2,7 +2,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
-import { isHash } from "./hash-detector.js";
+import { HashProb } from "./hash/index.js";
 
 function isCharNumber(char) {
   const code = char.charCodeAt(0);
@@ -293,6 +293,8 @@ export function sanitizeUrl(url, options = {}) {
     debug: debug ? console.debug.bind(console, "[sanitizer]") : () => null,
   };
 
+  const hashProb = new HashProb();
+
   // first run some sanity check on the structure of the URL
   const parsedUrl = tryParseUrl(url);
   if (!parsedUrl) {
@@ -393,7 +395,7 @@ export function sanitizeUrl(url, options = {}) {
         return truncate(`Found a problematic part in the URL path: ${part}`);
       }
 
-      if (strict && isHash(part, { threshold: 0.027 })) {
+      if (strict && hashProb.isHash(part, 0.015)) {
         return truncate(
           `Found URL path that could be an identifier: <<${part}>>`,
         );
@@ -423,7 +425,7 @@ export function sanitizeUrl(url, options = {}) {
           );
         }
       }
-      if (strict && isHash(value, { threshold: 0.027 })) {
+      if (strict && hashProb.isHash(value, 0.015)) {
         return truncate(
           `Found URL parameter that could be an identifier ${key}=${value}`,
         );

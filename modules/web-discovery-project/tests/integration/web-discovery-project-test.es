@@ -3,7 +3,7 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
 import { app, expect } from "../../../tests/core/integration/helpers";
-import { isHash } from "@web-discovery-project/parser";
+import { HashProb } from "@web-discovery-project/parser";
 
 export default function () {
   const WebDiscoveryProject =
@@ -17,11 +17,41 @@ export default function () {
     });
 
     describe("web-discovery-project.isHash", function () {
-      const hashes = ["04C2EAD03B", "54f5095c96e"];
+      const notHash = [
+        "",
+        "Firefox",
+        "cliqz.com", // a url
+        "anti-tracking",
+        "front/ng",
+        "javascript",
+        "callback",
+        "compress-format-enhance",
+        "compress%2Cformat%2Cenhance",
+        "2022",
+        "12",
+        "11667216660",
+      ];
 
-      hashes.forEach((e) => {
-        it(`'${e}' is a hash"`, function () {
-          expect(isHash(e)).to.equal(true);
+      const hashes = [
+        "04C2EAD03B",
+        "54f5095c96e",
+        "B62a15974a93",
+        "22163a4ff903",
+        "468x742",
+        "1021x952",
+        "1024x768",
+        "1440x900",
+      ];
+
+      notHash.forEach(function (str) {
+        it(`'${str}' is not a hash`, function () {
+          chai.expect(WebDiscoveryProject.hashProb.isHash(str)).to.be.false;
+        });
+      });
+
+      hashes.forEach(function (str) {
+        it(`'${str}' is a hash`, function () {
+          chai.expect(WebDiscoveryProject.hashProb.isHash(str)).to.be.true;
         });
       });
     });
@@ -38,6 +68,32 @@ export default function () {
       emails.forEach((e) => {
         it(`'${e}' is a email`, function () {
           expect(WebDiscoveryProject.checkForEmail(e)).to.equal(true);
+        });
+      });
+    });
+
+    describe("web-discovery-project.dropLongURL", function () {
+      const longUrls = [
+        "https://example.com/22163a4ff903",
+        "https://example.com?q=22163a4ff903",
+        "https://example.com/foobarbazfoobarbazfoobarbazfoobarbazfoobarbazfoobarbazfoobarbazfoobarbazfoobarbaz",
+        "https://www.wsj.com/articles/ultra-orthodox-israeli-military-unit-faces-calls-to-disband-after-abuse-allegations-11667216660",
+      ];
+
+      const notLongUrls = [
+        "https://example.com",
+        "https://www.nytimes.com/2022/10/27/fashion/craftsmanship-eb-meyrowitz-eyeglasses-london.html",
+      ];
+
+      longUrls.forEach((u) => {
+        it(`'${u}' is a long URL`, function () {
+          expect(WebDiscoveryProject.dropLongURL(u, { strict: true })).to.equal(true);
+        });
+      });
+
+      notLongUrls.forEach((u) => {
+        it(`'${u}' is not a long URL`, function () {
+          expect(WebDiscoveryProject.dropLongURL(u, { strict: true })).to.equal(false);
         });
       });
     });
