@@ -45,13 +45,13 @@ export default function () {
 
       notHash.forEach(function (str) {
         it(`'${str}' is not a hash`, function () {
-          chai.expect(WebDiscoveryProject.hashProb.isHash(str)).to.be.false;
+          expect(WebDiscoveryProject.hashProb.isHash(str)).to.be.false;
         });
       });
 
       hashes.forEach(function (str) {
         it(`'${str}' is a hash`, function () {
-          chai.expect(WebDiscoveryProject.hashProb.isHash(str)).to.be.true;
+          expect(WebDiscoveryProject.hashProb.isHash(str)).to.be.true;
         });
       });
     });
