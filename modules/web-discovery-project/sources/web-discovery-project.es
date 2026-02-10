@@ -159,6 +159,7 @@ const WebDiscoveryProject = {
     /^https:\/\/www\.npr\.org\/[0-9]{4}\/[0-9]{2}\/[0-9]{2}\//,
     /^https:\/\/www\.propublica\.org\/article\//,
     /^https:\/\/www\.spiegel\.de\/international\//,
+    /^https:\/\/www\.telegraph\.co\.uk\/news\//,
     /^https:\/\/www\.washingtonpost\.com\/[a-z]+\/[0-9]{4}\/[0-9]{2}\/[0-9]{2}\//,
     /^https:\/\/www\.wsj\.com\/articles\//,
   ],
@@ -1252,7 +1253,7 @@ const WebDiscoveryProject = {
                       );
                       return;
                     }
-                  } else {
+                  } else if (!allowlisted) {
                     privateUrlFound(
                       url,
                       "rejected by dropLongURL (strict=true) heuristic",
