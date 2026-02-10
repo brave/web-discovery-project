@@ -120,6 +120,7 @@
   },
   "dependencies": {
     "@cliqz/url-parser": "1.1.5",
+    "htmlparser2": "9.1.0",
     "@web-discovery-project/parser": "0.0.2",
     "abortcontroller-polyfill": "1.7.5",
     "anonymous-credentials": "https://github.com/human-web/anonymous-credentials/releases/download/1.0.0/anonymous-credentials-1.0.0.tgz",
