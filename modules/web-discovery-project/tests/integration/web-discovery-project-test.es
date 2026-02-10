@@ -83,6 +83,8 @@ export default function () {
       const notLongUrls = [
         "https://example.com",
         "https://www.nytimes.com/2022/10/27/fashion/craftsmanship-eb-meyrowitz-eyeglasses-london.html",
+        "https://www.newsweek.com/american-army-halloween-trick-treat-candy-himars-viral-video-ukraine-fort-sill-1755955",
+        "https://www.telegraph.co.uk/news/2022/10/30/bbc-local-radio-stations-face-big-cuts-content-area/",
       ];
 
       longUrls.forEach((u) => {

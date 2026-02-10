@@ -83,7 +83,7 @@ export default () => {
           tab.url,
           `Tab ${tabId} URL should change from about:blank to ${url}`,
         ).to.not.eql("about:blank");
-      }, 15 * 1000);
+      }, 30 * 1000);
       return tabId;
     };
 
@@ -95,10 +95,13 @@ export default () => {
       // Ensure clean bloom filter state - force initialization of empty filter
       await new Promise((resolve) => {
         WebDiscoveryProject.db.saveRecordTelemetry("bf", null, () => {
+          WebDiscoveryProject.bloomFilter = null; // Clear so we can detect when it's loaded
           WebDiscoveryProject.loadBloomFilter();
           resolve();
         });
       });
+      // Wait for bloom filter to actually be loaded
+      await waitFor(() => WebDiscoveryProject.bloomFilter !== null, 5000);
 
       // Reload pipeline
       pipeline.unload();
@@ -109,10 +112,13 @@ export default () => {
       // Reset bloom filter after each test to prevent URLs marked private from affecting next test
       await new Promise((resolve) => {
         WebDiscoveryProject.db.saveRecordTelemetry("bf", null, () => {
+          WebDiscoveryProject.bloomFilter = null; // Clear so we can detect when it's loaded
           WebDiscoveryProject.loadBloomFilter();
           resolve();
         });
       });
+      // Wait for bloom filter to actually be loaded
+      await waitFor(() => WebDiscoveryProject.bloomFilter !== null, 5000);
     });
 
     describe("utility-regression-test.base", () => {

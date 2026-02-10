@@ -1043,6 +1043,11 @@ const WebDiscoveryProject = {
 
     let allowlisted = page_doc["alw"];
 
+    // Allowlisted URLs are trusted even without canonical URL
+    if (allowlisted) {
+      return accept();
+    }
+
     if (WebDiscoveryProject.dropLongURL(url)) {
       // The URL itself is considered unsafe, but it has a canonical URL, so it should be public
       const cUrl = page_doc["x"]["canonical_url"];
