@@ -39,14 +39,14 @@ case "$FERN_ARGS" in
 esac
 
 # Run docker
-echo "Running tests, you can connect using a vnc client to 'localhost:15900 with password vnc'"
+echo "Running tests, you can connect using a vnc client to 'localhost:5900 with password vnc'"
 echo "Fern config: ${FERN_ARGS}"
-DOCKER_RUN="docker run --network=host --privileged --rm -t --user node --shm-size=512m -p 15900:5900 -v $(pwd)/modules:/app/modules -v $(pwd)/platforms:/app/platforms -e HTTP_PROXY -e HTTPS_PROXY $EXTLOG_MOUNT -w /app docker-wdp-tests ./tests/run_tests.sh $FERN_ARGS"
+DOCKER_RUN="docker run --network=host --privileged --rm -t --user node --shm-size=512m -v $(pwd)/modules:/app/modules -v $(pwd)/platforms:/app/platforms -e HTTP_PROXY -e HTTPS_PROXY $EXTLOG_MOUNT -w /app docker-wdp-tests ./tests/run_tests.sh $FERN_ARGS"
 
 if type xtightvncviewer >/dev/null 2>&1; then
     ${DOCKER_RUN} &
     sleep 5
-    echo vnc | xtightvncviewer -autopass localhost::15900
+    echo vnc | xtightvncviewer -autopass localhost::5900
 else
     ${DOCKER_RUN}
 fi
