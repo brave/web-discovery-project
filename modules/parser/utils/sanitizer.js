@@ -284,6 +284,8 @@ const RISKY_URL_PATH_PARTS = new Set([
   'weblogic',
 ]);
 
+const hashProb = new HashProb();
+
 export function sanitizeUrl(url, options = {}) {
   const { strict = false, tryPreservePath = false, testMode = false, debug = false } = options;
   let accept = () => ({ result: 'safe', safeUrl: url });
@@ -292,8 +294,6 @@ export function sanitizeUrl(url, options = {}) {
     warn: debug ? console.warn.bind(console, "[sanitizer]") : () => null,
     debug: debug ? console.debug.bind(console, "[sanitizer]") : () => null,
   };
-
-  const hashProb = new HashProb();
 
   // first run some sanity check on the structure of the URL
   const parsedUrl = tryParseUrl(url);
