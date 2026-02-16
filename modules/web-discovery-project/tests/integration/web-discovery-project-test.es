@@ -19,28 +19,49 @@ export default function () {
     describe("web-discovery-project.isHash", function () {
       const notHash = [
         "",
-        "Firefox",
-        "cliqz.com", // a url
-        "anti-tracking",
-        "front/ng",
-        "javascript",
-        "callback",
-        "compress-format-enhance",
-        "compress%2Cformat%2Cenhance",
-        "2022",
-        "12",
         "11667216660",
+        "12",
+        "2022",
+        "Firefox",
+        "about-us",
+        "anti-tracking",
+        "callback",
+        "cliqz.com",
+        "compress%2Cformat%2Cenhance",
+        "compress-format-enhance",
+        "contact",
+        "front/ng",
+        "homepage",
+        "javascript",
+        "navigation",
+        "newsletter",
+        "privacy-policy",
+        "search-results",
+        "settings",
+        "shopping",
       ];
 
       const hashes = [
+        "02a6a4e3-260a-4513-a95b-7bc5b50679c9",
         "04C2EAD03B",
-        "54f5095c96e",
-        "B62a15974a93",
-        "22163a4ff903",
-        "468x742",
         "1021x952",
         "1024x768",
         "1440x900",
+        "22163a4ff903",
+        "468x742",
+        "54f5095c96e",
+        "5d41402abc4b",
+        "6a204bd89f3c",
+        "7b3e4d2f-8a19-4c6e-bc0d-1e5f6a7b8c9d",
+        "8c14e45fceea",
+        "9f86d081884c",
+        "B62a15974a93",
+        "a1b2c3d4e5",
+        "c81e728d9d4c",
+        "d3b07384d113",
+        "download",
+        "e3b0c44298fc1c14",
+        "f47ac10b58cc",
       ];
 
       notHash.forEach(function (str) {
@@ -52,6 +73,69 @@ export default function () {
       hashes.forEach(function (str) {
         it(`'${str}' is a hash`, function () {
           expect(WebDiscoveryProject.hashProb.isHash(str)).to.be.true;
+        });
+      });
+    });
+
+    describe("web-discovery-project.isHash(0.015)", function () {
+      const thresh = 0.015;
+
+      const notHash = [
+        "",
+        "1021x952",
+        "1024x768",
+        "11667216660",
+        "12",
+        "1440x900",
+        "2022",
+        "22163a4ff903",
+        "9f86d081884c",
+        "Firefox",
+        "about-us",
+        "anti-tracking",
+        "callback",
+        "cliqz.com",
+        "compress%2Cformat%2Cenhance",
+        "compress-format-enhance",
+        "contact",
+        "d3b07384d113",
+        "download",
+        "front/ng",
+        "homepage",
+        "javascript",
+        "navigation",
+        "newsletter",
+        "privacy-policy",
+        "search-results",
+        "settings",
+        "shopping",
+      ];
+
+      const hashes = [
+        "02a6a4e3-260a-4513-a95b-7bc5b50679c9",
+        "04C2EAD03B",
+        "468x742",
+        "54f5095c96e",
+        "5d41402abc4b",
+        "6a204bd89f3c",
+        "7b3e4d2f-8a19-4c6e-bc0d-1e5f6a7b8c9d",
+        "8c14e45fceea",
+        "B62a15974a93",
+        "a1b2c3d4e5",
+        "c81e728d9d4c",
+        "e3b0c44298fc1c14",
+        "f47ac10b58cc",
+      ];
+
+      notHash.forEach(function (str) {
+        it(`'${str}' is not a hash`, function () {
+          expect(WebDiscoveryProject.hashProb.isHash(str, thresh)).to.be.false;
+        });
+      });
+
+      hashes.forEach(function (str) {
+        it(`'${str}' is a hash`, function () {
+          expect(WebDiscoveryProject.hashProb.isHash(str, thresh)).to.be.true;
         });
       });
     });
