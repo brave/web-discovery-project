@@ -40,6 +40,10 @@ export class HashProb {
   }
 
   isHash(str, thresh) {
+    // Do not consider small strings
+    if (str.length < 6) {
+      return false;
+    }
     const p = this.isHashProb(str);
     return p < (thresh || this.probHashThreshold);
   }
