@@ -395,7 +395,7 @@ export function sanitizeUrl(url, options = {}) {
         return truncate(`Found a problematic part in the URL path: ${part}`);
       }
 
-      if (strict && hashProb.isHash(part, 0.015)) {
+      if (strict && hashProb.isHash(part)) {
         return truncate(
           `Found URL path that could be an identifier: <<${part}>>`,
         );
@@ -425,7 +425,7 @@ export function sanitizeUrl(url, options = {}) {
           );
         }
       }
-      if (strict && hashProb.isHash(value, 0.015)) {
+      if (strict && hashProb.isHash(value)) {
         return truncate(
           `Found URL parameter that could be an identifier ${key}=${value}`,
         );

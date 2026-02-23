@@ -346,10 +346,10 @@ const WebDiscoveryProject = {
 
         if (options.strict == true) {
           // if strict, check the no token in path looks like a hash
-          if (vpath[i].length > 5 && this.hashProb.isHash(vpath[i], 0.015))
+          if (vpath[i].length > 5 && this.hashProb.isHash(vpath[i]))
             return true;
         } else {
-          if (vpath[i].length > 12 && this.hashProb.isHash(vpath[i], 0.015)) {
+          if (vpath[i].length > 12 && this.hashProb.isHash(vpath[i])) {
             logger.debug("DLU failed: hash in the URL ", vpath[i]);
             return true;
           }
@@ -1043,7 +1043,7 @@ const WebDiscoveryProject = {
 
     let allowlisted = page_doc["alw"];
 
-    // Allowlisted URLs are trusted even without canonical URL
+    // Allowlisted URLs bypass all doublefetch heuristics
     if (allowlisted) {
       return accept();
     }
@@ -1052,7 +1052,7 @@ const WebDiscoveryProject = {
       // The URL itself is considered unsafe, but it has a canonical URL, so it should be public
       const cUrl = page_doc["x"]["canonical_url"];
       if (cUrl) {
-        if (!allowlisted && WebDiscoveryProject.dropLongURL(cUrl)) {
+        if (WebDiscoveryProject.dropLongURL(cUrl)) {
           // oops, the canonical is also bad, therefore mark as private
           logger.debug(
             `both URL=${url} and canonical_url=${cUrl} are too long`,
@@ -3147,10 +3147,6 @@ const WebDiscoveryProject = {
         var cstr = vt[i].replace(/[^A-Za-z0-9]/g, "");
         if (cstr.length > WebDiscoveryProject.rel_segment_len) {
           if (this.hashProb.isHash(cstr)) return true;
-
-          if (this.hashProb.isHash(cstr.toLowerCase(), 0.0225)) {
-            return true;
-          }
         }
       }
       var cstr = vt[i].replace(/[^A-Za-z0-9]/g, "");

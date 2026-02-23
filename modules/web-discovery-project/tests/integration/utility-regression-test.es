@@ -62,6 +62,20 @@ export default () => {
       app.modules["web-discovery-project"].background.webDiscoveryProject;
     const pipeline = app.modules["webrequest-pipeline"].background;
 
+    // Shared helper: clears the bloom filter and waits for a fresh empty one
+    // to load, preventing URLs marked private in one test from leaking into
+    // the next. Used in both beforeEach and afterEach.
+    const resetBloomFilter = async () => {
+      await new Promise((resolve) => {
+        WebDiscoveryProject.db.saveRecordTelemetry("bf", null, () => {
+          WebDiscoveryProject.bloomFilter = null;
+          WebDiscoveryProject.loadBloomFilter();
+          resolve();
+        });
+      });
+      await waitFor(() => WebDiscoveryProject.bloomFilter !== null, 5000);
+    };
+
     const openTab = async (url) => {
       const tabId = await newTab("about:blank");
       await waitFor(
@@ -92,16 +106,7 @@ export default () => {
       WebDiscoveryProject.debug = true;
       WebDiscoveryProject.testMode = true;
 
-      // Ensure clean bloom filter state - force initialization of empty filter
-      await new Promise((resolve) => {
-        WebDiscoveryProject.db.saveRecordTelemetry("bf", null, () => {
-          WebDiscoveryProject.bloomFilter = null; // Clear so we can detect when it's loaded
-          WebDiscoveryProject.loadBloomFilter();
-          resolve();
-        });
-      });
-      // Wait for bloom filter to actually be loaded
-      await waitFor(() => WebDiscoveryProject.bloomFilter !== null, 5000);
+      await resetBloomFilter();
 
       // Reload pipeline
       pipeline.unload();
@@ -109,16 +114,7 @@ export default () => {
     });
 
     afterEach(async () => {
-      // Reset bloom filter after each test to prevent URLs marked private from affecting next test
-      await new Promise((resolve) => {
-        WebDiscoveryProject.db.saveRecordTelemetry("bf", null, () => {
-          WebDiscoveryProject.bloomFilter = null; // Clear so we can detect when it's loaded
-          WebDiscoveryProject.loadBloomFilter();
-          resolve();
-        });
-      });
-      // Wait for bloom filter to actually be loaded
-      await waitFor(() => WebDiscoveryProject.bloomFilter !== null, 5000);
+      await resetBloomFilter();
     });
 
     describe("utility-regression-test.base", () => {
@@ -186,13 +182,11 @@ export default () => {
                 )
               ).length == 0,
           );
-          // Check if URL is private only if double fetch was completed successfully
-          const doubleFetchSuccess = url in WebDiscoveryProject.docCache;
+          // Assert directly on res.private. The previous doubleFetchSuccess
+          // guard (Number(doubleFetchSuccess && res.private)) silently passed
+          // when the doublefetch failed, hiding real regressions.
           WebDiscoveryProject.isAlreadyMarkedPrivate(url, (res) => {
-            expect(
-              Number(doubleFetchSuccess && res.private),
-              "url is marked as private!",
-            ).equal(0);
+            expect(res.private, "url is marked as private!").to.equal(0);
           });
         });
       });
