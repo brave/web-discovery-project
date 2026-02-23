@@ -24,9 +24,9 @@ import pacemaker from "../core/services/pacemaker";
 import SafebrowsingEndpoint from "./safebrowsing-endpoint";
 import {
   checkSuspiciousQuery,
+  isHash,
   sanitizeUrl,
   ContentExtractor,
-  HashProb,
   Patterns,
 } from "@web-discovery-project/parser";
 
@@ -82,7 +82,6 @@ const WebDiscoveryProject = {
   PAGE_WAIT_TIME: 5000,
   LOG_KEY: "wdp",
   testMode: false,
-  hashProb: new HashProb(),
   httpCache: {},
   httpCache401: {},
   queryCache: {},
@@ -175,7 +174,7 @@ const WebDiscoveryProject = {
       if (url_parts.hostname.length < 8 && url_parts.path.length > 4) {
         var v = url_parts.path.split("/");
         for (var i = 0; i < v.length; i++)
-          if (this.hashProb.isHash(v[i])) return true;
+          if (isHash(v[i])) return true;
       }
       return false;
     } catch (ee) {
@@ -283,7 +282,7 @@ const WebDiscoveryProject = {
           }
 
           for (var i = 0; i < v.length; i++) {
-            if (v[i].length > 3 && this.hashProb.isHash(v[i])) return true;
+            if (v[i].length > 3 && isHash(v[i])) return true;
           }
 
           if (
@@ -346,10 +345,10 @@ const WebDiscoveryProject = {
 
         if (options.strict == true) {
           // if strict, check the no token in path looks like a hash
-          if (vpath[i].length > 5 && this.hashProb.isHash(vpath[i], 0.015))
+          if (vpath[i].length > 5 && isHash(vpath[i], { threshold: 0.015 }))
             return true;
         } else {
-          if (vpath[i].length > 12 && this.hashProb.isHash(vpath[i], 0.015)) {
+          if (vpath[i].length > 12 && isHash(vpath[i], { threshold: 0.015 })) {
             logger.debug("DLU failed: hash in the URL ", vpath[i]);
             return true;
           }
@@ -362,7 +361,7 @@ const WebDiscoveryProject = {
         var mult = 1.0;
         if (options.strict == true) mult = 0.5;
         if (cstr.length > WebDiscoveryProject.rel_segment_len * mult) {
-          if (this.hashProb.isHash(cstr)) {
+          if (isHash(cstr)) {
             logger.debug("DLU failed: hash in the path ", cstr);
             return true;
           }
@@ -3146,9 +3145,9 @@ const WebDiscoveryProject = {
       if (vt[i].length > WebDiscoveryProject.rel_segment_len) {
         var cstr = vt[i].replace(/[^A-Za-z0-9]/g, "");
         if (cstr.length > WebDiscoveryProject.rel_segment_len) {
-          if (this.hashProb.isHash(cstr)) return true;
+          if (isHash(cstr)) return true;
 
-          if (this.hashProb.isHash(cstr.toLowerCase(), 0.0225)) {
+          if (isHash(cstr.toLowerCase(), { threshold: 0.0225 })) {
             return true;
           }
         }
