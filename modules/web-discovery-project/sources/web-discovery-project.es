@@ -345,7 +345,7 @@ const WebDiscoveryProject = {
 
         if (options.strict == true) {
           // if strict, check the no token in path looks like a hash
-          if (vpath[i].length > 5 && isHash(vpath[i], { threshold: 0.015 }))
+          if (vpath[i].length > 5 && isHash(vpath[i]))
             return true;
         } else {
           if (vpath[i].length > 12 && isHash(vpath[i], { threshold: 0.015 })) {
@@ -1051,7 +1051,7 @@ const WebDiscoveryProject = {
       // The URL itself is considered unsafe, but it has a canonical URL, so it should be public
       const cUrl = page_doc["x"]["canonical_url"];
       if (cUrl) {
-        if (!allowlisted && WebDiscoveryProject.dropLongURL(cUrl)) {
+        if (WebDiscoveryProject.dropLongURL(cUrl)) {
           // oops, the canonical is also bad, therefore mark as private
           logger.debug(
             `both URL=${url} and canonical_url=${cUrl} are too long`,
