@@ -22,7 +22,13 @@ import { parseURL, Network } from "./network";
 import prefs from "../core/prefs";
 import pacemaker from "../core/services/pacemaker";
 import SafebrowsingEndpoint from "./safebrowsing-endpoint";
-import { checkSuspiciousQuery, sanitizeUrl, ContentExtractor, isHash, Patterns } from "@web-discovery-project/parser";
+import {
+  checkSuspiciousQuery,
+  isHash,
+  sanitizeUrl,
+  ContentExtractor,
+  Patterns,
+} from "@web-discovery-project/parser";
 
 /*
 Configuration for Bloomfilter
@@ -152,6 +158,7 @@ const WebDiscoveryProject = {
     /^https:\/\/www\.npr\.org\/[0-9]{4}\/[0-9]{2}\/[0-9]{2}\//,
     /^https:\/\/www\.propublica\.org\/article\//,
     /^https:\/\/www\.spiegel\.de\/international\//,
+    /^https:\/\/www\.telegraph\.co\.uk\/news\//,
     /^https:\/\/www\.washingtonpost\.com\/[a-z]+\/[0-9]{4}\/[0-9]{2}\/[0-9]{2}\//,
     /^https:\/\/www\.wsj\.com\/articles\//,
   ],
@@ -159,14 +166,15 @@ const WebDiscoveryProject = {
   _md5: function (str) {
     return md5(str);
   },
-  isShortenerURL: function (url) {
+  isShortenerURL(url) {
     try {
       var url_parts = parseURL(url);
       if (!url_parts) return true;
 
       if (url_parts.hostname.length < 8 && url_parts.path.length > 4) {
         var v = url_parts.path.split("/");
-        for (var i = 0; i < v.length; i++) if (isHash(v[i])) return true;
+        for (var i = 0; i < v.length; i++)
+          if (isHash(v[i])) return true;
       }
       return false;
     } catch (ee) {
@@ -244,7 +252,7 @@ const WebDiscoveryProject = {
     }
     return strict_value;
   },
-  dropLongURL: function (url, options) {
+  dropLongURL(url, options) {
     logger.debug("DLU called with arguments:", url, options);
     try {
       if (options == null)
@@ -337,9 +345,10 @@ const WebDiscoveryProject = {
 
         if (options.strict == true) {
           // if strict, check the no token in path looks like a hash
-          if (vpath[i].length > 5 && isHash(vpath[i])) return true;
+          if (vpath[i].length > 5 && isHash(vpath[i]))
+            return true;
         } else {
-          if (vpath[i].length > 12 && isHash(vpath[i])) {
+          if (vpath[i].length > 12 && isHash(vpath[i], { threshold: 0.015 })) {
             logger.debug("DLU failed: hash in the URL ", vpath[i]);
             return true;
           }
@@ -1033,11 +1042,16 @@ const WebDiscoveryProject = {
 
     let allowlisted = page_doc["alw"];
 
+    // Allowlisted URLs are trusted even without canonical URL
+    if (allowlisted) {
+      return accept();
+    }
+
     if (WebDiscoveryProject.dropLongURL(url)) {
       // The URL itself is considered unsafe, but it has a canonical URL, so it should be public
       const cUrl = page_doc["x"]["canonical_url"];
       if (cUrl) {
-        if (!allowlisted && WebDiscoveryProject.dropLongURL(cUrl)) {
+        if (WebDiscoveryProject.dropLongURL(cUrl)) {
           // oops, the canonical is also bad, therefore mark as private
           logger.debug(
             `both URL=${url} and canonical_url=${cUrl} are too long`,
@@ -1243,7 +1257,7 @@ const WebDiscoveryProject = {
                       );
                       return;
                     }
-                  } else {
+                  } else if (!allowlisted) {
                     privateUrlFound(
                       url,
                       "rejected by dropLongURL (strict=true) heuristic",
@@ -1728,9 +1742,9 @@ const WebDiscoveryProject = {
       if (
         sanitizeUrl(activeURL, {
           testMode: WebDiscoveryProject.testMode,
-        }).result !== "safe"
+        }).result !== "safe" &&
         // For search engine URLs we check if the query is suspicious
-        && !WebDiscoveryProject.isSearchEngineUrl(activeURL)
+        !WebDiscoveryProject.isSearchEngineUrl(activeURL)
       ) {
         logger.debug("[onLocationChange] isSuspiciousURL", activeURL);
         return;
