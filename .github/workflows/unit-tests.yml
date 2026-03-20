@@ -39,4 +39,4 @@ jobs:
       - run: node --unhandled-rejections=strict fern.js test configs/ci/unit-tests.js -l unit-node --environment testing --no-build --ci report.xml
 
       - if: ${{ github.actor != 'dependabot[bot]' && github.actor != 'renovate[bot]' }}
-        run: npm audit
+        run: npm run audit_deps
