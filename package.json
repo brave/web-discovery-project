@@ -13,7 +13,8 @@
     "postinstall": "patch-package",
     "start:brave": "web-ext run --source-dir='./build' --target chromium --chromium-binary \"$BRAVE_PATH\"",
     "start:build": "node --unhandled-rejections=strict fern.js serve configs/sandbox.js --no-launch",
-    "start": "npm run build-dev && concurrently npm:start:*"
+    "start": "npm run build-dev && concurrently npm:start:*",
+    "audit_deps": "node scripts/audit_deps.js"
   },
   "repository": {
     "type": "git",
