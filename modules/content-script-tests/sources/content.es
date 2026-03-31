@@ -6,8 +6,8 @@ import { registerContentScript } from "../core/content/register";
 
 registerContentScript({
   module: "content-script-tests",
-  matches: ["http://example.com/"],
-  excludeMatches: ["http://example.com/*?foo=42"],
+  matches: ["*://example.com/"],
+  excludeMatches: ["*://example.com/*?foo=42"],
   // TODO - check all_frames
   // TODO - check match_about_blank
   js: [
