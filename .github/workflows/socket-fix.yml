@@ -25,8 +25,14 @@ jobs:
 
       - name: Build ID flags
         id: build-ids
+        env:
+          GHSA_IDS: ${{ inputs.ghsa_ids }}
         run: |
-          IFS=',' read -ra IDS <<< "${{ inputs.ghsa_ids }}"
+          if ! [[ "$GHSA_IDS" =~ ^GHSA-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}(,\ ?GHSA-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4})*$ ]]; then
+            echo "::error::GHSA_IDS contains invalid entries. Expected format: GHSA-xxxx-xxxx-xxxx (comma or comma-space separated)"
+            exit 1
+          fi
+          IFS=',' read -ra IDS <<< "$GHSA_IDS"
           FLAGS=""
           for id in "${IDS[@]}"; do
             id="$(echo "$id" | xargs)"
