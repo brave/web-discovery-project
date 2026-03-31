@@ -13,7 +13,8 @@
     "postinstall": "patch-package",
     "start:brave": "web-ext run --source-dir='./build' --target chromium --chromium-binary \"$BRAVE_PATH\"",
     "start:build": "node --unhandled-rejections=strict fern.js serve configs/sandbox.js --no-launch",
-    "start": "npm run build-dev && concurrently npm:start:*"
+    "start": "npm run build-dev && concurrently npm:start:*",
+    "audit_deps": "node scripts/audit_deps.js"
   },
   "repository": {
     "type": "git",
@@ -99,7 +100,7 @@
     "glob": "8.1.0",
     "globals": "17.2.0",
     "jsdom": "22.1.0",
-    "mocha": "10.2.0",
+    "mocha": "10.6.0",
     "mockdate": "3.0.5",
     "node-notifier": "10.0.1",
     "patch-package": "8.0.0",
@@ -165,5 +166,9 @@
     "micromatch": "4.0.8",
     "flatted": "3.4.2",
     "yaml": "2.8.3"
+  },
+  "engines": {
+    "node": ">=24.11.1 <25.0.0",
+    "npm": ">=11.6.2"
   }
 }

@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-24.04
     strategy:
       matrix:
-        node-version: [22]
+        node-version: [24]
     steps:
       - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
 
@@ -39,4 +39,4 @@ jobs:
       - run: node --unhandled-rejections=strict fern.js test configs/ci/unit-tests.js -l unit-node --environment testing --no-build --ci report.xml
 
       - if: ${{ github.actor != 'dependabot[bot]' && github.actor != 'renovate[bot]' }}
-        run: npm audit
+        run: npm run audit_deps
