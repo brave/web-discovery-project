@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-24.04
     strategy:
       matrix:
-        node-version: [24]
+        node-version: '24.11.1'
         config: ["configs/extension.js", "configs/module.js"]
 
     steps:
