@@ -41,3 +41,25 @@ jobs:
           for id in "${IDS[@]}"; do FLAGS+=(--id "${id// /}"); done
           socket config set defaultOrg "brave"
           socket fix . "${FLAGS[@]}"
+
+      - name: Open Pull Request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GHSA_IDS: ${{ inputs.ghsa_ids }}
+        run: |
+          if ! git diff --quiet; then
+            BRANCH="socket-fix/$(echo "$GHSA_IDS" | tr ', ' '-' | tr -s '-' | cut -c1-60)"
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git checkout -b "$BRANCH"
+            git add -A
+            git commit -m "fix: address security advisories"
+            git push origin "$BRANCH"
+            gh pr create \
+              --title "fix: address security advisories" \
+              --body "Addresses: $GHSA_IDS" \
+              --base main
+          else
+            echo "::error::No changes produced by socket fix."
+            exit 1
+          fi
