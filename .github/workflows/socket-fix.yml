@@ -36,8 +36,5 @@ jobs:
           fi
           IFS=',' read -ra IDS <<< "$GHSA_IDS"
           FLAGS=()
-          for id in "${IDS[@]}"; do
-            id="$(echo "$id" | xargs)"
-            FLAGS+=(--id "$id")
-          done
+          for id in "${IDS[@]}"; do FLAGS+=(--id "${id// /}"); done
           npx @socketsecurity/cli fix . --org brave "${FLAGS[@]}"
