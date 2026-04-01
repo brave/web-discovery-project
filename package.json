@@ -67,7 +67,7 @@
     "@types/punycode": "2.1.2",
     "@typescript-eslint/eslint-plugin": "6.11.0",
     "@typescript-eslint/parser": "6.11.0",
-    "@xmldom/xmldom": "0.8.10",
+    "@xmldom/xmldom": "0.8.12",
     "body-parser": "1.20.4",
     "broccoli": "3.5.2",
     "broccoli-babel-transpiler": "8.0.0",
