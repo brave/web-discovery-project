@@ -23,26 +23,21 @@ jobs:
         with:
           node-version: "24"
 
-      - name: Build ID flags
-        id: build-ids
+      - name: Run Socket Fix
         env:
           GHSA_IDS: ${{ inputs.ghsa_ids }}
+          SOCKET_SECURITY_API_KEY: ${{ secrets.SOCKET_SECURITY_API_KEY }}
+          SOCKET_CLI_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CI: "true"
         run: |
           if ! [[ "$GHSA_IDS" =~ ^GHSA-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}(,\ ?GHSA-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4})*$ ]]; then
             echo "::error::GHSA_IDS contains invalid entries. Expected format: GHSA-xxxx-xxxx-xxxx (comma or comma-space separated)"
             exit 1
           fi
           IFS=',' read -ra IDS <<< "$GHSA_IDS"
-          FLAGS=""
+          FLAGS=()
           for id in "${IDS[@]}"; do
             id="$(echo "$id" | xargs)"
-            FLAGS+=" --id $id"
+            FLAGS+=(--id "$id")
           done
-          echo "id_flags=$FLAGS" >> "$GITHUB_OUTPUT"
-
-      - name: Run Socket Fix
-        env:
-          SOCKET_SECURITY_API_KEY: ${{ secrets.SOCKET_SECURITY_API_KEY }}
-          SOCKET_CLI_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CI: "true"
-        run: npx @socketsecurity/cli fix . --org brave${{ steps.build-ids.outputs.id_flags }}
+          npx @socketsecurity/cli fix . --org brave "${FLAGS[@]}"
