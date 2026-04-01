@@ -15,28 +15,51 @@ permissions:
 jobs:
   socket-fix:
     runs-on: ubuntu-24.04
-    timeout-minutes: 30
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+      - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
         with:
-          node-version: "24"
+          node-version: '24.11.1'
 
-      - name: Build ID flags
-        id: build-ids
-        run: |
-          IFS=',' read -ra IDS <<< "${{ inputs.ghsa_ids }}"
-          FLAGS=""
-          for id in "${IDS[@]}"; do
-            id="$(echo "$id" | xargs)"
-            FLAGS+=" --id $id"
-          done
-          echo "id_flags=$FLAGS" >> "$GITHUB_OUTPUT"
+      - name: Install Socket CLI
+        run: npm install -g @socketsecurity/cli
 
       - name: Run Socket Fix
         env:
+          GHSA_IDS: ${{ inputs.ghsa_ids }}
           SOCKET_SECURITY_API_KEY: ${{ secrets.SOCKET_SECURITY_API_KEY }}
           SOCKET_CLI_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CI: "true"
-        run: npx @socketsecurity/cli fix . --org brave${{ steps.build-ids.outputs.id_flags }}
+        run: |
+          if ! [[ "$GHSA_IDS" =~ ^GHSA-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}(,[[:space:]]?GHSA-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4})*$ ]]; then
+            echo "::error::GHSA_IDS contains invalid entries. Expected format: GHSA-xxxx-xxxx-xxxx (comma or comma-space separated)"
+            exit 1
+          fi
+          IFS=',' read -ra IDS <<< "$GHSA_IDS"
+          for id in "${IDS[@]}"; do FLAGS+=(--id "${id// /}"); done
+          socket config set defaultOrg "brave"
+          socket fix . "${FLAGS[@]}"
+
+      - name: Open Pull Request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GHSA_IDS: ${{ inputs.ghsa_ids }}
+        run: |
+          if ! git diff --quiet; then
+            BRANCH="socket-fix/$(echo "$GHSA_IDS" | tr ', ' '-' | tr -s '-' | cut -c1-60)"
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git checkout -b "$BRANCH"
+            git add -A
+            git commit -m "fix: address security advisories"
+            git push origin "$BRANCH"
+            gh pr create \
+              --title "fix: address security advisories" \
+              --body "Addresses: $GHSA_IDS" \
+              --base main
+          else
+            echo "::error::No changes produced by socket fix."
+            exit 1
+          fi
