@@ -16,6 +16,8 @@ jobs:
   socket-fix:
     runs-on: ubuntu-24.04
     timeout-minutes: 10
+    outputs:
+      branch: ${{ steps.open-pr.outputs.branch }}
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
@@ -43,14 +45,15 @@ jobs:
           socket fix . "${FLAGS[@]}"
 
       - name: Open Pull Request
+        id: open-pr
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GHSA_IDS: ${{ inputs.ghsa_ids }}
         run: |
           if ! git diff --quiet; then
             BRANCH="socket-fix/$(echo "$GHSA_IDS" | tr ', ' '-' | tr -s '-' | cut -c1-60)"
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git config user.name "brave-builds"
+            git config user.email "devops@brave.com"
             git checkout -b "$BRANCH"
             git add -A
             git commit -m "fix: address security advisories"
@@ -59,7 +62,32 @@ jobs:
               --title "fix: address security advisories" \
               --body "Addresses: $GHSA_IDS" \
               --base main
+            echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
           else
             echo "::error::No changes produced by socket fix."
             exit 1
           fi
+
+  unit-tests:
+    needs: socket-fix
+    uses: ./.github/workflows/unit-tests.yml
+    with:
+      ref: ${{ needs.socket-fix.outputs.branch }}
+
+  build:
+    needs: socket-fix
+    uses: ./.github/workflows/build.yml
+    with:
+      ref: ${{ needs.socket-fix.outputs.branch }}
+
+  integration-tests:
+    needs: socket-fix
+    uses: ./.github/workflows/integration-tests.yml
+    with:
+      ref: ${{ needs.socket-fix.outputs.branch }}
+
+  regression-tests:
+    needs: socket-fix
+    uses: ./.github/workflows/regression-tests.yml
+    with:
+      ref: ${{ needs.socket-fix.outputs.branch }}
