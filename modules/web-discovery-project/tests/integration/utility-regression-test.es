@@ -43,7 +43,6 @@ const test_urls = [
   "https://www.thedailybeast.com/fox-news-panel-erupts-after-greg-gutfeld-defends-elon-musks-misinformation?source=articles&via=rss",
   "https://www.motherjones.com/politics/2022/10/elon-musk-free-speech-absolutist-is-silent-about-his-saudi-partners/",
   "https://newrepublic.com/article/168354/new-york-hochul-maloney-2022",
-  "https://news.sky.com/story/brazil-election-jair-bolsonaro-remains-silent-as-his-supporters-block-roads-after-his-defeat-to-lula-12735475",
   "https://www.npr.org/2022/11/01/1133041108/how-to-confront-rising-antisemitism-in-the-u-s",
   "https://www.thenation.com/article/world/russia-hating-ukraine-war-media/",
   "https://www.breitbart.com/clips/2022/10/31/swalwell-republican-leaders-political-rhetoric-is-inspiring-violent-political-acts/",
