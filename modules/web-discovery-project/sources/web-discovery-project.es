@@ -161,6 +161,7 @@ const WebDiscoveryProject = {
     /^https:\/\/www\.telegraph\.co\.uk\/news\//,
     /^https:\/\/www\.washingtonpost\.com\/[a-z]+\/[0-9]{4}\/[0-9]{2}\/[0-9]{2}\//,
     /^https:\/\/www\.wsj\.com\/articles\//,
+    /^https:\/\/www\.instagram\.com\/(p|reel)\//,
   ],
 
   _md5: function (str) {
