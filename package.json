@@ -1,6 +1,6 @@
 {
   "name": "web-discovery-project",
-  "version": "1.1.76",
+  "version": "1.1.77",
   "workspaces": [
     "modules/parser"
   ],
@@ -64,7 +64,7 @@
     "@types/chrome": "0.0.251",
     "@types/mocha": "10.0.4",
     "@types/node": "20.9.0",
-    "@types/punycode": "2.1.2",
+    "@types/punycode": "2.1.4",
     "@typescript-eslint/eslint-plugin": "6.11.0",
     "@typescript-eslint/parser": "6.11.0",
     "@xmldom/xmldom": "0.8.13",
