@@ -7,6 +7,10 @@ on:
         description: "Comma-separated list of GHSA IDs (e.g. GHSA-442j-39wm-28r2,GHSA-7rx3-28cr-v5wh)"
         required: true
         type: string
+      issue_link:
+        description: "Comma-separated links to related security issues (e.g. https://github.com/brave/security/issues/1,https://github.com/brave/security/issues/2)"
+        required: true
+        type: string
 
 permissions:
   contents: write
@@ -16,6 +20,8 @@ jobs:
   socket-fix:
     runs-on: ubuntu-24.04
     timeout-minutes: 10
+    outputs:
+      branch: ${{ steps.open-pr.outputs.branch }}
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
@@ -31,7 +37,7 @@ jobs:
           GHSA_IDS: ${{ inputs.ghsa_ids }}
           SOCKET_SECURITY_API_KEY: ${{ secrets.SOCKET_SECURITY_API_KEY }}
           SOCKET_CLI_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CI: "true"
+          CI: ""
         run: |
           if ! [[ "$GHSA_IDS" =~ ^GHSA-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}(,[[:space:]]?GHSA-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4})*$ ]]; then
             echo "::error::GHSA_IDS contains invalid entries. Expected format: GHSA-xxxx-xxxx-xxxx (comma or comma-space separated)"
@@ -43,23 +49,107 @@ jobs:
           socket fix . "${FLAGS[@]}"
 
       - name: Open Pull Request
+        id: open-pr
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GHSA_IDS: ${{ inputs.ghsa_ids }}
+          ISSUE_LINK: ${{ inputs.issue_link }}
         run: |
-          if ! git diff --quiet; then
-            BRANCH="socket-fix/$(echo "$GHSA_IDS" | tr ', ' '-' | tr -s '-' | cut -c1-60)"
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
-            git checkout -b "$BRANCH"
-            git add -A
-            git commit -m "fix: address security advisories"
-            git push origin "$BRANCH"
-            gh pr create \
-              --title "fix: address security advisories" \
-              --body "Addresses: $GHSA_IDS" \
-              --base main
-          else
+          shopt -s inherit_errexit
+          set -eEo pipefail
+
+          if [ -z "$(git status --porcelain)" ]; then
             echo "::error::No changes produced by socket fix."
             exit 1
           fi
+
+          BRANCH="socket-fix/$(echo "$GHSA_IDS" | tr ', ' '-' | tr -s '-' | cut -c1-60)"
+          HEAD_SHA=$(git rev-parse HEAD)
+
+          if gh api "repos/${GITHUB_REPOSITORY}/git/refs/heads/$BRANCH" -q .ref > /dev/null 2>&1; then
+            gh api --method PATCH "/repos/${GITHUB_REPOSITORY}/git/refs/heads/$BRANCH" \
+              --field sha="$HEAD_SHA" --field force=true
+          else
+            gh api --method POST /repos/${GITHUB_REPOSITORY}/git/refs \
+              --field ref="refs/heads/$BRANCH" --field sha="$HEAD_SHA"
+          fi
+
+          TREE_JSON="[]"
+          while IFS= read -r line; do
+            XY="${line:0:2}"
+            FILE="${line:3}"
+            if [[ "${XY:1:1}" == "D" ]]; then
+              TREE_JSON=$(jq --arg path "$FILE" \
+                '. += [{"path": $path, "mode": "100644", "type": "blob", "sha": null}]' \
+                <<< "$TREE_JSON")
+            else
+              MODE=$(git ls-files -s -- "$FILE" | awk 'NR==1 { print $1 }')
+              [[ -z "$MODE" ]] && MODE="100644"
+              if [[ "$MODE" == "120000" ]]; then
+                CONTENT=$(printf '%s' "$(readlink -- "$FILE")" | base64 -w 0)
+              else
+                CONTENT=$(base64 -w 0 -- "$FILE")
+              fi
+              BLOB_SHA=$(gh api --method POST /repos/${GITHUB_REPOSITORY}/git/blobs \
+                --field content="$CONTENT" \
+                --field encoding=base64 \
+                -q .sha)
+              TREE_JSON=$(jq --arg path "$FILE" --arg mode "$MODE" --arg sha "$BLOB_SHA" \
+                '. += [{"path": $path, "mode": $mode, "type": "blob", "sha": $sha}]' \
+                <<< "$TREE_JSON")
+            fi
+          done < <(git status --porcelain)
+
+          BASE_TREE=$(gh api /repos/${GITHUB_REPOSITORY}/git/commits/"$HEAD_SHA" -q .tree.sha)
+
+          NEW_TREE_SHA=$(jq -n \
+            --arg base_tree "$BASE_TREE" \
+            --argjson tree "$TREE_JSON" \
+            '{"base_tree": $base_tree, "tree": $tree}' | \
+            gh api --method POST /repos/${GITHUB_REPOSITORY}/git/trees --input - -q .sha)
+
+          NEW_COMMIT_SHA=$(jq -n \
+            --arg tree "$NEW_TREE_SHA" \
+            --arg parent "$HEAD_SHA" \
+            '{"message": "fix: address security advisories", "tree": $tree, "parents": [$parent]}' | \
+            gh api --method POST /repos/${GITHUB_REPOSITORY}/git/commits --input - -q .sha)
+
+          gh api --method PATCH /repos/${GITHUB_REPOSITORY}/git/refs/heads/"$BRANCH" \
+            --field sha="$NEW_COMMIT_SHA"
+
+          BODY="Addresses: $GHSA_IDS"
+          IFS=',' read -ra LINKS <<< "$ISSUE_LINK"
+          for link in "${LINKS[@]}"; do
+            BODY="$BODY"$'\n\n'"closes ${link// /}"
+          done
+          if ! gh pr list --head "$BRANCH" --json number -q '.[].number' | grep -q .; then
+            gh pr create \
+              --title "fix: address security advisories" \
+              --body "$BODY" \
+              --base main
+          fi
+          echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
+
+  unit-tests:
+    needs: socket-fix
+    uses: ./.github/workflows/unit-tests.yml
+    with:
+      ref: ${{ needs.socket-fix.outputs.branch }}
+
+  build:
+    needs: socket-fix
+    uses: ./.github/workflows/build.yml
+    with:
+      ref: ${{ needs.socket-fix.outputs.branch }}
+
+  integration-tests:
+    needs: socket-fix
+    uses: ./.github/workflows/integration-tests.yml
+    with:
+      ref: ${{ needs.socket-fix.outputs.branch }}
+
+  regression-tests:
+    needs: socket-fix
+    uses: ./.github/workflows/regression-tests.yml
+    with:
+      ref: ${{ needs.socket-fix.outputs.branch }}
