@@ -117,7 +117,7 @@
     "watch-detector": "1.0.2",
     "web-ext": "10.0.0",
     "webpack": "5.104.1",
-    "ws": "8.18.3"
+    "ws": "8.20.1"
   },
   "dependencies": {
     "@cliqz/url-parser": "1.1.5",
@@ -140,6 +140,7 @@
     "serialize-javascript": "7.0.5",
     "tmp": "0.2.6",
     "micromatch": "4.0.8",
+    "ws": "8.20.1",
     "uuid": "14.0.0"
   },
   "engines": {
