@@ -48,7 +48,7 @@
   ],
   "homepage": "https://github.com/brave/web-discovery-project#readme",
   "devDependencies": {
-    "@babel/core": "7.29.0",
+    "@babel/core": "7.29.7",
     "@babel/eslint-parser": "7.28.6",
     "@babel/plugin-proposal-class-properties": "7.18.6",
     "@babel/plugin-proposal-dynamic-import": "7.18.6",
@@ -117,7 +117,7 @@
     "watch-detector": "1.0.2",
     "web-ext": "10.0.0",
     "webpack": "5.104.1",
-    "ws": "8.20.1"
+    "ws": "8.21.0"
   },
   "dependencies": {
     "@cliqz/url-parser": "1.1.5",
@@ -138,9 +138,9 @@
     "cookie": "0.7.0",
     "eslint": "9.39.2",
     "serialize-javascript": "7.0.5",
-    "tmp": "0.2.6",
+    "tmp": "0.2.7",
     "micromatch": "4.0.8",
-    "ws": "8.20.1",
+    "ws": "8.21.0",
     "uuid": "14.0.0",
     "shell-quote": "1.8.4"
   },
