@@ -5,6 +5,12 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+  workflow_call:
+    inputs:
+      ref:
+        description: "Git ref to check out"
+        required: false
+        type: string
 
 permissions:
   contents: read
@@ -14,4 +20,6 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+        with:
+          ref: ${{ inputs.ref || '' }}
       - run: ./run_tests_in_docker.sh "configs/ci/integration-tests.js -l brave-web-ext --grep UtilityRegression --brave /opt/brave.com/brave/brave-browser"
