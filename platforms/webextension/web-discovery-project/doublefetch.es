@@ -67,6 +67,7 @@ export function getRequest(
       const response = await fetch(url, {
         credentials: "omit",
         cache: "no-cache",
+        redirect: "manual",
         signal: abortController.signal,
         headers: new Headers(headers || {}),
       });
