@@ -1,6 +1,6 @@
 {
   "name": "web-discovery-project",
-  "version": "1.1.76",
+  "version": "1.1.77",
   "workspaces": [
     "modules/parser"
   ],
@@ -70,7 +70,7 @@
     "@xmldom/xmldom": "0.8.13",
     "body-parser": "1.20.5",
     "broccoli": "3.5.2",
-    "broccoli-babel-transpiler": "8.0.0",
+    "broccoli-babel-transpiler": "8.0.2",
     "broccoli-concat": "4.2.5",
     "broccoli-file-creator": "2.1.1",
     "broccoli-funnel": "3.0.8",
