@@ -1,6 +1,6 @@
 {
   "name": "web-discovery-project",
-  "version": "1.1.75",
+  "version": "1.1.76",
   "workspaces": [
     "modules/parser"
   ],
@@ -48,16 +48,16 @@
   ],
   "homepage": "https://github.com/brave/web-discovery-project#readme",
   "devDependencies": {
-    "@babel/core": "7.29.0",
+    "@babel/core": "7.29.7",
     "@babel/eslint-parser": "7.28.6",
     "@babel/plugin-proposal-class-properties": "7.18.6",
     "@babel/plugin-proposal-dynamic-import": "7.18.6",
     "@babel/plugin-transform-modules-commonjs": "7.28.6",
-    "@babel/plugin-transform-modules-systemjs": "7.29.0",
+    "@babel/plugin-transform-modules-systemjs": "7.29.4",
     "@babel/plugin-transform-optional-chaining": "7.28.6",
     "@babel/plugin-transform-regenerator": "7.29.0",
     "@babel/plugin-transform-template-literals": "7.27.1",
-    "@babel/preset-env": "7.29.0",
+    "@babel/preset-env": "7.29.2",
     "@babel/preset-typescript": "7.28.5",
     "@eslint/eslintrc": "3.3.3",
     "@eslint/js": "9.39.2",
@@ -67,8 +67,8 @@
     "@types/punycode": "2.1.2",
     "@typescript-eslint/eslint-plugin": "6.11.0",
     "@typescript-eslint/parser": "6.11.0",
-    "@xmldom/xmldom": "0.8.12",
-    "body-parser": "1.20.4",
+    "@xmldom/xmldom": "0.8.13",
+    "body-parser": "1.20.5",
     "broccoli": "3.5.2",
     "broccoli-babel-transpiler": "8.0.0",
     "broccoli-concat": "4.2.5",
@@ -91,7 +91,7 @@
     "eslint_d": "13.1.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-plugin-compat": "4.2.0",
-    "express": "4.22.1",
+    "express": "4.22.2",
     "fake-indexeddb": "5.0.1",
     "filehound": "1.17.6",
     "full-icu": "1.5.0",
@@ -117,7 +117,7 @@
     "watch-detector": "1.0.2",
     "web-ext": "10.0.0",
     "webpack": "5.104.1",
-    "ws": "8.18.3"
+    "ws": "8.21.0"
   },
   "dependencies": {
     "@cliqz/url-parser": "1.1.5",
@@ -136,36 +136,13 @@
   "overrides": {
     "ansi-html": "0.0.9",
     "cookie": "0.7.0",
-    "body-parser": "1.20.4",
     "eslint": "9.39.2",
-    "express": "4.22.1",
-    "form-data": "4.0.4",
-    "js-yaml": "4.1.1",
-    "node-forge": "1.4.0",
-    "send": "0.19.0",
-    "tough-cookie": "4.1.3",
     "serialize-javascript": "7.0.5",
-    "tmp": "0.2.4",
-    "sha.js": "2.4.12",
-    "@babel/runtime": "7.26.10",
-    "braces": "3.0.3",
-    "diff": "5.2.2",
-    "addons-linter": {
-      "glob": "13.0.1"
-    },
-    "brace-expansion@1.1": "1.1.13",
-    "brace-expansion@2.0": "2.0.3",
-    "handlebars": "4.7.9",
-    "image-size": "1.2.1",
-    "jose": "4.15.5",
-    "nanoid": "3.3.8",
-    "path-to-regexp@0": "0.1.13",
-    "picomatch": "2.3.2",
-    "qs": "6.14.2",
-    "ws": "8.18.3",
+    "tmp": "0.2.7",
     "micromatch": "4.0.8",
-    "flatted": "3.4.2",
-    "yaml": "2.8.3"
+    "ws": "8.21.0",
+    "uuid": "14.0.0",
+    "shell-quote": "1.8.4"
   },
   "engines": {
     "node": ">=24.11.1 <25.0.0",
