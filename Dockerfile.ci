@@ -24,12 +24,16 @@ RUN apt-get update --no-install-recommends \
  && apt-get install -y /tmp/brave.deb \
  && rm -f /tmp/brave.deb /tmp/brave-keyring.deb
 
+# Must be installed as root, before dropping to the node user
+RUN npm install -g pnpm@11.20.0
+
 USER node
 
-COPY --chown=node:node package.json /app/
-COPY --chown=node:node package-lock.json /app/
+COPY --chown=node:node package.json pnpm-lock.yaml pnpm-workspace.yaml /app/
 COPY --chown=node:node patches/ /app/patches/
+# Every workspace member's manifest is needed to install from the lockfile
+COPY --chown=node:node modules/parser/package.json /app/modules/parser/
 
 WORKDIR /app/
 
-RUN npm ci && npx update-browserslist-db@latest
+RUN pnpm install --frozen-lockfile && pnpm dlx update-browserslist-db@latest

@@ -6,7 +6,7 @@ module.exports = {
   specific: "node",
   format: "common",
   brocfile: "Brocfile.brave.js",
-  pack: "npm pack",
+  pack: "pnpm pack",
   settings: {
     ...base.settings,
     ...urls("production"),
