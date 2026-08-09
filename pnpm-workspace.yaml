@@ -1,0 +1,20 @@
+packages:
+  - modules/parser
+
+overrides:
+  ansi-html: 0.0.9
+  cookie: 0.7.0
+  eslint: 9.39.2
+  serialize-javascript: 7.0.5
+  tmp: 0.2.7
+  micromatch: 4.0.8
+  ws: 8.21.0
+  uuid: 14.0.0
+  shell-quote: 1.8.4
+
+patchedDependencies:
+  broccoli@3.5.2: patches/broccoli@3.5.2.patch
+
+# A spawnSync polyfill for Node <0.12, pulled in via web-ext -> fx-runner.
+allowBuilds:
+  spawn-sync: false
