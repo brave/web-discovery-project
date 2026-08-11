@@ -50,23 +50,3 @@ jobs:
           for id in "${IDS[@]}"; do FLAGS+=(--id "${id// /}"); done
           socket config set defaultOrg "brave"
           socket fix . "${FLAGS[@]}"
-
-      - name: Compute branch name
-        id: branch
-        env:
-          GHSA_IDS: ${{ inputs.ghsa_ids }}
-        run: |
-          echo "name=socket-fix/$(echo "$GHSA_IDS" | tr ', ' '-' | tr -s '-' | cut -c1-60)" >> "$GITHUB_OUTPUT"
-
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@84ae59a2cdc2258d6fa0732dd66352dddae2a412 # v7.0.9
-        with:
-          commit-message: 'fix: address security advisories'
-          author: brave-support-admin <138038132+brave-support-admin@users.noreply.github.com>
-          committer: brave-support-admin <138038132+brave-support-admin@users.noreply.github.com>
-          branch: ${{ steps.branch.outputs.name }}
-          delete-branch: true
-          base: main
-          title: 'fix: address security advisories'
-          body: 'Addresses: ${{ inputs.ghsa_ids }}'
-          token: ${{ secrets.SOCKET_FIX_PAT }}
