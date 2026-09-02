@@ -25,7 +25,7 @@ RUN apt-get update --no-install-recommends \
  && rm -f /tmp/brave.deb /tmp/brave-keyring.deb
 
 # Must be installed as root, before dropping to the node user
-RUN npm install -g pnpm@11.20.0
+RUN npm install -g pnpm@11.25.0
 
 USER node
 
