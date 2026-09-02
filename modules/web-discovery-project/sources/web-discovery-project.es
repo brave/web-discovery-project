@@ -25,6 +25,7 @@ import SafebrowsingEndpoint from "./safebrowsing-endpoint";
 import {
   checkSuspiciousQuery,
   isHash,
+  resolveGotoUrls,
   sanitizeUrl,
   ContentExtractor,
   Patterns,
@@ -670,7 +671,7 @@ const WebDiscoveryProject = {
     WebDiscoveryProject.doublefetchHandler
       .anonymousHttpGet(url)
       .then(({ body }) => {
-        return parseHtml(body);
+        return parseHtml(resolveGotoUrls(body));
       })
       .then((doc) => {
         const x = WebDiscoveryProject.getPageData(url, doc);
