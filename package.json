@@ -1,7 +1,7 @@
 {
   "name": "web-discovery-project",
   "version": "1.1.76",
-  "packageManager": "pnpm@11.20.0",
+  "packageManager": "pnpm@11.25.0",
   "description": "Standalone Web Discovery Project package and extension",
   "scripts": {
     "lint": "node fern.js lint",
@@ -130,6 +130,6 @@
   },
   "engines": {
     "node": ">=24.11.1 <25.0.0",
-    "pnpm": ">=11.20.0"
+    "pnpm": ">=11.25.0"
   }
 }
