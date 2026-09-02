@@ -117,8 +117,8 @@ importers:
         specifier: 6.11.0
         version: 6.11.0(eslint@9.39.2(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.2.2)
       '@xmldom/xmldom':
-        specifier: 0.8.13
-        version: 0.8.13
+        specifier: 0.8.15
+        version: 0.8.15
       body-parser:
         specifier: 1.20.5
         version: 1.20.5(supports-color@8.1.1)
@@ -1266,8 +1266,8 @@ packages:
   '@webassemblyjs/wast-printer@1.14.1':
     resolution: {integrity: sha512-kPSSXE6De1XOR820C90RIo2ogvZG+c3KiHzqUoO/F34Y2shGzesfqv7o57xrxovZJH/MetF5UjroJ/R/3isoiw==}
 
-  '@xmldom/xmldom@0.8.13':
-    resolution: {integrity: sha512-KRYzxepc14G/CEpEGc3Yn+JKaAeT63smlDr+vjB8jRfgTBBI9wRj/nkQEO+ucV8p8I9bfKLWp37uHgFrbntPvw==}
+  '@xmldom/xmldom@0.8.15':
+    resolution: {integrity: sha512-/5NV/vDALVFDXgLmfsy9TRCBlKwO2LNBFzpzvb9iIj+jR+eSc6DLYYvVOdivT/jm7MtU6TebYuRmzEOI7w40UA==}
     engines: {node: '>=10.0.0'}
 
   '@xtuc/ieee754@1.2.0':
@@ -2368,6 +2368,7 @@ packages:
   eslint@9.39.2:
     resolution: {integrity: sha512-LEyamqS7W5HB3ujJyvi0HQK/dtVINZvd5mAAp9eT5S/ujByGjiZLCzPcHVzuXbpJDJF/cxwHlfceVUDZ2lnSTw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
     peerDependencies:
       jiti: '*'
@@ -5781,7 +5782,7 @@ snapshots:
       '@webassemblyjs/ast': 1.14.1
       '@xtuc/long': 4.2.2
 
-  '@xmldom/xmldom@0.8.13': {}
+  '@xmldom/xmldom@0.8.15': {}
 
   '@xtuc/ieee754@1.2.0': {}
 
@@ -8787,7 +8788,7 @@ snapshots:
 
   testem@3.10.1(debug@4.4.3(supports-color@8.1.1))(handlebars@4.7.9)(lodash@4.18.1)(supports-color@8.1.1)(underscore@1.13.8):
     dependencies:
-      '@xmldom/xmldom': 0.8.13
+      '@xmldom/xmldom': 0.8.15
       backbone: 1.6.1
       bluebird: 3.7.2
       charm: 1.0.2
