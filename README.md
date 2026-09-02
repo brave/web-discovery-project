@@ -7,7 +7,7 @@ which runs in the Brave browser.
 
 ## Linux
 
-If you don't have Brave browser installed on your system: ``.
+If you don't have Brave browser installed on your system:
 
 ```sh
 $ pnpm install
