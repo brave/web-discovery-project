@@ -23,6 +23,10 @@ const getBundlesTree = require("./modules/bundles-tree");
 const getDistTree = require("./modules/dist-tree");
 
 const modulesTree = new WatchedDir("modules");
+const nodeModulesTree = new Funnel(
+  new broccoliSource.UnwatchedDir("node_modules"),
+  { destDir: "node_modules" },
+);
 
 const targets = buildConfig.buildTargets || {
   firefox: 80,
@@ -164,7 +168,7 @@ const sourceTree = new MergeTrees(
 const staticTree = new MergeTrees([getDistTree(modulesTree)]);
 
 const { bundlesTree, wasmTree } = getBundlesTree(
-  new MergeTrees([sourceTree, staticTree]),
+  new MergeTrees([sourceTree, staticTree, nodeModulesTree]),
 );
 
 module.exports = {
