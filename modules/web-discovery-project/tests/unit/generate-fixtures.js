@@ -101,7 +101,8 @@ const generateScenario = async (url, html) => {
   };
   WDP.patterns.update(DEFAULT_PATTERNS);
   WDP.contentExtractor = new ContentExtractor(WDP.patterns);
-  const document = parseHtml(resolveGotoUrls(html));
+  // Same order as production: the resolver takes a document, not HTML.
+  const document = resolveGotoUrls(parseHtml(html));
   WDP.checkURL(document, url);
   const messages = groupTelemetryCallsByAction(WDP.telemetry);
   const mustContain = Object.values(messages).reduce((acc, v) => acc.concat(v), []);
