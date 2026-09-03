@@ -1,0 +1,114 @@
+{
+  "url": "https://www.google.com/search?q=temporary%20full%20coverage%20car%20insurance&gl=us&hl=en",
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "query0",
+      "payload": {
+        "q": "temporary full coverage car insurance",
+        "qurl": "https://www.google.com/search?q=temporary%20full%20coverage%20car%20insurance&gl=us&hl=en",
+        "ctry": "de",
+        "lang": "en-GB"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "query",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "Temporary car insurance | Short-term & day cover",
+            "u": "https://www.rac.co.uk/insurance/temporary-car-insurance",
+            "age": null,
+            "m": null,
+            "lang": "en"
+          },
+          "1": {
+            "t": "Temporary Car Insurance | Short Term Cover for Cars",
+            "u": "https://www.gocompare.com/car-insurance/short-term/",
+            "age": null,
+            "m": null,
+            "lang": "en"
+          },
+          "2": {
+            "t": "Dayinsure: Temporary Car Insurance | Temp Car, Van ...",
+            "u": "https://www.dayinsure.com/",
+            "age": null,
+            "m": null,
+            "lang": "en"
+          },
+          "3": {
+            "t": "Best short-term car insurance | MSE",
+            "u": "https://www.moneysavingexpert.com/insurance/car-insurance/short-term-car-insurance/",
+            "age": null,
+            "m": null,
+            "lang": "en"
+          },
+          "4": {
+            "t": "Temporary Car Insurance | Short-term cover from an hour",
+            "u": "https://www.comparethemarket.com/car-insurance/temporary-car-insurance/",
+            "age": null,
+            "m": null,
+            "lang": "en"
+          },
+          "5": {
+            "t": "Temporary Car Insurance | Briefly",
+            "u": "https://www.brieflycover.co.uk/",
+            "age": null,
+            "m": null,
+            "lang": "en"
+          },
+          "6": {
+            "t": "Temporary Car Insurance - One day & short term ...",
+            "u": "https://www.aviva.co.uk/insurance/motor/short-term-car-insurance/",
+            "age": null,
+            "m": null,
+            "lang": "en"
+          },
+          "7": {
+            "t": "Temporary Car Insurance Explained",
+            "u": "https://www.admiral.com/magazine/guides/car-insurance/temporary-car-explained",
+            "age": null,
+            "m": null,
+            "lang": "en"
+          },
+          "8": {
+            "t": "Temporary & Short-Term Car Insurance",
+            "u": "https://www.veygo.com/temporary-car-insurance/",
+            "age": null,
+            "m": null,
+            "lang": "en"
+          }
+        },
+        "q": "temporary full coverage car insurance",
+        "qurl": "https://www.google.com/search?q=temporary%20full%20coverage%20car%20insurance&gl=us&hl=en",
+        "ctry": "de",
+        "lang": "en-GB"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "ads_D",
+      "payload": {
+        "r": {
+          "0": {
+            "u": "https://www.veygo.com/temporary-car-insurance/",
+            "pcu": "https://www.veygo.com/",
+            "t": "Temporary Car Insurance | Cheaper, Flexible Insurance",
+            "text": "Just Need To Borrow A Car Now And Then? Save Money By Taking Out Temporary Insurance. Temporary Insurance Can Be Cheaper Than Adding A Named Driver. Borrow my partner's car."
+          },
+          "1": {
+            "u": "https://www.google.com/goto (PROTECTED)",
+            "pcu": "https://retail.dayinsure.com/",
+            "t": "1 Hour To 30 Days Fully Comp | Get Covered in Minutes",
+            "text": "Last-Minute Cover Made Easy With Fast, Flexible Insurance. Get Dayinsure Temporary Cover Now And Drive Today With No Hassle. Rated 4.7 on Trustpilot. Over 68k Reviews. Types: Car, Van."
+          }
+        },
+        "q": "temporary full coverage car insurance",
+        "qurl": "https://www.google.com/search?q=temporary%20full%20coverage%20car%20insurance&gl=us&hl=en",
+        "ctry": "de",
+        "lang": "en-GB"
+      }
+    }
+  ]
+}
