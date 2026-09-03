@@ -15,7 +15,12 @@ const R = require("ramda");
 const FileHound = require("filehound");
 
 const stripJsonComments = require("strip-json-comments");
-const { ContentExtractor, Patterns, parseQueryString } = require("@web-discovery-project/parser");
+const {
+    parseQueryString,
+    resolveGotoUrls,
+    ContentExtractor,
+    Patterns,
+} = require("@web-discovery-project/parser");
 
 function jsonParse(text) {
   return JSON.parse(stripJsonComments(text));
@@ -103,7 +108,7 @@ export default describeModule(
       const initFixture = function (_path) {
         try {
           fixture = readFixtureFromDisk(_path);
-          document = WDP.parseHtml(fixture.html);
+          document = WDP.parseHtml(resolveGotoUrls(fixture.html));
         } catch (e) {
           throw new Error(`Failed to load test fixture "${_path}": ${e}`, e);
         }
@@ -350,6 +355,91 @@ export default describeModule(
           expectNotFound("");
           expectNotFound("no valid URL");
         });
+      });
+    });
+
+    describe("resolveGotoUrls", function () {
+      // Tokens must be 20+ chars of [A-Za-z0-9_-] per TOKEN_PATTERN
+      const TOKEN_A = "CAESZAHrOzAVb1atHhwqC5PmCod7HpfgxcRW";
+      const TOKEN_B = "CAESbgHrOzAV08MgZdu9wX5RPs97TgG6RHOBEk";
+      const REAL_URL_A = "https://example.com/page-a";
+      const REAL_URL_B = "https://example.com/page-b";
+
+      it("resolves a single goto link to its real URL", function () {
+        const html = [
+          '<div id="rso">',
+          '  <div class="Ww4FFb">',
+          '    <a href="/goto?url=' + TOKEN_A + '">Result A</a>',
+          "  </div>",
+          "</div>",
+          "<script>",
+          '  var data = [["/goto?url\\u003d' + TOKEN_A + '"],["' + REAL_URL_A + '","Title"]];',
+          "</script>",
+        ].join("\n");
+
+        const resolved = resolveGotoUrls(html);
+        expect(resolved).to.contain('href="' + REAL_URL_A + '"');
+        expect(resolved).to.not.contain('href="/goto?url=' + TOKEN_A + '"');
+      });
+
+      it("resolves multiple goto links with different tokens", function () {
+        const html = [
+          '<div id="rso">',
+          '  <div class="Ww4FFb"><a href="/goto?url=' + TOKEN_A + '">A</a></div>',
+          '  <div class="Ww4FFb"><a href="/goto?url=' + TOKEN_B + '">B</a></div>',
+          "</div>",
+          "<script>",
+          "  var data = [",
+          '    ["/goto?url\\u003d' + TOKEN_A + '"],["' + REAL_URL_A + '","A"]',
+          '    ["/goto?url\\u003d' + TOKEN_B + '"],["' + REAL_URL_B + '","B"]',
+          "  ];",
+          "</script>",
+        ].join("\n");
+
+        const resolved = resolveGotoUrls(html);
+        expect(resolved).to.contain('href="' + REAL_URL_A + '"');
+        expect(resolved).to.contain('href="' + REAL_URL_B + '"');
+      });
+
+      it("leaves unmatched goto links unchanged", function () {
+        const UNMAPPED = "UNMAPPED_TOKEN_zzzzzzzzzzz";
+        const html = [
+          '<div id="rso">',
+          '  <div class="Ww4FFb"><a href="/goto?url=' + UNMAPPED + '">unmapped</a></div>',
+          '  <div class="Ww4FFb"><a href="/goto?url=' + TOKEN_A + '">mapped</a></div>',
+          "</div>",
+          "<script>",
+          '  var data = [["/goto?url\\u003d' + TOKEN_A + '"],["' + REAL_URL_A + '","Title"]];',
+          "</script>",
+        ].join("\n");
+
+        const resolved = resolveGotoUrls(html);
+        expect(resolved).to.contain('href="/goto?url=' + UNMAPPED + '"');
+        expect(resolved).to.contain('href="' + REAL_URL_A + '"');
+      });
+
+      it("returns html unchanged when there are no goto links", function () {
+        const html = [
+          '<div id="rso">',
+          '  <div class="Ww4FFb"><a href="https://example.com">link</a></div>',
+          "</div>",
+        ].join("\n");
+
+        expect(resolveGotoUrls(html)).to.equal(html);
+      });
+
+      it("html-escapes ampersands in resolved URLs", function () {
+        const REAL_URL = "https://example.com/path?a=1&b=2";
+        const html = [
+          '<a href="/goto?url=' + TOKEN_A + '">link</a>',
+          "<script>",
+          '  var data = [["/goto?url\\u003d' + TOKEN_A + '"],["' + REAL_URL + '","Title"]];',
+          "</script>",
+        ].join("\n");
+
+        const resolved = resolveGotoUrls(html);
+        expect(resolved).to.contain("a=1&amp;b=2");
+        expect(resolved).to.not.contain('href="/goto?url=' + TOKEN_A + '"');
       });
     });
 

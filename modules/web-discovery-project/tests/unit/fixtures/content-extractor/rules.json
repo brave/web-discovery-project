@@ -136,10 +136,10 @@
           }
         }
       },
-      "div#rso div.g:not(:has(div.g))": {
+      "div#rso div.Ww4FFb:not(:has(div.g)), div#rso div.g:not(:has(div.g))": {
         "all": {
           "t": {
-            "select": "a > br + h3, g-section-with-header g-link > a > h3",
+            "select": "a > br + h3, g-section-with-header g-link > a > h3, a > h3",
             "attr": "textContent"
           },
           "u": {
@@ -1019,7 +1019,7 @@
         "fields": [
           {
             "key": "r",
-            "source": "div#rso div.g:not(:has(div.g))",
+            "source": "div#rso div.Ww4FFb:not(:has(div.g)), div#rso div.g:not(:has(div.g))",
             "requiredKeys": [
               "t",
               "u"
