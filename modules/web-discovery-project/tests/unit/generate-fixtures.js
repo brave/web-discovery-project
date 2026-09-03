@@ -73,7 +73,7 @@ const groupTelemetryCallsByAction = (sinonSpy) => {
 };
 
 const generateScenario = async (url, html) => {
-  const { ContentExtractor, Patterns } = await import("@web-discovery-project/parser");
+  const { resolveGotoUrls, ContentExtractor, Patterns } = await import("@web-discovery-project/parser");
   const WDP = {
     debug: false,
     msgType: "wdp",
@@ -101,7 +101,7 @@ const generateScenario = async (url, html) => {
   };
   WDP.patterns.update(DEFAULT_PATTERNS);
   WDP.contentExtractor = new ContentExtractor(WDP.patterns);
-  const document = parseHtml(html);
+  const document = parseHtml(resolveGotoUrls(html));
   WDP.checkURL(document, url);
   const messages = groupTelemetryCallsByAction(WDP.telemetry);
   const mustContain = Object.values(messages).reduce((acc, v) => acc.concat(v), []);
