@@ -458,6 +458,20 @@ export default describeModule(
         expect(hrefs(doc)).to.deep.equal([URL_A]);
       });
 
+      it("resolves %3D separator in the href", function () {
+        const doc = resolve(
+          leak(TOKEN, URL_A) + anchor(`/goto?url%3D${TOKEN}`),
+        );
+        expect(hrefs(doc)).to.deep.equal([URL_A]);
+      });
+
+      it("resolves trailing %3D padding in the href", function () {
+        const doc = resolve(
+          leak(TOKEN, URL_A) + anchor(`${goto_()}%3D`),
+        );
+        expect(hrefs(doc)).to.deep.equal([URL_A]);
+      });
+
       it("is idempotent", function () {
         const doc = resolve(leak(TOKEN, URL_A) + anchor(goto_()));
         expect(hrefs(resolveGotoUrls(doc))).to.deep.equal([URL_A]);

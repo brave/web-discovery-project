@@ -15,7 +15,7 @@
 // text that appears in <textarea>, comments, or script bodies, and avoids
 // altering the document structure that downstream code inspects.
 
-const GOTO_HREF_PREFIX = "/goto?url=";
+const GOTO_PATH_PREFIX = "/goto?url";
 
 const TOKEN_PATTERN = /^[A-Za-z0-9_-]{20,}$/;
 
@@ -62,27 +62,48 @@ function extractToken(url) {
     return null;
   }
 
-  // Fast path: the common /goto?url=TOKEN form. Handles trailing &params and
-  // %3D padding without decoding, which URL parsing would mangle.
-  if (url.startsWith(GOTO_HREF_PREFIX)) {
-    let token = url.slice(GOTO_HREF_PREFIX.length);
+  // Strip origin if absolute (https://host/goto?...) so the path check works.
+  let path = url;
+  const schemeEnd = url.indexOf("://");
+  if (schemeEnd !== -1) {
+    const pathStart = url.indexOf("/", schemeEnd + 3);
+    if (pathStart === -1) {
+      return null;
+    }
+    path = url.slice(pathStart);
+  }
 
-    const ampPos = token.indexOf("&");
+  // Fast path: /goto?url(=|%3D)TOKEN — handles both separator encodings,
+  // trailing &params, and %3D/= padding without URL decoding, which would
+  // mangle the token.
+  if (path.startsWith(GOTO_PATH_PREFIX)) {
+    let rest = path.slice(GOTO_PATH_PREFIX.length);
+
+    // Accept "=", "%3D", or "%3d" as the separator.
+    if (rest.startsWith("=")) {
+      rest = rest.slice(1);
+    } else if (rest.startsWith("%3D") || rest.startsWith("%3d")) {
+      rest = rest.slice(3);
+    } else {
+      return null;
+    }
+
+    const ampPos = rest.indexOf("&");
     if (ampPos !== -1) {
-      token = token.slice(0, ampPos);
+      rest = rest.slice(0, ampPos);
     }
 
     for (;;) {
-      if (token.endsWith("%3D") || token.endsWith("%3d")) {
-        token = token.slice(0, -3);
-      } else if (token.endsWith("=")) {
-        token = token.slice(0, -1);
+      if (rest.endsWith("%3D") || rest.endsWith("%3d")) {
+        rest = rest.slice(0, -3);
+      } else if (rest.endsWith("=")) {
+        rest = rest.slice(0, -1);
       } else {
         break;
       }
     }
 
-    return TOKEN_PATTERN.test(token) ? token : null;
+    return TOKEN_PATTERN.test(rest) ? rest : null;
   }
 
   // Fallback: /goto with url not as the first param (e.g. /goto?a=1&url=TOKEN).
@@ -148,28 +169,11 @@ function scanScript(content, mapping) {
     if (raw) {
       const strEnd = pos + 1 + raw.length + 1;
       const unescaped = unescapeStr(raw);
-
-      // Extract the token from the goto URL
-      try {
-        const url = new URL(unescaped, "https://www.google.com");
-        if (url.pathname !== "/goto") {
-          pos = content.indexOf('"/goto?', pos + 1);
-          continue;
-        }
-        const token = url.searchParams.get("url");
-        if (token && TOKEN_PATTERN.test(token) && !mapping.has(token)) {
-          const adjUrl = extractAdjacentUrl(content, strEnd);
-          if (adjUrl) {
-            mapping.set(token, adjUrl);
-          }
-        }
-      } catch {
-        const token = extractToken(unescaped);
-        if (token && !mapping.has(token)) {
-          const adjUrl = extractAdjacentUrl(content, strEnd);
-          if (adjUrl) {
-            mapping.set(token, adjUrl);
-          }
+      const token = extractToken(unescaped);
+      if (token && !mapping.has(token)) {
+        const adjUrl = extractAdjacentUrl(content, strEnd);
+        if (adjUrl) {
+          mapping.set(token, adjUrl);
         }
       }
     }
