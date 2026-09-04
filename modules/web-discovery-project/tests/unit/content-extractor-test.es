@@ -16,10 +16,10 @@ const FileHound = require("filehound");
 
 const stripJsonComments = require("strip-json-comments");
 const {
-    parseQueryString,
-    resolveGotoUrls,
-    ContentExtractor,
-    Patterns,
+  parseQueryString,
+  resolveGotoUrls,
+  ContentExtractor,
+  Patterns,
 } = require("@web-discovery-project/parser");
 
 function jsonParse(text) {
@@ -108,7 +108,7 @@ export default describeModule(
       const initFixture = function (_path) {
         try {
           fixture = readFixtureFromDisk(_path);
-          document = WDP.parseHtml(resolveGotoUrls(fixture.html));
+          document = resolveGotoUrls(WDP.parseHtml(fixture.html));
         } catch (e) {
           throw new Error(`Failed to load test fixture "${_path}": ${e}`, e);
         }
@@ -360,86 +360,119 @@ export default describeModule(
 
     describe("resolveGotoUrls", function () {
       // Tokens must be 20+ chars of [A-Za-z0-9_-] per TOKEN_PATTERN
-      const TOKEN_A = "CAESZAHrOzAVb1atHhwqC5PmCod7HpfgxcRW";
+      const TOKEN = "CAESZAHrOzAVb1atHhwqC5PmCod7HpfgxcRW";
       const TOKEN_B = "CAESbgHrOzAV08MgZdu9wX5RPs97TgG6RHOBEk";
-      const REAL_URL_A = "https://example.com/page-a";
-      const REAL_URL_B = "https://example.com/page-b";
+      const URL_A = "https://example.com/page-a";
+      const URL_B = "https://example.com/page-b";
 
-      it("resolves a single goto link to its real URL", function () {
-        const html = [
-          '<div id="rso">',
-          '  <div class="Ww4FFb">',
-          '    <a href="/goto?url=' + TOKEN_A + '">Result A</a>',
-          "  </div>",
-          "</div>",
-          "<script>",
-          '  var data = [["/goto?url\\u003d' + TOKEN_A + '"],["' + REAL_URL_A + '","Title"]];',
-          "</script>",
-        ].join("\n");
+      // What Google emits: the destination is the array element after the link.
+      const leak = (token, url) =>
+        `<script>var d = [["/goto?url\\u003d${token}"],["${url}","T"]];</script>`;
+      const leakUrlNotFirst = (token, url) =>
+        `<script>var d = [["/goto?a=1\\u0026url=${token}"],["${url}","T"]];</script>`;
+      const anchor = (href) => `<a href="${href}">result</a>`;
+      const goto_ = (token = TOKEN) => `/goto?url=${token}`;
 
-        const resolved = resolveGotoUrls(html);
-        expect(resolved).to.contain('href="' + REAL_URL_A + '"');
-        expect(resolved).to.not.contain('href="/goto?url=' + TOKEN_A + '"');
+      let parseHtml;
+      let resolve;
+
+      beforeEach(async function () {
+        parseHtml = (
+          await this.system.import("web-discovery-project/html-helpers")
+        ).parseHtml;
+        // The resolver mutates and returns the document it is given.
+        resolve = (html) => resolveGotoUrls(parseHtml(html));
       });
 
-      it("resolves multiple goto links with different tokens", function () {
-        const html = [
-          '<div id="rso">',
-          '  <div class="Ww4FFb"><a href="/goto?url=' + TOKEN_A + '">A</a></div>',
-          '  <div class="Ww4FFb"><a href="/goto?url=' + TOKEN_B + '">B</a></div>',
-          "</div>",
-          "<script>",
-          "  var data = [",
-          '    ["/goto?url\\u003d' + TOKEN_A + '"],["' + REAL_URL_A + '","A"]',
-          '    ["/goto?url\\u003d' + TOKEN_B + '"],["' + REAL_URL_B + '","B"]',
-          "  ];",
-          "</script>",
-        ].join("\n");
+      const hrefs = (doc) =>
+        [...doc.querySelectorAll("a")].map((a) => a.getAttribute("href"));
 
-        const resolved = resolveGotoUrls(html);
-        expect(resolved).to.contain('href="' + REAL_URL_A + '"');
-        expect(resolved).to.contain('href="' + REAL_URL_B + '"');
+      it("resolves a goto link to its real URL", function () {
+        const doc = resolve(leak(TOKEN, URL_A) + anchor(goto_()));
+        expect(hrefs(doc)).to.deep.equal([URL_A]);
+      });
+
+      it("resolves several links with different tokens", function () {
+        const scripts = leak(TOKEN, URL_A) + leak(TOKEN_B, URL_B);
+        const doc = resolve(scripts + anchor(goto_()) + anchor(goto_(TOKEN_B)));
+        expect(hrefs(doc)).to.deep.equal([URL_A, URL_B]);
       });
 
       it("leaves unmatched goto links unchanged", function () {
-        const UNMAPPED = "UNMAPPED_TOKEN_zzzzzzzzzzz";
-        const html = [
-          '<div id="rso">',
-          '  <div class="Ww4FFb"><a href="/goto?url=' + UNMAPPED + '">unmapped</a></div>',
-          '  <div class="Ww4FFb"><a href="/goto?url=' + TOKEN_A + '">mapped</a></div>',
-          "</div>",
-          "<script>",
-          '  var data = [["/goto?url\\u003d' + TOKEN_A + '"],["' + REAL_URL_A + '","Title"]];',
-          "</script>",
-        ].join("\n");
-
-        const resolved = resolveGotoUrls(html);
-        expect(resolved).to.contain('href="/goto?url=' + UNMAPPED + '"');
-        expect(resolved).to.contain('href="' + REAL_URL_A + '"');
+        const unmapped = goto_("UNMAPPED_TOKEN_zzzzzzzzzzz");
+        const html = leak(TOKEN, URL_A) + anchor(unmapped) + anchor(goto_());
+        expect(hrefs(resolve(html))).to.deep.equal([unmapped, URL_A]);
       });
 
-      it("returns html unchanged when there are no goto links", function () {
-        const html = [
-          '<div id="rso">',
-          '  <div class="Ww4FFb"><a href="https://example.com">link</a></div>',
-          "</div>",
-        ].join("\n");
-
-        expect(resolveGotoUrls(html)).to.equal(html);
+      it("returns the same document when there are no goto links", function () {
+        const doc = parseHtml('<a href="https://example.com">link</a>');
+        const before = doc.documentElement.innerHTML;
+        expect(resolveGotoUrls(doc)).to.equal(doc);
+        expect(doc.documentElement.innerHTML).to.equal(before);
       });
 
-      it("html-escapes ampersands in resolved URLs", function () {
-        const REAL_URL = "https://example.com/path?a=1&b=2";
-        const html = [
-          '<a href="/goto?url=' + TOKEN_A + '">link</a>',
-          "<script>",
-          '  var data = [["/goto?url\\u003d' + TOKEN_A + '"],["' + REAL_URL + '","Title"]];',
-          "</script>",
-        ].join("\n");
+      it("preserves ampersands in the resolved URL", function () {
+        const url = "https://example.com/path?a=1&b=2";
+        const doc = resolve(leak(TOKEN, url) + anchor(goto_()));
+        expect(hrefs(doc)).to.deep.equal([url]);
+      });
 
-        const resolved = resolveGotoUrls(html);
-        expect(resolved).to.contain("a=1&amp;b=2");
-        expect(resolved).to.not.contain('href="/goto?url=' + TOKEN_A + '"');
+      it("rejects leaked values that are not http(s) URLs", function () {
+        const bad = [
+          "javascript:alert(1)",
+          "data:text/html,x",
+          "//evil.example/p",
+          "https:",
+          "https://",
+          `https://example.com/${"p".repeat(4000)}`,
+        ];
+        for (const value of bad) {
+          const doc = resolve(leak(TOKEN, value) + anchor(goto_()));
+          expect(hrefs(doc), value).to.deep.equal([goto_()]);
+        }
+      });
+
+      it("only rewrites hrefs that really are goto redirects", function () {
+        const untouched = [
+          `javascript:go('${goto_()}')`,
+          `/search${goto_()}`,
+          goto_("TOO_SHORT_zzzzzzzzz"),
+        ];
+        const html = leak(TOKEN, URL_A) + untouched.map(anchor).join("");
+        expect(hrefs(resolve(html))).to.deep.equal(untouched);
+      });
+
+      it("resolves when url is not the first query param", function () {
+        const doc = resolve(
+          leakUrlNotFirst(TOKEN, URL_A) +
+            anchor(`/goto?a=1&url=${TOKEN}`),
+        );
+        expect(hrefs(doc)).to.deep.equal([URL_A]);
+      });
+
+      it("resolves absolute google.com/goto hrefs", function () {
+        const doc = resolve(
+          leak(TOKEN, URL_A) +
+            anchor(`https://www.google.com${goto_()}`),
+        );
+        expect(hrefs(doc)).to.deep.equal([URL_A]);
+      });
+
+      it("is idempotent", function () {
+        const doc = resolve(leak(TOKEN, URL_A) + anchor(goto_()));
+        expect(hrefs(resolveGotoUrls(doc))).to.deep.equal([URL_A]);
+      });
+
+      it("does not map goto-shaped text reflected into a <textarea>", function () {
+        // Google reflects the raw search query verbatim into a <textarea
+        // name="q"> above the results. A raw-string scan would pick up that
+        // forged leak and (first-wins) poison the mapping for the real token.
+        const forged = `"/goto?url=${TOKEN}"],["https://evil.example/harvest"`;
+        const html =
+          `<textarea name="q">${forged}</textarea>` +
+          leak(TOKEN, URL_A) +
+          anchor(goto_());
+        expect(hrefs(resolve(html))).to.deep.equal([URL_A]);
       });
     });
 
