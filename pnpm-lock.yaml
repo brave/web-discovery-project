@@ -186,8 +186,8 @@ importers:
         specifier: 4.2.0
         version: 4.2.0(eslint@9.39.2(supports-color@8.1.1))
       eslint_d:
-        specifier: 13.1.0
-        version: 13.1.0(supports-color@8.1.1)
+        specifier: 13.1.2
+        version: 13.1.2(supports-color@8.1.1)
       express:
         specifier: 4.22.2
         version: 4.22.2(supports-color@8.1.1)
@@ -2346,8 +2346,8 @@ packages:
       jiti:
         optional: true
 
-  eslint_d@13.1.0:
-    resolution: {integrity: sha512-OdKYE7BVeXjXd9D2Q67/6F9xP5OxxmTTbMgRlFWU9DGzB8VeQF5H8l+QpVJQTxyM8hweoFomBj0aHbIFE26DOw==}
+  eslint_d@13.1.2:
+    resolution: {integrity: sha512-kRQ6oxtY9TL+NtHaLrPPmqHmZ4bY9iE+A2LACQ9CMzzbatZbIXq55X8Tz76KaTlH2NQ1F2vccQ8UEKvL49zPOg==}
     hasBin: true
 
   esm@3.2.25:
@@ -6810,7 +6810,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint_d@13.1.0(supports-color@8.1.1):
+  eslint_d@13.1.2(supports-color@8.1.1):
     dependencies:
       core_d: 6.1.1
       eslint: 9.39.2(supports-color@8.1.1)
