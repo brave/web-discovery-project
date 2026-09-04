@@ -3,11 +3,25 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
 const Plugin = require("broccoli-plugin");
+const fs = require("fs");
 const path = require("path");
 const glob = require("glob");
 const webpack = require("webpack");
 
 const env = require("../env");
+
+// `resolve.symlinks` is false (see below), so webpack cannot walk up from a
+// dependency's real path to reach that dependency's own dependencies. pnpm only
+// links direct dependencies into ./node_modules, so the transitive ones have to
+// be pointed at explicitly, in the virtual store pnpm hoists them into.
+const resolveModules = [path.resolve(process.cwd(), "node_modules")];
+const pnpmVirtualStore = path.resolve(
+  process.cwd(),
+  "node_modules/.pnpm/node_modules",
+);
+if (fs.existsSync(pnpmVirtualStore)) {
+  resolveModules.push(pnpmVirtualStore);
+}
 
 module.exports = class BroccoliWebpack extends Plugin {
   constructor(inputNode, options = {}) {
@@ -61,13 +75,15 @@ module.exports = class BroccoliWebpack extends Plugin {
           syncWebAssembly: true,
         },
         resolve: {
+          // Must stay false: broccoli assembles its output trees out of
+          // symlinks, and resolving them to real paths breaks relative imports
+          // that cross tree boundaries (e.g. core/* importing ../platform/*).
           symlinks: false,
-          modules: [path.resolve(process.cwd(), "node_modules")],
+          modules: resolveModules,
           fallback: {
             fs: false,
             path: require.resolve("path-browserify"),
           },
-
         },
         externals: this.builderConfig.globalDeps,
         optimization: {

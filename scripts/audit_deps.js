@@ -11,11 +11,12 @@ const { execSync } = require('child_process')
 const AUDIT_CONFIG_URL =
   'https://raw.githubusercontent.com/brave/audit-config/main/config.json'
 
+// `pnpm audit --json` reports one entry per advisory, keyed by advisory id:
+//   { "advisories": { "1234": { "url": "...", "module_name": "...", ... } } }
 function extractVulnerabilities(auditJson, ignoredAdvisories) {
-  return Object.values(auditJson.vulnerabilities ?? {})
-    .flatMap((v) => v.via)
-    .filter((item) => typeof item === 'object' && item.url)
-    .map((item) => item.url)
+  return Object.values(auditJson.advisories ?? {})
+    .map((advisory) => advisory.url)
+    .filter((url) => typeof url === 'string')
     .filter((url) => !ignoredAdvisories.includes(url))
     .filter((url, i, arr) => arr.indexOf(url) === i)
 }
@@ -27,18 +28,18 @@ async function fetchIgnoredAdvisories() {
   return config.ignore.npm.map((e) => e.advisory)
 }
 
-function runNpmAudit() {
+function runAudit() {
   let output
   try {
-    output = execSync('npm audit --json', { encoding: 'utf8' })
+    output = execSync('pnpm audit --json', { encoding: 'utf8' })
   } catch (err) {
-    // npm audit exits non-zero when vulnerabilities exist; capture stdout anyway
+    // pnpm audit exits non-zero when vulnerabilities exist; capture stdout anyway
     output = err.stdout
   }
   try {
     return JSON.parse(output)
   } catch {
-    console.error('npm audit did not return valid JSON')
+    console.error('pnpm audit did not return valid JSON')
     process.exit(1)
   }
 }
@@ -50,7 +51,7 @@ async function main() {
     console.log(`Ignoring npm advisories: ${ignoredAdvisories.join(', ')}`)
   }
 
-  const auditJson = runNpmAudit()
+  const auditJson = runAudit()
   const unignored = extractVulnerabilities(auditJson, ignoredAdvisories)
 
   if (unignored.length > 0) {

@@ -7,12 +7,12 @@ which runs in the Brave browser.
 
 ## Linux
 
-If you don't have Brave browser installed on your system: ``.
+If you don't have Brave browser installed on your system:
 
 ```sh
-$ npm install
+$ pnpm install
 $ ./update-brave.sh
-$ BRAVE_PATH=./brave/brave npm run start
+$ BRAVE_PATH=./brave/brave pnpm start
 ```
 
 You can also set the `BRAVE_PATH` environment variable to your global Brave binary `$(which brave)`.
@@ -22,7 +22,7 @@ Everything should work locally with this setup. By default it will rely on the `
 ## Mac
 
 ```sh
-$ BRAVE_PATH="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser" npm run start
+$ BRAVE_PATH="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser" pnpm start
 ```
 
 ## Documentation
@@ -32,20 +32,10 @@ guarantees as well as examples of messages sent, visit [this README](./modules/w
 
 ## Manual setup
 
-### Yarn
-
 ```sh
-$ yarn install --frozen-lock
-$ yarn start:build # build extension
-$ yarn start:brave # start Brave with extension loaded
-```
-
-### Npm
-
-```sh
-$ npm ci
-$ npm run start:build # build extension
-$ npm run start:brave # start Brave with extension loaded
+$ pnpm install --frozen-lockfile
+$ pnpm start:build # build extension
+$ pnpm start:brave # start Brave with extension loaded
 ```
 
 ### Patterns

@@ -15,25 +15,23 @@ jobs:
     steps:
       - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
 
+      - uses: pnpm/setup@84cb39b217b10273981911c288cd62326dc7c6d2 # v2
+        with:
+          install: false
+
       - name: Use Node.js 24
         uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
         with:
           node-version: '24'
+          cache: 'pnpm'
 
-      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+      - run: pnpm install --frozen-lockfile
 
-      - run: npm install
-
-      - run: ./node_modules/.bin/eslint .
+      - run: pnpm exec eslint .
 
       - run: node --unhandled-rejections=strict fern.js build configs/ci/unit-tests.js --include-tests
 
       - run: node --unhandled-rejections=strict fern.js test configs/ci/unit-tests.js -l unit-node --environment testing --no-build --ci report.xml
 
       - if: ${{ github.actor != 'dependabot[bot]' && github.actor != 'renovate[bot]' }}
-        run: npm run audit_deps
+        run: pnpm run audit_deps
