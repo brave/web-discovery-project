@@ -126,8 +126,8 @@ importers:
         specifier: 3.5.2
         version: 3.5.2(patch_hash=e38dca0d801776361ece690d750b7a05224c6e8de55964f0dbab5219291c60b1)(supports-color@8.1.1)
       broccoli-babel-transpiler:
-        specifier: 8.0.0
-        version: 8.0.0(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1)
+        specifier: 8.1.0
+        version: 8.1.0(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1)
       broccoli-concat:
         specifier: 4.2.5
         version: 4.2.5(supports-color@8.1.1)
@@ -1517,11 +1517,11 @@ packages:
     resolution: {integrity: sha512-yQbXgO/OSZVD2IsiLlro+7Hf6Q18EJrKSEsdoMzKePKXct3gvD8oLcOQdIzGupr5Fj+EDe8gO/lxc1BzfMpxvA==}
     engines: {node: '>=8'}
 
-  broccoli-babel-transpiler@8.0.0:
-    resolution: {integrity: sha512-3HEp3flvasUKJGWERcrPgM1SWvHJ0O/fmbEtY9L4kDyMSnqjY6hTYvNvgWCIgbwXAYAUlZP0vjAQsmyLNGLwFw==}
+  broccoli-babel-transpiler@8.1.0:
+    resolution: {integrity: sha512-ca3QcjNzX7umqQ06PeDDjAf2WJ9DcgzoECuXT638YDpNC+gCJeoDDKYk0KieeE7VeX7YHyrkfyynQzMvZZ/4ew==}
     engines: {node: 16.* || >= 18}
     peerDependencies:
-      '@babel/core': ^7.17.9
+      '@babel/core': ^7.17.9 || ^8.0.0
 
   broccoli-concat@4.2.5:
     resolution: {integrity: sha512-dFB5ATPwOyV8S2I7a07HxCoutoq23oY//LhM6Mou86cWUTB174rND5aQLR7Fu8FjFFLxoTbkk7y0VPITJ1IQrw==}
@@ -6010,7 +6010,7 @@ snapshots:
     dependencies:
       fill-range: 7.1.1
 
-  broccoli-babel-transpiler@8.0.0(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1):
+  broccoli-babel-transpiler@8.1.0(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1):
     dependencies:
       '@babel/core': 7.29.7(supports-color@8.1.1)
       broccoli-persistent-filter: 3.1.3(supports-color@8.1.1)
