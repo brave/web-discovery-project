@@ -10,19 +10,6 @@ const webpack = require("webpack");
 
 const env = require("../env");
 
-// `resolve.symlinks` is false (see below), so webpack cannot walk up from a
-// dependency's real path to reach that dependency's own dependencies. pnpm only
-// links direct dependencies into ./node_modules, so the transitive ones have to
-// be pointed at explicitly, in the virtual store pnpm hoists them into.
-const resolveModules = [path.resolve(process.cwd(), "node_modules")];
-const pnpmVirtualStore = path.resolve(
-  process.cwd(),
-  "node_modules/.pnpm/node_modules",
-);
-if (fs.existsSync(pnpmVirtualStore)) {
-  resolveModules.push(pnpmVirtualStore);
-}
-
 module.exports = class BroccoliWebpack extends Plugin {
   constructor(inputNode, options = {}) {
     super([inputNode], {
@@ -38,13 +25,23 @@ module.exports = class BroccoliWebpack extends Plugin {
     const inputPath = this.inputPaths[0];
     const outputPath = this.outputPath;
 
+    // `resolve.symlinks` is false (see below), so webpack cannot walk up from a
+    // dependency's real path to reach that dependency's own dependencies. pnpm only
+    // links direct dependencies into ./node_modules, so the transitive ones have to
+    // be pointed at explicitly, in the virtual store pnpm hoists them into.
+    const resolveModules = [
+      path.join(inputPath, "modules", "node_modules"),
+      path.join(inputPath, "modules", "node_modules", ".pnpm", "node_modules"),
+    ];
+
     console.log(
       "*********************** Bundling Process Started *******************************",
     );
     const bundles = glob.sync("**/*.bundle.js", {
       cwd: inputPath,
       follow: true,
-    });
+      ignore: "modules/node_modules/**",
+    }).sort();
     const bundleBuildCounter = bundles.length;
     const entries = {};
 
@@ -82,17 +79,26 @@ module.exports = class BroccoliWebpack extends Plugin {
           modules: resolveModules,
           fallback: {
             fs: false,
-            path: require.resolve("path-browserify"),
+            path: path.join(
+              inputPath,
+              "modules",
+              "node_modules",
+              "path-browserify",
+            ),
           },
         },
         externals: this.builderConfig.globalDeps,
         optimization: {
           minimize: !!env.PROD,
-          moduleIds: 'deterministic', // Use deterministic module IDs
-          chunkIds: 'deterministic',  // Ensure deterministic chunk IDs
+          moduleIds: false,
+          chunkIds: false,
           usedExports: false, // Disable tree shaking for deterministic builds
           sideEffects: false, // Disable side effects detection for deterministic builds
         },
+        plugins: [
+          new webpack.ids.NamedModuleIdsPlugin({ context: inputPath }),
+          new webpack.ids.NamedChunkIdsPlugin({ context: inputPath }),
+        ],
         snapshot: {
           // Disable file system timestamps for deterministic builds
           managedPaths: [],
