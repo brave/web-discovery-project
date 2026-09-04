@@ -192,8 +192,8 @@ importers:
         specifier: 4.22.2
         version: 4.22.2(supports-color@8.1.1)
       fake-indexeddb:
-        specifier: 5.0.1
-        version: 5.0.1
+        specifier: 5.0.2
+        version: 5.0.2
       filehound:
         specifier: 1.17.6
         version: 1.17.6
@@ -2423,8 +2423,8 @@ packages:
     resolution: {integrity: sha512-hMQ4CX1p1izmuLYyZqLMO/qGNw10wSv9QDCPfzXfyFrOaCSSoRfqE1Kf1s5an66J5JZC62NewG+mK49jOCtQew==}
     engines: {node: '>=4'}
 
-  fake-indexeddb@5.0.1:
-    resolution: {integrity: sha512-vxybH29Owtc6khV/Usy47B1g+eKwyhFiX8nwpCC4td320jvwrKQDH6vNtcJZgUzVxmfsSIlHzLKQzT76JMCO7A==}
+  fake-indexeddb@5.0.2:
+    resolution: {integrity: sha512-cB507r5T3D55DfclY01GLkninZLfU7HXV/mhVRTnTRm5k2u+fY7Fof2dBkr80p5t7G7dlA/G5dI87QiMdPpMCQ==}
     engines: {node: '>=18'}
 
   fast-deep-equal@3.1.3:
@@ -6918,7 +6918,7 @@ snapshots:
       iconv-lite: 0.4.24
       tmp: 0.2.7
 
-  fake-indexeddb@5.0.1: {}
+  fake-indexeddb@5.0.2: {}
 
   fast-deep-equal@3.1.3: {}
 
