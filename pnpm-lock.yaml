@@ -108,8 +108,8 @@ importers:
         specifier: 20.9.0
         version: 20.9.0
       '@types/punycode':
-        specifier: 2.1.2
-        version: 2.1.2
+        specifier: 2.1.4
+        version: 2.1.4
       '@typescript-eslint/eslint-plugin':
         specifier: 6.11.0
         version: 6.11.0(@typescript-eslint/parser@6.11.0(eslint@9.39.2(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.2.2))(eslint@9.39.2(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.2.2)
@@ -1125,8 +1125,8 @@ packages:
   '@types/node@20.9.0':
     resolution: {integrity: sha512-nekiGu2NDb1BcVofVcEKMIwzlx4NjHlcjhoxxKBNLtz15Y1z7MYf549DFvkHSId02Ax6kGwWntIBPC3l/JZcmw==}
 
-  '@types/punycode@2.1.2':
-    resolution: {integrity: sha512-KKQ4GjRCpswGPA6ZfvPrC+7h84bAvPkU1kFGJ3FuQOgZIEc8JmO1jcDCaxSiYcN3qzOOp9YqHq+njKEO3Q4BnA==}
+  '@types/punycode@2.1.4':
+    resolution: {integrity: sha512-trzh6NzBnq8yw5e35f8xe8VTYjqM3NE7bohBtvDVf/dtUer3zYTLK1Ka3DG3p7bdtoaOHZucma6FfVKlQ134pQ==}
 
   '@types/qs@6.15.1':
     resolution: {integrity: sha512-GZHUBZR9hckSUhrxmp1nG6NwdpM9fCunJwyThLW1X3AyHgd9IlHb6VANpQQqDr2o/qQp6McZ3y/IA2rVzKzSbw==}
@@ -5530,7 +5530,7 @@ snapshots:
     dependencies:
       undici-types: 5.26.5
 
-  '@types/punycode@2.1.2': {}
+  '@types/punycode@2.1.4': {}
 
   '@types/qs@6.15.1': {}
 
