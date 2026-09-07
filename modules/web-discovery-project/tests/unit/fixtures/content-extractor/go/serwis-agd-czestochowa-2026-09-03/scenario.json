@@ -1,0 +1,140 @@
+{
+  "url": "https://www.google.com/search?q=serwis%20agd%20czestochowa&gl=us&hl=en",
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "query0",
+      "payload": {
+        "q": "serwis agd czestochowa",
+        "qurl": "https://www.google.com/search?q=serwis%20agd%20czestochowa&gl=us&hl=en",
+        "ctry": "de",
+        "lang": "pl"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "query",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "Serwis AGD Krzyś - kontakt, opinie",
+            "u": "https://panoramafirm.pl/śląskie,,częstochowa,al._wolności,11/serwis_agd_krzys-shraex_loo.html",
+            "age": null,
+            "m": null,
+            "lang": "pl"
+          },
+          "1": {
+            "t": "Naprawa agd Częstochowa - lodówek, pralek, odkurzaczy",
+            "u": "https://www.firmy.net/naprawa-agd,czestochowa.html",
+            "age": null,
+            "m": null,
+            "lang": "pl"
+          },
+          "2": {
+            "t": "tel 503 588 560 - Częstochowa - agd serwis",
+            "u": "https://agd-czest.pl/?agd-czestochowa",
+            "age": null,
+            "m": null,
+            "lang": "pl"
+          },
+          "3": {
+            "t": "Serwis AGD Częstochowa | Naprawa AGD | PanAGD.com",
+            "u": "https://panagd.com/czestochowa/",
+            "age": null,
+            "m": null,
+            "lang": "pl"
+          },
+          "4": {
+            "t": "Serwis AGD Częstochowa, naprawa pogwarancyjna.",
+            "u": "https://agdserwis.eu/czestochowa/",
+            "age": null,
+            "m": null,
+            "lang": "pl"
+          },
+          "5": {
+            "t": "Serwis AGD Częstochowa 696318443 ✔️ naprawy AGD",
+            "u": "https://czestochowa.agdslask.pl/",
+            "age": null,
+            "m": null,
+            "lang": "pl"
+          },
+          "6": {
+            "t": ":: KRZYŚ ZHU Piotr Węgrzyński :: naprawa AGD, części AGD,",
+            "u": "http://www.informacja-gospodarcza.pl/firma/agd_krzys.htm",
+            "age": null,
+            "m": null,
+            "lang": "pl"
+          },
+          "7": {
+            "t": "Naprawa Pralek, Lodówek, Zmywarek | Serwis AGD ...",
+            "u": "https://www.naprawapraleklodowekzmywarekczestochowa.pl/",
+            "age": null,
+            "m": null,
+            "lang": "pl"
+          },
+          "8": {
+            "t": "Częstochowa - serwis i naprawa RTV, AGD",
+            "u": "https://www.olx.pl/uslugi/serwis-agd-rtv/czestochowa/q-naprawa-agd/?srsltid=AfmBOop53E6_UUeGsER-rk3a2KVSRSq6edV4HQ0e0MYlrxoc-u9kxpFl",
+            "age": null,
+            "m": null,
+            "lang": "pl"
+          },
+          "9": {
+            "t": "naprawa sprzętu agd częstochowa",
+            "u": "http://www.bigduo.pl/szukaj/index.php?fraza=NAPRAWA%20SPRZ%CATU%20AGD%20CZ%CASTOCHOWA&rs=20",
+            "age": null,
+            "m": null,
+            "lang": "pl"
+          }
+        },
+        "q": "serwis agd częstochowa",
+        "qurl": "https://www.google.com/search?q=serwis%20agd%20czestochowa&gl=us&hl=en",
+        "ctry": "de",
+        "lang": "pl"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "places",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "NAPRAWA LODÓWEK CZĘSTOCHOWA",
+            "addr": "Działa od ponad 20 lat · Częstochowa"
+          },
+          "1": {
+            "t": "Serwis AGD Częstochowa",
+            "addr": "Częstochowa"
+          },
+          "2": {
+            "t": "Leczymy Ekspresy- Serwis ekspresów do kawy",
+            "addr": "Częstochowa"
+          },
+          "3": {
+            "t": "NextExpert AGD",
+            "addr": "Częstochowa"
+          },
+          "4": {
+            "t": "Woox Autoryzowany Serwis RTV/AGD",
+            "addr": "Działa od ponad 10 lat · Częstochowa"
+          },
+          "5": {
+            "t": "Z.U.H. EWEX H. Baranowski",
+            "addr": "Działa od ponad 15 lat · Częstochowa"
+          }
+        },
+        "ctry": "de"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "local",
+      "payload": {
+        "type": "Firmy",
+        "q": "serwis agd częstochowa",
+        "qurl": "https://www.google.com/search?q=serwis%20agd%20czestochowa&gl=us&hl=en",
+        "ctry": "de"
+      }
+    }
+  ]
+}

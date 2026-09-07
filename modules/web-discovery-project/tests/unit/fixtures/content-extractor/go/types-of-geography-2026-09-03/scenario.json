@@ -1,0 +1,69 @@
+{
+  "url": "https://www.google.com/search?q=types%20of%20geography&gl=us&hl=en",
+  "mustContain": [
+    {
+      "type": "wdp",
+      "action": "query0",
+      "payload": {
+        "q": "types of geography",
+        "qurl": "https://www.google.com/search?q=types%20of%20geography&gl=us&hl=en",
+        "ctry": "de",
+        "lang": "en-GB"
+      }
+    },
+    {
+      "type": "wdp",
+      "action": "query",
+      "payload": {
+        "r": {
+          "0": {
+            "t": "What is geography? - BBC Bitesize",
+            "u": "https://www.bbc.co.uk/bitesize/articles/z6hb3j6",
+            "age": null,
+            "m": null,
+            "lang": "en"
+          },
+          "1": {
+            "t": "What Are The Different Types of Geography?",
+            "u": "https://www.superprof.co.uk/blog/identifying-the-distinct-types-of-geography/",
+            "age": null,
+            "m": null,
+            "lang": "en"
+          },
+          "2": {
+            "t": "Human geography: Types and importance",
+            "u": "https://www.internationalscholarsjournals.com/articles/human-geography-types-and-importance-98201.html",
+            "age": null,
+            "m": null,
+            "lang": "en"
+          },
+          "3": {
+            "t": "TYPES OF GEOGRAPHY | PPTX",
+            "u": "https://www.slideshare.net/slideshow/types-of-geography/41946832",
+            "age": null,
+            "m": null,
+            "lang": "en"
+          },
+          "4": {
+            "t": "Geography | Definition, Types & History - Lesson",
+            "u": "https://study.com/learn/lesson/geography-types.html",
+            "age": null,
+            "m": null,
+            "lang": "en"
+          },
+          "5": {
+            "t": "Geography",
+            "u": "https://en.wikipedia.org/wiki/Geography",
+            "age": null,
+            "m": null,
+            "lang": "en"
+          }
+        },
+        "q": "types of geography",
+        "qurl": "https://www.google.com/search?q=types%20of%20geography&gl=us&hl=en",
+        "ctry": "de",
+        "lang": "en-GB"
+      }
+    }
+  ]
+}
