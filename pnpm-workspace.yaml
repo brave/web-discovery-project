@@ -5,12 +5,13 @@ overrides:
   ansi-html: 0.0.9
   cookie: 0.7.0
   eslint: 9.39.2
+  fast-uri: 3.1.6
   serialize-javascript: 7.0.5
   tmp: 0.2.7
   micromatch: 4.0.8
   ws: 8.21.0
   uuid: 14.0.0
-  shell-quote: 1.8.4
+  shell-quote: 1.9.0
 
 patchedDependencies:
   broccoli@3.5.2: patches/broccoli@3.5.2.patch
