@@ -101,7 +101,7 @@ const generateScenario = async (url, html) => {
   };
   WDP.patterns.update(DEFAULT_PATTERNS);
   WDP.contentExtractor = new ContentExtractor(WDP.patterns);
-  const document = resolveGotoUrls(parseHtml(html));
+  const document = resolveGotoUrls(parseHtml(html), url);
   WDP.checkURL(document, url);
   const messages = groupTelemetryCallsByAction(WDP.telemetry);
   const mustContain = Object.values(messages).reduce((acc, v) => acc.concat(v), []);

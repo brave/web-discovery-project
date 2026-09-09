@@ -8,7 +8,7 @@
         "q": "types of geography",
         "qurl": "https://www.google.com/search?q=types%20of%20geography&gl=us&hl=en",
         "ctry": "de",
-        "lang": "en-GB"
+        "lang": "en-UA"
       }
     },
     {
@@ -17,22 +17,22 @@
       "payload": {
         "r": {
           "0": {
-            "t": "What is geography? - BBC Bitesize",
-            "u": "https://www.bbc.co.uk/bitesize/articles/z6hb3j6",
-            "age": null,
-            "m": null,
-            "lang": "en"
-          },
-          "1": {
             "t": "What Are The Different Types of Geography?",
             "u": "https://www.superprof.co.uk/blog/identifying-the-distinct-types-of-geography/",
             "age": null,
             "m": null,
             "lang": "en"
           },
+          "1": {
+            "t": "What is geography? - BBC Bitesize",
+            "u": "https://www.bbc.co.uk/bitesize/articles/z6hb3j6",
+            "age": null,
+            "m": null,
+            "lang": "en"
+          },
           "2": {
-            "t": "Human geography: Types and importance",
-            "u": "https://www.internationalscholarsjournals.com/articles/human-geography-types-and-importance-98201.html",
+            "t": "Types of Geography - Geographic Book",
+            "u": "https://geographicbook.wordpress.com/2023/06/08/types-of-geography/",
             "age": null,
             "m": null,
             "lang": "en"
@@ -45,8 +45,8 @@
             "lang": "en"
           },
           "4": {
-            "t": "Geography | Definition, Types & History - Lesson",
-            "u": "https://study.com/learn/lesson/geography-types.html",
+            "t": "Human geography: Types and importance",
+            "u": "https://www.internationalscholarsjournals.com/articles/human-geography-types-and-importance-98201.html",
             "age": null,
             "m": null,
             "lang": "en"
@@ -57,12 +57,19 @@
             "age": null,
             "m": null,
             "lang": "en"
+          },
+          "6": {
+            "t": "Geography | Definition, Types & History - Lesson",
+            "u": "https://study.com/learn/lesson/geography-types.html",
+            "age": null,
+            "m": null,
+            "lang": "en"
           }
         },
         "q": "types of geography",
         "qurl": "https://www.google.com/search?q=types%20of%20geography&gl=us&hl=en",
         "ctry": "de",
-        "lang": "en-GB"
+        "lang": "en-UA"
       }
     }
   ]
