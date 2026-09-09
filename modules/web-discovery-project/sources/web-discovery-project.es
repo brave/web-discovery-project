@@ -671,7 +671,7 @@ const WebDiscoveryProject = {
     WebDiscoveryProject.doublefetchHandler
       .anonymousHttpGet(url)
       .then(({ body }) => {
-        return resolveGotoUrls(parseHtml(body));
+        return resolveGotoUrls(parseHtml(body), url);
       })
       .then((doc) => {
         const x = WebDiscoveryProject.getPageData(url, doc);
