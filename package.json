@@ -1,6 +1,6 @@
 {
   "name": "web-discovery-project",
-  "version": "1.1.79",
+  "version": "1.1.80",
   "packageManager": "pnpm@11.25.0",
   "description": "Standalone Web Discovery Project package and extension",
   "scripts": {
@@ -65,7 +65,7 @@
     "@typescript-eslint/eslint-plugin": "6.11.0",
     "@typescript-eslint/parser": "6.11.0",
     "@xmldom/xmldom": "0.8.15",
-    "body-parser": "1.20.5",
+    "body-parser": "1.20.6",
     "broccoli": "3.5.2",
     "broccoli-babel-transpiler": "8.0.0",
     "broccoli-concat": "4.2.5",
