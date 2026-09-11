@@ -50,6 +50,8 @@ const test_urls = [
   "https://www.csmonitor.com/Commentary/2022/1031/Inspiring-by-example?icid=rss",
   "https://www.democracynow.org/2022/10/26/pennsylvania_mehmet_oz_john_fetterman_debate",
   "https://www.politico.com/news/2022/10/11/liv-golf-nra-mckenna-associates-00061215",
+  "https://www.instagram.com/reel/DRTNA7LCFlh/",
+  "https://www.instagram.com/p/DUWGRayim4n/"
 ];
 
 export default () => {
