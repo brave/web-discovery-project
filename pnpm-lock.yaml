@@ -265,7 +265,11 @@ importers:
         specifier: 8.21.0
         version: 8.21.0
 
-  modules/parser: {}
+  modules/parser:
+    dependencies:
+      tldts:
+        specifier: ^7.4.13
+        version: 7.4.13
 
 packages:
 
@@ -1678,6 +1682,7 @@ packages:
 
   charm@1.0.2:
     resolution: {integrity: sha512-wqW3VdPnlSWT4eRiYX+hcs+C6ViBPUWk1qTCd+37qw9kEm/a5n2qcyQDMBWvSYKN/ctqZzeXNQaeBjOetJJUkw==}
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
 
   check-error@1.0.3:
     resolution: {integrity: sha512-iKEoDYaRmd1mxM90a2OEfWhjsjPpYPuQ+lMYsoxB126+t8fw7ySEO48nmDg5COTjxDI65/Y2OWpeEHk3ZOe8zg==}
@@ -4128,11 +4133,18 @@ packages:
   tldts-core@7.4.10:
     resolution: {integrity: sha512-KnQjp53ZekKgm/r3l+u8kJGGzYgrWdP8+Mql7a4vijh2WE0IrZWspQj/TpTxDho/YxO+AnOZnIjQcCD+q6iJsw==}
 
+  tldts-core@7.4.13:
+    resolution: {integrity: sha512-mbYsrih5FRtGxs3Usvl/PqwJsNpp+jsmrdFviiK02teHDG0/HebBG/pqCylje3kzgXYzuLoHJF/0mz9W53t8Xg==}
+
   tldts-experimental@6.0.19:
     resolution: {integrity: sha512-+nEzxCD36Lb0byoy4Hxu4bLVQ06T5ucvESeZ6UHp7y1mpfEwftw2GbPu1L80nZHnRRsFGDMAs+xSWUChZY4I+g==}
 
   tldts@7.4.10:
     resolution: {integrity: sha512-GgouD1B+sWwvkaEq8vXC15DjQitxbvs12oIXELpconwm+Tg3zfcEv4jgzq3vtKverDXsg3VI8aRgNL2Nra0Iog==}
+    hasBin: true
+
+  tldts@7.4.13:
+    resolution: {integrity: sha512-iHtaIWWIbMDkCeJdTBzZFGgbluE5J+oHlb2g7+oAz1S1gpuVpabRZdQyd471Vl8UUkcz2vXSL8xZH2kyCe8tfA==}
     hasBin: true
 
   tmp@0.2.7:
@@ -8781,6 +8793,8 @@ snapshots:
 
   tldts-core@7.4.10: {}
 
+  tldts-core@7.4.13: {}
+
   tldts-experimental@6.0.19:
     dependencies:
       tldts-core: 6.1.86
@@ -8788,6 +8802,10 @@ snapshots:
   tldts@7.4.10:
     dependencies:
       tldts-core: 7.4.10
+
+  tldts@7.4.13:
+    dependencies:
+      tldts-core: 7.4.13
 
   tmp@0.2.7: {}
 

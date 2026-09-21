@@ -18,6 +18,7 @@ const stripJsonComments = require("strip-json-comments");
 const {
   parseQueryString,
   resolveGotoUrls,
+  sanitizeUrl,
   ContentExtractor,
   Patterns,
 } = require("@web-discovery-project/parser");
@@ -564,6 +565,62 @@ export default describeModule(
           leak(TOKEN, URL_A) +
           anchor(goto());
         expect(hrefs(resolve(html))).to.deep.equal([URL_A]);
+      });
+    });
+
+    describe("sanitizeUrl", function () {
+      // Tokens must be 20+ chars of [\w-]
+      const TOKEN = "CAESZAHrOzAVb1atHhwqC5PmCod7HpfgxcRW";
+
+      const expectUnchanged = (url) => {
+        const { result, safeUrl } = sanitizeUrl(url);
+        expect(result, url).to.equal("safe");
+        expect(safeUrl, url).to.equal(url);
+      };
+
+      const expectSanitized = (url) => {
+        const { result, safeUrl } = sanitizeUrl(url);
+        expect(result, url).to.not.equal("safe");
+        expect(safeUrl, url).to.not.equal(url);
+      };
+
+      describe("Google goto URLs", function () {
+        it("accepts a goto URL with an opaque token unchanged", function () {
+          expectUnchanged(`https://www.google.com/goto?url=${TOKEN}`);
+        });
+
+        it("accepts a goto URL that would otherwise be truncated", function () {
+          // Without the exception, the fragment would be masked:
+          expectUnchanged(`https://www.google.com/goto?url=${TOKEN}#frag`);
+          // ... and so would an email-like query parameter:
+          expectUnchanged("https://www.google.com/goto?url=x&q=user@example.com");
+        });
+
+        it("accepts goto URLs on country-specific Google domains", function () {
+          for (const host of ["www.google.de", "www.google.co.uk", "www.google.com.au"]) {
+            expectUnchanged(`https://${host}/goto?url=${TOKEN}`);
+          }
+        });
+
+        it("accepts a goto URL carrying extra parameters", function () {
+          expectUnchanged(`https://www.google.com/goto?url=${TOKEN}&ved=abc`);
+        });
+      });
+
+      describe("URLs that only look like Google goto URLs", function () {
+        it("does not skip a non-Google host with a /goto path", function () {
+          expectSanitized(`https://a.google.evil.test/goto?url=${TOKEN}`);
+        });
+
+        it('does not skip domains that merely contain "google"', function () {
+          for (const host of ["notgoogle.com", "googleusercontent.com"]) {
+            expectSanitized(`https://${host}/goto?url=${TOKEN}`);
+          }
+        });
+
+        it("does not skip Google URLs whose path is not /goto", function () {
+          expectSanitized("https://www.google.com/search?q=user@example.com");
+        });
       });
     });
 
