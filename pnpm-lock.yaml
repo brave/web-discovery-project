@@ -268,7 +268,7 @@ importers:
   modules/parser:
     dependencies:
       tldts:
-        specifier: ^7.4.13
+        specifier: 7.4.13
         version: 7.4.13
 
 packages:

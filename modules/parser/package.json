@@ -8,6 +8,6 @@
   "license": "MPL-2.0",
   "description": "",
   "dependencies": {
-    "tldts": "^7.4.13"
+    "tldts": "7.4.13"
   }
 }
