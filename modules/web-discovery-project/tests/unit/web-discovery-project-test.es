@@ -284,6 +284,29 @@ export default describeModule(
           expect(redirects).to.deep.equals([]);
         });
 
+        it("should resolve redirects with a relative location header", function () {
+          WebDiscoveryProject.httpCache = {
+            "https://example.test/old?icid=rss": {
+              status: 301,
+              location: "/new?icid=rss",
+              time: 1,
+            },
+            "https://example.test/new?icid=rss": {
+              status: 200,
+              time: 2,
+            },
+          };
+
+          let redirects = [];
+          redirects = WebDiscoveryProject.getRedirects(
+            "https://example.test/new?icid=rss",
+            redirects,
+          );
+          expect(redirects).to.deep.equals([
+            "https://example.test/old?icid=rss",
+          ]);
+        });
+
         it("should handle httpCache entries with many unrelated entries", function () {
           WebDiscoveryProject.httpCache = {
             "https://example.test/": {
