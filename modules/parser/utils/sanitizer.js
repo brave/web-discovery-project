@@ -2,6 +2,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
+import { getDomainWithoutSuffix } from "tldts";
 import { isHash } from "./hash-detector.js";
 
 function isCharNumber(char) {
@@ -243,6 +244,15 @@ function normalizeUrlPart(urlPart) {
   return urlPart.toLowerCase().replace(/_/g, '-');
 }
 
+/**
+ * Returns true, if a url is a Google SERP redirect wrapper (`/goto?url=…`).
+ */
+function isGotoUrl(parsed) {
+  return (
+    getDomainWithoutSuffix(parsed.hostname) === 'google' && parsed.pathname.startsWith('/goto')
+  );
+}
+
 // Note: matches URL parts (https://example.test/foo/bar/baz -> ['foo', 'bar', 'baz]).
 // Before matching, URL match will be normalized (see "normalizeUrlPart").
 const RISKY_URL_PATH_PARTS = new Set([
@@ -298,6 +308,12 @@ export function sanitizeUrl(url, options = {}) {
   if (!parsedUrl) {
     return drop('invalid URL');
   }
+
+  // Skip google goto urls
+  if (isGotoUrl(parsedUrl)) {
+    return accept();
+  }
+
   if (parsedUrl.username) {
     return drop('URL sets username');
   }

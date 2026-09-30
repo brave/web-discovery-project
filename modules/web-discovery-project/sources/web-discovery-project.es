@@ -601,15 +601,24 @@ const WebDiscoveryProject = {
       return res;
     }
 
-    const isRedirectToUrl = (status, location) => {
+    const isRedirectToUrl = (status, location, sourceUrl) => {
       if (status !== 301 && status !== 302) {
         return false;
       }
 
+      // The Location header may be relative (e.g. "/path?query"), so it must
+      // be resolved against the URL of the request that was redirected.
+      let resolved;
+      try {
+        resolved = new URL(location, sourceUrl).href;
+      } catch {
+        return false;
+      }
+
       return (
-        location === url ||
-        decodeURIComponent(location) === url ||
-        location + "/" === url
+        resolved === url ||
+        decodeURIComponent(resolved) === url ||
+        resolved + "/" === url
       );
     };
 
@@ -627,7 +636,7 @@ const WebDiscoveryProject = {
       )) {
         if (
           key !== url &&
-          isRedirectToUrl(status, location) &&
+          isRedirectToUrl(status, location, key) &&
           res.indexOf(key) < 0
         ) {
           res.unshift(key);
