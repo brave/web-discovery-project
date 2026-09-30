@@ -19,12 +19,19 @@ jobs:
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
+      - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
+        with:
+          run_install: false
+
       - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
         with:
           node-version: '24'
 
       - name: Install Socket CLI
-        run: npm install -g @socketsecurity/cli@1.1.156
+        run: |
+          echo "${PNPM_HOME}/bin" >> "$GITHUB_PATH"
+          export PATH="${PNPM_HOME}/bin:$PATH"
+          pnpm add -g @socketsecurity/cli@1.1.156
 
       - name: Configure GPG
         uses: crazy-max/ghaction-import-gpg@e89d40939c28e39f97cf32126055eeae86ba74ec # v6.3.0
