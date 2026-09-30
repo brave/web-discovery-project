@@ -5,7 +5,7 @@ overrides:
   ansi-html: 0.0.9
   cookie: 0.7.0
   eslint: 9.39.2
-  fast-uri: 3.1.6
+  fast-uri: 3.1.8
   serialize-javascript: 7.0.5
   tmp: 0.2.7
   micromatch: 4.0.8
