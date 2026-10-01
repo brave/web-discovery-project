@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
-          token: ${{ secrets.SOCKET_FIX_PAT }}
+          token: ${{ secrets.SOCKET_FIX_PAT_BRAVE }}
 
       - uses: pnpm/action-setup@d9184bf108216479bc5a137cc391f4d7b14c870b # v6.1.0
         with:
@@ -41,20 +41,20 @@ jobs:
           GPG_PASSPHRASE: ${{ secrets.BRAVE_SUPPORT_ADMIN_COMMIT_SIGNING_KEY_PASSPHRASE }}
         run: |
           set -euo pipefail
+
+          # Import the signing key; later steps reference it by fingerprint.
           echo "$GPG_PRIVATE_KEY" | gpg --import --batch --yes
-          KEY_ID=$(gpg --with-colons --list-secret-keys | awk -F: '/^sec/{print $5; exit}')
-          FPR=$(gpg --with-colons --list-secret-keys "$KEY_ID" | awk -F: '/^fpr/{print $10; exit}')
-          printf 'default-cache-ttl 21600\nmax-cache-ttl 31536000\nallow-preset-passphrase\n' > ~/.gnupg/gpg-agent.conf
-          gpg-connect-agent RELOADAGENT /bye
-          HEX_PASS=$(printf %s "$GPG_PASSPHRASE" | od -An -tx1 | tr -d ' \n' | tr 'a-f' 'A-F')
-          KEYGRIPS=$(gpg --batch --with-colons --with-keygrip --list-secret-keys "$FPR" | awk -F: '/^grp/{print $10}')
-          [ -n "$KEYGRIPS" ] || { echo "::error::No keygrips found for key $FPR"; exit 1; }
-          for KG in $KEYGRIPS; do
-            OUT=$(gpg-connect-agent "PRESET_PASSPHRASE ${KG} -1 ${HEX_PASS}" /bye)
-            [[ "$OUT" == OK* ]] || { echo "::error::PRESET_PASSPHRASE failed: $OUT"; exit 1; }
-          done
+          FPR=$(gpg --with-colons --list-secret-keys | awk -F: '/^fpr/{print $10; exit}')
+
+          # Wrapper so gpg can sign non-interactively: --pinentry-mode loopback
+          # reads the passphrase from the env instead of prompting for a TTY.
+          printf '#!/bin/sh\nexec gpg --pinentry-mode loopback --passphrase "$GPG_PASSPHRASE" "$@"\n' \
+            > /usr/local/bin/gpg-sign
+          chmod +x /usr/local/bin/gpg-sign
+
           git config user.signingkey "$FPR"
           git config gpg.format openpgp
+          git config gpg.program /usr/local/bin/gpg-sign
           git config commit.gpgsign true
 
       - name: Run Socket Fix
@@ -81,7 +81,8 @@ jobs:
 
       - name: Create Pull Request
         env:
-          GH_TOKEN: ${{ secrets.SOCKET_FIX_PAT }}
+          GH_TOKEN: ${{ secrets.SOCKET_FIX_PAT_BRAVE }}
+          GPG_PASSPHRASE: ${{ secrets.BRAVE_SUPPORT_ADMIN_COMMIT_SIGNING_KEY_PASSPHRASE }}
           PR_BRANCH: ${{ steps.branch.outputs.name }}
           PR_BODY: 'Addresses: ${{ inputs.ghsa_ids }}'
         run: |
