@@ -13,6 +13,7 @@ overrides:
   engine.io: 6.6.11
   eslint: 9.39.2
   fast-uri: 3.1.8
+  handlebars: 4.7.10
   moment: 2.31.0
   proxy-addr: 2.0.8
   serialize-javascript: 7.0.5
@@ -252,7 +253,7 @@ importers:
         version: 0.3.0
       testem:
         specifier: 3.10.1
-        version: 3.10.1(debug@4.4.3(supports-color@8.1.1))(handlebars@4.7.9)(lodash@4.18.1)(supports-color@8.1.1)(underscore@1.13.8)
+        version: 3.10.1(debug@4.4.3(supports-color@8.1.1))(handlebars@4.7.10)(lodash@4.18.1)(supports-color@8.1.1)(underscore@1.13.8)
       tree-sync:
         specifier: 2.1.0
         version: 2.1.0(supports-color@8.1.1)
@@ -2698,8 +2699,8 @@ packages:
   growly@1.3.0:
     resolution: {integrity: sha512-+xGQY0YyAWCnqy7Cd++hc2JqMYzlm0dG30Jd0beaA64sROr8C4nt8Yc9V5Ro3avlSUDTN0ulqP/VBKi1/lLygw==}
 
-  handlebars@4.7.9:
-    resolution: {integrity: sha512-4E71E0rpOaQuJR2A3xDZ+GM1HyWYv1clR58tC8emQNeQe3RH7MAzSbat+V0wG78LQBo6m6bzSG/L4pBuCsgnUQ==}
+  handlebars@4.7.10:
+    resolution: {integrity: sha512-P5VJMVM7qgBn6vjXMw8WG9uVI+ncf2pi72j4de4yz5ZULLj2RGqLYaKOYGsgyrViQ0tePOVlN1tDCCXXtFqXKg==}
     engines: {node: '>=0.4.7'}
     hasBin: true
 
@@ -6191,7 +6192,7 @@ snapshots:
       console-ui: 3.1.2
       esm: 3.2.25
       findup-sync: 4.0.0
-      handlebars: 4.7.9
+      handlebars: 4.7.10
       heimdalljs: 0.2.6
       heimdalljs-logger: 0.1.10(supports-color@8.1.1)
       https: 1.0.0
@@ -6476,11 +6477,11 @@ snapshots:
       ora: 3.4.0
       through2: 3.0.2
 
-  consolidate@0.16.0(handlebars@4.7.9)(lodash@4.18.1)(mustache@4.2.0)(underscore@1.13.8):
+  consolidate@0.16.0(handlebars@4.7.10)(lodash@4.18.1)(mustache@4.2.0)(underscore@1.13.8):
     dependencies:
       bluebird: 3.7.2
     optionalDependencies:
-      handlebars: 4.7.9
+      handlebars: 4.7.10
       lodash: 4.18.1
       mustache: 4.2.0
       underscore: 1.13.8
@@ -7288,7 +7289,7 @@ snapshots:
 
   growly@1.3.0: {}
 
-  handlebars@4.7.9:
+  handlebars@4.7.10:
     dependencies:
       minimist: 1.2.8
       neo-async: 2.6.2
@@ -8693,7 +8694,7 @@ snapshots:
       commander: 2.20.3
       source-map-support: 0.5.21
 
-  testem@3.10.1(debug@4.4.3(supports-color@8.1.1))(handlebars@4.7.9)(lodash@4.18.1)(supports-color@8.1.1)(underscore@1.13.8):
+  testem@3.10.1(debug@4.4.3(supports-color@8.1.1))(handlebars@4.7.10)(lodash@4.18.1)(supports-color@8.1.1)(underscore@1.13.8):
     dependencies:
       '@xmldom/xmldom': 0.8.15
       backbone: 1.6.1
@@ -8701,7 +8702,7 @@ snapshots:
       charm: 1.0.2
       commander: 2.20.3
       compression: 1.8.1(supports-color@8.1.1)
-      consolidate: 0.16.0(handlebars@4.7.9)(lodash@4.18.1)(mustache@4.2.0)(underscore@1.13.8)
+      consolidate: 0.16.0(handlebars@4.7.10)(lodash@4.18.1)(mustache@4.2.0)(underscore@1.13.8)
       execa: 1.0.0
       express: 4.22.2(supports-color@8.1.1)
       fireworm: 0.7.2
