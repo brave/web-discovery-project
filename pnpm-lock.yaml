@@ -126,8 +126,8 @@ importers:
         specifier: 6.11.0
         version: 6.11.0(eslint@9.39.2(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.2.2)
       '@xmldom/xmldom':
-        specifier: 0.8.15
-        version: 0.8.15
+        specifier: 0.9.12
+        version: 0.9.12
       body-parser:
         specifier: 1.20.5
         version: 1.20.5(supports-color@8.1.1)
@@ -1272,6 +1272,10 @@ packages:
     resolution: {integrity: sha512-/5NV/vDALVFDXgLmfsy9TRCBlKwO2LNBFzpzvb9iIj+jR+eSc6DLYYvVOdivT/jm7MtU6TebYuRmzEOI7w40UA==}
     engines: {node: '>=10.0.0'}
 
+  '@xmldom/xmldom@0.9.12':
+    resolution: {integrity: sha512-5AXjrcMClTryPe9LgZrygpB1lj7s0S9E0+W+AHaVKAVyHanafK86iPSvG5xHVSp/jC+VH1UXu0TAEmY279xH7A==}
+    engines: {node: '>=14.6'}
+
   '@xtuc/ieee754@1.2.0':
     resolution: {integrity: sha512-DX8nKgqcGwsc0eJSqYt5lwP4DH5FlHnmuWWBRy7X0NcaGR0ZtuyeESgMwTYVEtxmsNGY+qit4QYT/MIYTOTPeA==}
 
@@ -1854,7 +1858,7 @@ packages:
       haml-coffee: ^1.14.1
       hamlet: ^0.3.3
       hamljs: ^0.6.2
-      handlebars: ^4.7.6
+      handlebars: 4.7.10
       hogan.js: ^3.0.2
       htmling: ^0.0.8
       jade: ^1.11.0
@@ -5742,6 +5746,8 @@ snapshots:
       '@xtuc/long': 4.2.2
 
   '@xmldom/xmldom@0.8.15': {}
+
+  '@xmldom/xmldom@0.9.12': {}
 
   '@xtuc/ieee754@1.2.0': {}
 
