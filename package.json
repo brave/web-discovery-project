@@ -1,6 +1,6 @@
 {
   "name": "web-discovery-project",
-  "version": "1.1.79",
+  "version": "1.1.80",
   "packageManager": "pnpm@11.25.0",
   "description": "Standalone Web Discovery Project package and extension",
   "scripts": {
@@ -68,7 +68,7 @@
     "body-parser": "1.20.9",
     "broccoli": "3.5.2",
     "broccoli-babel-transpiler": "8.0.0",
-    "broccoli-concat": "4.2.5",
+    "broccoli-concat": "4.2.7",
     "broccoli-file-creator": "2.1.1",
     "broccoli-funnel": "3.0.8",
     "broccoli-imagemin": "2.0.1",
